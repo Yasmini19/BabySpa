@@ -42,7 +42,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="ml-auto text-right right-p">
 			<ul>
 				<li class="mr-3">
-					<span class="fa fa-phone"></span>+1(21) 234 4567</li>
+					<span class="fa fa-phone"></span>0895391501373</li>
 				
 			</ul>
 		</div>
@@ -497,8 +497,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
 
                     <h6>Location</h6>
-                    <p>The company name
-                        <br>Addison Township, IL, USA. </p>
+                    <p>MALANG</p>
+                        
                 </li>
 
                 <li class="col-md-4 col-sm-6 adress-w3pvt-info mb-4">
@@ -506,16 +506,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <span class="fa fa-envelope-open-o"></span>
                     </div>
                     <h6>Phone & Email</h6>
-                    <p>+(122) 123 456 7890</p>
-                    <a href="mailto:info@example.com" class="mail">info@examplemail.com</a>
+                   <!--- <p>0895391501373</p> --->
+                    <a href="https://api.whatsapp.com/send?phone=62895391501373&text=Halo%20Mamina%20Saya%20Mau%20Reservasi%20Massage" class="glyphicon-phone">0895391501373</a>
+                    <a href="https://mail.google.com" class="mail">hestidianarps@gmail.com</a>
                 </li>
 				 <li class="col-md-4 col-sm-6 adress-w3pvt-info mb-4">
                     <div class="adress-icon">
                         <span class="fa fa-building"></span>
                     </div>
-                    <h6>our branches</h6>
+                    <!---<h6>our branches</h6>
                     <p>india</p>
-					 <p>china</p>
+					 <p>china</p>-->
                    
                 </li>
             </ul>
@@ -550,7 +551,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //Contact -->
    <!-- map -->	
 <div class="map p-2">
-	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d158857.728106568!2d-0.24168153701090248!3d51.52877184090542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8a00baf21de75%3A0x52963a5addd52a99!2sLondon%2C+UK!5e0!3m2!1sen!2sin!4v1544074523717"></iframe>
+	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126438.2854809817!2d112.56174164505262!3d-7.978639465170192!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd62822063dc2fb%3A0x78879446481a4da2!2sMalang%2C%20Kota%20Malang%2C%20Jawa%20Timur!5e0!3m2!1sid!2sid!4v1568126843831!5m2!1sid!2sid" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
 </div>
 <!-- //map -->
 
