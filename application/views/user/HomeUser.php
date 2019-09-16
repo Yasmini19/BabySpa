@@ -291,79 +291,78 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //Team -->
 
  <!-- Gallery -->
-    <section class="gallery py-5" id="gallery">
+ <section class="gallery py-5" id="gallery">
         <div class="container py-md-5">
             <div class="header mb-3 mb-sm-5 text-center">
-               <h3 class="heading text-center mb-3 mb-sm-5">Tour Gallery</h3>
+               <h3 class="heading text-center mb-3 mb-sm-5">Mamina Gallery</h3>
                 <div class="row news-grids text-center">
                     <div class="col-md-4 gal-img">
-                        <a href="#gal1"><img src="<?php echo base_url();?>assets/user/images/g1.jpg" alt="news image" class="img-fluid"><span> HoneyMoon</span></a>
-                        <a href="#gal2"><img src="<?php echo base_url();?>assets/user/images/g2.jpg" alt="news image" class="img-fluid"><span>Family</span></a>
+                        <a href="#baby1"><img src="<?php echo base_url();?>assets/user/images/b1.png" alt="news image" class="img-fluid"><span>Testimoni</span></a>
+                        <a href="#baby2"><img src="<?php echo base_url();?>assets/user/images/b2.png" alt="news image" class="img-fluid"><span>Testimoni</span></a>
 
                     </div>
 
                     <div class="col-md-4 gal-img">
-                        <a href="#gal3"><img src="<?php echo base_url();?>assets/user/images/g3.jpg" alt="news image" class="img-fluid"><span>Holidays</span></a>
-
-                        <a href="#gal4"><img src="<?php echo base_url();?>assets/user/images/g4.jpg" alt="news image" class="img-fluid"><span>Adventure</span></a>
+                        <a href="#baby3"><img src="<?php echo base_url();?>assets/user/images/b4.png" alt="news image" class="img-fluid"><span>Testimoni</span></a>
+                        <a href="#baby4"><img src="<?php echo base_url();?>assets/user/images/b5.png" alt="news image" class="img-fluid"><span>Testimoni</span></a>
                     </div>
                     <div class="col-md-4 gal-img">
-                        <a href="#gal5"><img src="<?php echo base_url();?>assets/user/images/g5.jpg" alt="news image" class="img-fluid"><span>Luxury</span></a>
-                        <a href="#gal6"><img src="<?php echo base_url();?>assets/user/images/g6.jpg" alt="news image" class="img-fluid"><span>Romantic</span></a>
+                        <a href="#baby5"><img src="<?php echo base_url();?>assets/user/images/b6.jpg" alt="news image" class="img-fluid"><span>Testimoni</span></a>
+                        <a href="#baby6"><img src="<?php echo base_url();?>assets/user/images/b7.png" alt="news image" class="img-fluid"><span>Testimoni</span></a>
                     </div>
                 </div>
             </div>
             <!-- popup-->
-            <div id="gal1" class="pop-overlay animate">
+            <div id="baby1" class="pop-overlay animate">
                 <div class="popup">
-                    <img src="<?php echo base_url();?>assets/user/images/g1.jpg" alt="Popup Image" class="img-fluid" />
-                    <p class="mt-4">Nulla viverra pharetra se, eget pulvinar neque pharetra ac int. placerat placerat dolor.</p>
+                    <img src="<?php echo base_url();?>assets/user/images/b1.png" alt="Popup Image" class="img-fluid" />
+                    <p class="mt-4">𝙉𝙮𝙖𝙢𝙖𝙣𝙣𝙮𝙖.. 𝙙𝙖𝙥𝙖𝙩𝙠𝙖𝙣 𝙡𝙖𝙮𝙖𝙣𝙖𝙣 𝙠𝙖𝙢𝙞 𝙙𝙞 𝙧𝙪𝙢𝙖𝙝 𝙢𝙖𝙢𝙖</p>
                     <a class="close" href="#gallery">&times;</a>
                 </div>
             </div>
             <!-- //popup -->
 
             <!-- popup-->
-            <div id="gal2" class="pop-overlay animate">
+            <div id="baby2" class="pop-overlay animate">
                 <div class="popup">
-                    <img src="<?php echo base_url();?>assets/user/images/g2.jpg" alt="Popup Image" class="img-fluid" />
-                    <p class="mt-4">Nulla viverra pharetra se, eget pulvinar neque pharetra ac int. placerat placerat dolor.</p>
+                    <img src="<?php echo base_url();?>assets/user/images/b2.png" alt="Popup Image" class="img-fluid" />
+                    <p class="mt-4">𝑶𝒑𝒕𝒊𝒎𝒂𝒍𝒌𝒂𝒏 𝒎𝒐𝒕𝒐𝒓𝒊𝒌 𝒅𝒂𝒏 𝒃𝒐𝒏𝒅𝒊𝒏𝒈 𝒃𝒂𝒃𝒚 𝒅𝒂𝒏 𝒎𝒂𝒎𝒂 𝒑𝒂𝒑𝒂 𝒅𝒆𝒏𝒈𝒂𝒏 𝒃𝒂𝒃𝒚 𝒔𝒑𝒂</p>
                     <a class="close" href="#gallery">&times;</a>
                 </div>
             </div>
             <!-- //popup -->
             <!-- popup-->
-            <div id="gal3" class="pop-overlay animate">
+            <div id="baby3" class="pop-overlay animate">
                 <div class="popup">
-                    <img src="<?php echo base_url();?>assets/user/images/g3.jpg" alt="Popup Image" class="img-fluid" />
-                    <p class="mt-4">Nulla viverra pharetra se, eget pulvinar neque pharetra ac int. placerat placerat dolor.</p>
+                    <img src="<?php echo base_url();?>assets/user/images/b4.png" alt="Popup Image" class="img-fluid" />
+                    <p class="mt-4">Dukungan keluarga terdekat, merupakan booster terbaik untuk bayi dan mama</p>
                     <a class="close" href="#gallery">&times;</a>
                 </div>
             </div>
             <!-- //popup3 -->
             <!-- popup-->
-            <div id="gal4" class="pop-overlay animate">
+            <div id="baby4" class="pop-overlay animate">
                 <div class="popup">
-                    <img src="<?php echo base_url();?>assets/user/images/g4.jpg" alt="Popup Image" class="img-fluid" />
-                    <p class="mt-4">Nulla viverra pharetra se, eget pulvinar neque pharetra ac int. placerat placerat dolor.</p>
+                    <img src="<?php echo base_url();?>assets/user/images/b5.png" alt="Popup Image" class="img-fluid" />
+                    <p class="mt-4">Apapun pilihanmu, mama Kami akan dukung. Kami hanya bisa memberikan apa yang kami rasa tahu dan apa yang kami rasa terbaik untuk bayi mama .</p>
                     <a class="close" href="#gallery">&times;</a>
                 </div>
             </div>
             <!-- //popup -->
             <!-- popup-->
-            <div id="gal5" class="pop-overlay animate">
+            <div id="baby5" class="pop-overlay animate">
                 <div class="popup">
-                    <img src="<?php echo base_url();?>assets/user/images/g5.jpg" alt="Popup Image" class="img-fluid" />
-                    <p class="mt-4">Nulla viverra pharetra se, eget pulvinar neque pharetra ac int. placerat placerat dolor.</p>
+                    <img src="<?php echo base_url();?>assets/user/images/b6.jpg" alt="Popup Image" class="img-fluid" />
+                    <p class="mt-4">Waaah... Just keep swimming ya!</p>
                     <a class="close" href="#gallery">&times;</a>
                 </div>
             </div>
             <!-- //popup -->
             <!-- popup-->
-            <div id="gal6" class="pop-overlay animate">
+            <div id="baby6" class="pop-overlay animate">
                 <div class="popup">
-                    <img src="<?php echo base_url();?>assets/user/images/g6.jpg" alt="Popup Image" class="img-fluid" />
-                    <p class="mt-4">Nulla viverra pharetra se, eget pulvinar neque pharetra ac int. placerat placerat dolor.</p>
+                    <img src="<?php echo base_url();?>assets/user/images/b7.png" alt="Popup Image" class="img-fluid" />
+                    <p class="mt-4">Perjuangan mengasihi takkan sebanding dengan berapa kaleng susu yang sudah kamu persiapkan untuk bayimu kelak. Perjuangkan seoptimal yang kamu bisa. Bayimu, berhak atas asi yang ada didalammu.</p>
                     <a class="close" href="#gallery">&times;</a>
                 </div>
             </div>
