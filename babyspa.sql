@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 15, 2019 at 09:24 AM
--- Server version: 10.1.29-MariaDB
--- PHP Version: 7.1.12
+-- Waktu pembuatan: 16 Sep 2019 pada 05.27
+-- Versi server: 10.1.36-MariaDB
+-- Versi PHP: 7.2.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `berita`
+-- Struktur dari tabel `berita`
 --
 
 CREATE TABLE `berita` (
@@ -37,7 +37,7 @@ CREATE TABLE `berita` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `contact_us`
+-- Struktur dari tabel `contact_us`
 --
 
 CREATE TABLE `contact_us` (
@@ -47,7 +47,7 @@ CREATE TABLE `contact_us` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `contact_us`
+-- Dumping data untuk tabel `contact_us`
 --
 
 INSERT INTO `contact_us` (`id_contact`, `contact`, `keterangan`) VALUES
@@ -59,7 +59,7 @@ INSERT INTO `contact_us` (`id_contact`, `contact`, `keterangan`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `detail_reservasi`
+-- Struktur dari tabel `detail_reservasi`
 --
 
 CREATE TABLE `detail_reservasi` (
@@ -72,7 +72,7 @@ CREATE TABLE `detail_reservasi` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `galery`
+-- Struktur dari tabel `galery`
 --
 
 CREATE TABLE `galery` (
@@ -84,7 +84,7 @@ CREATE TABLE `galery` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kategori`
+-- Struktur dari tabel `kategori`
 --
 
 CREATE TABLE `kategori` (
@@ -95,7 +95,7 @@ CREATE TABLE `kategori` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `level`
+-- Struktur dari tabel `level`
 --
 
 CREATE TABLE `level` (
@@ -104,7 +104,7 @@ CREATE TABLE `level` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `level`
+-- Dumping data untuk tabel `level`
 --
 
 INSERT INTO `level` (`id_level`, `keterangan`) VALUES
@@ -115,7 +115,7 @@ INSERT INTO `level` (`id_level`, `keterangan`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `reservasi`
+-- Struktur dari tabel `reservasi`
 --
 
 CREATE TABLE `reservasi` (
@@ -132,7 +132,7 @@ CREATE TABLE `reservasi` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sesi_reservasi`
+-- Struktur dari tabel `sesi_reservasi`
 --
 
 CREATE TABLE `sesi_reservasi` (
@@ -142,7 +142,7 @@ CREATE TABLE `sesi_reservasi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `sesi_reservasi`
+-- Dumping data untuk tabel `sesi_reservasi`
 --
 
 INSERT INTO `sesi_reservasi` (`id_sesi`, `sesi`, `waktu`) VALUES
@@ -154,7 +154,7 @@ INSERT INTO `sesi_reservasi` (`id_sesi`, `sesi`, `waktu`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sub_kategori`
+-- Struktur dari tabel `sub_kategori`
 --
 
 CREATE TABLE `sub_kategori` (
@@ -167,7 +167,7 @@ CREATE TABLE `sub_kategori` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Struktur dari tabel `user`
 --
 
 CREATE TABLE `user` (
@@ -178,34 +178,36 @@ CREATE TABLE `user` (
   `no_telp` varchar(14) NOT NULL,
   `alamat` varchar(300) NOT NULL,
   `password` varchar(200) NOT NULL,
-  `level` int(11) NOT NULL
+  `level` int(11) NOT NULL,
+  `foto` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `user`
+-- Dumping data untuk tabel `user`
 --
 
-INSERT INTO `user` (`id_user`, `full_name`, `username`, `email`, `no_telp`, `alamat`, `password`, `level`) VALUES
-(1, 'admin', 'admin', 'admin@gmail.com', '091322332234', 'malang', '21232f297a57a5a743894a0e4a801fc3', 1);
+INSERT INTO `user` (`id_user`, `full_name`, `username`, `email`, `no_telp`, `alamat`, `password`, `level`, `foto`) VALUES
+(1, 'admin', 'admin', 'admin@gmail.com', '091322332234', 'malang', '21232f297a57a5a743894a0e4a801fc3', 1, ''),
+(2, 'Tyson Amery', 'Tyson', 'tysonAmery@gmail.com', '087678987564', 'Malang', 'tyson', 3, 't1.jpg');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `berita`
+-- Indeks untuk tabel `berita`
 --
 ALTER TABLE `berita`
   ADD PRIMARY KEY (`id_berita`);
 
 --
--- Indexes for table `contact_us`
+-- Indeks untuk tabel `contact_us`
 --
 ALTER TABLE `contact_us`
   ADD PRIMARY KEY (`id_contact`);
 
 --
--- Indexes for table `detail_reservasi`
+-- Indeks untuk tabel `detail_reservasi`
 --
 ALTER TABLE `detail_reservasi`
   ADD PRIMARY KEY (`id_detail`),
@@ -213,25 +215,25 @@ ALTER TABLE `detail_reservasi`
   ADD KEY `fk_detailreservasi_reservasi` (`reservasi_id`);
 
 --
--- Indexes for table `galery`
+-- Indeks untuk tabel `galery`
 --
 ALTER TABLE `galery`
   ADD PRIMARY KEY (`id_galery`);
 
 --
--- Indexes for table `kategori`
+-- Indeks untuk tabel `kategori`
 --
 ALTER TABLE `kategori`
   ADD PRIMARY KEY (`id_kategori`);
 
 --
--- Indexes for table `level`
+-- Indeks untuk tabel `level`
 --
 ALTER TABLE `level`
   ADD PRIMARY KEY (`id_level`);
 
 --
--- Indexes for table `reservasi`
+-- Indeks untuk tabel `reservasi`
 --
 ALTER TABLE `reservasi`
   ADD PRIMARY KEY (`id_reservasi`),
@@ -239,115 +241,115 @@ ALTER TABLE `reservasi`
   ADD KEY `fk_reservasi_user` (`user_id`);
 
 --
--- Indexes for table `sesi_reservasi`
+-- Indeks untuk tabel `sesi_reservasi`
 --
 ALTER TABLE `sesi_reservasi`
   ADD PRIMARY KEY (`id_sesi`);
 
 --
--- Indexes for table `sub_kategori`
+-- Indeks untuk tabel `sub_kategori`
 --
 ALTER TABLE `sub_kategori`
   ADD PRIMARY KEY (`id_sub_kategori`),
   ADD KEY `fk_subkategori_kategori` (`kategori`);
 
 --
--- Indexes for table `user`
+-- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id_user`),
   ADD KEY `fk_user_level` (`level`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `berita`
+-- AUTO_INCREMENT untuk tabel `berita`
 --
 ALTER TABLE `berita`
   MODIFY `id_berita` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `contact_us`
+-- AUTO_INCREMENT untuk tabel `contact_us`
 --
 ALTER TABLE `contact_us`
   MODIFY `id_contact` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `detail_reservasi`
+-- AUTO_INCREMENT untuk tabel `detail_reservasi`
 --
 ALTER TABLE `detail_reservasi`
   MODIFY `id_detail` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `galery`
+-- AUTO_INCREMENT untuk tabel `galery`
 --
 ALTER TABLE `galery`
   MODIFY `id_galery` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `kategori`
+-- AUTO_INCREMENT untuk tabel `kategori`
 --
 ALTER TABLE `kategori`
   MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `level`
+-- AUTO_INCREMENT untuk tabel `level`
 --
 ALTER TABLE `level`
   MODIFY `id_level` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `reservasi`
+-- AUTO_INCREMENT untuk tabel `reservasi`
 --
 ALTER TABLE `reservasi`
   MODIFY `id_reservasi` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `sesi_reservasi`
+-- AUTO_INCREMENT untuk tabel `sesi_reservasi`
 --
 ALTER TABLE `sesi_reservasi`
   MODIFY `id_sesi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `sub_kategori`
+-- AUTO_INCREMENT untuk tabel `sub_kategori`
 --
 ALTER TABLE `sub_kategori`
   MODIFY `id_sub_kategori` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `detail_reservasi`
+-- Ketidakleluasaan untuk tabel `detail_reservasi`
 --
 ALTER TABLE `detail_reservasi`
   ADD CONSTRAINT `fk_detailreservasi_reservasi` FOREIGN KEY (`reservasi_id`) REFERENCES `reservasi` (`id_reservasi`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_detailreservasi_subkategori` FOREIGN KEY (`subkategori_id`) REFERENCES `sub_kategori` (`id_sub_kategori`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `reservasi`
+-- Ketidakleluasaan untuk tabel `reservasi`
 --
 ALTER TABLE `reservasi`
   ADD CONSTRAINT `fk_reservasi_sesi` FOREIGN KEY (`sesi_id`) REFERENCES `sesi_reservasi` (`id_sesi`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_reservasi_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `sub_kategori`
+-- Ketidakleluasaan untuk tabel `sub_kategori`
 --
 ALTER TABLE `sub_kategori`
   ADD CONSTRAINT `fk_subkategori_kategori` FOREIGN KEY (`kategori`) REFERENCES `kategori` (`id_kategori`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `user`
+-- Ketidakleluasaan untuk tabel `user`
 --
 ALTER TABLE `user`
   ADD CONSTRAINT `fk_user_level` FOREIGN KEY (`level`) REFERENCES `level` (`id_level`) ON DELETE CASCADE ON UPDATE CASCADE;
