@@ -6,12 +6,18 @@
 
         function __construct(){
             parent::__construct();
+
+            $this->load->model('GeneralModel');
             
         }
 
         public function index()
         {   
-            $this->load->view('user/HomeUser');
+            $where = array('level' => 3 );
+            $data['trps'] = $this->GeneralModel->get_selected('user',$where)->result();
+            $this->load->view('user/HomeUser',$data);
         }
+
+        
     }
     ?>
