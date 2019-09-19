@@ -15,7 +15,13 @@
     <link rel="stylesheet" href="<?php echo base_url();?>assets/admin/css/style.css">
     <!-- endinject -->
     <link rel="shortcut icon" href="<?php echo base_url();?>assets/admin/images/favicon.png" />
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/admin/datatables.min.css">
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+	<script src="<?php echo base_url();?>assets/admin/jquery-datatables/jquery-3.3.1.js"></script>	
+		<script type="text/javascript">
+		$(document).ready(function(){
+		$('#dataTable').DataTable();
+		});
+		</script>
  </head>
   <body>
     <div class="container-scroller">
@@ -308,19 +314,27 @@
 				<div class="row mt-auto">
 					<div class="col-lg-12 grid-margin stretch-card">
 						<div class="card">
-							<div class="card-body pb-md-5">
+							<div class="card-body pb-sm-1">
 								<div class="d-flex align-items-center justify-content-between">
 									<h2 class="text-success font-weight-bold">Gallery Data</h2>
 									<i class="mdi mdi-account-outline mdi-18px text-dark"></i>
 								</div>
+								<div class="d-flex align-right justify-content-end">
+								<button type="button" id="btn-tambah" data-toggle="modal" data-target="#form-modal" class="btn btn-success pull-right">
+									<span class="glyphicon glyphicon-plus"></span>  Tambah 
+								</button>
+								</div>
 							</div>
+							<div class="row mt-auto">
+							<div class="col-lg-12 grid-margin stretch-card">
+							<div class="card-body">
 							<div class="table-responsive">
 								<table class="table table-hover" id="dataTable">
 									<thead>
 										<tr>
 											<th>Id</th>
 											<th>Images</th>
-											<th>Decriptions</th>
+											<th width="900px">Decriptions</th>
 											<th>Actions</th>
 										</tr>
 									</thead>
@@ -337,15 +351,42 @@
 												<?php echo $galery->keterangan ?>
 											</td>
 											<td>
-												asdaasdasdasdd
+											<button type="button" id="btn-tambah" data-toggle="modal" data-target="#form-modal" class="btn btn-secondary pull-right">
+												<span class="glyphicon glyphicon-plus"></span> Edit
+											</button>
+											<button type="button" id="btn-tambah" data-toggle="modal" data-target="#form-modal" class="btn btn-danger pull-right">
+												<span class="glyphicon glyphicon-plus"></span>  Hapus 
+											</button>
 											</td>
 										</tr>
 									<?php endforeach; ?>	
 									</tbody>
 								</table>
 							</div>
+							</div>
+							</div>
+							</div>
 						</div>
 					</div>
+				</div>
+				<!-- <div class="container-fluid">
+					<div class="col-sm-4 form-control-sm">
+						<h2 class="text-success font-weight-bold">Tambah</h2>
+						<i class="mdi mdi-account-outline mdi-18px text-dark"></i>
+						<form class="mdi-format-horizontal-align-center" id="tambah">
+							<div class="form-group">
+								<input type="file" name="file">
+							</div>
+							<div class="form-group">
+								<input type="text" name="keterangan" class="form-control" placeholder="Keterangan">
+							</div>
+							<div class="form-group">
+								<button type="submit" id="btn_tambah" class="btn btn-success">Tambah</button>
+							</div>
+						</form>
+					</div>
+				</div>
+				</div> -->
 				</div>
 				<!-- content-wrapper ends -->
 				<!-- partial:partials/_footer.html -->
@@ -382,12 +423,29 @@
     <!-- Custom js for this page-->
     <script src="<?php echo base_url();?>assets/admin/js/dashboard.js"></script>
     <!-- End custom js for this page-->
-	<script src="<?php echo base_url();?>assets/admin/jquery-datatables/jquery-3.3.1.js"></script>	
-	<script src="<?php echo base_url();?>assets/admin/jquery-datatables/jquery.dataTables.min.js"></script>
-	<script type="text/javascript">
-	$(document).ready(function(){
-		$('#dataTable').DataTable();
-	});
-</script>
+		<script src="<?php echo base_url();?>assets/admin/jquery-datatables/jquery.dataTables.min.js"></script>
+		<script type="text/javascript">
+    $(document).ready(function(){
+ 
+        $('#submit').submit(function(e){
+            e.preventDefault(); 
+                 $.ajax({
+                     url:'<?php echo base_url();?>index.php/upload/do_upload',
+                     type:"post",
+                     data:new FormData(this),
+                     processData:false,
+                     contentType:false,
+                     cache:false,
+                     async:false,
+                      success: function(data){
+                          alert("Upload Image Berhasil.");
+                   }
+                 });
+            });
+         
+ 
+    });
+     
+		</script>
   </body>
 </html>
