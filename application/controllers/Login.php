@@ -67,6 +67,25 @@
             }
         }
 
+        public function register(){
+            $this->load->view('Register');
+        }
+
+        public function addUser(){
+            $data = array(   
+            'full_name'     => $this->input->post('fullname'), 
+            'username'      => $this->input->post('username'), 
+            'email'      => $this->input->post('email'),   
+            'no_telp'      => $this->input->post('notelp'),               
+            'alamat'      => $this->input->post('alamat'),   
+            'password'      => md5($this->input->post('password')),
+            'level'         => '2'
+            );
+
+           $result = $this->GeneralModel->add_data('user', $data);
+           echo json_encode($result);
+        }
+
 
 
     }
