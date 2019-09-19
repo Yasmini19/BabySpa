@@ -62,7 +62,7 @@
                     </button>
                   </div>
                   <div class="text-center mt-4 font-weight-light">
-                    Don't have an account? <a href="register.html" class="text-primary">Create</a>
+                    Don't have an account? <a href="<?php echo site_url();?>/Login/register" class="text-primary">Create</a>
                   </div>
                 <?php echo form_close();?>
               </div>
