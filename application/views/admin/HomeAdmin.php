@@ -195,17 +195,17 @@
                 </a>
               </li>
               <li class="nav-item">
-                  <a href="#" class="nav-link">
+                  <a href="<?php echo base_url();?>index.php/Admin/contact_us"0 class="nav-link">
                     <i class="mdi mdi-cube-outline menu-icon"></i>
-                    <span class="menu-title">UI Elements</span>
+                    <span class="menu-title">Kontak dan Alamat</span>
                     <i class="menu-arrow"></i>
                   </a>
-                  <div class="submenu">
+                  <!--<div class="submenu">
                       <ul>
                           <li class="nav-item"><a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a></li>
                           <li class="nav-item"><a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
                       </ul>
-                  </div>
+                  </div> -->
               </li>
               <li class="nav-item">
                   <a href="pages/forms/basic_elements.html" class="nav-link">
