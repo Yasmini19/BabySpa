@@ -1,6 +1,6 @@
 
 <!-- banner -->
-<div class="banner" id="home">
+<div class="banner" id="home" style="padding-top: 6%">
 	<div class="layer">
 		<div class="container">
 			<div class="row">
@@ -362,7 +362,9 @@
 				</div>
 
 				<h6>Location</h6>
-				<p>MALANG</p>
+				<?php foreach($loc as $key => $value):  ?>
+					<p><?php echo $value->keterangan?></p>
+				<?php endforeach ?>
 
 			</li>
 
@@ -371,53 +373,31 @@
 					<span class="fa fa-envelope-open-o"></span>
 				</div>
 				<h6>Phone & Email</h6>
-                   <!--- <p>0895391501373</p> --->
-                    <a href="https://api.whatsapp.com/send?phone=62895391501373&text=Halo%20Mamina%20Saya%20Mau%20Reservasi%20Massage" class="glyphicon-phone">0895391501373</a>
-                    <a href="https://mail.google.com" class="mail">hestidianarps@gmail.com</a>
-                </li>
-				 <li class="col-md-4 col-sm-6 adress-w3pvt-info mb-4">
-                    <div class="adress-icon">
-                        <span class="fa fa-building"></span>
-                    </div>
-                    <!---<h6>our branches</h6>
-                    <p>india</p>
-                    <p>china</p>-->
+				<?php foreach($phone as $key => $value):  ?>
+					<p><?php echo $value->keterangan?></p>
+				<?php endforeach ?>
 
-                </li>
-            </ul>
-
-            <div class="contact-grids mt-5">
-            	<div class="row">
-            		<div class="col-lg-6 col-md-6 contact-left-form">
-            			<form action="#" method="post">
-            				<div class=" form-group contact-forms">
-            					<input type="text" class="form-control" placeholder="Name" required="">
-            				</div>
-            				<div class="form-group contact-forms">
-            					<input type="email" class="form-control" placeholder="Email" required="">
-            				</div>
-            				<div class="form-group contact-forms">
-            					<input type="text" class="form-control" placeholder="Phone" required=""> 
-            				</div>
-            				<div class="form-group contact-forms">
-            					<textarea class="form-control" placeholder="Message" rows="3" required=""></textarea>
-            				</div>
-            				<button class="btn btn-block sent-butnn">Send</button>
-            			</form>
-            		</div>
-            		<div class="col-lg-6 col-md-6 contact-right pl-lg-5">
-            			<img src="<?php echo base_url();?>assets/user/images/c1.jpg" class="img-fluid" alt="user-image">
-
-            		</div>
-            	</div>
-            </div>
-        </div>
-    </section>
-    <!-- //Contact -->
-    <!-- map -->	
-    <div class="map p-2">
-    	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126438.2854809817!2d112.56174164505262!3d-7.978639465170192!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd62822063dc2fb%3A0x78879446481a4da2!2sMalang%2C%20Kota%20Malang%2C%20Jawa%20Timur!5e0!3m2!1sid!2sid!4v1568126843831!5m2!1sid!2sid" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
-    </div>
-    <!-- //map -->
+				<?php foreach($email as $key => $value):  ?>
+					<p><?php echo $value->keterangan?></p>
+				<?php endforeach ?>
+			</li>
+			<li class="col-md-4 col-sm-6 adress-w3pvt-info mb-4">
+				<div class="adress-icon">
+					<span class="fa fa-building"></span>
+				</div>
+				<h6>Social Media</h6>
+				<?php foreach($socmed as $key => $value):  ?>
+					<p><?php echo $value->keterangan?></p>
+				<?php endforeach ?>             
+			</li>
+		</ul>
+	</div>
+</section>
+<!-- //Contact -->
+<!-- map -->	
+<div class="map p-2">
+	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126438.2854809817!2d112.56174164505262!3d-7.978639465170192!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd62822063dc2fb%3A0x78879446481a4da2!2sMalang%2C%20Kota%20Malang%2C%20Jawa%20Timur!5e0!3m2!1sid!2sid!4v1568126843831!5m2!1sid!2sid" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+</div>
+<!-- //map -->
 
     <!-- //contact us -->
