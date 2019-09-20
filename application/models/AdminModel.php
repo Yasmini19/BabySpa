@@ -28,7 +28,7 @@ class AdminModel extends CI_Model {
         }
  
         $query = $this->dbrow_array->get_where('contact_us', array('id_contact' => $id));
-        return $query->();
+        return $query->result_array();
     }
     
     public function set_contactus($id = 0)
