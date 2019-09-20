@@ -450,7 +450,7 @@ li > a:only-child:after { content: ''; }
     box-sizing: border-box;
 }
 .banner-form-w3 {
-    padding: 18vw 0 0vw;
+    padding: 12vw 0 8vw;
     box-sizing: border-box;
 }
 
@@ -510,13 +510,13 @@ h4.b-w3ltxt {
     background: #f1f1f1;
     letter-spacing: 0.5px;
     padding: 14px 20px;
-    width: 49%;
+    width: 100%;
     box-sizing: border-box;
     margin-bottom: 15px;
 }
 .form-style-w3layout button.btn {
     color: #fff;
-    background: #f4b200;
+    background: #011144;
     border: none;
     padding: 14px 0;
     outline: none;
@@ -585,10 +585,15 @@ h3.heading1 {
 }
 /*-- /banner-bottom --*/
 section#about {
-    background: #f4b200;
+    background: url(../images/about.png) no-repeat center;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
 }
 .about-info p {
-    color: #ffffff;
+    color: #35405a;
 }
 .vv-border-info {
     margin: 0 auto;
@@ -600,7 +605,7 @@ section#about {
 }
 
 h4.title-hny {
-    color: #ffffff;
+    color: #35405a;
     font-size: 2em;
     line-height: 1.5em;
 }
@@ -817,7 +822,12 @@ h5.bottom {
 
 /*-- /gallery --*/
 section#gallery {
-    position: relative;
+    background: url(../images/gallery.png) no-repeat center;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
 }
 
 .gal-img {
@@ -1110,7 +1120,12 @@ h4.destination {
     background: #011144;
 }
 .team {
-    background: #EBEDEF;
+    background: url(../images/terapis.png) no-repeat center;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
 }
 .team-info h3 {
     font-size: 1.3em;

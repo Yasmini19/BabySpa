@@ -15,7 +15,9 @@
         {   
             $where = array('level' => 3 );
             $data['trps'] = $this->GeneralModel->get_selected('user',$where)->result();
+            $this->load->view('user/headerfooter/header');
             $this->load->view('user/HomeUser',$data);
+            $this->load->view('user/headerfooter/footer');        
         }
 
         
