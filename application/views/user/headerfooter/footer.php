@@ -151,6 +151,8 @@
 
 <script src="<?php echo base_url();?>assets/user/js/jquery-3.3.1.slim.min.js"></script>
 <script src="<?php echo base_url();?>assets/user/js/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
 
 <script type="text/javascript">
 
