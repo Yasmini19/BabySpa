@@ -65,15 +65,6 @@
 
 	<!-- header -->
 	<header>
-		<div class="top-head container">
-			<div class="ml-auto text-right right-p">
-				<ul>
-					<li class="mr-3">
-						<span class="fa fa-phone"></span>0895391501373</li>
-
-					</ul>
-				</div>
-			</div>
 			<div class="container">
 				<!-- nav -->
 				<nav class="py-3 d-lg-flex">

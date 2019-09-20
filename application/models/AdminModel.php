@@ -27,8 +27,8 @@ class AdminModel extends CI_Model {
             return $query->result_array();
         }
  
-        $query = $this->db->get_where('contact_us', array('id_contact' => $id));
-        return $query->row_array();
+        $query = $this->dbrow_array->get_where('contact_us', array('id_contact' => $id));
+        return $query->();
     }
     
     public function set_contactus($id = 0)
