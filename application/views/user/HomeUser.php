@@ -1,6 +1,6 @@
 
 <!-- banner -->
-<div class="banner" id="home" style="padding-top: 6%">
+<div class="banner" id="home" style="padding-top: 6%;max-height: 745px">
 	<div class="layer">
 		<div class="container">
 			<div class="row">
@@ -74,12 +74,31 @@
 </div>
 <!-- //banner -->
 <!-- banner-bottom -->
-<section class="some-content py-5" id="about">
-	<div class="container py-md-5">
+<section class="some-content py-5" id="about" style="height:686px">
+	<div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+     <div class="container py-md-5">
 		<div class="row about-vv-top mt-2">
 			<div class="col-lg-6 about-info">
 				<h4 class="title-hny  mb-md-5">Manfaat Baby Spa untuk Melatih Motorik Bayi</h4>
 				<p>Baby spa atau pijat bayi saat ini sudah semakin populer. Banyak para Bunda yang rutin mengajak buah hatinya ke baby spa untuk mendapatkan berbagai treatment terbaik. Namun, baby spa hanya diperbolehkan jika berat badan Si Kecil sudah mencapai 5kg, lho.  Selain mengasyikan, kegiatan yang mencakup renang dan pijat ini tentunya memiliki berbagai manfaat untuk Si Kecil. Salah satunya dapat merangsang gerak motoriknya.</p>
+				<div class="read-more-button mt-4">
+					<a href="index.html" class="read-more btn">Read More </a>
+				</div>
+			</div>
+			<div class="col-lg-6 about-img mt-md-4 mt-sm-4">
+				<img src="<?php echo base_url();?>assets/user/images/b8.jpg" class="img-fluid" alt="">
+			</div>
+		</div>
+	</div>
+    </div>
+    <div class="carousel-item">
+      <div class="container py-md-5">
+		<div class="row about-vv-top mt-2">
+			<div class="col-lg-6 about-info">
+				<h4 class="title-hny  mb-md-5">Manfaat</h4>
+				<p>Baby spa atau pijat bayi saat ini sudah semakin populer. Banyak para Bunda yang rutin mengajak buah hatinya ke baby spa untuk mendapatkan berbagai treatment terbaik. Namun, </p>
 				<div class="read-more-button mt-4">
 					<a href="index.html" class="read-more btn">Read More </a>
 				</div>
@@ -88,9 +107,11 @@
 			<div class="col-lg-6 about-img mt-md-4 mt-sm-4">
 				<img src="<?php echo base_url();?>assets/user/images/b8.jpg" class="img-fluid" alt="">
 			</div>
-
 		</div>
 	</div>
+    </div>
+  </div>
+</div>
 </section>
 <!-- //banner-bottom-->
 <!-- services -->
@@ -137,7 +158,7 @@
 </section>
 <!-- //services -->
 <!-- Team  -->
-<section class="team py-5" id="team">
+<section class="team py-5" id="team" style="height: 665px">
 	<div class="container py-md-5">
 		<div>
 			<h3 class="heading text-center mb-3 mb-sm-5">Our Terapis</h3>

@@ -16,7 +16,7 @@
 	<link href="<?php echo base_url();?>assets/user/css/bootstrap.css" rel='stylesheet' type='text/css' /><!-- bootstrap css -->
 	<link href="<?php echo base_url();?>assets/user/css/style.css" rel='stylesheet' type='text/css' /><!-- custom css -->
 	<link href="<?php echo base_url();?>assets/user/css/css_slider.css" type="text/css" rel="stylesheet" media="all">
-	<link href="<?php echo base_url();?>assets/user/fonts/font-awesome.min.css" rel="stylesheet"><!-- fontawesome css -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<!-- //css files -->
 	
 	<!-- Bootstrap CSS File -->
@@ -35,7 +35,7 @@
 	}
 
 	.icon {
-		padding: 10px;
+		padding: 15px;
 		background: #d9d9d9;
 		color: white;
 		min-width: 50px;
@@ -69,12 +69,12 @@
 				<!-- nav -->
 				<nav class="py-3 d-lg-flex">
 					<div id="logo">
-						<h1> <a href="index.html"><span class="fa fa-free-code-camp"></span> Mamina </a></h1>
+						<h1> <a href="<?php echo site_url()?>/User"> Mamina </a></h1>
 					</div>
 					<label for="drop" class="toggle"><span class="fa fa-bars"></span></label>
 					<input type="checkbox" id="drop" />
 					<ul class="menu ml-auto mt-1">
-						<li class="active"><a href="index.html">Home</a></li>
+						<li class="active"><a href="<?php echo site_url()?>/User">Home</a></li>
 						<li class=""><a href="#about">Berita</a></li>
 						<li class=""><a href="#services">Services</a></li>
 						<li class=""><a href="#stats">Reservasi</a></li>
