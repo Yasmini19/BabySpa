@@ -145,10 +145,9 @@
 		<div class="row">
 			<?php foreach($trps as $key => $value):  ?>
 				<div class="team-grid col-lg-3 col-sm-6 mb-5">
-					<img src="<?php echo base_url()?>/assets/upload/<?php echo $value->foto?>" class="" alt="" />
-					<div class="team-info text-center">
-						<h3 class="e"><?php echo $value->full_name ?></h3>
-						<span class=""><?php echo $value->alamat?></span>
+					<img src="<?php echo base_url()?>/assets/upload/<?php echo $value->foto?>" class="" alt="" style="border: 5px solid #fff; border-radius: 100%;"/>
+					<div class="team-info text-center"  style="background: #fff ;border: 5px solid #737373;border-radius: 10px;">
+						<h3 class="e" style="color: #35405a"><?php echo $value->full_name ?></h3>
 					</div>
 				</div>
 			<?php endforeach ?>
