@@ -208,9 +208,9 @@
                   </div> -->
               </li>
               <li class="nav-item">
-                  <a href="pages/forms/basic_elements.html" class="nav-link">
+                  <a href="<?php echo base_url();?>index.php/Admin/terapis" class="nav-link">
                     <i class="mdi mdi-chart-areaspline menu-icon"></i>
-                    <span class="menu-title">Form Elements</span>
+                    <span class="menu-title">Terapis</span>
                     <i class="menu-arrow"></i>
                   </a>
               </li>

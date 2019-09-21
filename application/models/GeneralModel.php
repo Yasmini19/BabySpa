@@ -247,6 +247,22 @@ class GeneralModel extends CI_Model {
         return $query;
     }
 
+     public function search_dataTerapis($query)
+    {
+        $this->db->select("*");
+        $this->db->from("user");
+        if($query != '')
+        {
+            $this->db->like('full_name', $query);
+            $this->db->or_like('username', $query);
+            $this->db->or_like('email', $query);
+            $this->db->or_like('no_telp', $query);
+            $this->db->or_like('alamat', $query);
+        }
+            $this->db->order_by('id_user');
+            return $this->db->get();
+    }
+
 }
 
 /* End of file GeneralModel.php */
