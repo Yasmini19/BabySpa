@@ -63,5 +63,124 @@
             $this->AdminModel->delete_contactus($id);        
             redirect( base_url() . 'index.php/Admin/contact_us');        
         }
+
+
+        //terapis//
+        public function terapis()
+        {
+            $data['terps'] = $this->GeneralModel->get_data('user')->result();
+            $this->load->view('admin/Terapis', $data);
+
+            //$this->load->view('admin/Terapis');
+        }
+
+        public function add_terapis()
+        {
+            $config['upload_path']     = './assets/upload';
+            $config['allowed_types']  = 'gif|jpg|png';
+            $config['max_size']        = 1000000000;
+            $config['max_width']       = 10240;
+            $config['max_height']      = 7680;
+
+            $this->load->library('upload',$config);
+            $result = '';
+            if (!$this->upload->do_upload('foto'))
+            {
+                $result = $this->upload->display_errors();
+            }
+            else
+            {
+                $data = array(   
+                    'full_name'     => $this->input->post('full_name'), 
+                    'username'      => $this->input->post('username'), 
+                    'email'         => $this->input->post('email'),   
+                    'no_telp'       => $this->input->post('no_telp'),               
+                    'alamat'        => $this->input->post('alamat'),
+                    'foto'          => $this->upload->data('file_name'),
+                    'level'         => '3'
+                );
+
+                $result = $this->GeneralModel->add_data('user', $data);
+
+                //$this->GeneralModel->add_data();
+                $this->load->view('admin/Terapis');
+                $result = 'true';
+            }
+
+           echo json_encode($result);
+        }
+
+        public function search_terapis()
+        {
+            $text = $this->input->post('text');
+            $data = $this->GeneralModel->search_dataTerapis($text);
+            $output = '
+                <table id="demo-datatables" class="table table-striped table-bordered datatable no-footer dtr-inline" role="grid" aria-describedby="demo-dt-add-info">
+
+                           <thead>
+                              <tr role="row">
+                                <th class="sorting_asc" tabindex="0" aria-controls="demo-datatables" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" >Id User</th>
+                                <th>Full Name</th>
+                                <th>Username</th>
+                                <th>Email</th>
+                                <th>No Tlp</th>
+                                <th>Alamat</th>
+                                <th>Foto</th>
+                                <th>Action</th>
+                        
+                              </tr>
+                            </thead>
+                            <tbody>
+                            ';
+            if($data->num_rows() > 0)
+            {
+                
+                foreach($data->result() as $row)
+                {
+                    $output .= '
+                    <tr>
+                    <td>'.$row->id_user.'</td>
+                    <td>'.$row->full_name.'</td>
+                    <td>'.$row->username.'</td>
+                    <td>'.$row->email.'</td>
+                    <td>'.$row->no_telp.'</td>
+                    <td>'.$row->alamat.'</td>
+                    <td>
+                        <img src="'.base_url().'/assets/upload/'.$row->foto.'" alt="" width=100 height=100>
+                    </td>
+                    <td>
+                        <a href="'.base_url().'/Admin/edit_terapis/'.$row->id_user.'" class="mdi mdi-pencil-box-outline btn-icon-append" aria-hidden="true" ></a>
+                        <a href="'.base_url().'/Admin/delete_terapis/'.$row->id_user.'" class="mdi mdi-delete btn-icon-append" aria-hidden="true"></a>
+                    </td>
+                    </tr>
+                    ';
+                }
+            }
+            else
+            {
+                 $output .= '<tr>
+                 <td colspan="8">No Data Found</td>
+                </tr>';
+            }
+
+            $output .= '<tr><td></td></tr></tbody></table>';
+            
+            echo $output;
+            
+            //echo json_encode($output);
+ 
+        }
+
+        public function edit_terapis()
+        {
+
+        }
+
+        public function delete_terapis()
+        {
+
+        }
+
+
     }
     ?>
