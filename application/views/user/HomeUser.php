@@ -1,6 +1,6 @@
 
 <!-- banner -->
-<div class="banner" id="home" style="padding-top: 6%;max-height: 745px">
+<div class="banner" id="home" style="padding-top: 6%;max-height: 697px">
 	<div class="layer">
 		<div class="container">
 			<div class="row">
@@ -31,7 +31,7 @@
 												</div>
 											</div>
 										</div>
-										<div class="row" id="form2" style="display: none">	
+										<div class="row" id="form2" style="display: none; padding-bottom: 20px">	
 											<div class="col-md-6">
 												<div class="input-container">
 													<i class="glyphicon glyphicon-backward icon">a</i>
@@ -43,9 +43,9 @@
 													<i class="fa fa-envelope icon"></i>
 													<input placeholder="Sub Kategori" name="subkategori" type="text" required="">
 												</div>
-											</div>	
-										</div>	
-										<br>
+											</div>
+											<br><br>	
+										</div>											
 										<div class="row">
 											<div class="col-md-6">
 												<div class="input-container">
@@ -60,7 +60,6 @@
 												</div>
 											</div>
 										</div>
-										<br>
 										<button Class="btn" style="border-radius: 30px;">Book</button>
 									</div>
 								</form>
@@ -111,6 +110,14 @@
 	</div>
     </div>
   </div>
+ <!--  <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a> -->
 </div>
 </section>
 <!-- //banner-bottom-->
