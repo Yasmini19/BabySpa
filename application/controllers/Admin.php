@@ -7,6 +7,7 @@
         function __construct(){
             parent::__construct();
             $this->load->model('AdminModel');
+            $this->load->model('GeneralModel');
         }
 
         public function index()
