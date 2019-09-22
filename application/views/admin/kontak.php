@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Kapella Bootstrap Admin Dashboard Template</title>
+    <title>Admin Mamina</title>
     <!-- base:css -->
     <link rel="stylesheet" href="<?php echo base_url();?>assets/admin/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="<?php echo base_url();?>assets/admin/base/vendor.bundle.base.css">
@@ -14,7 +14,7 @@
     <!-- inject:css -->
     <link rel="stylesheet" href="<?php echo base_url();?>assets/admin/css/style.css">
     <!-- endinject -->
-    <link rel="shortcut icon" href="<?php echo base_url();?>assets/admin/images/favicon.png" />
+    <link rel="shortcut icon" href="<?php echo base_url();?>assets/admin/images/mamina.png" />
   </head>
   <body>
     <div class="container-scroller">
@@ -195,8 +195,8 @@
                 </a>
               </li>
               <li class="nav-item">
-                  <a href="#" class="nav-link">
-                    <i class="mdi mdi-cube-outline menu-icon"></i>
+                  <a href="<?php echo base_url();?>index.php/Admin/contact_us" class="nav-link">
+                    <i class="mdi mdi-account-location menu-icon"></i>
                     <span class="menu-title">Kontak dan Alamat</span>
                     <i class="menu-arrow"></i>
                   </a>
@@ -208,9 +208,9 @@
                   </div> -->
               </li>
               <li class="nav-item">
-                  <a href="pages/forms/basic_elements.html" class="nav-link">
-                    <i class="mdi mdi-chart-areaspline menu-icon"></i>
-                    <span class="menu-title">Form Elements</span>
+                  <a href="<?php echo base_url();?>index.php/Admin/terapis" class="nav-link">
+                    <i class="mdi mdi-account-box-outline menu-icon"></i>
+                    <span class="menu-title">Terapis</span>
                     <i class="menu-arrow"></i>
                   </a>
               </li>

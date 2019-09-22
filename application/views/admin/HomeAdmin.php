@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Kapella Bootstrap Admin Dashboard Template</title>
+    <title>Admin Mamina</title>
     <!-- base:css -->
     <link rel="stylesheet" href="<?php echo base_url();?>assets/admin/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="<?php echo base_url();?>assets/admin/base/vendor.bundle.base.css">
@@ -14,7 +14,7 @@
     <!-- inject:css -->
     <link rel="stylesheet" href="<?php echo base_url();?>assets/admin/css/style.css">
     <!-- endinject -->
-    <link rel="shortcut icon" href="<?php echo base_url();?>assets/admin/images/favicon.png" />
+    <link rel="shortcut icon" href="<?php echo base_url();?>assets/admin/images/mamina.png" />
   </head>
   <body>
     <div class="container-scroller">
@@ -135,8 +135,8 @@
               </li>	
             </ul>
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-                <a class="navbar-brand brand-logo" href="index.html"><img src="<?php echo base_url();?>assets/admin/images/logo.svg" alt="logo"/></a>
-                <a class="navbar-brand brand-logo-mini" href="index.html"><img src="<?php echo base_url();?>assets/admin/images/logo-mini.svg" alt="logo"/></a>
+                <a class="navbar-brand brand-logo" href="index.html"><img src="<?php echo base_url();?>assets/admin/images/mamn.png" alt="logo"/></a>
+                <a class="navbar-brand brand-logo-mini" href="index.html"><img src="<?php echo base_url();?>assets/admin/images/m.png" alt="logo"/></a>
             </div>
             <ul class="navbar-nav navbar-nav-right">
                 <li class="nav-item dropdown  d-lg-flex d-none">
@@ -196,7 +196,7 @@
               </li>
               <li class="nav-item">
                   <a href="<?php echo base_url();?>index.php/Admin/contact_us"0 class="nav-link">
-                    <i class="mdi mdi-cube-outline menu-icon"></i>
+                    <i class="mdi mdi-account-location menu-icon"></i>
                     <span class="menu-title">Kontak dan Alamat</span>
                     <i class="menu-arrow"></i>
                   </a>
@@ -209,15 +209,15 @@
               </li>
               <li class="nav-item">
                   <a href="<?php echo base_url();?>index.php/Admin/terapis" class="nav-link">
-                    <i class="mdi mdi-chart-areaspline menu-icon"></i>
+                    <i class="mdi mdi-account-box-outline menu-icon"></i>
                     <span class="menu-title">Terapis</span>
                     <i class="menu-arrow"></i>
                   </a>
               </li>
               <li class="nav-item">
-                  <a href="pages/charts/chartjs.html" class="nav-link">
+                  <a href="<?php echo base_url();?>index.php/Admin/user" class="nav-link">
                     <i class="mdi mdi-finance menu-icon"></i>
-                    <span class="menu-title">Charts</span>
+                    <span class="menu-title">User</span>
                     <i class="menu-arrow"></i>
                   </a>
               </li>
@@ -304,7 +304,9 @@
 							</div>
 						</div>
 					</div>
-					<div class="row mt-4">
+
+
+					<!--<div class="row mt-4">
 						<div class="col-lg-8 grid-margin stretch-card">
 							<div class="card">
 								<div class="card-body">
@@ -682,8 +684,24 @@
 								</div>
 							</div>
 						</div>
+            
 					</div>
 				</div>
+        -->
+
+        <div class="row">
+                <div class="col-sm-12 grid-margin d-flex stretch-card">
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="d-flex align-items-center justify-content-between">
+                        <h4 class="card-title mb-2">Sales Difference</h4>
+                        
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 				<!-- content-wrapper ends -->
 				<!-- partial:partials/_footer.html -->
 				<footer class="footer">
