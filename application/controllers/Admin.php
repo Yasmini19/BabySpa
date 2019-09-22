@@ -150,8 +150,8 @@
                         <img src="'.base_url().'/assets/upload/'.$row->foto.'" alt="" width=100 height=100>
                     </td>
                     <td>
-                        <a href="'.base_url().'/Admin/edit_terapis/'.$row->id_user.'" class="mdi mdi-pencil-box-outline btn-icon-append" aria-hidden="true" ></a>
-                        <a href="'.base_url().'/Admin/delete_terapis/'.$row->id_user.'" class="mdi mdi-delete btn-icon-append" aria-hidden="true"></a>
+                        <a href="'.base_url().'/Admin/edit_terapis/'.$row->id_user.'" class="mdi mdi-pencil-box-outline btn-icon-append" aria-hidden="true" data-toggle="modal" data-target="#modal-edit" name="tombolEdit" value="'.$row->id_user.'"></a>
+                        <a href="'.base_url().'/Admin/delete_terapis/'.$row->id_user.'" class="mdi mdi-delete btn-icon-append" aria-hidden="true" name="tombolDelete" value="'.$value->id_user.'"></a>
                     </td>
                     </tr>
                     ';
@@ -172,10 +172,45 @@
  
         }
 
+        public function get_terapis()
+        {
+            $id = $this->input->post('id');
+            $data = $this->GeneralModel->get_selected('user', array('id_user' => $id))->row();
+        
+        echo json_encode($data);
+        }
+
         public function edit_terapis()
         {
+                $config['upload_path']     = './assets/upload';
+        $config['allowed_types']  = 'gif|jpg|png';
+        $config['max_size']        = 1000000000;
+        $config['max_width']       = 10240;
+        $config['max_height']      = 7680;
 
+        $this->load->library('upload',$config);
+        $result='';
+
+        $id = array('id_user' => $this->input->post('edit_id') );
+        $data = array(
+            'full_name'     => $this->input->post('edit_full_name'), 
+            'username'      => $this->input->post('edit_username'), 
+            'email'         => $this->input->post('edit_email'),   
+            'no_telp'       => $this->input->post('edit_no_telp'),               
+            'alamat'        => $this->input->post('edit_alamat'),
+            'level'         => $this->input->post('edit_level'),
+        );
+
+        if ($this->upload->do_upload('edit_foto'))
+        {
+            $data['foto'] = $this->upload->data('file_name');
         }
+
+        $result = $this->GeneralModel->update_data('user', $data, $id );
+        
+        echo json_encode($result);
+        }
+
 
         public function delete_terapis()
         {

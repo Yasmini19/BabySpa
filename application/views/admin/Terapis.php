@@ -316,7 +316,7 @@
                           <td><?php echo $value->alamat ?></td>
                           <td><img src="<?php echo base_url()?>./assets/upload/<?php echo $value->foto?>" alt="" width=100 height=100></td>
                            <td>
-                                <a href="<?php echo base_url("/Admin/edit_terapis".$value->id_user) ?>" class="mdi mdi-pencil-box-outline btn-icon-append" aria-hidden="true" ></a>
+                                <a href="<?php echo base_url("/Admin/edit_terapis".$value->id_user) ?>" class="mdi mdi-pencil-box-outline btn-icon-append" aria-hidden="true" data-toggle="modal" data-target="#modal-edit" name="tombolEdit" value="<?php echo $value->id_user; ?>"</a>
                                 <a href="<?php echo base_url("/Admin/delete_terapis/".$value->id_user) ?>" class="mdi mdi-delete btn-icon-append" aria-hidden="true" value=""></a>
                           </td>
 
@@ -412,6 +412,84 @@
   </div>
 </div>
 
+
+<!--Modal EDIT-->
+
+        <div class="modal fade" id="modal-edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <!--Header-->
+              <div class="modal-header">
+
+                <h4 class="modal-title" id="myModalLabel">Terapis</h4>
+                <?php echo validation_errors(); ?>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                </button>
+              </div>
+              <!-- <FORM id="addTerapis"> -->
+               <form method="post" accept-charset="utf-8" id="editTerapis" enctype="multipart/form-data">
+              <!--Body-->
+              <div class="modal-body">
+                  <div class="modal-body mx-3">
+              
+                    <input type="hidden" id="edit_id" name="edit_id">
+                    <input type="hidden" id="edit_level" name="edit_level">
+                <div class="md-form mb-5">
+                  <i class="fas fa-envelope prefix grey-text"></i>
+                  <input type="text" id="edit_full_name" class="form-control validate" name="edit_full_name" placeholder="Input field">
+                  <label data-error="wrong" data-success="right" for="defaultForm-email">Fullname</label>
+                </div>
+
+                <div class="md-form mb-4">
+                  <i class="fas fa-lock prefix grey-text"></i>
+                  <input type="text" id="edit_username" class="form-control validate" name="edit_username" placeholder="Input field">
+                  <label data-error="wrong" data-success="right" for="defaultForm-pass">Username</label>
+                </div>
+
+                <div class="md-form mb-4">
+                  <i class="fas fa-lock prefix grey-text"></i>
+                  <input type="email" id="edit_email" class="form-control validate" name="edit_email" placeholder="Input field">
+                  <label data-error="wrong" data-success="right" for="defaultForm-pass">Email</label>
+                </div>
+
+                <div class="md-form mb-4">
+                  <i class="fas fa-lock prefix grey-text"></i>
+                  <input type="text" id="edit_no_telp" class="form-control validate" name="edit_no_telp" placeholder="Input field">
+                  <label data-error="wrong" data-success="right" for="defaultForm-pass">No Telp</label>
+                </div>
+                
+                <div class="md-form mb-4">
+                  <i class="fas fa-lock prefix grey-text"></i>
+                  <input type="text" id="edit_alamat" class="form-control validate" name="edit_alamat" placeholder="Input field">
+                  <label data-error="wrong" data-success="right" for="defaultForm-pass">Alamat</label>
+                </div>
+
+                <div class="md-form mb-4">
+                  <i class="fas fa-lock prefix grey-text"></i>
+                  <img alt="" width=100 height=100 id="foto_lama">
+                  <input type="file" id="edit_foto" class="form-control validate" name="edit_foto" placeholder="Input field">
+
+                  <label data-error="wrong" data-success="right" for="defaultForm-pass">Foto</label>
+                </div>
+                
+              </div>
+
+            </div>
+
+
+              <!--Footer-->
+              <div class="modal-footer">
+                <input type="submit" name="submit" class="btn btn-outline-primary" id="btnSimpanTerapis">
+                <input type="button" class="btn btn-primary" value="Close" data-dismiss="modal">
+                <?php //echo form_close(); ?>
+              </div>
+            </form>
+            </div>
+          </div>
+        </div>
+
+
 <script src="<?php echo base_url();?>assets/admin/jquery/jquery.js"></script>
     <script type="text/javascript">
 
@@ -461,11 +539,62 @@
           });
         }
         else
-        {alert('a');}
+        {alert('error');}
       });
 
-      
+       $('[name="tombolEdit"]').click(function(){
+        
+        var id = $(this).attr('value')
+       
+        $.ajax({
+          url: '<?php echo site_url('admin/get_terapis') ?>',
+          type: 'post',
+          data: {id:id},
+          success: function(data) {
+            if(data==null){alert('kosong');}
+            
+            data=JSON.parse(data);
+            
+            $('#edit_id').val(data.id_user);
+            $('#edit_level').val(data.level);
+            $('#edit_full_name').val(data.full_name);
+            $('#edit_username').val(data.username);
+            $('#edit_email').val(data.email);
+            $('#edit_no_telp').val(data.no_telp);
+            $('#edit_alamat').val(data.alamat);
+            $('#foto_lama').attr('src', '<?php echo base_url()?>/assets/upload/'+data.foto);
+         }
+        });
+      });
      
+     //ajaxformedit
+      $('form#editTerapis').submit(function(e){
+        e.preventDefault();
+        var formData = new FormData($('form#editTerapis')[0]);
+        
+        $.ajax({
+          url: '<?php echo site_url('admin/edit_terapis');?>',
+          type: 'POST',
+          data: formData,
+
+          cache : false,
+          contentType : false,
+          processData : false,
+          
+          success: function(response) {
+            
+            if (response)
+            {
+              alert('berhasil');
+              location.reload();
+            }
+            else
+            { alert('error : ' + response); }
+          
+          }
+        });
+      });
+
     </script>
         <!-- content-wrapper ends -->
         <!-- partial:partials/_footer.html -->

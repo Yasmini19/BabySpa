@@ -32,7 +32,7 @@ class GeneralModel extends CI_Model {
 
     public function delete_data($where, $table){
         $this->db->where($where);
-        $this->db->delete($table);
+        return $this->db->delete($table);
     }
 
     public function get_selected_limit($table,$where,$limit,$orderby,$id)
