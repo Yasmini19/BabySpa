@@ -44,7 +44,7 @@ class GeneralModel extends CI_Model {
     public function update_data($table, $data, $where)
     {
         $this->db->where($where);
-        $this->db->update($table, $data);
+        return $this->db->update($table, $data);
     }
 
     public function add_data1($table, $data)
