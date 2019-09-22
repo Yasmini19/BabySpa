@@ -75,41 +75,41 @@
 <!-- banner-bottom -->
 <section class="some-content py-5" id="about" style="height:686px">
 	<div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-     <div class="container py-md-5">
-		<div class="row about-vv-top mt-2">
-			<div class="col-lg-6 about-info">
-				<h4 class="title-hny  mb-md-5">Manfaat Baby Spa untuk Melatih Motorik Bayi</h4>
-				<p>Baby spa atau pijat bayi saat ini sudah semakin populer. Banyak para Bunda yang rutin mengajak buah hatinya ke baby spa untuk mendapatkan berbagai treatment terbaik. Namun, baby spa hanya diperbolehkan jika berat badan Si Kecil sudah mencapai 5kg, lho.  Selain mengasyikan, kegiatan yang mencakup renang dan pijat ini tentunya memiliki berbagai manfaat untuk Si Kecil. Salah satunya dapat merangsang gerak motoriknya.</p>
-				<div class="read-more-button mt-4">
-					<a href="index.html" class="read-more btn">Read More </a>
+		<div class="carousel-inner">
+			<div class="carousel-item active">
+				<div class="container py-md-5">
+					<div class="row about-vv-top mt-2">
+						<div class="col-lg-6 about-info">
+							<h4 class="title-hny  mb-md-5">Manfaat Baby Spa untuk Melatih Motorik Bayi</h4>
+							<p>Baby spa atau pijat bayi saat ini sudah semakin populer. Banyak para Bunda yang rutin mengajak buah hatinya ke baby spa untuk mendapatkan berbagai treatment terbaik. Namun, baby spa hanya diperbolehkan jika berat badan Si Kecil sudah mencapai 5kg, lho.  Selain mengasyikan, kegiatan yang mencakup renang dan pijat ini tentunya memiliki berbagai manfaat untuk Si Kecil. Salah satunya dapat merangsang gerak motoriknya.</p>
+							<div class="read-more-button mt-4">
+								<a href="index.html" class="read-more btn">Read More </a>
+							</div>
+						</div>
+						<div class="col-lg-6 about-img mt-md-4 mt-sm-4">
+							<img src="<?php echo base_url();?>assets/user/images/b8.jpg" class="img-fluid" alt="">
+						</div>
+					</div>
 				</div>
 			</div>
-			<div class="col-lg-6 about-img mt-md-4 mt-sm-4">
-				<img src="<?php echo base_url();?>assets/user/images/b8.jpg" class="img-fluid" alt="">
-			</div>
-		</div>
-	</div>
-    </div>
-    <div class="carousel-item">
-      <div class="container py-md-5">
-		<div class="row about-vv-top mt-2">
-			<div class="col-lg-6 about-info">
-				<h4 class="title-hny  mb-md-5">Manfaat</h4>
-				<p>Baby spa atau pijat bayi saat ini sudah semakin populer. Banyak para Bunda yang rutin mengajak buah hatinya ke baby spa untuk mendapatkan berbagai treatment terbaik. Namun, </p>
-				<div class="read-more-button mt-4">
-					<a href="index.html" class="read-more btn">Read More </a>
-				</div>
+			<div class="carousel-item">
+				<div class="container py-md-5">
+					<div class="row about-vv-top mt-2">
+						<div class="col-lg-6 about-info">
+							<h4 class="title-hny  mb-md-5">Manfaat</h4>
+							<p>Baby spa atau pijat bayi saat ini sudah semakin populer. Banyak para Bunda yang rutin mengajak buah hatinya ke baby spa untuk mendapatkan berbagai treatment terbaik. Namun, </p>
+							<div class="read-more-button mt-4">
+								<a href="index.html" class="read-more btn">Read More </a>
+							</div>
 
-			</div>
-			<div class="col-lg-6 about-img mt-md-4 mt-sm-4">
-				<img src="<?php echo base_url();?>assets/user/images/b8.jpg" class="img-fluid" alt="">
+						</div>
+						<div class="col-lg-6 about-img mt-md-4 mt-sm-4">
+							<img src="<?php echo base_url();?>assets/user/images/b8.jpg" class="img-fluid" alt="">
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
-	</div>
-    </div>
-  </div>
  <!--  <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="sr-only">Previous</span>
@@ -117,7 +117,7 @@
   <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
-  </a> -->
+</a> -->
 </div>
 </section>
 <!-- //banner-bottom-->
@@ -269,163 +269,150 @@
 <section class="destinations py-5" id="destinations">
 	<div class="container py-md-5">
 		<h3 class="heading text-center mb-3 mb-sm-5">Tour Prices</h3>
-		<div class="row inner-sec-w3layouts-w3pvt-lauinfo">
-			<div class="col-md-3 col-sm-6 col-6 destinations-grids text-center mb-4">
-				<h4 class="destination mb-3">China</h4>
-				<div class="image-position position-relative">
-					<img src="<?php echo base_url();?>assets/user/images/p1.jpg" class="img-fluid" alt="">
-					<div class="rating">
-						<ul>
-							<li><span class="fa fa-usd"></span>1000</li>
+		
+		<div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
 
-						</ul>
-					</div>
-				</div>
-				<div class="destinations-info">
-					<div class="caption mb-lg-3">
-						<h4>China</h4>
-						<a href="#contact">Book Now</a>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-3 col-sm-6 col-6 destinations-grids text-center mb-4">
-				<h4 class="destination mb-3">Malaysia</h4>
-				<div class="image-position position-relative">
-					<img src="<?php echo base_url();?>assets/user/images/p2.jpg" class="img-fluid" alt="">
-					<div class="rating">
-						<ul>
-							<li><span class="fa fa-usd"></span>1100</li>
-						</ul>
-					</div>
-				</div>
-				<div class="destinations-info">
-					<div class="caption mb-lg-3">
-						<h4>Malaysia</h4>
-						<a href="#contact">Book Now</a>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-3 col-sm-6 col-6 destinations-grids text-center mb-4">
-				<h4 class="destination mb-3">Japan</h4>
-				<div class="image-position position-relative">
-					<img src="<?php echo base_url();?>assets/user/images/p3.jpg" class="img-fluid" alt="">
-					<div class="rating">
-						<ul>
-							<li><span class="fa fa-usd"></span>1200</li>
-						</ul>
-					</div>
-				</div>
-				<div class="destinations-info">
-					<div class="caption mb-lg-3">
-						<h4>Japan</h4>
-						<a href="#contact">Book Now</a>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-3 col-sm-6 col-6 destinations-grids text-center mb-4">
-				<h4 class="destination mb-3">Singapore</h4>
-				<div class="image-position position-relative">
-					<img src="<?php echo base_url();?>assets/user/images/p4.jpg" class="img-fluid" alt="">
-					<div class="rating">
-						<ul>
-							<li><span class="fa fa-usd"></span>1300</li>
-						</ul>
-					</div>
-				</div>
-				<div class="destinations-info">
-					<div class="caption mb-lg-3">
-						<h4>Singapore</h4>
-						<a href="#contact">Book Now</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-<!-- destinations -->
-<!--/testimonials -->
-<section class="testimonials py-5" id="testimonials">
-	<div class="container py-md-5">
-		<h3 class="heading heading1 text-center mb-3 mb-sm-5"> Client Reviews</h3>
-		<div class="row">
-			<div class="col-lg-4 col-sm-6 test-info text-left mb-4">
-				<p><span class="fa fa-quote-left"></span> Lorem Ipsum has been the industry's standard since the 1500s. Praesent ullamcorper dui turpis.Nulla non laoreet eleifend. <span class="fa fa-quote-right"></span></p>
-				<div class="test-img text-right mb-3">
-					<img src="<?php echo base_url();?>assets/user/images/te1.jpg" class="img-fluid" alt="user-image">
-				</div>
-				<h3 class="my-md-2 my-3 text-right">Jenifer Burns</h3>
+			<!--Controls-->
+			<!-- <div class="controls-top text-center" style="padding-bottom: 15px">
+				<a class="btn-floating" href="#multi-item-example" data-slide="prev"><i class="fa fa-chevron-left fa-2x"></i></a>
+				<a class="btn-floating" href="#multi-item-example" data-slide="next"><i class="fa fa-chevron-right fa-2x"></i></a>
+			</div> -->
+			<!--/.Controls-->
+
+			<!--Indicators-->
+			<center>
+				<ol class="carousel-indicators" style="text-align: center">
+					<?php for ($i=0; $i < count($subkategori) ; $i++) { 
+						$no = 0;
+						if($i == 0 ){ ?>
+						<li data-target="#multi-item-example" data-slide-to="0" class="active" style="background-color: #d9d9d9"></li>
+						<?php }else if($i != 0 && $i % 4 == 0){
+							$no ++; ?>
+							<li data-target="#multi-item-example" data-slide-to="1" style="background-color: #d9d9d9"></li>
+							<?php }
+						}?>
+					</ol>
+				</center>
+				<!--/.Indicators-->
+
+				<!--Slides-->
+				<!-- <div class="row inner-sec-w3layouts-w3pvt-lauinfo"> -->
+					<div class="carousel-inner" role="listbox">
+
+						<!--First slide-->
+						<?php 
+						$no = 0;
+						foreach($subkategori as $key => $value):  ?>
+						<?php if ($no == 0){?>
+						<div class="carousel-item active">
+							<div class="row inner-sec-w3layouts-w3pvt-lauinfo">
+								<?php }else if($no !=0 && $no % 4 == 0){?>
+								<div class="carousel-item">
+									<div class="row inner-sec-w3layouts-w3pvt-lauinfo">
+										<?php }?>
+										<div class="col-md-3 col-sm-6 col-6 destinations-grids text-center mb-4">
+											<div class="card mb-2">
+												<img class="card-img-top"
+												src="<?php echo base_url();?>assets/user/images/<?php echo $value->foto_sub?>"
+												alt="Card image cap" width="200" height="200">
+												<div class="card-body">
+													<h4 class="card-title"><?php echo $value->judul_sub?></h4>
+													<p class="card-text"><?php echo $value->keterangan?></p>
+													<nr>
+														<p><b>Harga : <?php echo "Rp " . number_format($value->harga, 2, ",", ".");?></b></p>
+													</div>
+												</div>
+											</div>
+											<?php if ($no != 0 && $no % 4 == 3){?>
+										</div></div>
+										<?php } $no++;?>
+									<?php endforeach ?>
+								</div>
+							</section>
+							<!-- destinations -->
+							<!--/testimonials -->
+							<section class="testimonials py-5" id="testimonials">
+								<div class="container py-md-5">
+									<h3 class="heading heading1 text-center mb-3 mb-sm-5"> Client Reviews</h3>
+									<div class="row">
+										<div class="col-lg-4 col-sm-6 test-info text-left mb-4">
+											<p><span class="fa fa-quote-left"></span> Lorem Ipsum has been the industry's standard since the 1500s. Praesent ullamcorper dui turpis.Nulla non laoreet eleifend. <span class="fa fa-quote-right"></span></p>
+											<div class="test-img text-right mb-3">
+												<img src="<?php echo base_url();?>assets/user/images/te1.jpg" class="img-fluid" alt="user-image">
+											</div>
+											<h3 class="my-md-2 my-3 text-right">Jenifer Burns</h3>
 
 
-			</div>
-			<div class="col-lg-4 col-sm-6 test-info text-left mb-4">
-				<p><span class="fa fa-quote-left"></span> Lorem Ipsum has been the industry's standard since the 1500s. Praesent ullamcorper dui turpis.Nulla non laoreet eleifend. <span class="fa fa-quote-right"></span></p>
+										</div>
+										<div class="col-lg-4 col-sm-6 test-info text-left mb-4">
+											<p><span class="fa fa-quote-left"></span> Lorem Ipsum has been the industry's standard since the 1500s. Praesent ullamcorper dui turpis.Nulla non laoreet eleifend. <span class="fa fa-quote-right"></span></p>
 
-				<div class="test-img text-right mb-3">
-					<img src="<?php echo base_url();?>assets/user/images/te2.jpg" class="img-fluid" alt="user-image">
-				</div>
-				<h3 class="my-md-2 my-3 text-right"> Abraham Smith</h3>
+											<div class="test-img text-right mb-3">
+												<img src="<?php echo base_url();?>assets/user/images/te2.jpg" class="img-fluid" alt="user-image">
+											</div>
+											<h3 class="my-md-2 my-3 text-right"> Abraham Smith</h3>
 
 
-			</div>
-			<div class="col-lg-4 col-sm-6 test-info text-left gap1 mb-4">
-				<p><span class="fa fa-quote-left"></span> Lorem Ipsum has been the industry's standard since the 1500s. Praesent ullamcorper dui turpis.Nulla non laoreet eleifend. <span class="fa fa-quote-right"></span></p>
-				<div class="test-img text-right mb-3">
-					<img src="<?php echo base_url();?>assets/user/images/te3.jpg" class="img-fluid" alt="user-image">
-				</div>
-				<h3 class="my-md-2 my-3 text-right">Jenifer Burns</h3>
+										</div>
+										<div class="col-lg-4 col-sm-6 test-info text-left gap1 mb-4">
+											<p><span class="fa fa-quote-left"></span> Lorem Ipsum has been the industry's standard since the 1500s. Praesent ullamcorper dui turpis.Nulla non laoreet eleifend. <span class="fa fa-quote-right"></span></p>
+											<div class="test-img text-right mb-3">
+												<img src="<?php echo base_url();?>assets/user/images/te3.jpg" class="img-fluid" alt="user-image">
+											</div>
+											<h3 class="my-md-2 my-3 text-right">Jenifer Burns</h3>
 
-			</div>
-		</div>
-	</div>
-</section>
-<!--//testimonials -->
-<!-- Contact -->
-<section class="contact py-5" id="contact">
-	<div class="container py-md-5">
-		<h3 class="heading text-center mb-3 mb-sm-5"> Get In Touch with us</h3>
-		<ul class="list-unstyled row text-center mt-lg-5 mt-4 px-lg-5">
-			<li class="col-md-4 col-sm-6 adress-w3pvt-info mb-4">
-				<div class=" adress-icon">
-					<span class="fa fa-map-marker"></span>
-				</div>
+										</div>
+									</div>
+								</div>
+							</section>
+							<!--//testimonials -->
+							<!-- Contact -->
+							<section class="contact py-5" id="contact">
+								<div class="container py-md-5">
+									<h3 class="heading text-center mb-3 mb-sm-5"> Get In Touch with us</h3>
+									<ul class="list-unstyled row text-center mt-lg-5 mt-4 px-lg-5">
+										<li class="col-md-4 col-sm-6 adress-w3pvt-info mb-4">
+											<div class=" adress-icon">
+												<span class="fa fa-map-marker"></span>
+											</div>
 
-				<h6>Location</h6>
-				<?php foreach($loc as $key => $value):  ?>
-					<p><?php echo $value->keterangan?></p>
-				<?php endforeach ?>
+											<h6>Location</h6>
+											<?php foreach($loc as $key => $value):  ?>
+												<p><?php echo $value->keterangan?></p>
+											<?php endforeach ?>
 
-			</li>
+										</li>
 
-			<li class="col-md-4 col-sm-6 adress-w3pvt-info mb-4">
-				<div class="adress-icon">
-					<span class="fa fa-envelope-open-o"></span>
-				</div>
-				<h6>Phone & Email</h6>
-				<?php foreach($phone as $key => $value):  ?>
-					<p><?php echo $value->keterangan?></p>
-				<?php endforeach ?>
+										<li class="col-md-4 col-sm-6 adress-w3pvt-info mb-4">
+											<div class="adress-icon">
+												<span class="fa fa-envelope-open-o"></span>
+											</div>
+											<h6>Phone & Email</h6>
+											<?php foreach($phone as $key => $value):  ?>
+												<p><?php echo $value->keterangan?></p>
+											<?php endforeach ?>
 
-				<?php foreach($email as $key => $value):  ?>
-					<p><?php echo $value->keterangan?></p>
-				<?php endforeach ?>
-			</li>
-			<li class="col-md-4 col-sm-6 adress-w3pvt-info mb-4">
-				<div class="adress-icon">
-					<span class="fa fa-building"></span>
-				</div>
-				<h6>Social Media</h6>
-				<?php foreach($socmed as $key => $value):  ?>
-					<p><?php echo $value->keterangan?></p>
-				<?php endforeach ?>             
-			</li>
-		</ul>
-	</div>
-</section>
-<!-- //Contact -->
-<!-- map -->	
-<div class="map p-2">
-	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126438.2854809817!2d112.56174164505262!3d-7.978639465170192!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd62822063dc2fb%3A0x78879446481a4da2!2sMalang%2C%20Kota%20Malang%2C%20Jawa%20Timur!5e0!3m2!1sid!2sid!4v1568126843831!5m2!1sid!2sid" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
-</div>
-<!-- //map -->
+											<?php foreach($email as $key => $value):  ?>
+												<p><?php echo $value->keterangan?></p>
+											<?php endforeach ?>
+										</li>
+										<li class="col-md-4 col-sm-6 adress-w3pvt-info mb-4">
+											<div class="adress-icon">
+												<span class="fa fa-building"></span>
+											</div>
+											<h6>Social Media</h6>
+											<?php foreach($socmed as $key => $value):  ?>
+												<p><?php echo $value->keterangan?></p>
+											<?php endforeach ?>             
+										</li>
+									</ul>
+								</div>
+							</section>
+							<!-- //Contact -->
+							<!-- map -->	
+							<div class="map p-2">
+								<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126438.2854809817!2d112.56174164505262!3d-7.978639465170192!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd62822063dc2fb%3A0x78879446481a4da2!2sMalang%2C%20Kota%20Malang%2C%20Jawa%20Timur!5e0!3m2!1sid!2sid!4v1568126843831!5m2!1sid!2sid" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+							</div>
+							<!-- //map -->
 
     <!-- //contact us -->
