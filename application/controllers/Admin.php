@@ -214,7 +214,9 @@
 
         public function delete_terapis()
         {
-
+             $id = array('id_user' => $this->input->post('id') );
+             $result = $this->GeneralModel->delete_data($id,'user');
+             echo json_encode($result);
         }
 
 
