@@ -317,7 +317,7 @@
                           <td><img src="<?php echo base_url()?>./assets/upload/<?php echo $value->foto?>" alt="" width=100 height=100></td>
                            <td>
                                 <a href="<?php echo base_url("/Admin/edit_terapis".$value->id_user) ?>" class="mdi mdi-pencil-box-outline btn-icon-append" aria-hidden="true" data-toggle="modal" data-target="#modal-edit" name="tombolEdit" value="<?php echo $value->id_user; ?>"</a>
-                                <a href="<?php echo base_url("/Admin/delete_terapis/".$value->id_user) ?>" class="mdi mdi-delete btn-icon-append" aria-hidden="true" value=""></a>
+                                <a href="<?php echo base_url("/Admin/delete_terapis/".$value->id_user) ?>" class="mdi mdi-delete btn-icon-append" aria-hidden="true" name="tombolDelete" value="<?php echo $value->id_user; ?>"></a>
                           </td>
 
                         </tr>
@@ -584,6 +584,30 @@
           success: function(response) {
             
             if (response)
+            {
+              alert('berhasil');
+              location.reload();
+            }
+            else
+            { alert('error : ' + response); }
+          
+          }
+        });
+      });
+
+
+      //ajaxdelete
+      $('[name="tombolDelete"]').click(function(e){
+        e.preventDefault();
+        var id = $(this).attr('value')
+        //alert(id);
+        $.ajax({
+          url: '<?php echo site_url('admin/delete_terapis') ?>',
+          type: 'post',
+          data: {id:id},
+          success: function(response) {
+            //alert(response);
+          if (response)
             {
               alert('berhasil');
               location.reload();
