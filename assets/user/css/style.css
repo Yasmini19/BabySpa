@@ -488,8 +488,9 @@ h4.b-w3ltxt {
 .carousel-indicators {
     position: absolute;
     bottom: -53px;
-    margin-left: 0;
-    justify-content: flex-start;
+    margin-left: 15%;
+    margin-right: 15%;
+    justify-content: center;
     z-index: 1;
 }
 
@@ -865,7 +866,7 @@ section#contact {
     font-weight: 400;
       color: #fff;
     text-shadow: 0 0 0.5px rgba(58, 57, 57, 0.25);
-    background: #f4b200;
+    background: #011144;
     display: block;
     padding: 1em;
     margin-bottom: 15px;
@@ -1007,7 +1008,12 @@ ul.w3layouts-icons.clients li span:hover {
 
 /* destinations */
 .destinations {
-    background: #EBEDEF;
+    background: url(../images/price.png) no-repeat center;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
 }
 .destinations-grids {
     position: relative;
