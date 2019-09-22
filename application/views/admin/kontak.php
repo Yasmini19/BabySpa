@@ -215,9 +215,9 @@
                   </a>
               </li>
               <li class="nav-item">
-                  <a href="pages/charts/chartjs.html" class="nav-link">
+                  <a href="<?php echo base_url();?>index.php/Admin/user" class="nav-link">
                     <i class="mdi mdi-finance menu-icon"></i>
-                    <span class="menu-title">Charts</span>
+                    <span class="menu-title">User</span>
                     <i class="menu-arrow"></i>
                   </a>
               </li>
