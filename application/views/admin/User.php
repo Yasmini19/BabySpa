@@ -269,12 +269,12 @@
             <div class="col-lg-12 grid-margin stretch-card">
                     <div class="card">
                       <div class="card-body">
-                        <h4 class="card-title">Terapis</h4>
+                        <h4 class="card-title">User</h4>
 
                         <div  id="demo-dt-wrapper" class="dataTables_wrapper form-inline dt-boostrap no-footer">
                           <div class="toolbar">
                            <div class="pr-1 mb-3 mb-xl-0">
-                          <button type="button" class="btn btn-outline-inverse-info btn-icon-text" data-toggle="modal" data-target="#modal-tambah">
+                          <button type="button" class="btn btn-outline-inverse-info btn-icon-text" data-toggle="modal" data-target="#modal-tambah-user">
                             ADD
                           <i class="mdi mdi-plus-box btn-icon-append"></i>                          
                     </button>
@@ -306,7 +306,7 @@
                             </thead>
                             <tbody>
                               
-                             <?php foreach ($terps as $key => $value): ?>
+                             <?php foreach ($usr as $key => $value): ?>
                            <tr>
                           <td><?php echo $value->id_user ?></td>
                           <td><?php echo $value->full_name ?></td>
@@ -316,8 +316,8 @@
                           <td><?php echo $value->alamat ?></td>
                           <td><img src="<?php echo base_url()?>./assets/upload/<?php echo $value->foto?>" alt="" width=100 height=100></td>
                            <td>
-                                <a href="<?php echo base_url("/Admin/edit_terapis".$value->id_user) ?>" class="mdi mdi-pencil-box-outline btn-icon-append" aria-hidden="true" data-toggle="modal" data-target="#modal-edit" name="tombolEdit" value="<?php echo $value->id_user; ?>"</a>
-                                <a href="<?php echo base_url("/Admin/delete_terapis/".$value->id_user) ?>" class="mdi mdi-delete btn-icon-append" aria-hidden="true" name="tombolDelete" value="<?php echo $value->id_user; ?>"></a>
+                                <a href="<?php echo base_url("/Admin/edit_user".$value->id_user) ?>" class="mdi mdi-pencil-box-outline btn-icon-append" aria-hidden="true" data-toggle="modal" data-target="#modal-edit-user" name="tombolEditUser" value="<?php echo $value->id_user; ?>"</a>
+                                <a href="<?php echo base_url("/Admin/delete_user/".$value->id_user) ?>" class="mdi mdi-delete btn-icon-append" aria-hidden="true" name="tombolDeleteUser" value="<?php echo $value->id_user; ?>"></a>
                           </td>
 
                         </tr>
@@ -340,7 +340,7 @@
 
         <!--Modal ADD-->
 
-        <div class="modal fade" id="modal-tambah" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="modal-tambah-user" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <!--Header-->
@@ -357,7 +357,7 @@
               <div class="modal-body">
                   <div class="modal-body mx-3">
               <!-- <FORM id="addTerapis"> -->
-               <form method="post" accept-charset="utf-8" id="addTerapis" enctype="multipart/form-data">
+               <form method="post" accept-charset="utf-8" id="addUser" enctype="multipart/form-data">
 
                   <div class="md-form mb-5">
                   <i class="fas fa-envelope prefix grey-text"></i>
@@ -403,7 +403,7 @@
 
               <!--Footer-->
               <div class="modal-footer">
-                <input type="submit" name="submit" class="btn btn-outline-primary" id="btnSimpanTerapis">
+                <input type="submit" name="submit" class="btn btn-outline-primary" id="btnSimpanUser">
                 <input type="button" class="btn btn-primary" value="Close" data-dismiss="modal">
                 <?php //echo form_close(); ?>
               </div>
@@ -412,10 +412,9 @@
   </div>
 </div>
 
-
 <!--Modal EDIT-->
 
-        <div class="modal fade" id="modal-edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="modal-edit-user" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <!--Header-->
@@ -428,7 +427,7 @@
                 </button>
               </div>
               <!-- <FORM id="addTerapis"> -->
-               <form method="post" accept-charset="utf-8" id="editTerapis" enctype="multipart/form-data">
+               <form method="post" accept-charset="utf-8" id="editUser" enctype="multipart/form-data">
               <!--Body-->
               <div class="modal-body">
                   <div class="modal-body mx-3">
@@ -480,7 +479,7 @@
 
               <!--Footer-->
               <div class="modal-footer">
-                <input type="submit" name="submit" class="btn btn-outline-primary" id="btnSimpanTerapis">
+                <input type="submit" name="submit" class="btn btn-outline-primary" id="btnSimpanUser">
                 <input type="button" class="btn btn-primary" value="Close" data-dismiss="modal">
                 <?php //echo form_close(); ?>
               </div>
@@ -489,16 +488,18 @@
           </div>
         </div>
 
+             
+
 
 <script src="<?php echo base_url();?>assets/admin/jquery/jquery.js"></script>
     <script type="text/javascript">
 
-      $('form#addTerapis').submit(function(e){
+      $('form#addUser').submit(function(e){
         e.preventDefault();
-        var formData = new FormData($('form#addTerapis')[0]);
+        var formData = new FormData($('form#addUser')[0]);
 
         $.ajax({
-          url: '<?php echo site_url('admin/add_terapis');?>',
+          url: '<?php echo site_url('admin/add_user');?>',
           type: 'POST',
           data: formData,
 
@@ -528,7 +529,7 @@
         {
 
           $.ajax({
-            url: '<?php echo site_url('admin/search_terapis') ?>',
+            url: '<?php echo site_url('admin/search_user') ?>',
             type: 'post',
             data: {text:text},
             success: function(data) {
@@ -542,12 +543,12 @@
         {alert('error');}
       });
 
-       $('[name="tombolEdit"]').click(function(){
+       $('[name="tombolEditUser"]').click(function(){
         
         var id = $(this).attr('value')
        
         $.ajax({
-          url: '<?php echo site_url('admin/get_terapis') ?>',
+          url: '<?php echo site_url('admin/get_user') ?>',
           type: 'post',
           data: {id:id},
           success: function(data) {
@@ -568,12 +569,12 @@
       });
      
      //ajaxformedit
-      $('form#editTerapis').submit(function(e){
+      $('form#editUser').submit(function(e){
         e.preventDefault();
-        var formData = new FormData($('form#editTerapis')[0]);
+        var formData = new FormData($('form#editUser')[0]);
         
         $.ajax({
-          url: '<?php echo site_url('admin/edit_terapis');?>',
+          url: '<?php echo site_url('admin/edit_user');?>',
           type: 'POST',
           data: formData,
 
@@ -597,12 +598,12 @@
 
 
       //ajaxdelete
-      $('[name="tombolDelete"]').click(function(e){
+      $('[name="tombolDeleteUser"]').click(function(e){
         e.preventDefault();
         var id = $(this).attr('value')
         //alert(id);
         $.ajax({
-          url: '<?php echo site_url('admin/delete_terapis') ?>',
+          url: '<?php echo site_url('admin/delete_user') ?>',
           type: 'post',
           data: {id:id},
           success: function(response) {
