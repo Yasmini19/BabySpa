@@ -69,7 +69,7 @@
 				<!-- nav -->
 				<nav class="py-3 d-lg-flex">
 					<div id="logo">
-						<h1> <a href="<?php echo site_url()?>/User"> Mamina </a></h1>
+						<h1> <a href="#home"> Mamina </a></h1>
 					</div>
 					<label for="drop" class="toggle"><span class="fa fa-bars"></span></label>
 					<input type="checkbox" id="drop" />
@@ -78,8 +78,10 @@
 						<li class=""><a href="#about">Berita</a></li>
 						<li class=""><a href="#services">Services</a></li>
 						<li class=""><a href="#stats">Reservasi</a></li>
-						<li class=""><a href="#testimonials">Testimoni</a></li>
-						<!--<li class=""><a href="#contact">Contact us</a></li>-->
+						<li class=""><a href="#gallery">Gallery & Testimoni</a></li>
+						<li class=""><a href="<?php echo site_url()?>/Login">Login</a></li>
+						<li class="" style="border:  2px solid black"><a href="<?php echo site_url()?>/Login/register">Register</a></li>
+						<!-- <li class=""><a href="#contact">Contact us</a></li> -->
 					</ul>
 				</nav>
 				<!-- //nav -->
