@@ -17,23 +17,49 @@
 											<input type="checkbox" class="custom-control-input" id="customSwitch1">
 											<label class="custom-control-label" for="customSwitch1">Kategori lainnya</label>
 										</div>
+										<div class="row">
+											<div class="col-md-6">
+												<div class="input-container">
+													<i class="fa fa-envelope icon"></i>
+													<input placeholder="Tanggal" name="tanggal" type="text" required="">
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div class="input-container">
+													<i class="fa fa-envelope icon"></i>
+													<select>
+														<option value="-">Pilih Sesi</option>
+														<option value="1">Sesi 1(08.00 - 10.00)</option>
+														<option value="2">Sesi 1(08.00 - 10.00)</option>
+														<option value="3">Sesi 1(08.00 - 10.00)</option>
+														<option value="4">Sesi 1(08.00 - 10.00)</option>
+													</select>
+												</div>
+											</div>
+										</div>
 										<div class="row">	
 											<div class="col-md-6">
 												<div class="input-container">
 													<i class="glyphicon glyphicon-backward icon">a</i>
 													<!-- <input placeholder="Kategori" name="kategori" type="text" required=""> -->
 													<select>
-														<option value="volvo">Volvo</option>
-														<option value="saab">Saab</option>
-														<option value="mercedes">Mercedes</option>
-														<option value="audi">Audi</option>
+														<option value="volvo">Moms</option>
+														<option value="saab">Baby</option>
+														<option value="mercedes">Konselor</option>
+														
 													</select>
 												</div>
 											</div>	
 											<div class="col-md-6">
 												<div class="input-container">
 													<i class="fa fa-envelope icon"></i>
-													<input placeholder="Sub Kategori" name="subkategori" type="text" required="">
+													<select name="sub-kategori" id="sub-kategori">
+														<option value="-">Pilih Layanan</option>
+														<option value="1">Baby Massage</option>
+														<option value="2">Baby Swim</option>
+														<option value="3">baby lulur</option>
+														<option value="4">Baby Gym</option>
+													</select>
 												</div>
 											</div>
 										</div>
@@ -41,31 +67,29 @@
 											<div class="col-md-6">
 												<div class="input-container">
 													<i class="glyphicon glyphicon-backward icon">a</i>
-													<input placeholder="Kategori" name="kategori" type="text" required="">
+													<select>
+														<option value="volvo">Moms</option>
+														<option value="saab">Baby</option>
+														<option value="mercedes">Konselor</option>
+														
+													</select>
 												</div>
 											</div>	
 											<div class="col-md-6">
 												<div class="input-container">
 													<i class="fa fa-envelope icon"></i>
-													<input placeholder="Sub Kategori" name="subkategori" type="text" required="">
+													<select name="sub-kategori" id="sub-kategori">
+														<option value="-">Pilih Layanan</option>
+														<option value="1">Baby Massage</option>
+														<option value="2">Baby Swim</option>
+														<option value="3">baby lulur</option>
+														<option value="4">Baby Gym</option>
+													</select>
 												</div>
 											</div>
 											<br><br>	
 										</div>											
-										<div class="row">
-											<div class="col-md-6">
-												<div class="input-container">
-													<i class="fa fa-envelope icon"></i>
-													<input placeholder="Sesi" name="sesi" type="text" required="">
-												</div>
-											</div>
-											<div class="col-md-6">
-												<div class="input-container">
-													<i class="fa fa-envelope icon"></i>
-													<input placeholder="Tanggal" name="tgl" type="text" required="">
-												</div>
-											</div>
-										</div>
+										
 										<button Class="btn" style="border-radius: 30px;">Book</button>
 									</div>
 								</form>
