@@ -320,7 +320,7 @@
 									<i class="mdi mdi-account-outline mdi-18px text-dark"></i>
 								</div>
 								<div class="d-flex align-right justify-content-end">
-								<button type="button" id="btn-tambah" data-toggle="modal" data-target="#form-modal" class="btn btn-success pull-right">
+								<button type="button" id="btn-tambah" data-toggle="modal" data-target="#modal-tambah-galery" class="btn btn-success pull-right">
 									<span class="glyphicon glyphicon-plus"></span>  Tambah 
 								</button>
 								</div>
@@ -339,24 +339,20 @@
 										</tr>
 									</thead>
 									<tbody>
-									<?php foreach ($galerys as $galery): ?>
+									<?php foreach ($galerys as $galery => $value): ?>
 										<tr>
 											<td>
-												<?php echo $galery->id_galery ?>
+												<?php echo $value->id_galery ?>
 											</td>
 											<td>
-												<img src="<?php echo base_url('assets/user/images/'.$galery->galery)?>" >
+												<img src="<?php echo base_url('assets/user/upload/'.$value->galery)?>" >
 											</td>
 											<td>
-												<?php echo $galery->keterangan ?>
+												<?php echo $value->keterangan ?>
 											</td>
 											<td>
-											<button type="button" id="btn-edit" data-toggle="modal" data-target="#modal-edit-galery" class="mdi mdi-pencil-box-outline btn-icon-append btn btn-secondary">
-												<span class="glyphicon glyphicon-plus"></span>
-											</button>
-											<button type="button" id="btn-delete" data-toggle="modal" data-target="#form-modal" class="mdi mdi-delete btn-icon-append btn btn-danger">
-												<span class="glyphicon glyphicon-plus"></span>
-											</button>
+												<a href="<?php echo base_url("/Admin/edit_galery".$value->id_galery) ?>" class="mdi mdi-pencil-box-outline btn btn-secondary btn-icon-append" aria-hidden="true" data-toggle="modal" data-target="#modal-edit-galery" name="tombolEditGalery" value="<?php echo $value->id_galery; ?>"></a>
+                                				<a href="<?php echo base_url("/Admin/delete_galery".$value->id_galery) ?>" class="mdi mdi-delete btn btn-danger btn-icon-append" aria-hidden="true" name="tombolDeleteGalery" value="<?php echo $value->id_galery; ?>"></a>
 											</td>
 										</tr>
 									<?php endforeach; ?>	
@@ -369,6 +365,51 @@
 						</div>
 					</div>
 				</div>
+				<div class="modal fade" id="modal-tambah-galery" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <!--Header-->
+              <div class="modal-header"> 
+
+                <h4 class="modal-title" id="myModalLabel">Galery</h4>
+                <?php echo validation_errors(); ?>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                </button>
+              </div>
+              <!--Body-->
+              <div class="modal-body">
+                  <div class="modal-body mx-3">
+              <!-- <FORM id="addGalery"> -->
+               <form method="post" accept-charset="utf-8" id="addGalery" enctype="multipart/form-data">
+                
+                 <div class="md-form mb-4">
+                  <i class="fas fa-lock prefix grey-text"></i>
+                  <input type="file" id="galery" class="form-control validate" name="galery" placeholder="Input field">
+                  <label data-error="wrong" data-success="right" for="defaultForm-pass">Foto</label>
+                </div>
+				<div class="md-form mb-4">
+                  <i class="fas fa-lock prefix grey-text"></i>
+                  <input type="text" id="keterangan" class="form-control validate" name="keterangan" placeholder="Input field">
+                  <label data-error="wrong" data-success="right" for="defaultForm-pass">Keterangan</label>
+                </div>
+
+
+              </div>
+
+            </div>
+
+
+              <!--Footer-->
+              <div class="modal-footer">
+                <input type="submit" name="submit" class="btn btn-outline-primary" id="btnSimpanGalery">
+                <input type="button" class="btn btn-primary" value="Close" data-dismiss="modal">
+                <?php //echo form_close(); ?>
+              </div>
+            </form>
+            </div>
+		</div>
+	</div>
 				<!-- <div class="container-fluid">
 					<div class="col-sm-4 form-control-sm">
 						<h2 class="text-success font-weight-bold">Tambah</h2>
@@ -423,7 +464,34 @@
     <!-- Custom js for this page-->
     <script src="<?php echo base_url();?>assets/admin/js/dashboard.js"></script>
     <!-- End custom js for this page-->
-		<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+	<script type="text/javascript">
+		$('form#addGalery').submit(function(e){
+        e.preventDefault();
+        var formData = new FormData($('form#addGalery')[0]);
 
+        $.ajax({
+          url: '<?php echo site_url('admin/add_galery');?>',
+          type: 'POST',
+          data: formData,
+
+          cache : false,
+          contentType : false,
+          processData : false,
+          
+          success: function(response) {
+            
+            if (response='true')
+            {
+              alert('berhasil');
+              location.reload();
+            }
+            else
+            { alert('error : ' + response); }
+          
+          }
+        });
+      });
+	</script>
   </body>
 </html>

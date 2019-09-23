@@ -71,6 +71,38 @@
 			$data['galerys'] = $this->GeneralModel->get_data('galery')->result();
 			$this->load->view('admin/Galery', $data);
 		}
+
+		public function add_galery()
+		{
+			$config['upload_path']     = './assets/user/images';
+            $config['allowed_types']  = 'gif|jpg|png';
+            $config['max_size']        = 1000000000;
+            $config['max_width']       = 10240;
+			$config['max_height']      = 7680;
+			
+			$this->load->library('upload',$config);
+            $result = '';
+            if (!$this->upload->do_upload('galery'))
+            {
+                $result = $this->upload->display_errors();
+            }
+            else
+            {
+                $data = array(   
+                    'galery'          => $this->upload->data('file_name'),
+                    'keterangan'     => $this->input->post('keterangan')
+                );
+
+                $result = $this->GeneralModel->add_data('galery', $data);
+
+                //$this->GeneralModel->add_data();
+                $this->load->view('admin/Galery');
+                $result = 'true';
+            }
+
+           echo json_encode($result);
+
+		}
 		
 		//Terapis
         public function terapis()

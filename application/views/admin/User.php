@@ -316,7 +316,7 @@
                           <td><?php echo $value->alamat ?></td>
                           <td><img src="<?php echo base_url()?>./assets/upload/<?php echo $value->foto?>" alt="" width=100 height=100></td>
                            <td>
-                                <a href="<?php echo base_url("/Admin/edit_user".$value->id_user) ?>" class="mdi mdi-pencil-box-outline btn-icon-append" aria-hidden="true" data-toggle="modal" data-target="#modal-edit-user" name="tombolEditUser" value="<?php echo $value->id_user; ?>"</a>
+                                <a href="<?php echo base_url("/Admin/edit_user".$value->id_user) ?>" class="mdi mdi-pencil-box-outline btn-icon-append" aria-hidden="true" data-toggle="modal" data-target="#modal-edit-user" name="tombolEditUser" value="<?php echo $value->id_user; ?>"></a>
                                 <a href="<?php echo base_url("/Admin/delete_user/".$value->id_user) ?>" class="mdi mdi-delete btn-icon-append" aria-hidden="true" name="tombolDeleteUser" value="<?php echo $value->id_user; ?>"></a>
                           </td>
 
