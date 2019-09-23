@@ -21,7 +21,13 @@
 											<div class="col-md-6">
 												<div class="input-container">
 													<i class="glyphicon glyphicon-backward icon">a</i>
-													<input placeholder="Kategori" name="kategori" type="text" required="">
+													<!-- <input placeholder="Kategori" name="kategori" type="text" required=""> -->
+													<select>
+														<option value="volvo">Volvo</option>
+														<option value="saab">Saab</option>
+														<option value="mercedes">Mercedes</option>
+														<option value="audi">Audi</option>
+													</select>
 												</div>
 											</div>	
 											<div class="col-md-6">
@@ -76,6 +82,7 @@
 <section class="some-content py-5" id="about" style="height:686px">
 	<div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
 		<div class="carousel-inner">
+			
 			<div class="carousel-item active">
 				<div class="container py-md-5">
 					<div class="row about-vv-top mt-2">
@@ -126,42 +133,22 @@
 	<div class="container py-md-5">
 		<h3 class="heading text-center mb-3 mb-sm-5">Our Services</h3>
 		<div class="row service-grid-grids text-center">
-			<div class="col-lg-4 col-md-6 service-grid service-grid1 mb-4">
-				<div class="service-icon">
-					<span class="fa fa-h-square"></span>
-				</div>
-				<h4 class="mt-3">Baby</h4>
-				<hr width="50%">
-				<p class="mt-3"></p>
-				<div class="read-more-button mt-4">
-					<a href="index.html" class="read-more btn">Read More </a>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-6 service-grid service-grid2 mb-4">
-				<div class="service-icon">
-					<span class="fa fa-glide-g"></span>
-				</div>
-				<h4 class="mt-3">Mom</h4>
-				<hr width="50%">
-				<p class="mt-3"></p>
-				<div class="read-more-button mt-4">
-					<a href="index.html" class="read-more btn">Read More </a>
-				</div>
-			</div>
 
-			<div class="col-lg-4 col-md-6 service-grid service-grid3 mb-4">
-				<div class="service-icon">
+			<?php foreach ($service as $key => $value) : ?>
+				<div class="col-lg-4 col-md-6 service-grid service-grid3 mb-4">
+				<!-- <div class="service-icon">
 					<span class="fa fa-fighter-jet"></span>
-				</div>
-				<h4 class="mt-3">Konselor</h4>
+				</div> -->
+				<h4 class="mt-3"><?php echo $value->judul_kat ?></h4>
 				<hr width="50%">
-				<p class="mt-3">Perspiciatis unde omnis iste natus doloret ipsum volupte ut accusal ntium dolor remque laudantium, totam dolor.</p>
+				<p class="mt-3"><?php echo substr($value->keterangan_kat, 0, 200) . '...'; ?></p>
 				<div class="read-more-button mt-4">
 					<a href="index.html" class="read-more btn">Read More </a>
 				</div>
 			</div>
-		</div>
-	</div>		
+		<?php endforeach?>
+	</div>
+</div>		
 </section>
 <!-- //services -->
 <!-- Team  -->
@@ -317,7 +304,7 @@
 												alt="Card image cap" width="200" height="200">
 												<div class="card-body">
 													<h4 class="card-title"><?php echo $value->judul_sub?></h4>
-													<p class="card-text"><?php echo $value->keterangan?></p>
+													<p class="card-text"><?php echo $value->judul_kat?></p>
 													<nr>
 														<p><b>Harga : <?php echo "Rp " . number_format($value->harga, 2, ",", ".");?></b></p>
 													</div>
@@ -331,7 +318,7 @@
 							</section>
 							<!-- destinations -->
 							<!--/testimonials -->
-							<section class="testimonials py-5" id="testimonials">
+							<!-- <section class="testimonials py-5" id="testimonials">
 								<div class="container py-md-5">
 									<h3 class="heading heading1 text-center mb-3 mb-sm-5"> Client Reviews</h3>
 									<div class="row">
@@ -364,7 +351,7 @@
 										</div>
 									</div>
 								</div>
-							</section>
+							</section> -->
 							<!--//testimonials -->
 							<!-- Contact -->
 							<section class="contact py-5" id="contact">
