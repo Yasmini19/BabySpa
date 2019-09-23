@@ -229,9 +229,9 @@
                   </a>
               </li>
               <li class="nav-item">
-                  <a href="pages/icons/mdi.html" class="nav-link">
-                    <i class="mdi mdi-emoticon menu-icon"></i>
-                    <span class="menu-title">Icons</span>
+                  <a href="<?php echo base_url();?>index.php/Admin/galery" class="nav-link">
+                    <i class="mdi mdi-image-album menu-icon"></i>
+                    <span class="menu-title">Galery</span>
                     <i class="menu-arrow"></i>
                   </a>
               </li>

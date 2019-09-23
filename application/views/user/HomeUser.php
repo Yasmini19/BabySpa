@@ -255,7 +255,7 @@
 <!-- destinations -->
 <section class="destinations py-5" id="destinations">
 	<div class="container py-md-5">
-		<h3 class="heading text-center mb-3 mb-sm-5">Tour Prices</h3>
+		<h3 class="heading text-center mb-3 mb-sm-5">Spa Prices</h3>
 		
 		<div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
 

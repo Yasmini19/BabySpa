@@ -65,8 +65,14 @@
             redirect( base_url() . 'index.php/Admin/contact_us');        
         }
 
-
-        //terapis//
+		//Galery
+		public function galery() 
+		{
+			$data['galerys'] = $this->GeneralModel->get_data('galery')->result();
+			$this->load->view('admin/Galery', $data);
+		}
+		
+		//Terapis
         public function terapis()
         {
             $data['terps'] = $this->GeneralModel->get_data('user')->result();

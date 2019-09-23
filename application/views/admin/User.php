@@ -347,7 +347,7 @@
               <div class="modal-header">
                 <?php //echo form_open_multipart('Admin/add_terapis'); ?> 
 
-                <h4 class="modal-title" id="myModalLabel">Terapis</h4>
+                <h4 class="modal-title" id="myModalLabel">User</h4>
                 <?php echo validation_errors(); ?>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">×</span>

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 23, 2019 at 04:09 AM
--- Server version: 10.1.29-MariaDB
--- PHP Version: 7.1.12
+-- Generation Time: Sep 23, 2019 at 05:05 AM
+-- Server version: 10.4.6-MariaDB
+-- PHP Version: 7.3.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -88,6 +88,14 @@ CREATE TABLE `galery` (
   `galery` varchar(500) NOT NULL,
   `keterangan` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `galery`
+--
+
+INSERT INTO `galery` (`id_galery`, `galery`, `keterangan`) VALUES
+(1, 'b1.png', 'Dapatkan Layanan kami dirumah mama'),
+(2, 'b2.png', 'Membantu melatih Motorik pada anak');
 
 -- --------------------------------------------------------
 
@@ -320,7 +328,7 @@ ALTER TABLE `detail_reservasi`
 -- AUTO_INCREMENT for table `galery`
 --
 ALTER TABLE `galery`
-  MODIFY `id_galery` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_galery` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `kategori`
