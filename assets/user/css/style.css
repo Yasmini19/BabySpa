@@ -504,7 +504,7 @@ h4.b-w3ltxt {
     margin-left: 5px;
 }
 
-.form-style-w3layout input[type="text"], .form-style-w3layout input[type="email"], .form-style-w3layout input[type="password"],select {
+.form-style-w3layout input[type="text"], .form-style-w3layout input[type="email"], .form-style-w3layout input[type="password"], .form-style-w3layout input[type="number"],select {
     outline: none;
     font-size: 14px;
     border: none;

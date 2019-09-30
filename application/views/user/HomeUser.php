@@ -2,8 +2,8 @@
 <!-- banner -->
 <div class="banner" id="home" style="padding-top: 6%;max-height: 697px">
 	<div class="layer">
-		<div class="container">
-			<div class="row">
+		<!-- <div class="container"> -->
+			<div class="row" style="padding-left: 1%; padding-right: 1%">
 				<div class="col-md-6 banner-text-w3ls"></div>
 				<!-- banner slider-->
 				<div class="col-md-6 px-lg-3 px-0">
@@ -18,129 +18,144 @@
 											<label class="custom-control-label" for="customSwitch1">Kategori lainnya</label>
 										</div>
 										<div class="row">
-											<div class="col-md-6">
+											<div class="col-md-4">
 												<div class="input-container">
-													<i class="fa fa-envelope icon"></i>
-													<input placeholder="Tanggal" name="tanggal" type="text" required="">
+													<!-- <i class="fa fa-envelope icon"></i> -->
+													<input placeholder="Tanggal" name="tanggal" type="text" required="" id="datepicker1">
 												</div>
 											</div>
-											<div class="col-md-6">
+											<div class="col-md-8">
 												<div class="input-container">
-													<i class="fa fa-envelope icon"></i>
-													<select>
+													<!-- <i class="fa fa-envelope icon"></i> -->
+													<select id="sesi" name="sesi" class="js-example-basic-single" required>
 														<option value="-">Pilih Sesi</option>
-														<option value="1">Sesi 1(08.00 - 10.00)</option>
-														<option value="2">Sesi 1(08.00 - 10.00)</option>
-														<option value="3">Sesi 1(08.00 - 10.00)</option>
-														<option value="4">Sesi 1(08.00 - 10.00)</option>
-													</select>
+														<?php foreach ($this->db->get('sesi_reservasi')->result() as $key => $value): ?>
+															<option value="<?= $value->id_sesi ?>"
+																data-json='<?php echo json_encode($value) ?>'><?= $value->waktu ?></option>
+															<?php endforeach; ?>
+														</select>
+													</div>
 												</div>
 											</div>
-										</div>
-										<div class="row">	
-											<div class="col-md-6">
-												<div class="input-container">
-													<i class="glyphicon glyphicon-backward icon">a</i>
-													<!-- <input placeholder="Kategori" name="kategori" type="text" required=""> -->
-													<select>
-														<option value="volvo">Moms</option>
-														<option value="saab">Baby</option>
-														<option value="mercedes">Konselor</option>
-														
-													</select>
-												</div>
-											</div>	
-											<div class="col-md-6">
-												<div class="input-container">
-													<i class="fa fa-envelope icon"></i>
-													<select name="sub-kategori" id="sub-kategori">
-														<option value="-">Pilih Layanan</option>
-														<option value="1">Baby Massage</option>
-														<option value="2">Baby Swim</option>
-														<option value="3">baby lulur</option>
-														<option value="4">Baby Gym</option>
-													</select>
-												</div>
-											</div>
-										</div>
-										<div class="row" id="form2" style="display: none; padding-bottom: 20px">	
-											<div class="col-md-6">
-												<div class="input-container">
-													<i class="glyphicon glyphicon-backward icon">a</i>
-													<select>
-														<option value="volvo">Moms</option>
-														<option value="saab">Baby</option>
-														<option value="mercedes">Konselor</option>
-														
-													</select>
-												</div>
-											</div>	
-											<div class="col-md-6">
-												<div class="input-container">
-													<i class="fa fa-envelope icon"></i>
-													<select name="sub-kategori" id="sub-kategori">
-														<option value="-">Pilih Layanan</option>
-														<option value="1">Baby Massage</option>
-														<option value="2">Baby Swim</option>
-														<option value="3">baby lulur</option>
-														<option value="4">Baby Gym</option>
-													</select>
-												</div>
-											</div>
-											<br><br>	
-										</div>											
-										
-										<button Class="btn" style="border-radius: 30px;">Book</button>
-									</div>
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- //banner -->
-<!-- banner-bottom -->
-<section class="some-content py-5" id="about" style="height:686px">
-	<div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
-		<div class="carousel-inner">
-			
-			<div class="carousel-item active">
-				<div class="container py-md-5">
-					<div class="row about-vv-top mt-2">
-						<div class="col-lg-6 about-info">
-							<h4 class="title-hny  mb-md-5">Manfaat Baby Spa untuk Melatih Motorik Bayi</h4>
-							<p>Baby spa atau pijat bayi saat ini sudah semakin populer. Banyak para Bunda yang rutin mengajak buah hatinya ke baby spa untuk mendapatkan berbagai treatment terbaik. Namun, baby spa hanya diperbolehkan jika berat badan Si Kecil sudah mencapai 5kg, lho.  Selain mengasyikan, kegiatan yang mencakup renang dan pijat ini tentunya memiliki berbagai manfaat untuk Si Kecil. Salah satunya dapat merangsang gerak motoriknya.</p>
-							<div class="read-more-button mt-4">
-								<a href="index.html" class="read-more btn">Read More </a>
-							</div>
-						</div>
-						<div class="col-lg-6 about-img mt-md-4 mt-sm-4">
-							<img src="<?php echo base_url();?>assets/user/images/b8.jpg" class="img-fluid" alt="">
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="carousel-item">
-				<div class="container py-md-5">
-					<div class="row about-vv-top mt-2">
-						<div class="col-lg-6 about-info">
-							<h4 class="title-hny  mb-md-5">Manfaat</h4>
-							<p>Baby spa atau pijat bayi saat ini sudah semakin populer. Banyak para Bunda yang rutin mengajak buah hatinya ke baby spa untuk mendapatkan berbagai treatment terbaik. Namun, </p>
-							<div class="read-more-button mt-4">
-								<a href="index.html" class="read-more btn">Read More </a>
-							</div>
+											<div class="row">	
+												<div class="col-md-4">
+													<div class="input-container">
+														<!-- <i class="glyphicon glyphicon-backward icon">a</i> -->
+														<!-- <input placeholder="Kategori" name="kategori" type="text" required=""> -->
+														<select id="kategori" name="kategori" class="js-example-basic-single" required>
+															<option value="-">Pilih Kategori</option>
+															<?php foreach ($this->db->get('kategori')->result() as $key => $value): ?>
+																<option value="<?= $value->id_kategori ?>"
+																	data-json='<?php echo json_encode($value) ?>'><?= $value->judul_kat ?></option>
+																<?php endforeach; ?>
+															</select>
+														</div>
+													</div>	
+													<div class="col-md-5">
+														<div class="input-container">
+															<!-- <i class="fa fa-envelope icon"></i> -->
+															<select id="sub-kategori" name="sub-kategori" class="js-example-basic-single" required>
+																<option value="-">Pilih Sub-Kategori</option>
+																<?php foreach ($this->db->get('sub_kategori')->result() as $key => $value): ?>
+																	<option value="<?= $value->id_sub_kategori ?>"
+																		data-json='<?php echo json_encode($value) ?>'><?= $value->judul_sub ?></option>
+																	<?php endforeach; ?>
+																</select>
+															</div>
+														</div>
+														<div class="col-md-3">
+															<div class="input-container">
+																<!-- <i class="fa fa-envelope icon"></i> -->
+																<input placeholder="Jumlah" name="jumlah" id="jumlah" type="number" required="" min="1" max="2">
+															</div>
+														</div>
+													</div>
+													<div class="row" id="form2" style="display: none; padding-bottom: 20px">	
+														<div class="col-md-4">
+															<div class="input-container">
+																<!-- <i class="glyphicon glyphicon-backward icon">a</i> -->
+																<!-- <input placeholder="Kategori" name="kategori" type="text" required=""> -->
+																<select id="kategori1" name="kategori1" class="js-example-basic-single" required>
+																	<option value="-">Pilih Kategori</option>
+																	<?php foreach ($this->db->get('kategori')->result() as $key => $value): ?>
+																		<option value="<?= $value->id_kategori ?>"
+																			data-json='<?php echo json_encode($value) ?>'><?= $value->judul_kat ?></option>
+																		<?php endforeach; ?>
+																	</select>
+																</div>
+															</div>	
+															<div class="col-md-5">
+																<div class="input-container">
+																	<!-- <i class="fa fa-envelope icon"></i> -->
+																	<select id="sub-kategori1" name="sub-kategori1" class="js-example-basic-single" required>
+																		<option value="-">Pilih Sub-Kategori</option>
+																		<?php foreach ($this->db->get('sub_kategori')->result() as $key => $value): ?>
+																			<option value="<?= $value->id_sub_kategori ?>"
+																				data-json='<?php echo json_encode($value) ?>'><?= $value->judul_sub ?></option>
+																			<?php endforeach; ?>
+																		</select>
+																	</div>
+																</div>
+																<div class="col-md-3">
+																	<div class="input-container">
+																		<!-- <i class="fa fa-envelope icon"></i> -->
+																		<input placeholder="Jumlah" id="jumlah1" name="jumlah1" type="number" required="" min="1" max="2">
+																	</div>
+																</div>
+																<br><br>	
+															</div>											
 
+															<button Class="btn" style="border-radius: 30px;">Book</button>
+														</div>
+													</form>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- </div> -->
+							</div>
 						</div>
-						<div class="col-lg-6 about-img mt-md-4 mt-sm-4">
-							<img src="<?php echo base_url();?>assets/user/images/b8.jpg" class="img-fluid" alt="">
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+						<!-- //banner -->
+						<!-- banner-bottom -->
+						<section class="some-content py-5" id="about" style="height:686px">
+							<div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+								<div class="carousel-inner">
+
+									<div class="carousel-item active">
+										<div class="container py-md-5">
+											<div class="row about-vv-top mt-2">
+												<div class="col-lg-6 about-info">
+													<h4 class="title-hny  mb-md-5">Manfaat Baby Spa untuk Melatih Motorik Bayi</h4>
+													<p>Baby spa atau pijat bayi saat ini sudah semakin populer. Banyak para Bunda yang rutin mengajak buah hatinya ke baby spa untuk mendapatkan berbagai treatment terbaik. Namun, baby spa hanya diperbolehkan jika berat badan Si Kecil sudah mencapai 5kg, lho.  Selain mengasyikan, kegiatan yang mencakup renang dan pijat ini tentunya memiliki berbagai manfaat untuk Si Kecil. Salah satunya dapat merangsang gerak motoriknya.</p>
+													<div class="read-more-button mt-4">
+														<a href="index.html" class="read-more btn">Read More </a>
+													</div>
+												</div>
+												<div class="col-lg-6 about-img mt-md-4 mt-sm-4">
+													<img src="<?php echo base_url();?>assets/user/images/b8.jpg" class="img-fluid" alt="">
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="carousel-item">
+										<div class="container py-md-5">
+											<div class="row about-vv-top mt-2">
+												<div class="col-lg-6 about-info">
+													<h4 class="title-hny  mb-md-5">Manfaat</h4>
+													<p>Baby spa atau pijat bayi saat ini sudah semakin populer. Banyak para Bunda yang rutin mengajak buah hatinya ke baby spa untuk mendapatkan berbagai treatment terbaik. Namun, </p>
+													<div class="read-more-button mt-4">
+														<a href="index.html" class="read-more btn">Read More </a>
+													</div>
+
+												</div>
+												<div class="col-lg-6 about-img mt-md-4 mt-sm-4">
+													<img src="<?php echo base_url();?>assets/user/images/b8.jpg" class="img-fluid" alt="">
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
  <!--  <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="sr-only">Previous</span>
@@ -294,54 +309,54 @@
 			<center>
 				<ol class="carousel-indicators" style="text-align: center">
 					<?php for ($i=0; $i < count($subkategori) ; $i++) { 
-						$no = 0;
-						if($i == 0 ){ ?>
-						<li data-target="#multi-item-example" data-slide-to="0" class="active" style="background-color: #d9d9d9"></li>
-						<?php }else if($i != 0 && $i % 4 == 0){
-							$no ++; ?>
-							<li data-target="#multi-item-example" data-slide-to="1" style="background-color: #d9d9d9"></li>
-							<?php }
-						}?>
-					</ol>
-				</center>
-				<!--/.Indicators-->
+	$no = 0;
+	if($i == 0 ){ ?>
+	<li data-target="#multi-item-example" data-slide-to="0" class="active" style="background-color: #d9d9d9"></li>
+	<?php }else if($i != 0 && $i % 4 == 0){
+		$no ++; ?>
+		<li data-target="#multi-item-example" data-slide-to="1" style="background-color: #d9d9d9"></li>
+		<?php }
+	}?>
+</ol>
+</center>
+<!--/.Indicators-->
 
-				<!--Slides-->
-				<!-- <div class="row inner-sec-w3layouts-w3pvt-lauinfo"> -->
-					<div class="carousel-inner" role="listbox">
+<!--Slides-->
+<!-- <div class="row inner-sec-w3layouts-w3pvt-lauinfo"> -->
+	<div class="carousel-inner" role="listbox">
 
-						<!--First slide-->
-						<?php 
-						$no = 0;
-						foreach($subkategori as $key => $value):  ?>
-						<?php if ($no == 0){?>
-						<div class="carousel-item active">
-							<div class="row inner-sec-w3layouts-w3pvt-lauinfo">
-								<?php }else if($no !=0 && $no % 4 == 0){?>
-								<div class="carousel-item">
-									<div class="row inner-sec-w3layouts-w3pvt-lauinfo">
-										<?php }?>
-										<div class="col-md-3 col-sm-6 col-6 destinations-grids text-center mb-4">
-											<div class="card mb-2">
-												<img class="card-img-top"
-												src="<?php echo base_url();?>assets/user/images/<?php echo $value->foto_sub?>"
-												alt="Card image cap" width="200" height="200">
-												<div class="card-body">
-													<h4 class="card-title"><?php echo $value->judul_sub?></h4>
-													<p class="card-text"><?php echo $value->judul_kat?></p>
-													<nr>
-														<p><b>Harga : <?php echo "Rp " . number_format($value->harga, 2, ",", ".");?></b></p>
-													</div>
-												</div>
-											</div>
-											<?php if ($no != 0 && $no % 4 == 3){?>
-										</div></div>
-										<?php } $no++;?>
-									<?php endforeach ?>
+		<!--First slide-->
+		<?php 
+		$no = 0;
+		foreach($subkategori as $key => $value):  ?>
+		<?php if ($no == 0){?>
+		<div class="carousel-item active">
+			<div class="row inner-sec-w3layouts-w3pvt-lauinfo">
+				<?php }else if($no !=0 && $no % 4 == 0){?>
+				<div class="carousel-item">
+					<div class="row inner-sec-w3layouts-w3pvt-lauinfo">
+						<?php }?>
+						<div class="col-md-3 col-sm-6 col-6 destinations-grids text-center mb-4">
+							<div class="card mb-2">
+								<img class="card-img-top"
+								src="<?php echo base_url();?>assets/user/images/<?php echo $value->foto_sub?>"
+								alt="Card image cap" width="200" height="200">
+								<div class="card-body">
+									<h4 class="card-title"><?php echo $value->judul_sub?></h4>
+									<p class="card-text"><?php echo $value->judul_kat?></p>
+									<nr>
+										<p><b>Harga : <?php echo "Rp " . number_format($value->harga, 2, ",", ".");?></b></p>
+									</div>
 								</div>
-							</section>
-							<!-- destinations -->
-							<!--/testimonials -->
+							</div>
+							<?php if ($no != 0 && $no % 4 == 3){?>
+						</div></div>
+						<?php } $no++;?>
+					<?php endforeach ?>
+				</div>
+			</section>
+			<!-- destinations -->
+			<!--/testimonials -->
 							<!-- <section class="testimonials py-5" id="testimonials">
 								<div class="container py-md-5">
 									<h3 class="heading heading1 text-center mb-3 mb-sm-5"> Client Reviews</h3>
@@ -426,4 +441,76 @@
 							</div>
 							<!-- //map -->
 
-    <!-- //contact us -->
+							<!-- //contact us -->
+
+							<script type="text/javascript">
+								$(document).ready(function () {
+									$('#datepicker1').datepicker({
+										format: "dd-mm-yyyy",
+										autoclose:true
+									});
+
+									$('#kategori').change(function(){
+										var id=$(this).val();
+										$.ajax({
+											url : "<?php echo site_url('User/get_subkategori');?>",
+											method : "POST",
+											data : {id: id},
+											dataType : 'json',
+											success: function(data){
+												var html = '<option>Pilih Sub-Kategori</option>';
+												var i;
+												//alert(data.length);
+												for(i=0; i<data.length; i++){
+													html += '<option value="'+data[i].id_sub_kategori+'">'+data[i].judul_sub+'</option>';
+
+												}
+												$('#sub-kategori').html(html);
+
+											}
+										});
+									});
+
+									$('#kategori1').change(function(){
+										var id=$(this).val();
+										$.ajax({
+											url : "<?php echo site_url('User/get_subkategori');?>",
+											method : "POST",
+											data : {id: id},
+											dataType : 'json',
+											success: function(data){
+												var html = '<option>Pilih Sub-Kategori</option>';
+												var i;
+												//alert(data.length);
+												for(i=0; i<data.length; i++){
+													html += '<option value="'+data[i].id_sub_kategori+'">'+data[i].judul_sub+'</option>';
+
+												}
+												$('#sub-kategori1').html(html);
+											}
+										});
+									});
+
+									$('#datepicker1').change(function(){
+										var tgl=$(this).val();
+										$.ajax({
+											url : "<?php echo site_url('User/get_sesiuser');?>",
+											method : "POST",
+											data : {tgl: tgl},
+											dataType : 'json',
+											success: function(data){
+												var html = '<option>Pilih Sesi</option>';
+												var i;
+												//alert(data.length);
+												for(i=0; i<data.length; i++){
+													html += '<option value="'+data[i].id_sesi+'">'+data[i].waktu+'</option>';
+
+												}
+												$('#sesi').html(html);
+											}
+										});
+									});
+								});
+							</script>
+
+

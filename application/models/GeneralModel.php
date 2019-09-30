@@ -62,11 +62,11 @@ class GeneralModel extends CI_Model {
         return $query;
     } 
 
-    public function get_selected_join($table,$table1,$where,$on)
+    public function get_selected_join($table,$table1,$where,$on,$ket)
     {
         $this->db->select('*');
         $this->db->from($table);
-        $this->db->join($table1, $on);
+        $this->db->join($table1, $on,$ket);
         $this->db->where($where);
         $query = $this->db->get();
         return $query;
