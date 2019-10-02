@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="<?php echo base_url();?>assets/admin/css/style.css">
     <!-- endinject -->
     <link rel="shortcut icon" href="<?php echo base_url();?>assets/admin/images/mamina.png" />
+
   </head>
   <body>
     <div class="container-scroller">
@@ -135,7 +136,7 @@
               </li>	
             </ul>
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-                <a class="navbar-brand brand-logo" href="index.html"><img src="<?php echo base_url();?>assets/admin/images/logo.svg" alt="logo"/></a>
+                <a class="navbar-brand brand-logo" href=""><img src="<?php echo base_url();?>assets/admin/images/logo.svg" alt="logo"/></a>
                 <a class="navbar-brand brand-logo-mini" href="index.html"><img src="<?php echo base_url();?>assets/admin/images/logo-mini.svg" alt="logo"/></a>
             </div>
             <ul class="navbar-nav navbar-nav-right">
@@ -189,7 +190,7 @@
         <div class="container">
             <ul class="nav page-navigation">
               <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="<?php echo base_url();?>index.php/Admin">
                   <i class="mdi mdi-file-document-box menu-icon"></i>
                   <span class="menu-title">Dashboard</span>
                 </a>
@@ -293,8 +294,8 @@
 								            <td><?php echo $cuitem['contact']; ?></td>
 								            <td><?php echo $cuitem['keterangan']; ?></td>
 								            <td>
-								                <a href="<?php echo site_url('Admin/edit/'.$cuitem['id_contact']); ?>">Edit</a> 
-								                <a href="<?php echo site_url('Admin/delete/'.$cuitem['id_contact']); ?>" onClick="return confirm('Are you sure you want to delete?')">Delete</a>
+								                <a class="btn btn-warning" href="<?php echo site_url('Admin/edit/'.$cuitem['id_contact']); ?>">Edit</a> 
+								                <a class="btn btn-info" href="<?php echo site_url('Admin/delete/'.$cuitem['id_contact']); ?>" onClick="return confirm('Are you sure you want to delete?')">Delete</a>
 								            </td>
 								        </tr>
 									<?php endforeach; ?>

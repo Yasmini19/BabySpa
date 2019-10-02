@@ -226,10 +226,10 @@
           </li>
 
           <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
+            <a href="<?php echo base_url();?>index.php/Admin/contact_us"0 class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
-                Widgets
+                Kontak dan Alamat
                 <span class="right badge badge-danger">New</span>
               </p>
             </a>
