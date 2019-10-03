@@ -217,34 +217,7 @@
             </a>
           </li>
 
-          <li class="nav-item">
-            <a href="<?php echo base_url();?>index.php/Admin/User" class="nav-link">
-              <i class="nav-icon fa fa-user"></i>
-              <p>
-                User
-              </p>
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a href="<?php echo base_url();?>index.php/Admin/gallery" class="nav-link">
-              <i class="nav-icon far fa-image"></i>
-              <p>
-                Gallery
-              </p>
-            </a>
-          </li>
-
-
-           <li class="nav-item">
-            <a href="<?php echo base_url();?>index.php/Admin/berita" class="nav-link">
-              <i class="nav-icon fa fa-newspaper-o"></i>
-              <p>
-                Berita
-                
-              </p>
-            </a>
-          </li>
+          
 
           <li class="nav-item">
             <a href="pages/widgets.html" class="nav-link">
