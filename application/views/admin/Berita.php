@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 3 | Dashboard</title>
+  <title>Admin Mamina</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->
@@ -31,6 +31,9 @@
   <link rel="stylesheet" href="<?php echo base_url();?>assets/admin/plugins/summernote/summernote-bs4.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <script src="<?php echo base_url();?>assets/js/jquery/jquery-3.1.0.js"></script>
+
+
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -207,7 +210,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="<?php echo base_url();?>index.php/Admin/terapis" class="nav-link  active">
+            <a href="<?php echo base_url();?>index.php/Admin/terapis" class="nav-link ">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Terapis
@@ -217,8 +220,8 @@
           </li>
 
 
-        <li class="nav-item">
-            <a href="<?php echo base_url();?>index.php/Admin/User" class="nav-link">
+           <li class="nav-item">
+            <a href="<?php echo base_url();?>index.php/Admin/User" class="nav-link ">
               <i class="nav-icon fa fa-user"></i>
               <p>
                 User
@@ -227,8 +230,7 @@
             </a>
           </li>
 
-
-        <li class="nav-item">
+          <li class="nav-item">
             <a href="<?php echo base_url();?>index.php/Admin/gallery" class="nav-link">
               <i class="nav-icon far fa-image"></i>
               <p>
@@ -239,7 +241,7 @@
 
 
            <li class="nav-item">
-            <a href="<?php echo base_url();?>index.php/Admin/berita" class="nav-link">
+            <a href="<?php echo base_url();?>index.php/Admin/berita" class="nav-link active">
               <i class="nav-icon fa fa-newspaper-o"></i>
               <p>
                 Berita
@@ -262,7 +264,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Terapis</h1>
+            <h1 class="m-0 text-dark">Berita</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -283,11 +285,11 @@
 
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Data Terapis</h3>
+              <h3 class="card-title">Data Berita</h3>
             </div>
             <!--Add-->
             <div class="card-footer clearfix">
-                <button type="button" class="btn btn-info float-left" data-toggle="modal" data-target="#modal-tambah">
+                <button type="button" class="btn btn-info float-left" data-toggle="modal" data-target="#modal-tambah-berita">
                     <i class="fas fa-plus"></i> Add
                 </button>
 
@@ -309,33 +311,25 @@
             <div class="card-body">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
-                  <th class="sorting_asc" tabindex="0" aria-controls="demo-datatables" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" >Id User</th>
-                  <th>Full Name</th>
-                  <th>Username</th>
-                  <th>Email</th>
-                  <th>No Tlp</th>
-                  <th>Alamat</th>
+                  <th class="sorting_asc" tabindex="0" aria-controls="demo-datatables" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" >Id Berita</th>
+                  <th>Judul</th>
+                  <th>Deskripsi</th>
                   <th>Foto</th>
                   <th>Action</th>
                 </thead>
                 <tbody>
                      
-                          <?php foreach ($terps as $key => $value): ?>
-                          <tr>
-                          <td><?php echo $value->id_user ?></td>
-                          <td><?php echo $value->full_name ?></td>
-                          <td><?php echo $value->username ?></td>
-                          <td><?php echo $value->email ?></td>
-                          <td><?php echo $value->no_telp ?></td>
-                          <td><?php echo $value->alamat ?></td>
-                          <td><img src="<?php echo base_url()?>./assets/upload/<?php echo $value->foto?>" alt="" width=100 height=100></td>
+                          <?php foreach ($brt as $key => $value): ?>
+                           <tr>
+                          <td><?php echo $value->id_berita ?></td>
+                          <td><?php echo $value->judul_berita ?></td>
+                          <td><?php echo $value->deskripsi ?></td>
+                        
+                          <td><img src="<?php echo base_url()?>./assets/upload/<?php echo $value->foto_berita?>" alt="" width=100 height=100></td>
                            <td>
-
-
-                                <a href="<?php echo base_url("/Admin/edit_terapis".$value->id_user) ?>" class="fas fa-edit" aria-hidden="true" data-toggle="modal" data-target="#modal-edit" name="tombolEdit" value="<?php echo $value->id_user; ?>"></a>
-                                <a href="<?php echo base_url("/Admin/delete_terapis/".$value->id_user) ?>" class="far fa-trash-alt" aria-hidden="true" name="tombolDelete" value="<?php echo $value->id_user; ?>"></a>
+                                 <a href="<?php echo base_url("/Admin/edit_berita/".$value->id_berita) ?>" class="fas fa-edit" aria-hidden="true" data-target="#modal-edit-berita" name="tombolEditBerita" value="<?php echo $value->id_berita; ?>"></a>
+                                <a href="<?php echo base_url("/Admin/delete_berita/".$value->id_berita) ?>" class="far fa-trash-alt" aria-hidden="true" name="tombolDeleteBerita" value="<?php echo $value->id_berita; ?>"></a>
                           </td>
-
                         </tr>
                         <?php endforeach; ?>
                         
@@ -357,16 +351,16 @@
     <!-- /.content -->
   </div>
 
-  <!--Modal ADD-->
+<!--Modal ADD-->
 
-        <div class="modal fade" id="modal-tambah" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="modal-tambah-berita" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <!--Header-->
               <div class="modal-header">
                 <?php //echo form_open_multipart('Admin/add_terapis'); ?> 
 
-                <h4 class="modal-title" id="myModalLabel">Terapis</h4>
+                <h4 class="modal-title" id="myModalLabel">Berita</h4>
                 <?php echo validation_errors(); ?>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">×</span>
@@ -376,19 +370,17 @@
               <div class="modal-body">
                   <div class="modal-body mx-3">
               <!-- <FORM id="addTerapis"> -->
-               <form method="post" accept-charset="utf-8" id="addTerapis" enctype="multipart/form-data">
-
-                 
+               <form method="post" accept-charset="utf-8" id="addBerita" enctype="multipart/form-data">
 
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
                   <span class="input-group-text">
-                    <i class="fa fa-user">
+                    <i class="fa fa-newspaper">
                       
                     </i>
                   </span>
                 </div>
-                <input type="text" id="full_name" name="full_name" class="form-control" placeholder="Fullname">
+                <input type="text" id="judul_berita" name="judul_berita" class="form-control" placeholder="Judul Berita">
               </div>
 
               <div >
@@ -402,51 +394,11 @@
                     @
                   </span>
                 </div>
-                <input type="text" id="username" name="username" class="form-control" placeholder="Username">
+                <input type="text" id="deskripsi" name="deskripsi" class="form-control" placeholder="Deskripsi">
               </div>
-
-
-              <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">
-                     <i class="fa fa-envelope">
-                      
-                    </i>
-                  </span>
-                </div>
-                <input type="email" id="email" name="email" class="form-control" placeholder="Email">
-              </div>
-
-
-              <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">
-                     <i class="fa fa-phone">
-                      
-                    </i>
-                  </span>
-                </div>
-                <input type="text" id="no_telp" name="no_telp" class="form-control" placeholder="No Telp">
-              </div>
-
-
-
-              <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">
-                     <i class="fa fa-address-book">
-                      
-                    </i>
-                  </span>
-                </div>
-                <input type="text" id="alamat" name="alamat" class="form-control" placeholder="Alamat">
-              </div>
-                
-            
-
-
-                 <div class="md-form mb-4">
-                  <input type="file" id="foto" class="form-control validate" name="foto" placeholder="Input field">
+        
+              <div class="md-form mb-4">
+                  <input type="file" id="foto_berita" class="form-control validate" name="foto_berita" placeholder="Input field">
 
                 </div>
                 
@@ -455,7 +407,7 @@
             </div>
              <!--Footer-->
               <div class="modal-footer">
-                <input type="submit" name="submit" class="btn btn-outline-primary" id="btnSimpanTerapis">
+                <input type="submit" name="submit" class="btn btn-outline-primary" id="btnSimpanBerita">
                 <input type="button" class="btn btn-primary" value="Close" data-dismiss="modal">
                 <?php //echo form_close(); ?>
               </div>
@@ -463,38 +415,33 @@
         </div>
       </div>
 
-            <!--Modal EDIT-->
+      <!--Modal EDIT-->
 
-         <div class="modal fade" id="modal-edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="modal-edit-user" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <!--Header-->
               <div class="modal-header">
 
-                <h4 class="modal-title" id="myModalLabel">Terapis</h4>
+                <h4 class="modal-title" id="myModalLabel">Berita</h4>
                 <?php echo validation_errors(); ?>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">×</span>
                 </button>
               </div>
               <!-- <FORM id="addTerapis"> -->
-               <form method="post" accept-charset="utf-8" id="editTerapis" enctype="multipart/form-data">
+               <form method="post" accept-charset="utf-8" id="editUser" enctype="multipart/form-data">
               <!--Body-->
               <div class="modal-body">
                   <div class="modal-body mx-3">
               
                     <input type="hidden" id="edit_id" name="edit_id">
                     <input type="hidden" id="edit_level" name="edit_level">
-               <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">
-                    <i class="fa fa-user">
-                      
-                    </i>
-                  </span>
+                <div class="md-form mb-5">
+                  <i class="fas fa-envelope prefix grey-text"></i>
+                  <input type="text" id="edit_full_name" class="form-control validate" name="edit_full_name" placeholder="Input field">
+                  <label data-error="wrong" data-success="right" for="defaultForm-email">Fullname</label>
                 </div>
-                <input type="text" id="edit_full_name" name="edit_full_name" class="form-control" placeholder="Fullname">
-              </div>
 
                 <div class="md-form mb-4">
                   <i class="fas fa-lock prefix grey-text"></i>
@@ -535,7 +482,7 @@
 
               <!--Footer-->
               <div class="modal-footer">
-                <input type="submit" name="submit" class="btn btn-outline-primary" id="btnSimpanTerapis">
+                <input type="submit" name="submit" class="btn btn-outline-primary" id="btnSimpanUser">
                 <input type="button" class="btn btn-primary" value="Close" data-dismiss="modal">
                 <?php //echo form_close(); ?>
               </div>
@@ -544,8 +491,11 @@
           </div>
         </div>
 
+             
 
-    <!-- Main content -->
+
+
+     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
@@ -560,10 +510,6 @@
     </section>
     <!-- /.content -->
   </div>
-
-
-
-
 
   <!-- /.content-wrapper -->
   <footer class="main-footer">
@@ -585,12 +531,12 @@
 <script src="<?php echo base_url();?>assets/admin/jquery/jquery.js"></script>
     <script type="text/javascript">
 
-      $('form#addTerapis').submit(function(e){
+      $('form#addBerita').submit(function(e){
         e.preventDefault();
-        var formData = new FormData($('form#addTerapis')[0]);
+        var formData = new FormData($('form#addBerita')[0]);
 
         $.ajax({
-          url: '<?php echo site_url('admin/add_terapis');?>',
+          url: '<?php echo site_url('admin/add_berita');?>',
           type: 'POST',
           data: formData,
 
@@ -620,7 +566,7 @@
         {
 
           $.ajax({
-            url: '<?php echo site_url('admin/search_terapis') ?>',
+            url: '<?php echo site_url('admin/search_berita') ?>',
             type: 'post',
             data: {text:text},
             success: function(data) {
@@ -634,12 +580,12 @@
         {alert('error');}
       });
 
-       $('[name="tombolEdit"]').click(function(){
+       $('[name="tombolEditBerita"]').click(function(){
         
         var id = $(this).attr('value')
        
         $.ajax({
-          url: '<?php echo site_url('admin/get_terapis') ?>',
+          url: '<?php echo site_url('admin/get_berita') ?>',
           type: 'post',
           data: {id:id},
           success: function(data) {
@@ -647,25 +593,21 @@
             
             data=JSON.parse(data);
             
-            $('#edit_id').val(data.id_user);
-            $('#edit_level').val(data.level);
-            $('#edit_full_name').val(data.full_name);
-            $('#edit_username').val(data.username);
-            $('#edit_email').val(data.email);
-            $('#edit_no_telp').val(data.no_telp);
-            $('#edit_alamat').val(data.alamat);
+            $('#edit_id_berita').val(data.id_berita);
+            $('#edit_judul_berita').val(data.judul_berita);
+            $('#edit_deskripsi').val(data.deskripsi);
             $('#foto_lama').attr('src', '<?php echo base_url()?>/assets/upload/'+data.foto);
          }
         });
       });
      
      //ajaxformedit
-      $('form#editTerapis').submit(function(e){
+      $('form#editBerita').submit(function(e){
         e.preventDefault();
-        var formData = new FormData($('form#editTerapis')[0]);
+        var formData = new FormData($('form#editBerita')[0]);
         
         $.ajax({
-          url: '<?php echo site_url('admin/edit_terapis');?>',
+          url: '<?php echo site_url('admin/edit_berita');?>',
           type: 'POST',
           data: formData,
 
@@ -687,9 +629,31 @@
         });
       });
 
-</script>
 
+      //ajaxdelete
+      $('[name="tombolDeleteBerita"]').click(function(e){
+        e.preventDefault();
+        var id = $(this).attr('value')
+        //alert(id);
+        $.ajax({
+          url: '<?php echo site_url('admin/delete_berita') ?>',
+          type: 'post',
+          data: {id:id},
+          success: function(response) {
+            //alert(response);
+          if (response)
+            {
+              alert('berhasil');
+              location.reload();
+            }
+            else
+            { alert('error : ' + response); }
+          
+          }
+        });
+      });
 
+    </script>
 <!-- jQuery -->
 <script src="<?php echo base_url();?>assets/admin/plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
