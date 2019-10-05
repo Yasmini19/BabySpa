@@ -192,28 +192,20 @@
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
-           <!-- <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="./homeAdmin.php" class="nav-link active">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v1</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="./homeAdmin2.php " class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v2</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="./index3.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v3</p>
-                </a>
-              </li>
-            </ul>
-          -->
+           
           </li>
+
+
+           <li class="nav-item">
+            <a href="<?php echo base_url();?>index.php/Admin/contact_us" class="nav-link">
+              <i class="nav-icon fas fa-phone"></i>
+              <p>
+                Kontak dan Alamat
+                
+              </p>
+            </a>
+          </li>
+          
 
           <li class="nav-item">
             <a href="<?php echo base_url();?>index.php/admin/Terapis" class="nav-link">
@@ -224,6 +216,8 @@
               </p>
             </a>
           </li>
+
+          
 
           <li class="nav-item">
             <a href="<?php echo base_url();?>index.php/Admin/contact_us"0 class="nav-link">

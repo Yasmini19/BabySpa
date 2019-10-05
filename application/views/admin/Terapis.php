@@ -192,27 +192,18 @@
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
-           <!-- <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="./homeAdmin.php" class="nav-link active">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v1</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="./homeAdmin2.php " class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v2</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="./index3.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v3</p>
-                </a>
-              </li>
-            </ul>
-          -->
+           
+          </li>
+
+
+          <li class="nav-item">
+            <a href="<?php echo base_url();?>index.php/Admin/contact_us" class="nav-link">
+              <i class="nav-icon fas fa-phone"></i>
+              <p>
+                Kontak dan Alamat
+                
+              </p>
+            </a>
           </li>
 
           <li class="nav-item">
@@ -226,6 +217,36 @@
           </li>
 
 
+        <li class="nav-item">
+            <a href="<?php echo base_url();?>index.php/Admin/User" class="nav-link">
+              <i class="nav-icon fa fa-user"></i>
+              <p>
+                User
+                
+              </p>
+            </a>
+          </li>
+
+
+        <li class="nav-item">
+            <a href="<?php echo base_url();?>index.php/Admin/gallery" class="nav-link">
+              <i class="nav-icon far fa-image"></i>
+              <p>
+                Gallery
+              </p>
+            </a>
+          </li>
+
+
+           <li class="nav-item">
+            <a href="<?php echo base_url();?>index.php/Admin/berita" class="nav-link">
+              <i class="nav-icon fa fa-newspaper-o"></i>
+              <p>
+                Berita
+                
+              </p>
+            </a>
+          </li>
 
           
       </nav>
@@ -309,6 +330,8 @@
                           <td><?php echo $value->alamat ?></td>
                           <td><img src="<?php echo base_url()?>./assets/upload/<?php echo $value->foto?>" alt="" width=100 height=100></td>
                            <td>
+
+
                                 <a href="<?php echo base_url("/Admin/edit_terapis".$value->id_user) ?>" class="fas fa-edit" aria-hidden="true" data-toggle="modal" data-target="#modal-edit" name="tombolEdit" value="<?php echo $value->id_user; ?>"></a>
                                 <a href="<?php echo base_url("/Admin/delete_terapis/".$value->id_user) ?>" class="far fa-trash-alt" aria-hidden="true" name="tombolDelete" value="<?php echo $value->id_user; ?>"></a>
                           </td>
@@ -355,12 +378,7 @@
               <!-- <FORM id="addTerapis"> -->
                <form method="post" accept-charset="utf-8" id="addTerapis" enctype="multipart/form-data">
 
-                  <!--<div class="md-form mb-5">
-                  <i class="fas fa-envelope prefix grey-text"></i>
-                  <input type="text" id="full_name" class="form-control validate" name="full_name" placeholder="Fullname" data-success="right" for="defaultForm-email" >
-                  
-                </div>
-              -->
+                 
 
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
@@ -447,7 +465,7 @@
 
             <!--Modal EDIT-->
 
-         <div class="modal fade" id="modal-edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="modal-edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <!--Header-->
@@ -476,10 +494,6 @@
                   </span>
                 </div>
                 <input type="text" id="edit_full_name" name="edit_full_name" class="form-control" placeholder="Fullname">
-              </div>
-
-              <div >
-                
               </div>
 
                 <div class="md-form mb-4">

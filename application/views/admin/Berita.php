@@ -231,7 +231,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="<?php echo base_url();?>index.php/Admin/gallery" class="nav-link active">
+            <a href="<?php echo base_url();?>index.php/Admin/gallery" class="nav-link">
               <i class="nav-icon far fa-image"></i>
               <p>
                 Gallery
@@ -241,7 +241,7 @@
 
 
            <li class="nav-item">
-            <a href="<?php echo base_url();?>index.php/Admin/berita" class="nav-link ">
+            <a href="<?php echo base_url();?>index.php/Admin/berita" class="nav-link active">
               <i class="nav-icon fa fa-newspaper-o"></i>
               <p>
                 Berita
@@ -264,7 +264,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">User</h1>
+            <h1 class="m-0 text-dark">Berita</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -285,11 +285,11 @@
 
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Data Gallery</h3>
+              <h3 class="card-title">Data Berita</h3>
             </div>
             <!--Add-->
             <div class="card-footer clearfix">
-                <button type="button" class="btn btn-info float-left" data-toggle="modal" data-target="#modal-tambah-gallery">
+                <button type="button" class="btn btn-info float-left" data-toggle="modal" data-target="#modal-tambah-berita">
                     <i class="fas fa-plus"></i> Add
                 </button>
 
@@ -311,27 +311,24 @@
             <div class="card-body">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
-                  <th class="sorting_asc" tabindex="0" aria-controls="demo-datatables" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" >Id Gallery</th>
-                 
-                  <th>Gallery</th>
-                  <th>Keterangan</th>
+                  <th class="sorting_asc" tabindex="0" aria-controls="demo-datatables" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" >Id Berita</th>
+                  <th>Judul</th>
+                  <th>Deskripsi</th>
+                  <th>Foto</th>
                   <th>Action</th>
                 </thead>
                 <tbody>
                      
-                          <?php foreach ($gallery as $key => $value): ?>
+                          <?php foreach ($brt as $key => $value): ?>
                            <tr>
-                          <td><?php echo $value->id_galery ?></td>
-                          
-                          
+                          <td><?php echo $value->id_berita ?></td>
+                          <td><?php echo $value->judul_berita ?></td>
+                          <td><?php echo $value->deskripsi ?></td>
                         
-                          <td><img src="<?php echo base_url()?>./assets/user/images/<?php echo $value->galery?>" alt="" width=100 height=100></td>
-
-                          <td><?php echo $value->keterangan ?></td>
-
+                          <td><img src="<?php echo base_url()?>./assets/upload/<?php echo $value->foto_berita?>" alt="" width=100 height=100></td>
                            <td>
-                                 <a href="<?php echo base_url("/Admin/edit_galleryga/".$value->id_galery) ?>" class="fas fa-edit" aria-hidden="true" data-target="#modal-edit-gallery" name="tombolEditGallery" value="<?php echo $value->id_galery; ?>"></a>
-                                <a href="<?php echo base_url("/Admin/delete_gallery/".$value->id_galery) ?>" class="far fa-trash-alt" aria-hidden="true" name="tombolDeleteGallery" value="<?php echo $value->id_galery; ?>"></a>
+                                 <a href="<?php echo base_url("/Admin/edit_berita/".$value->id_berita) ?>" class="fas fa-edit" aria-hidden="true" data-target="#modal-edit-berita" name="tombolEditBerita" value="<?php echo $value->id_berita; ?>"></a>
+                                <a href="<?php echo base_url("/Admin/delete_berita/".$value->id_berita) ?>" class="far fa-trash-alt" aria-hidden="true" name="tombolDeleteBerita" value="<?php echo $value->id_berita; ?>"></a>
                           </td>
                         </tr>
                         <?php endforeach; ?>
@@ -356,14 +353,14 @@
 
 <!--Modal ADD-->
 
-        <div class="modal fade" id="modal-tambah-gallery" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="modal-tambah-berita" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <!--Header-->
               <div class="modal-header">
                 <?php //echo form_open_multipart('Admin/add_terapis'); ?> 
 
-                <h4 class="modal-title" id="myModalLabel">Gallery</h4>
+                <h4 class="modal-title" id="myModalLabel">Berita</h4>
                 <?php echo validation_errors(); ?>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">×</span>
@@ -373,12 +370,18 @@
               <div class="modal-body">
                   <div class="modal-body mx-3">
               <!-- <FORM id="addTerapis"> -->
-               <form method="post" accept-charset="utf-8" id="addGallery" enctype="multipart/form-data">
+               <form method="post" accept-charset="utf-8" id="addBerita" enctype="multipart/form-data">
 
-              <div class="md-form mb-4">
-                  <input type="file" id="galery" class="form-control validate" name="galery" placeholder="Input field">
-
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="fa fa-newspaper">
+                      
+                    </i>
+                  </span>
                 </div>
+                <input type="text" id="judul_berita" name="judul_berita" class="form-control" placeholder="Judul Berita">
+              </div>
 
               <div >
                 
@@ -387,22 +390,24 @@
 
                 <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                  
                   <span class="input-group-text">
                     @
                   </span>
                 </div>
-                <input type="text" id="keterangan" name="keterangan" class="form-control" placeholder="Keterangan">
+                <input type="text" id="deskripsi" name="deskripsi" class="form-control" placeholder="Deskripsi">
               </div>
         
-             
+              <div class="md-form mb-4">
+                  <input type="file" id="foto_berita" class="form-control validate" name="foto_berita" placeholder="Input field">
+
+                </div>
                 
               </div>
 
             </div>
              <!--Footer-->
               <div class="modal-footer">
-                <input type="submit" name="submit" class="btn btn-outline-primary" id="btnSimpanGalerry">
+                <input type="submit" name="submit" class="btn btn-outline-primary" id="btnSimpanBerita">
                 <input type="button" class="btn btn-primary" value="Close" data-dismiss="modal">
                 <?php //echo form_close(); ?>
               </div>
@@ -412,7 +417,7 @@
 
       <!--Modal EDIT-->
 
-        <div class="modal fade" id="modal-edit-gallery" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="modal-edit-user" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <!--Header-->
@@ -425,31 +430,50 @@
                 </button>
               </div>
               <!-- <FORM id="addTerapis"> -->
-               <form method="post" accept-charset="utf-8" id="editGallery" enctype="multipart/form-data">
+               <form method="post" accept-charset="utf-8" id="editUser" enctype="multipart/form-data">
               <!--Body-->
               <div class="modal-body">
                   <div class="modal-body mx-3">
               
                     <input type="hidden" id="edit_id" name="edit_id">
                     <input type="hidden" id="edit_level" name="edit_level">
-                
+                <div class="md-form mb-5">
+                  <i class="fas fa-envelope prefix grey-text"></i>
+                  <input type="text" id="edit_full_name" class="form-control validate" name="edit_full_name" placeholder="Input field">
+                  <label data-error="wrong" data-success="right" for="defaultForm-email">Fullname</label>
+                </div>
 
                 <div class="md-form mb-4">
                   <i class="fas fa-lock prefix grey-text"></i>
-                  <img alt="" width=100 height=100 id="galery">
-                  <input type="file" id="edit_gallery" class="form-control validate" name="edit_gallery" placeholder="Input field">
+                  <input type="text" id="edit_username" class="form-control validate" name="edit_username" placeholder="Input field">
+                  <label data-error="wrong" data-success="right" for="defaultForm-pass">Username</label>
+                </div>
+
+                <div class="md-form mb-4">
+                  <i class="fas fa-lock prefix grey-text"></i>
+                  <input type="email" id="edit_email" class="form-control validate" name="edit_email" placeholder="Input field">
+                  <label data-error="wrong" data-success="right" for="defaultForm-pass">Email</label>
+                </div>
+
+                <div class="md-form mb-4">
+                  <i class="fas fa-lock prefix grey-text"></i>
+                  <input type="text" id="edit_no_telp" class="form-control validate" name="edit_no_telp" placeholder="Input field">
+                  <label data-error="wrong" data-success="right" for="defaultForm-pass">No Telp</label>
+                </div>
+                
+                <div class="md-form mb-4">
+                  <i class="fas fa-lock prefix grey-text"></i>
+                  <input type="text" id="edit_alamat" class="form-control validate" name="edit_alamat" placeholder="Input field">
+                  <label data-error="wrong" data-success="right" for="defaultForm-pass">Alamat</label>
+                </div>
+
+                <div class="md-form mb-4">
+                  <i class="fas fa-lock prefix grey-text"></i>
+                  <img alt="" width=100 height=100 id="foto_lama">
+                  <input type="file" id="edit_foto" class="form-control validate" name="edit_foto" placeholder="Input field">
 
                   <label data-error="wrong" data-success="right" for="defaultForm-pass">Foto</label>
                 </div>
-                
-
-                <div class="md-form mb-4">
-                  <i class="fas fa-lock prefix grey-text"></i>
-                  <input type="text" id="edit_deskripsi" class="form-control validate" name="edit_deskripsi" placeholder="Input field">
-                  <label data-error="wrong" data-success="right" for="defaultForm-pass">Deskripsi</label>
-                </div>
-
-                
                 
               </div>
 
@@ -458,7 +482,7 @@
 
               <!--Footer-->
               <div class="modal-footer">
-                <input type="submit" name="submit" class="btn btn-outline-primary" id="btnSimpanGallery">
+                <input type="submit" name="submit" class="btn btn-outline-primary" id="btnSimpanUser">
                 <input type="button" class="btn btn-primary" value="Close" data-dismiss="modal">
                 <?php //echo form_close(); ?>
               </div>
@@ -507,12 +531,12 @@
 <script src="<?php echo base_url();?>assets/admin/jquery/jquery.js"></script>
     <script type="text/javascript">
 
-      $('form#addGallery').submit(function(e){
+      $('form#addBerita').submit(function(e){
         e.preventDefault();
-        var formData = new FormData($('form#addGallery')[0]);
+        var formData = new FormData($('form#addBerita')[0]);
 
         $.ajax({
-          url: '<?php echo site_url('admin/add_gallery');?>',
+          url: '<?php echo site_url('admin/add_berita');?>',
           type: 'POST',
           data: formData,
 
