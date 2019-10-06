@@ -66,13 +66,13 @@
         }
 
 		//Galery
-		public function galery() 
+		public function gallery() 
 		{
-			$data['galerys'] = $this->GeneralModel->get_data('galery')->result();
+			$data['glry'] = $this->GeneralModel->get_data('galery')->result();
 			$this->load->view('admin/Galery', $data);
 		}
 
-		public function add_galery()
+		public function add_gallery()
 		{
 			$config['upload_path']     = './assets/user/images';
             $config['allowed_types']  = 'gif|jpg|png';
@@ -103,6 +103,52 @@
            echo json_encode($result);
 
 		}
+
+
+        public function get_gallery()
+        {
+            $id = $this->input->post('id');
+            $data = $this->GeneralModel->get_selected('galery', array('id_galery' => $id))->row();
+        
+        echo json_encode($data);
+        }
+
+        public function edit_gallery()
+        {
+                $config['upload_path']     = './assets/user/images';
+                $config['allowed_types']  = 'gif|jpg|png';
+                $config['max_size']        = 1000000000;
+                $config['max_width']       = 10240;
+                $config['max_height']      = 7680;
+
+                $this->load->library('upload',$config);
+                $result='';
+
+                $id = array('id_galery' => $this->input->post('edit_id') );
+                $data = array(
+                                'keterangan'     => $this->input->post('edit_keterangan'), 
+                                    
+                );
+
+                if ($this->upload->do_upload('edit_galery'))
+                {
+                         $data['galery'] = $this->upload->data('file_name');
+                }
+
+                        $result = $this->GeneralModel->update_data('galery', $data, $id );
+        
+                        echo json_encode($result);
+        }
+
+         public function delete_gallery()
+        {
+             $id = array('id_galery' => $this->input->post('id') );
+             $result = $this->GeneralModel->delete_data($id,'galery');
+             echo json_encode($result);
+        }
+
+
+
 		
 		//Terapis
         public function terapis()
@@ -110,7 +156,6 @@
             $data['terps'] = $this->GeneralModel->get_data('user')->result();
             $this->load->view('admin/Terapis', $data);
 
-            //$this->load->view('admin/Terapis');
         }
 
         public function add_terapis()
@@ -408,6 +453,93 @@
                 echo json_encode($result);
             }
 
+            //Berita
+
+                public function berita()
+            {
+
+                $data['brt'] = $this->GeneralModel->get_data('berita')->result();
+                $this->load->view('admin/Berita', $data);
+            }
+
+            public function add_berita()
+            {
+                $config['upload_path']     = './assets/upload';
+                $config['allowed_types']  = 'gif|jpg|png';
+                $config['max_size']        = 1000000000;
+                $config['max_width']       = 10240;
+                $config['max_height']      = 7680;
+
+                $this->load->library('upload',$config);
+                 $result = '';
+                if (!$this->upload->do_upload('foto_berita'))
+                {
+                    $result = $this->upload->display_errors();
+                }
+                else
+                {
+                $data = array(   
+                    'judul_berita'  => $this->input->post('judul_berita'), 
+                    'deskripsi'     => $this->input->post('deskripsi'), 
+                    'foto_berita'   => $this->upload->data('file_name')
+                    
+                );
+
+                $result = $this->GeneralModel->add_data('berita', $data);
+
+                //$this->GeneralModel->add_data();
+                $this->load->view('admin/Berita');
+                $result = 'true';
+            }
+
+           echo json_encode($result);
+        }
+
+        public function get_berita()
+        {
+            $id = $this->input->post('id');
+            $data = $this->GeneralModel->get_selected('berita', array('id_berita' => $id))->row();
+        
+        echo json_encode($data);
+        }
+
+
+        public function edit_berita()
+        {
+                $config['upload_path']     = './assets/upload';
+                $config['allowed_types']  = 'gif|jpg|png';
+                $config['max_size']        = 1000000000;
+                $config['max_width']       = 10240;
+                $config['max_height']      = 7680;
+
+                $this->load->library('upload',$config);
+                $result='';
+
+                $id = array('id_berita' => $this->input->post('edit_id') );
+                $data = array(
+                'judul_berita'     => $this->input->post('edit_judul_berita'), 
+                'deskripsi'        => $this->input->post('edit_deskripsi')
+                
+             );
+
+            if ($this->upload->do_upload('edit_foto'))
+            {
+                $data['foto_berita'] = $this->upload->data('file_name');
+            }
+
+                $result = $this->GeneralModel->update_data('berita', $data, $id );
+        
+                echo json_encode($result);
+            }
+
+
+
+            public function delete_berita()
+            {
+                $id = array('id_berita' => $this->input->post('id') );
+                $result = $this->GeneralModel->delete_data($id,'berita');
+                echo json_encode($result);
+            }
 
     }
     ?>
