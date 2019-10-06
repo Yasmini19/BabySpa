@@ -219,15 +219,35 @@
 
           
 
-          <li class="nav-item">
-            <a href="<?php echo base_url();?>index.php/Admin/contact_us"0 class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
+         <li class="nav-item">
+            <a href="<?php echo base_url();?>index.php/Admin/User" class="nav-link">
+              <i class="nav-icon fa fa-user"></i>
               <p>
-                Kontak dan Alamat
-                <span class="right badge badge-danger">New</span>
+                User
               </p>
             </a>
           </li>
+
+          <li class="nav-item">
+            <a href="<?php echo base_url();?>index.php/Admin/galery" class="nav-link">
+              <i class="nav-icon far fa-image"></i>
+              <p>
+                Gallery
+              </p>
+            </a>
+          </li>
+
+
+           <li class="nav-item">
+            <a href="<?php echo base_url();?>index.php/Admin/berita" class="nav-link">
+              <i class="nav-icon fa fa-newspaper-o"></i>
+              <p>
+                Berita
+                
+              </p>
+            </a>
+          </li>
+          
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
