@@ -208,7 +208,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="<?php echo base_url(); ?>index.php/Admin/terapis" class="nav-link">
+                            <a href="<?php echo base_url(); ?>index.php/Admin/terapis" class="nav-link  ">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     Terapis
@@ -229,7 +229,7 @@
 
 
                         <li class="nav-item">
-                            <a href="<?php echo base_url(); ?>index.php/Admin/gallery" class="nav-link">
+                            <a href="<?php echo base_url(); ?>index.php/Admin/gallery" class="nav-link ">
                                 <i class="nav-icon far fa-image"></i>
                                 <p>
                                     Gallery
@@ -238,16 +238,17 @@
                         </li>
 
 						<li class="nav-item">
-            <a href="<?php echo base_url();?>index.php/Admin/Kategori" class="nav-link">
-              <i class="nav-icon fas fa-book"></i>
-              <p>
-                Kategori
-              </p>
-            </a>
-          </li>
+							<a href="<?php echo base_url();?>index.php/Admin/Kategori" class="nav-link">
+							<i class="nav-icon fas fa-book"></i>
+							<p>
+								Kategori
+							</p>
+							</a>
+						</li>
+
 
                         <li class="nav-item">
-                            <a href="<?php echo base_url(); ?>index.php/Admin/berita" class="nav-link">
+                            <a href="<?php echo base_url(); ?>index.php/Admin/berita" class="nav-link ">
                                 <i class="nav-icon fa fa-newspaper-o"></i>
                                 <p>
                                     Berita
@@ -270,7 +271,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0 text-dark">Terapis</h1>
+                            <h1 class="m-0 text-dark">Kategori</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
@@ -291,11 +292,11 @@
 
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Data Terapis</h3>
+                                <h3 class="card-title">Data Kategori</h3>
                             </div>
                             <!--Add-->
                             <div class="card-footer clearfix">
-                                <button type="button" class="btn btn-info float-left" data-toggle="modal" data-target="#modal-tambah">
+                                <button type="button" class="btn btn-info float-left" data-toggle="modal" data-target="#modal-tambah-subkategori">
                                     <i class="fas fa-plus"></i> Add
                                 </button>
 
@@ -308,29 +309,26 @@
                             <div class="card-body">
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
-                                        <th class="sorting_asc" tabindex="0" aria-controls="demo-datatables" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending">Id User</th>
-                                        <th>Full Name</th>
-                                        <th>Username</th>
-                                        <th>Email</th>
-                                        <th>No Tlp</th>
-                                        <th>Alamat</th>
-                                        <th>Foto</th>
+                                        <th class="sorting_asc" tabindex="0" aria-controls="demo-datatables" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending">Id SubKategori</th>
+                                        <th>Judul</th>
+                                        <th>Keterangan</th>
+										<th>Foto</th>
+										<th>Harga</th>
                                         <th>Action</th>
                                     </thead>
                                     <tbody>
 
-                                        <?php foreach ($terps as $key => $value) : ?>
+                                        <?php foreach ($subktg as $key => $value) : ?>
                                             <tr>
-                                                <td><?php echo $value->id_user ?></td>
-                                                <td><?php echo $value->full_name ?></td>
-                                                <td><?php echo $value->username ?></td>
-                                                <td><?php echo $value->email ?></td>
-                                                <td><?php echo $value->no_telp ?></td>
-                                                <td><?php echo $value->alamat ?></td>
-                                                <td><img src="<?php echo base_url() ?>./assets/upload/<?php echo $value->foto ?>" alt="" width=100 height=100></td>
+                                                <td><?php echo $value->id_sub_kategori ?></td>
+												<td><?php echo $value->judul_sub ?></td>
+												<td><?php echo $value->keterangan_sub ?></td>
+                                                <td><img src="<?php echo base_url() ?>./assets/user/images/<?php echo $value->foto_sub ?>" alt="" width=100 height=100></td>
+                                                <td><?php echo $value->harga ?></td>
+                                               
                                                 <td>
-                                                    <a href="<?php echo base_url("/Admin/edit_terapis/" . $value->id_user) ?>" class="fas fa-edit" aria-hidden="true" data-toggle="modal" data-target="#modal-edit" name="tombolEdit" value="<?php echo $value->id_user; ?>"></a>
-                                                    <a href="<?php echo base_url("/Admin/delete_terapis/" . $value->id_user) ?>" class="far fa-trash-alt" aria-hidden="true" name="tombolDelete" value="<?php echo $value->id_user; ?>"></a>
+                                                    <a href="<?php echo base_url("/Admin/edit_subKategori/" . $value->id_sub_kategori) ?>" class="fas fa-edit" aria-hidden="true" data-toggle="modal" data-target="#modal-edit-subKategori" name="tombolEditSubKategori" value="<?php echo $value->id_sub_kategori; ?>"></a>
+                                                    <a href="<?php echo base_url("/Admin/delete_subkategori/" . $value->id_sub_kategori) ?>" class="far fa-trash-alt" aria-hidden="true" name="tombolDeleteSubKategori" value="<?php echo $value->id_sub_kategori; ?>"></a>
                                                 </td>
 
                                             </tr>
@@ -351,15 +349,15 @@
 
         <!--Modal ADD-->
 
-        <div class="modal fade" id="modal-tambah" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="modal-tambah-subkategori" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <!--Header-->
                     <div class="modal-header">
-                        <?php //echo form_open_multipart('Admin/add_terapis'); 
+                        <?php //echo form_open_multipart('Admin/add_subkategori'); 
                         ?>
 
-                        <h4 class="modal-title" id="myModalLabel">Terapis</h4>
+                        <h4 class="modal-title" id="myModalLabel">Sub Kategori</h4>
                         <?php echo validation_errors(); ?>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">×</span>
@@ -369,22 +367,13 @@
                     <div class="modal-body">
                         <div class="modal-body mx-3">
                             <!-- <FORM id="addTerapis"> -->
-                            <form method="post" accept-charset="utf-8" id="addTerapis" enctype="multipart/form-data">
+                            <form method="post" accept-charset="utf-8" id="addSubKategori" enctype="multipart/form-data">
 
 
 
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">
-                                            <i class="fa fa-user">
 
-                                            </i>
-                                        </span>
-                                    </div>
-                                    <input type="text" id="full_name" name="full_name" class="form-control" placeholder="Fullname">
-                                </div>
-
-                                <div>
+                                 <div class="md-form mb-4">
+                                    <input type="file" id="sub_kategori" class="form-control validate" name="foto_sub" placeholder="Input field">
 
                                 </div>
 
@@ -395,58 +384,44 @@
                                             @
                                         </span>
                                     </div>
-                                    <input type="text" id="username" name="username" class="form-control" placeholder="Username">
-                                </div>
-
-
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">
-                                            <i class="fa fa-envelope">
-
-                                            </i>
-                                        </span>
-                                    </div>
-                                    <input type="email" id="email" name="email" class="form-control" placeholder="Email">
-                                </div>
-
-
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">
-                                            <i class="fa fa-phone">
-
-                                            </i>
-                                        </span>
-                                    </div>
-                                    <input type="text" id="no_telp" name="no_telp" class="form-control" placeholder="No Telp">
+                                    <input type="text" id="judul_sub" name="judul_sub" class="form-control" placeholder="judul">
                                 </div>
 
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">
-                                            <i class="fa fa-address-book">
-
-                                            </i>
+                                            @
                                         </span>
                                     </div>
-                                    <input type="text" id="alamat" name="alamat" class="form-control" placeholder="Alamat">
+                                    <input type="text" id="keterangan_sub" name="keterangan_sub" class="form-control" placeholder="keterangan">
                                 </div>
 
-                                <div class="md-form mb-4">
-                                    <input type="file" id="foto" class="form-control validate" name="foto" placeholder="Input field">
-
+								<div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            @
+                                        </span>
+                                    </div>
+                                    <input type="text" id="harga" name="harga" class="form-control" placeholder="harga">
                                 </div>
 
+
+                               
+
+
+                                
+
+                               
                         </div>
 
                     </div>
                     <!--Footer-->
                     <div class="modal-footer">
-                        <input type="submit" name="submit" class="btn btn-outline-primary" id="btnSimpanTerapis">
+                        <input type="submit" name="submit" class="btn btn-outline-primary" id="btnSimpanSubKategori">
                         <input type="button" class="btn btn-primary" value="Close" data-dismiss="modal">
                         <?php //echo form_close(); 
                         ?>
+
                     </div>
                     </form>
                 </div>
@@ -455,13 +430,13 @@
 
         <!--Modal EDIT-->
 
-        <div class="modal fade" id="modal-edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="modal-edit-subKategori" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <!--Header-->
                     <div class="modal-header">
 
-                        <h4 class="modal-title" id="myModalLabel">Terapis</h4>
+                        <h4 class="modal-title" id="myModalLabel">Sub kategori</h4>
                         <?php echo validation_errors(); ?>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">×</span>
@@ -471,22 +446,18 @@
                         <div class="modal-body">
                             <div class="modal-body mx-3">
                     <!-- <FORM id="addTerapis"> -->
-                    <form method="post" accept-charset="utf-8" id="editTerapis" enctype="multipart/form-data">
+                    <form method="post" accept-charset="utf-8" id="editSubkategori" enctype="multipart/form-data">
                         
 
-                                <input type="hidden" id="edit_id" name="edit_id">
-                                <input type="hidden" id="edit_level" name="edit_level">
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">
-                                            <i class="fa fa-user">
+                                <input type="hidden" id="edit_id_sub" name="edit_id_sub">
+                                
 
-                                            </i>
-                                        </span>
-                                    </div>
-                                    <input type="text" id="edit_full_name" name="edit_full_name" class="form-control" placeholder="Fullname">
+                                <div class="md-form mb-4">
+                               
+                                    <img alt="" width=100 height=100 id="foto_lama">
+                                    <input type="file" id="edit_foto_sub" class="form-control validate" name="edit_foro_sub" placeholder="Input field">
+
                                 </div>
-
 
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
@@ -494,53 +465,34 @@
                                             @
                                         </span>
                                     </div>
-                                     <input type="text" id="edit_username" class="form-control validate" name="edit_username" placeholder="Input field">
+                                    <input type="text" id="edit_judul_sub" name="edit_judul_sub" class="form-control" placeholder="Judul">
                                 </div>
 
-
-
-                                <div class="input-group mb-3">
+								<div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">
-                                            <i class="fa fa-envelope">
-
-                                            </i>
+                                            @
                                         </span>
                                     </div>
-                                    <input type="email" id="edit_email" class="form-control validate" name="edit_email" placeholder="Input field">
+                                    <input type="text" id="edit_keterangan_sub" name="edit_keterangan_sub" class="form-control" placeholder="Keterangan">
                                 </div>
 
-
-                                <div class="input-group mb-3">
+								<div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">
-                                            <i class="fa fa-phone">
-
-                                            </i>
+                                            @
                                         </span>
                                     </div>
-                                   <input type="text" id="edit_no_telp" class="form-control validate" name="edit_no_telp" placeholder="Input field">
+                                    <input type="text" id="edit_harga_sub" name="edit_harga_sub" class="form-control" placeholder="Harga">
                                 </div>
 
 
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">
-                                            <i class="fa fa-address-book">
-
-                                            </i>
-                                        </span>
-                                    </div>
-                                   <input type="text" id="edit_alamat" class="form-control validate" name="edit_alamat" placeholder="Input field">
-                                </div>
                                 
 
-                               <div class="md-form mb-4">
-                               
-                                    <img alt="" width=100 height=100 id="foto_lama">
-                                    <input type="file" id="edit_foto" class="form-control validate" name="edit_foto" placeholder="Input field">
 
-                                </div>
+
+                                
+                               
 
 
 
@@ -551,7 +503,7 @@
 
                         <!--Footer-->
                         <div class="modal-footer">
-                            <input type="submit" name="submit" class="btn btn-outline-primary" id="btnSimpanTerapis">
+                            <input type="submit" name="submit" class="btn btn-outline-primary" id="btnSimpanSubKategori">
                             <input type="button" class="btn btn-primary" value="Close" data-dismiss="modal">
                             <?php //echo form_close(); 
                             ?>
@@ -659,12 +611,12 @@
     </script>
 
     <script type="text/javascript">
-        $('form#addTerapis').submit(function(e) {
+        $('form#addSubKategori').submit(function(e) {
             e.preventDefault();
-            var formData = new FormData($('form#addTerapis')[0]);
+            var formData = new FormData($('form#addSubKategori')[0]);
 
             $.ajax({
-                url: '<?php echo site_url('admin/add_terapis'); ?>',
+                url: '<?php echo site_url('admin/add_subKategori'); ?>',
                 type: 'POST',
                 data: formData,
 
@@ -692,7 +644,7 @@
             if (text != '' || text != null) {
 
                 $.ajax({
-                    url: '<?php echo site_url('admin/search_terapis') ?>',
+                    url: '<?php echo site_url('admin/search_subKategori') ?>',
                     type: 'post',
                     data: {
                         text: text
@@ -708,12 +660,12 @@
             }
         });
 
-        $('[name="tombolEdit"]').click(function() {
+        $('[name="tombolEditSubkategori"]').click(function() {
 
             var id = $(this).attr('value')
 
             $.ajax({
-                url: '<?php echo site_url('admin/get_terapis') ?>',
+                url: '<?php echo site_url('admin/get_subkategori') ?>',
                 type: 'post',
                 data: {
                     id: id
@@ -725,25 +677,24 @@
 
                     data = JSON.parse(data);
 
-                    $('#edit_id').val(data.id_user);
-                    $('#edit_level').val(data.level);
-                    $('#edit_full_name').val(data.full_name);
-                    $('#edit_username').val(data.username);
-                    $('#edit_email').val(data.email);
-                    $('#edit_no_telp').val(data.no_telp);
-                    $('#edit_alamat').val(data.alamat);
-                    $('#foto_lama').attr('src', '<?php echo base_url() ?>/assets/upload/' + data.foto);
+                    $('#edit_id').val(data.id_subkategori);
+					$('#edit_judul_sub').val(data.judul_sub);
+					$('#edit_keterangan').val(data.keterangan_sub);
+                    $('#foto_lama').attr('src', '<?php echo base_url() ?>/assets/user/images/' + data.subkategori);
+                    $('#edit_harga').val(data.harga);
+                    
+                    
                 }
             });
         });
 
         //ajaxformedit
-        $('form#editTerapis').submit(function(e) {
+        $('form#editSubKategori').submit(function(e) {
             e.preventDefault();
-            var formData = new FormData($('form#editTerapis')[0]);
+            var formData = new FormData($('form#editSubKategori')[0]);
 
             $.ajax({
-                url: '<?php echo site_url('admin/edit_terapis'); ?>',
+                url: '<?php echo site_url('admin/edit_subkategori'); ?>',
                 type: 'POST',
                 data: formData,
 
@@ -766,12 +717,12 @@
 
 
         //ajaxdelete
-      $('[name="tombolDelete"]').click(function(e){
+      $('[name="tombolDeleteSubkategori"]').click(function(e){
         e.preventDefault();
         var id = $(this).attr('value')
         //alert(id);
         $.ajax({
-          url: '<?php echo site_url('admin/delete_terapis') ?>',
+          url: '<?php echo site_url('admin/delete_subkategori') ?>',
           type: 'post',
           data: {id:id},
           success: function(response) {

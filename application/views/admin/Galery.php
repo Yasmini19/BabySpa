@@ -212,7 +212,7 @@
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     Terapis
-                                    <span class="right badge badge-danger">New</span>
+                                    
                                 </p>
                             </a>
                         </li>
@@ -230,13 +230,22 @@
 
 
                         <li class="nav-item">
-                            <a href="<?php echo base_url(); ?>index.php/Admin/gallery" class="nav-link active">
+                            <a href="<?php echo base_url(); ?>index.php/Admin/gallery" class="nav-link">
                                 <i class="nav-icon far fa-image"></i>
                                 <p>
                                     Gallery
                                 </p>
                             </a>
                         </li>
+
+						<li class="nav-item">
+            <a href="<?php echo base_url();?>index.php/Admin/Kategori" class="nav-link">
+              <i class="nav-icon fas fa-book"></i>
+              <p>
+                Kategori
+              </p>
+            </a>
+          </li>
 
 
                         <li class="nav-item">
