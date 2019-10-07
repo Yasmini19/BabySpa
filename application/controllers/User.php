@@ -44,9 +44,15 @@ class User extends CI_Controller {
 
     function get_sesiuser(){
         $tgl=$this->input->post('tgl');
-        $where = array('reservasi.id_reservasi' => null);
-        $on = 'reservasi.sesi_id = sesi_reservasi.id_sesi';
-        $data=$this->GeneralModel->get_selected_join('sesi_reservasi','reservasi',$where,$on,'left')->result();
+        $convert_tgl = date('Y-m-d', strtotime($tgl));
+        //var_dump($convert_tgl);
+        // $where = array('reservasi.tgl_reservasi' => $convert_tgl);
+        // $on = 'sesi_reservasi.id_sesi = reservasi.sesi_id';
+        // // $data=$this->GeneralModel->get_selected_join('sesi_reservasi','reservasi',$where,$on,'right')->result();
+        $data = $this->db
+        ->select('*,(select count(id_reservasi) from reservasi where sesi_id=sesi_reservasi.id_sesi and tgl_reservasi="'.$convert_tgl.'") jml')
+        ->get('sesi_reservasi')
+        ->result();
         echo json_encode($data);
     }
 

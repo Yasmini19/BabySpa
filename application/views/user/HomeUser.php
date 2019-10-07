@@ -21,7 +21,7 @@
 											<div class="col-md-4">
 												<div class="input-container">
 													<!-- <i class="fa fa-envelope icon"></i> -->
-													<input placeholder="Tanggal" name="tanggal" type="text" required="" id="datepicker1">
+													<input placeholder="Tanggal" name="tanggal" type="text" required="" class="tanggal" id="datepicker1">
 												</div>
 											</div>
 											<div class="col-md-8">
@@ -450,6 +450,32 @@
 										autoclose:true
 									});
 
+									$('#datepicker1').on('changeDate', function(){
+										var tgl=$(this).val();
+										$.ajax({
+											url : "<?php echo site_url('User/get_sesiuser');?>",
+											method : "POST",
+											data : {tgl: tgl},
+											dataType : 'json',
+											success: function(data){
+												 //alert(JSON.stringify(data[0]));
+												//$('#sesi').children('option:not(:first)').remove();
+												var html = '<option>Pilih Sesi</option>';
+												var i;
+												
+												for(i=0; i< data.length; i++){
+													if(data[i].jml == 0){
+													html += '<option value="'+data[i].id_sesi+'">'+data[i].waktu+'</option>';
+														//alert(data.id_sesi);
+													}if(data[i].jml == 1){
+														html += '<option value="'+data[i].id_sesi+'" disabled>'+data[i].waktu+' (tidak tersedia)</option>';
+													}
+												}
+												$('#sesi').html(html);
+											}
+										});
+									});
+
 									$('#kategori').change(function(){
 										var id=$(this).val();
 										$.ajax({
@@ -460,7 +486,7 @@
 											success: function(data){
 												var html = '<option>Pilih Sub-Kategori</option>';
 												var i;
-												//alert(data.length);
+												//alert(data);
 												for(i=0; i<data.length; i++){
 													html += '<option value="'+data[i].id_sub_kategori+'">'+data[i].judul_sub+'</option>';
 
@@ -491,25 +517,7 @@
 										});
 									});
 
-									$('#datepicker1').change(function(){
-										var tgl=$(this).val();
-										$.ajax({
-											url : "<?php echo site_url('User/get_sesiuser');?>",
-											method : "POST",
-											data : {tgl: tgl},
-											dataType : 'json',
-											success: function(data){
-												var html = '<option>Pilih Sesi</option>';
-												var i;
-												//alert(data.length);
-												for(i=0; i<data.length; i++){
-													html += '<option value="'+data[i].id_sesi+'">'+data[i].waktu+'</option>';
 
-												}
-												$('#sesi').html(html);
-											}
-										});
-									});
 								});
 							</script>
 
