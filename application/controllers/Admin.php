@@ -255,7 +255,9 @@
 		//Terapis
         public function terapis()
         {
-            $data['terps'] = $this->GeneralModel->get_data('user')->result();
+            // $data['terps'] = $this->GeneralModel->get_data('user')->result();
+            $level['level'] = 3;
+            $data['terps'] = $this->GeneralModel->get_selected('user',$level)->result();
             $this->load->view('admin/Terapis', $data);
 
         }
@@ -288,7 +290,7 @@
 
                 $result = $this->GeneralModel->add_data('user', $data);
 
-                //$this->GeneralModel->add_data();
+                
                 $this->load->view('admin/Terapis');
                 $result = 'true';
             }
@@ -407,7 +409,12 @@
         //user
         public function user()
         {
-            $data['usr'] = $this->GeneralModel->get_data('user')->result();
+
+
+
+            $level['level'] = 2;
+            $data['usr'] = $this->GeneralModel->get_selected('user',$level)->result();
+
             $this->load->view('admin/User', $data);
         }
 
@@ -439,7 +446,7 @@
 
                 $result = $this->GeneralModel->add_data('user', $data);
 
-                //$this->GeneralModel->add_data();
+                
                 $this->load->view('admin/User');
                 $result = 'true';
             }
