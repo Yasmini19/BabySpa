@@ -21,7 +21,7 @@
 											<div class="col-md-4">
 												<div class="input-container">
 													<!-- <i class="fa fa-envelope icon"></i> -->
-													<input placeholder="Tanggal" name="tanggal" type="text" required="" class="reset" id="datepicker1">
+													<input placeholder="Tanggal" name="tanggal" type="text" required="" class="reset" autocomplete="off" id="datepicker1">
 												</div>
 											</div>
 											<div class="col-md-8">
