@@ -50,7 +50,7 @@ class User extends CI_Controller {
         // $on = 'sesi_reservasi.id_sesi = reservasi.sesi_id';
         // // $data=$this->GeneralModel->get_selected_join('sesi_reservasi','reservasi',$where,$on,'right')->result();
         $data = $this->db
-        ->select(' *,(select count(terapis_id) from reservasi inner join user on reservasi.terapis_id = user.id_user where sesi_id=sesi_reservasi.id_sesi and tgl_reservasi="'.$convert_tgl.'") jml, (select count(id_user) from user where level=3) jml_terapis')
+        ->select(' *,(select count(terapis_id) from reservasi inner join user on reservasi.terapis_id = user.id_user where sesi_id=sesi_reservasi.id_sesi and tgl_reservasi="'.$convert_tgl.'" and status != "Cancelled") jml, (select count(id_user) from user where level=3) jml_terapis')
         ->get('sesi_reservasi')
         ->result();
         echo json_encode($data);
