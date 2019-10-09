@@ -22,14 +22,19 @@
 	<!-- Bootstrap CSS File -->
 	<link href="<?php echo base_url();?>assets/user/css/bootstrap.min.css" rel="stylesheet">
 
-	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+
+	<script src="http://code.jquery.com/jquery-3.4.1.js"></script>
+	<!-- <script src="<?php echo base_url();?>assets/user/js/jquery-3.3.1.slim.min.js"></script> -->
 	<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> -->
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js"></script>
-	<!-- <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
-	<!-- <script src="<?php echo base_url();?>assets/user/js/popper.min.js"></script> -->
+	<script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script src="<?php echo base_url();?>assets/user/js/popper.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
 
 	 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
+
+	 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.js"></script>
+  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.css"/>
 
 
 	<!-- google fonts -->

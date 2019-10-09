@@ -11,7 +11,7 @@
 						<div class="card shadow">
 							<div class="card-body">
 								<h5 class="mb-3 text-center">Book Our Spa</h5>
-								<form action="#" method="post">						
+								<form method="post" id="inputReservation" accept-charset="utf-8" action="<?= site_url() ?>/User/addReservation">						
 									<div class="form-style-w3layout">
 										<div class="custom-control custom-switch" style="padding-bottom: 10px">
 											<input type="checkbox" class="custom-control-input" id="customSwitch1">
@@ -21,13 +21,13 @@
 											<div class="col-md-4">
 												<div class="input-container">
 													<!-- <i class="fa fa-envelope icon"></i> -->
-													<input placeholder="Tanggal" name="tanggal" type="text" required="" id="datepicker1">
+													<input placeholder="Tanggal" name="tanggal" type="text" required="" class="reset" id="datepicker1">
 												</div>
 											</div>
 											<div class="col-md-8">
 												<div class="input-container">
 													<!-- <i class="fa fa-envelope icon"></i> -->
-													<select id="sesi" name="sesi" class="js-example-basic-single" required>
+													<select id="sesi" name="sesi" class="js-example-basic-single reset" required>
 														<option value="-">Pilih Sesi</option>
 														<?php foreach ($this->db->get('sesi_reservasi')->result() as $key => $value): ?>
 															<option value="<?= $value->id_sesi ?>"
@@ -42,8 +42,8 @@
 													<div class="input-container">
 														<!-- <i class="glyphicon glyphicon-backward icon">a</i> -->
 														<!-- <input placeholder="Kategori" name="kategori" type="text" required=""> -->
-														<select id="kategori" name="kategori" class="js-example-basic-single" required>
-															<option value="-">Pilih Kategori</option>
+														<select id="kategori" name="kategori" class="js-example-basic-single reset" required>
+															<option value="-" selected disabled>Pilih Kategori</option>
 															<?php foreach ($this->db->get('kategori')->result() as $key => $value): ?>
 																<option value="<?= $value->id_kategori ?>"
 																	data-json='<?php echo json_encode($value) ?>'><?= $value->judul_kat ?></option>
@@ -54,8 +54,8 @@
 													<div class="col-md-5">
 														<div class="input-container">
 															<!-- <i class="fa fa-envelope icon"></i> -->
-															<select id="sub-kategori" name="sub-kategori" class="js-example-basic-single" required>
-																<option value="-">Pilih Sub-Kategori</option>
+															<select id="sub_kategori0" name="sub_kategori0" class="js-example-basic-single reset" required>
+																<option value="-" selected disabled>Pilih Sub-Kategori</option>
 																<?php foreach ($this->db->get('sub_kategori')->result() as $key => $value): ?>
 																	<option value="<?= $value->id_sub_kategori ?>"
 																		data-json='<?php echo json_encode($value) ?>'><?= $value->judul_sub ?></option>
@@ -66,7 +66,8 @@
 														<div class="col-md-3">
 															<div class="input-container">
 																<!-- <i class="fa fa-envelope icon"></i> -->
-																<input placeholder="Jumlah" name="jumlah" id="jumlah" type="number" required="" min="1" max="2">
+																<input placeholder="Jumlah" name="jumlah0" id="jumlah0" type="number" class="reset" required=""
+																 max="2">
 															</div>
 														</div>
 													</div>
@@ -75,8 +76,8 @@
 															<div class="input-container">
 																<!-- <i class="glyphicon glyphicon-backward icon">a</i> -->
 																<!-- <input placeholder="Kategori" name="kategori" type="text" required=""> -->
-																<select id="kategori1" name="kategori1" class="js-example-basic-single" required>
-																	<option value="-">Pilih Kategori</option>
+																<select id="kategori1" name="kategori1" class="js-example-basic-single reset">
+																	<option value="-" selected disabled>Pilih Kategori</option>
 																	<?php foreach ($this->db->get('kategori')->result() as $key => $value): ?>
 																		<option value="<?= $value->id_kategori ?>"
 																			data-json='<?php echo json_encode($value) ?>'><?= $value->judul_kat ?></option>
@@ -87,8 +88,8 @@
 															<div class="col-md-5">
 																<div class="input-container">
 																	<!-- <i class="fa fa-envelope icon"></i> -->
-																	<select id="sub-kategori1" name="sub-kategori1" class="js-example-basic-single" required>
-																		<option value="-">Pilih Sub-Kategori</option>
+																	<select id="sub_kategori1" name="sub_kategori1" class="js-example-basic-single reset">
+																		<option value="-" selected disabled>Pilih Sub-Kategori</option>
 																		<?php foreach ($this->db->get('sub_kategori')->result() as $key => $value): ?>
 																			<option value="<?= $value->id_sub_kategori ?>"
 																				data-json='<?php echo json_encode($value) ?>'><?= $value->judul_sub ?></option>
@@ -99,13 +100,13 @@
 																<div class="col-md-3">
 																	<div class="input-container">
 																		<!-- <i class="fa fa-envelope icon"></i> -->
-																		<input placeholder="Jumlah" id="jumlah1" name="jumlah1" type="number" required="" min="1" max="2">
+																		<input placeholder="Jumlah" id="jumlah1" name="jumlah1" class="reset" type="number" max="2">
 																	</div>
 																</div>
 																<br><br>	
 															</div>											
 
-															<button Class="btn" style="border-radius: 30px;">Book</button>
+															<button type="submit" Class="btn" style="border-radius: 30px;">Book</button>
 														</div>
 													</form>
 												</div>
@@ -309,54 +310,54 @@
 			<center>
 				<ol class="carousel-indicators" style="text-align: center">
 					<?php for ($i=0; $i < count($subkategori) ; $i++) { 
-	$no = 0;
-	if($i == 0 ){ ?>
-	<li data-target="#multi-item-example" data-slide-to="0" class="active" style="background-color: #d9d9d9"></li>
-	<?php }else if($i != 0 && $i % 4 == 0){
-		$no ++; ?>
-		<li data-target="#multi-item-example" data-slide-to="1" style="background-color: #d9d9d9"></li>
-		<?php }
-	}?>
-</ol>
-</center>
-<!--/.Indicators-->
+						$no = 0;
+						if($i == 0 ){ ?>
+						<li data-target="#multi-item-example" data-slide-to="0" class="active" style="background-color: #d9d9d9"></li>
+						<?php }else if($i != 0 && $i % 4 == 0){
+							$no ++; ?>
+							<li data-target="#multi-item-example" data-slide-to="1" style="background-color: #d9d9d9"></li>
+							<?php }
+						}?>
+					</ol>
+				</center>
+				<!--/.Indicators-->
 
-<!--Slides-->
-<!-- <div class="row inner-sec-w3layouts-w3pvt-lauinfo"> -->
-	<div class="carousel-inner" role="listbox">
+				<!--Slides-->
+				<!-- <div class="row inner-sec-w3layouts-w3pvt-lauinfo"> -->
+					<div class="carousel-inner" role="listbox">
 
-		<!--First slide-->
-		<?php 
-		$no = 0;
-		foreach($subkategori as $key => $value):  ?>
-		<?php if ($no == 0){?>
-		<div class="carousel-item active">
-			<div class="row inner-sec-w3layouts-w3pvt-lauinfo">
-				<?php }else if($no !=0 && $no % 4 == 0){?>
-				<div class="carousel-item">
-					<div class="row inner-sec-w3layouts-w3pvt-lauinfo">
-						<?php }?>
-						<div class="col-md-3 col-sm-6 col-6 destinations-grids text-center mb-4">
-							<div class="card mb-2">
-								<img class="card-img-top"
-								src="<?php echo base_url();?>assets/user/images/<?php echo $value->foto_sub?>"
-								alt="Card image cap" width="200" height="200">
-								<div class="card-body">
-									<h4 class="card-title"><?php echo $value->judul_sub?></h4>
-									<p class="card-text"><?php echo $value->judul_kat?></p>
-									<nr>
-										<p><b>Harga : <?php echo "Rp " . number_format($value->harga, 2, ",", ".");?></b></p>
-									</div>
+						<!--First slide-->
+						<?php 
+						$no = 0;
+						foreach($subkategori as $key => $value):  ?>
+						<?php if ($no == 0){?>
+						<div class="carousel-item active">
+							<div class="row inner-sec-w3layouts-w3pvt-lauinfo">
+								<?php }else if($no !=0 && $no % 4 == 0){?>
+								<div class="carousel-item">
+									<div class="row inner-sec-w3layouts-w3pvt-lauinfo">
+										<?php }?>
+										<div class="col-md-3 col-sm-6 col-6 destinations-grids text-center mb-4">
+											<div class="card mb-2">
+												<img class="card-img-top"
+												src="<?php echo base_url();?>assets/user/images/<?php echo $value->foto_sub?>"
+												alt="Card image cap" width="200" height="200">
+												<div class="card-body">
+													<h4 class="card-title"><?php echo $value->judul_sub?></h4>
+													<p class="card-text"><?php echo $value->judul_kat?></p>
+													<nr>
+														<p><b>Harga : <?php echo "Rp " . number_format($value->harga, 2, ",", ".");?></b></p>
+													</div>
+												</div>
+											</div>
+											<?php if ($no != 0 && $no % 4 == 3){?>
+										</div></div>
+										<?php } $no++;?>
+									<?php endforeach ?>
 								</div>
-							</div>
-							<?php if ($no != 0 && $no % 4 == 3){?>
-						</div></div>
-						<?php } $no++;?>
-					<?php endforeach ?>
-				</div>
-			</section>
-			<!-- destinations -->
-			<!--/testimonials -->
+							</section>
+							<!-- destinations -->
+							<!--/testimonials -->
 							<!-- <section class="testimonials py-5" id="testimonials">
 								<div class="container py-md-5">
 									<h3 class="heading heading1 text-center mb-3 mb-sm-5"> Client Reviews</h3>
@@ -450,6 +451,32 @@
 										autoclose:true
 									});
 
+									$('#datepicker1').on('changeDate', function(){
+										var tgl=$(this).val();
+										$.ajax({
+											url : "<?php echo site_url('User/get_sesiuser');?>",
+											method : "POST",
+											data : {tgl: tgl},
+											dataType : 'json',
+											success: function(data){
+												 //alert(JSON.stringify(data[0]));
+												//$('#sesi').children('option:not(:first)').remove();
+												var html = '<option selected disabled>Pilih Sesi</option>';
+												var i;
+												
+												for(i=0; i< data.length; i++){
+													if(data[i].jml < data[i].jml_terapis){
+														html += '<option value="'+data[i].id_sesi+'">'+data[i].waktu+'</option>';
+														//alert(data.id_sesi);
+													}if(data[i].jml == data[i].jml_terapis){
+														html += '<option value="'+data[i].id_sesi+'" disabled>'+data[i].waktu+' (tidak tersedia)</option>';
+													}
+												}
+												$('#sesi').html(html);
+											}
+										});
+									});
+
 									$('#kategori').change(function(){
 										var id=$(this).val();
 										$.ajax({
@@ -458,14 +485,14 @@
 											data : {id: id},
 											dataType : 'json',
 											success: function(data){
-												var html = '<option>Pilih Sub-Kategori</option>';
+												var html = '<option selected disabled>Pilih Sub-Kategori</option>';
 												var i;
-												//alert(data.length);
+												//alert(data);
 												for(i=0; i<data.length; i++){
 													html += '<option value="'+data[i].id_sub_kategori+'">'+data[i].judul_sub+'</option>';
 
 												}
-												$('#sub-kategori').html(html);
+												$('#sub_kategori0').html(html);
 
 											}
 										});
@@ -479,37 +506,54 @@
 											data : {id: id},
 											dataType : 'json',
 											success: function(data){
-												var html = '<option>Pilih Sub-Kategori</option>';
+												var html = '<option selected disabled>Pilih Sub-Kategori</option>';
 												var i;
 												//alert(data.length);
 												for(i=0; i<data.length; i++){
 													html += '<option value="'+data[i].id_sub_kategori+'">'+data[i].judul_sub+'</option>';
 
 												}
-												$('#sub-kategori1').html(html);
+												$('#sub_kategori1').html(html);
 											}
 										});
 									});
 
-									$('#datepicker1').change(function(){
-										var tgl=$(this).val();
+									$('form#inputReservation').submit(function(e){
+										e.preventDefault();
+										var formData = new FormData(this);
+										var url = $(this).attr('action');
 										$.ajax({
-											url : "<?php echo site_url('User/get_sesiuser');?>",
-											method : "POST",
-											data : {tgl: tgl},
-											dataType : 'json',
-											success: function(data){
-												var html = '<option>Pilih Sesi</option>';
-												var i;
-												//alert(data.length);
-												for(i=0; i<data.length; i++){
-													html += '<option value="'+data[i].id_sesi+'">'+data[i].waktu+'</option>';
-
-												}
-												$('#sesi').html(html);
-											}
-										});
+											url : url,
+											type : "POST",
+											data: formData,
+											success : function (data){
+												//alert(data);
+													swal({
+													title: "Success",
+													type:"success",
+													text: "Wait For The Confirmation",
+													timer: 2000,
+													showConfirmButton: false
+													});
+											},
+											cache : false,
+											contentType : false,
+											processData : false,
+										})
 									});
+
+									// function reset() {
+								 //        var a = document.getElementsByClassName('reset');
+								 //        // a = HTMLCollection
+								 //        // console.log(a);
+								 //        // You can iterate over HTMLCollection.
+								 //        for (var i = 0; i < a.length; i++) {
+								 //            // You can set the value in every item in the HTMLCollection.
+								 //            a[i].value = "";
+							  	 //       }
+							     // }
+
+
 								});
 							</script>
 
