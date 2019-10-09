@@ -13,6 +13,7 @@ class User extends CI_Controller {
 
     public function index()
     {   
+
         $where = array('level' => 3 );
         $where1 = array('contact' => 'Location' );
         $where2 = array('contact' => 'Phone' );
@@ -20,6 +21,10 @@ class User extends CI_Controller {
         $where4 = array('contact' => 'Social Media');
 
         $on = 'sub_kategori.kategori_id = kategori.id_kategori';
+
+        $session_data=$this->session->userdata('logged_in');
+        $data['username']=$session_data['username'];
+        $data['level']=$session_data['level'];
 
         $data['trps'] = $this->GeneralModel->get_selected('user',$where)->result();
         $data['loc'] = $this->GeneralModel->get_selected('contact_us',$where1)->result();
@@ -30,7 +35,7 @@ class User extends CI_Controller {
         $data['service'] = $this->GeneralModel->get_data('kategori')->result();
         $data['berita'] = $this->GeneralModel->get_data('berita')->result();
 
-        $this->load->view('user/headerfooter/header');
+        $this->load->view('user/headerfooter/header',$data);
         $this->load->view('user/HomeUser',$data);
         $this->load->view('user/headerfooter/footer');        
     }

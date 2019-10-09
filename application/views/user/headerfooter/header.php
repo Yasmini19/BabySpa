@@ -93,9 +93,12 @@
 						<li class=""><a href="#services">Services</a></li>
 						<li class=""><a href="#stats">Reservasi</a></li>
 						<li class=""><a href="#gallery">Gallery & Testimoni</a></li>
+						<?php if(!isset($username)){?>
 						<li class=""><a href="<?php echo site_url()?>/Login">Login</a></li>
 						<li class="" style="border:  2px solid black"><a href="<?php echo site_url()?>/Login/register">Register</a></li>
-						<!-- <li class=""><a href="#contact">Contact us</a></li> -->
+						<?php }else{ ?>
+						<li class=""><a href="<?php echo site_url()?>/Login/logout">Logout</a></li>
+						<?php } ?>
 					</ul>
 				</nav>
 				<!-- //nav -->
