@@ -27,7 +27,7 @@
 											<div class="col-md-8">
 												<div class="input-container">
 													<!-- <i class="fa fa-envelope icon"></i> -->
-													<select id="sesi" name="sesi" class="js-example-basic-single reset" required>
+													<select id="sesi" name="sesi" class="js-example-basic-single" required>
 														<option value="-">Pilih Sesi</option>
 														<?php foreach ($this->db->get('sesi_reservasi')->result() as $key => $value): ?>
 															<option value="<?= $value->id_sesi ?>"
@@ -42,7 +42,7 @@
 													<div class="input-container">
 														<!-- <i class="glyphicon glyphicon-backward icon">a</i> -->
 														<!-- <input placeholder="Kategori" name="kategori" type="text" required=""> -->
-														<select id="kategori" name="kategori" class="js-example-basic-single reset" required>
+														<select id="kategori" name="kategori" class="js-example-basic-single" required>
 															<option value="-" selected disabled>Pilih Kategori</option>
 															<?php foreach ($this->db->get('kategori')->result() as $key => $value): ?>
 																<option value="<?= $value->id_kategori ?>"
@@ -54,7 +54,7 @@
 													<div class="col-md-5">
 														<div class="input-container">
 															<!-- <i class="fa fa-envelope icon"></i> -->
-															<select id="sub_kategori0" name="sub_kategori0" class="js-example-basic-single reset" required>
+															<select id="sub_kategori0" name="sub_kategori0" class="js-example-basic-single" required>
 																<option value="-" selected disabled>Pilih Sub-Kategori</option>
 																<?php foreach ($this->db->get('sub_kategori')->result() as $key => $value): ?>
 																	<option value="<?= $value->id_sub_kategori ?>"
@@ -76,7 +76,7 @@
 															<div class="input-container">
 																<!-- <i class="glyphicon glyphicon-backward icon">a</i> -->
 																<!-- <input placeholder="Kategori" name="kategori" type="text" required=""> -->
-																<select id="kategori1" name="kategori1" class="js-example-basic-single reset">
+																<select id="kategori1" name="kategori1" class="js-example-basic-single">
 																	<option value="-" selected disabled>Pilih Kategori</option>
 																	<?php foreach ($this->db->get('kategori')->result() as $key => $value): ?>
 																		<option value="<?= $value->id_kategori ?>"
@@ -88,7 +88,7 @@
 															<div class="col-md-5">
 																<div class="input-container">
 																	<!-- <i class="fa fa-envelope icon"></i> -->
-																	<select id="sub_kategori1" name="sub_kategori1" class="js-example-basic-single reset">
+																	<select id="sub_kategori1" name="sub_kategori1" class="js-example-basic-single">
 																		<option value="-" selected disabled>Pilih Sub-Kategori</option>
 																		<?php foreach ($this->db->get('sub_kategori')->result() as $key => $value): ?>
 																			<option value="<?= $value->id_sub_kategori ?>"
@@ -527,7 +527,9 @@
 											type : "POST",
 											data: formData,
 											success : function (data){
-												//alert(data);
+
+												if(data == 'true'){
+													//alert(data);
 													swal({
 													title: "Success",
 													type:"success",
@@ -535,6 +537,11 @@
 													timer: 2000,
 													showConfirmButton: false
 													});
+
+													reset();
+												}else{
+													window.location.href="<?php echo site_url('Login') ?>";
+												}
 											},
 											cache : false,
 											contentType : false,
@@ -542,16 +549,22 @@
 										})
 									});
 
-									// function reset() {
-								 //        var a = document.getElementsByClassName('reset');
-								 //        // a = HTMLCollection
-								 //        // console.log(a);
-								 //        // You can iterate over HTMLCollection.
-								 //        for (var i = 0; i < a.length; i++) {
-								 //            // You can set the value in every item in the HTMLCollection.
-								 //            a[i].value = "";
-							  	 //       }
-							     // }
+									function reset() {
+								        var a = document.getElementsByClassName('reset');
+								        // a = HTMLCollection
+								        // console.log(a);
+								        // You can iterate over HTMLCollection.
+								        for (var i = 0; i < a.length; i++) {
+								            // You can set the value in every item in the HTMLCollection.
+								            a[i].value = "";
+							  	       	}
+
+							  	       	$("#kategori").prop('selectedIndex',0);
+							  	       	$("#kategori1").prop('selectedIndex',0);
+							  	       	$("#sub_kategori0").prop('selectedIndex',0);
+							  	       	$("#sub_kategori1").prop('selectedIndex',0);
+							  	       	$("#sesi").prop('selectedIndex',0);
+							     	}
 
 
 								});
