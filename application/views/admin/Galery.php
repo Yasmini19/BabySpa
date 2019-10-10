@@ -230,7 +230,7 @@
 
 
                         <li class="nav-item">
-                            <a href="<?php echo base_url(); ?>index.php/Admin/gallery" class="nav-link">
+                            <a href="<?php echo base_url(); ?>index.php/Admin/gallery" class="nav-link active">
                                 <i class="nav-icon far fa-image"></i>
                                 <p>
                                     Gallery
