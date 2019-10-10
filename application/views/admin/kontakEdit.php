@@ -1,265 +1,259 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Kapella Bootstrap Admin Dashboard Template</title>
-    <!-- base:css -->
-    <link rel="stylesheet" href="<?php echo base_url();?>assets/admin/mdi/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href="<?php echo base_url();?>assets/admin/base/vendor.bundle.base.css">
-    <!-- endinject -->
-    <!-- plugin css for this page -->
-    <!-- End plugin css for this page -->
-    <!-- inject:css -->
-    <link rel="stylesheet" href="<?php echo base_url();?>assets/admin/css/style.css">
-    <!-- endinject -->
-    <link rel="shortcut icon" href="<?php echo base_url();?>assets/admin/images/favicon.png" />
-  </head>
-  <body>
-    <div class="container-scroller">
-		<!-- partial:partials/_horizontal-navbar.html -->
-    <div class="horizontal-menu">
-      <nav class="navbar top-navbar col-lg-12 col-12 p-0">
-        <div class="container-fluid">
-          <div class="navbar-menu-wrapper d-flex align-items-center justify-content-between">
-            <ul class="navbar-nav navbar-nav-left">
-              <li class="nav-item ml-0 mr-5 d-lg-flex d-none">
-                <a href="#" class="nav-link horizontal-nav-left-menu"><i class="mdi mdi-format-list-bulleted"></i></a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center" id="notificationDropdown" href="#" data-toggle="dropdown">
-                  <i class="mdi mdi-bell mx-0"></i>
-                  <span class="count bg-success">2</span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
-                  <p class="mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
-                  <a class="dropdown-item preview-item">
-                    <div class="preview-thumbnail">
-                        <div class="preview-icon bg-success">
-                          <i class="mdi mdi-information mx-0"></i>
-                        </div>
-                    </div>
-                    <div class="preview-item-content">
-                        <h6 class="preview-subject font-weight-normal">Application Error</h6>
-                        <p class="font-weight-light small-text mb-0 text-muted">
-                          Just now
-                        </p>
-                    </div>
-                  </a>
-                  <a class="dropdown-item preview-item">
-                    <div class="preview-thumbnail">
-                        <div class="preview-icon bg-warning">
-                          <i class="mdi mdi-settings mx-0"></i>
-                        </div>
-                    </div>
-                    <div class="preview-item-content">
-                        <h6 class="preview-subject font-weight-normal">Settings</h6>
-                        <p class="font-weight-light small-text mb-0 text-muted">
-                          Private message
-                        </p>
-                    </div>
-                  </a>
-                  <a class="dropdown-item preview-item">
-                    <div class="preview-thumbnail">
-                        <div class="preview-icon bg-info">
-                          <i class="mdi mdi-account-box mx-0"></i>
-                        </div>
-                    </div>
-                    <div class="preview-item-content">
-                        <h6 class="preview-subject font-weight-normal">New user registration</h6>
-                        <p class="font-weight-light small-text mb-0 text-muted">
-                          2 days ago
-                        </p>
-                    </div>
-                  </a>
-                </div>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link count-indicator dropdown-toggle d-flex justify-content-center align-items-center" id="messageDropdown" href="#" data-toggle="dropdown">
-                  <i class="mdi mdi-email mx-0"></i>
-                  <span class="count bg-primary">4</span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
-                  <p class="mb-0 font-weight-normal float-left dropdown-header">Messages</p>
-                  <a class="dropdown-item preview-item">
-                    <div class="preview-thumbnail">
-                        <img src="<?php echo base_url();?>assets/admin/images/faces/face4.jpg" alt="image" class="profile-pic">
-                    </div>
-                    <div class="preview-item-content flex-grow">
-                        <h6 class="preview-subject ellipsis font-weight-normal">David Grey
-                        </h6>
-                        <p class="font-weight-light small-text text-muted mb-0">
-                          The meeting is cancelled
-                        </p>
-                    </div>
-                  </a>
-                  <a class="dropdown-item preview-item">
-                    <div class="preview-thumbnail">
-                        <img src="<?php echo base_url();?>assets/admin/images/faces/face2.jpg" alt="image" class="profile-pic">
-                    </div>
-                    <div class="preview-item-content flex-grow">
-                        <h6 class="preview-subject ellipsis font-weight-normal">Tim Cook
-                        </h6>
-                        <p class="font-weight-light small-text text-muted mb-0">
-                          New product launch
-                        </p>
-                    </div>
-                  </a>
-                  <a class="dropdown-item preview-item">
-                    <div class="preview-thumbnail">
-                        <img src="<?php echo base_url();?>assets/admin/images/faces/face3.jpg" alt="image" class="profile-pic">
-                    </div>
-                    <div class="preview-item-content flex-grow">
-                        <h6 class="preview-subject ellipsis font-weight-normal"> Johnson
-                        </h6>
-                        <p class="font-weight-light small-text text-muted mb-0">
-                          Upcoming board meeting
-                        </p>
-                    </div>
-                  </a>
-                </div>
-              </li>
-              <li class="nav-item dropdown">
-                <a href="#" class="nav-link count-indicator "><i class="mdi mdi-message-reply-text"></i></a>
-              </li>
-              <li class="nav-item nav-search d-none d-lg-block ml-3">
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text" id="search">
-                        <i class="mdi mdi-magnify"></i>
-                      </span>
-                    </div>
-                    <input type="text" class="form-control" placeholder="search" aria-label="search" aria-describedby="search">
-                </div>
-              </li>	
+<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Admin Mamina</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/admin/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Tempusdominus Bbootstrap 4 -->
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/admin/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/admin/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- JQVMap -->
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/admin/plugins/jqvmap/jqvmap.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/admin/dist/css/adminlte.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/admin/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/admin/plugins/daterangepicker/daterangepicker.css">
+    <!-- summernote -->
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/admin/plugins/summernote/summernote-bs4.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+    <div class="wrapper">
+
+        <!-- Navbar -->
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
+                </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="index3.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="#" class="nav-link">Contact</a>
+                </li>
             </ul>
-            <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-                <a class="navbar-brand brand-logo" href="index.html"><img src="<?php echo base_url();?>assets/admin/images/logo.svg" alt="logo"/></a>
-                <a class="navbar-brand brand-logo-mini" href="index.html"><img src="<?php echo base_url();?>assets/admin/images/logo-mini.svg" alt="logo"/></a>
+
+            <!-- SEARCH FORM -->
+            <form class="form-inline ml-3">
+                <div class="input-group input-group-sm">
+                    <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+                    <div class="input-group-append">
+                        <button class="btn btn-navbar" type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+            <!-- Right navbar links -->
+            <ul class="navbar-nav ml-auto">
+                <!-- Messages Dropdown Menu -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link" data-toggle="dropdown" href="#">
+                        <i class="far fa-comments"></i>
+                        <span class="badge badge-danger navbar-badge">3</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                        <a href="#" class="dropdown-item">
+                            <!-- Message Start -->
+                            <div class="media">
+                                <img src="<?php echo base_url(); ?>assets/admin/dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+                                <div class="media-body">
+                                    <h3 class="dropdown-item-title">
+                                        Brad Diesel
+                                        <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
+                                    </h3>
+                                    <p class="text-sm">Call me whenever you can...</p>
+                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+                                </div>
+                            </div>
+                            <!-- Message End -->
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <!-- Message Start -->
+                            <div class="media">
+                                <img src="dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+                                <div class="media-body">
+                                    <h3 class="dropdown-item-title">
+                                        John Pierce
+                                        <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
+                                    </h3>
+                                    <p class="text-sm">I got your message bro</p>
+                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+                                </div>
+                            </div>
+                            <!-- Message End -->
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <!-- Message Start -->
+                            <div class="media">
+                                <img src="<?php echo base_url(); ?>assets/admin/dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+                                <div class="media-body">
+                                    <h3 class="dropdown-item-title">
+                                        Nora Silvester
+                                        <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
+                                    </h3>
+                                    <p class="text-sm">The subject goes here</p>
+                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+                                </div>
+                            </div>
+                            <!-- Message End -->
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+                    </div>
+                </li>
+                <!-- Notifications Dropdown Menu -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link" data-toggle="dropdown" href="#">
+                        <i class="far fa-bell"></i>
+                        <span class="badge badge-warning navbar-badge">15</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                        <span class="dropdown-item dropdown-header">15 Notifications</span>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-envelope mr-2"></i> 4 new messages
+                            <span class="float-right text-muted text-sm">3 mins</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-users mr-2"></i> 8 friend requests
+                            <span class="float-right text-muted text-sm">12 hours</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-file mr-2"></i> 3 new reports
+                            <span class="float-right text-muted text-sm">2 days</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#">
+                        <i class="fas fa-th-large"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- /.navbar -->
+
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+            <!-- Brand Logo -->
+            <a href="index3.html" class="brand-link">
+                <img src="<?php echo base_url(); ?>assets/admin/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+                <span class="brand-text font-weight-light">Admin Mamina</span>
+            </a>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Sidebar user panel (optional) -->
+                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                    <div class="image">
+                        <img src="<?php echo base_url(); ?>assets/admin/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                    </div>
+                    <div class="info">
+                        <a href="#" class="d-block">Alexander Pierce</a>
+                    </div>
+                </div>
+
+                <!-- Sidebar Menu -->
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+                        <li class="nav-item has-treeview menu-open">
+                            <a href="#" class="nav-link ">
+                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <p>
+                                    Dashboard
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a href="<?php echo base_url(); ?>index.php/Admin/contact_us" class="nav-link active">
+                                <i class="nav-icon fas fa-phone"></i> 
+                                <p>
+                                    Kontak dan Alamat
+
+                                </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="<?php echo base_url(); ?>index.php/Admin/terapis" class="nav-link  ">
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>
+                                    Terapis
+                                    <span class="right badge badge-danger">New</span>
+                                </p>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a href="<?php echo base_url(); ?>index.php/Admin/User" class="nav-link">
+                                <i class="nav-icon fa fa-user"></i>
+                                <p>
+                                    User
+
+                                </p>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a href="<?php echo base_url(); ?>index.php/Admin/gallery" class="nav-link">
+                                <i class="nav-icon far fa-image"></i>
+                                <p>
+                                    Gallery
+                                </p>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a href="<?php echo base_url(); ?>index.php/Admin/berita" class="nav-link ">
+                                <i class="nav-icon fa fa-newspaper-o"></i>
+                                <p>
+                                    Berita
+
+                                </p>
+                            </a>
+                        </li>
+                        
+                </nav>
+                <!-- /.sidebar-menu -->
             </div>
-            <ul class="navbar-nav navbar-nav-right">
-                <li class="nav-item dropdown  d-lg-flex d-none">
-                  <button type="button" class="btn btn-inverse-primary btn-sm">Product </button>
-                </li>
-                <li class="nav-item dropdown d-lg-flex d-none">
-                  <a class="dropdown-toggle show-dropdown-arrow btn btn-inverse-primary btn-sm" id="nreportDropdown" href="#" data-toggle="dropdown">
-                  Reports
-                  </a>
-                  <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="nreportDropdown">
-                      <p class="mb-0 font-weight-medium float-left dropdown-header">Reports</p>
-                      <a class="dropdown-item">
-                        <i class="mdi mdi-file-pdf text-primary"></i>
-                        Pdf
-                      </a>
-                      <a class="dropdown-item">
-                        <i class="mdi mdi-file-excel text-primary"></i>
-                        Exel
-                      </a>
-                  </div>
-                </li>
-                <li class="nav-item dropdown d-lg-flex d-none">
-                  <button type="button" class="btn btn-inverse-primary btn-sm">Settings</button>
-                </li>
-                <li class="nav-item nav-profile dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-                    <span class="nav-profile-name">Johnson</span>
-                    <span class="online-status"></span>
-                    <img src="<?php echo base_url();?>assets/admin/images/faces/face28.png" alt="profile"/>
-                  </a>
-                  <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-                      <a class="dropdown-item">
-                        <i class="mdi mdi-settings text-primary"></i>
-                        Settings
-                      </a>
-                      <a class="dropdown-item">
-                        <i class="mdi mdi-logout text-primary"></i>
-                        Logout
-                      </a>
-                  </div>
-                </li>
-            </ul>
-            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="horizontal-menu-toggle">
-              <span class="mdi mdi-menu"></span>
-            </button>
-          </div>
-        </div>
-      </nav>
-      <nav class="bottom-navbar">
-        <div class="container">
-            <ul class="nav page-navigation">
-              <li class="nav-item">
-                <a class="nav-link" href="index.html">
-                  <i class="mdi mdi-file-document-box menu-icon"></i>
-                  <span class="menu-title">Dashboard</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                  <a href="#" class="nav-link">
-                    <i class="mdi mdi-cube-outline menu-icon"></i>
-                    <span class="menu-title">Kontak dan Alamat</span>
-                    <i class="menu-arrow"></i>
-                  </a>
-                  <!--<div class="submenu">
-                      <ul>
-                          <li class="nav-item"><a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a></li>
-                          <li class="nav-item"><a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
-                      </ul>
-                  </div> -->
-              </li>
-              <li class="nav-item">
-                  <a href="pages/forms/basic_elements.html" class="nav-link">
-                    <i class="mdi mdi-chart-areaspline menu-icon"></i>
-                    <span class="menu-title">Form Elements</span>
-                    <i class="menu-arrow"></i>
-                  </a>
-              </li>
-              <li class="nav-item">
-                  <a href="pages/charts/chartjs.html" class="nav-link">
-                    <i class="mdi mdi-finance menu-icon"></i>
-                    <span class="menu-title">Charts</span>
-                    <i class="menu-arrow"></i>
-                  </a>
-              </li>
-              <li class="nav-item">
-                  <a href="pages/tables/basic-table.html" class="nav-link">
-                    <i class="mdi mdi-grid menu-icon"></i>
-                    <span class="menu-title">Tables</span>
-                    <i class="menu-arrow"></i>
-                  </a>
-              </li>
-              <li class="nav-item">
-                  <a href="pages/icons/mdi.html" class="nav-link">
-                    <i class="mdi mdi-emoticon menu-icon"></i>
-                    <span class="menu-title">Icons</span>
-                    <i class="menu-arrow"></i>
-                  </a>
-              </li>
-              <li class="nav-item">
-                  <a href="#" class="nav-link">
-                    <i class="mdi mdi-codepen menu-icon"></i>
-                    <span class="menu-title">Sample Pages</span>
-                    <i class="menu-arrow"></i>
-                  </a>
-                  <div class="submenu">
-                      <ul class="submenu-item">
-                          <li class="nav-item"><a class="nav-link" href="pages/samples/login.html">Login</a></li>
-                          <li class="nav-item"><a class="nav-link" href="pages/samples/login-2.html">Login 2</a></li>
-                          <li class="nav-item"><a class="nav-link" href="pages/samples/register.html">Register</a></li>
-                          <li class="nav-item"><a class="nav-link" href="pages/samples/register-2.html">Register 2</a></li>
-                          <li class="nav-item"><a class="nav-link" href="pages/samples/lock-screen.html">Lockscreen</a></li>
-                      </ul>
-                  </div>
-              </li>
-              <li class="nav-item">
-                  <a href="docs/documentation.html" class="nav-link">
-                    <i class="mdi mdi-file-document-box-outline menu-icon"></i>
-                    <span class="menu-title">Documentation</span></a>
-              </li>
-            </ul>
-        </div>
-      </nav>
-    </div>
+            <!-- /.sidebar -->
+        </aside>
+
     <!-- partial -->
 		<div class="container-fluid page-body-wrapper">
 			<div class="main-panel">

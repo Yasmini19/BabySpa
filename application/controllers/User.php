@@ -139,7 +139,7 @@ class User extends CI_Controller {
                $message = false;  
             }     
         }else{
-            redirect('Login','refresh');
+            $message = false;
         }
 
         echo json_encode($message);
