@@ -174,16 +174,12 @@
 		//Subkategori
 		public function subkategori() 
 		{
-			$data['ktg'] = $this->GeneralModel->get_data('kategori')->result();
+			//$data['ktg'] = $this->GeneralModel->get_data('kategori')->result();
 			$data['subktg'] = $this->GeneralModel->get_data('sub_kategori')->result();
 			$this->load->view('admin/Kategori', $data);
 		}
 
-		public function get_subkategori()
-		{
-			$id = $this->input->post('id');
-            $data = $this->GeneralModel->get_selected('sub_kategori', array('id_sub_kategori' => $id))->row();
-		}
+		
 
 		public function add_subkategori() 
 		{
@@ -208,41 +204,51 @@
 					'harga' 		=> $this->input->post('edit_harga_sub')
                 );
 
-                $result = $this->GeneralModel->add_data('user', $data);
+                $result = $this->GeneralModel->add_data('sub_kategori', $data);
 
                 //$this->GeneralModel->add_data();
                 $this->load->view('admin/Kategori');
 				$result = 'true';
 			}
 		}
+
+        public function get_subkategori()
+        {
+            $id = $this->input->post('id');
+            $data = $this->GeneralModel->get_selected('sub_kategori', array('id_sub_kategori' => $id))->row();
+            echo json_encode($data);
+        }
 		
 		public function edit_subkategori()
 		{
 			$config['upload_path']     = './assets/user/images';
-            $config['allowed_types']  = 'gif|jpg|png';
-            $config['max_size']        = 1000000000;
-            $config['max_width']       = 10240;
-            $config['max_height']      = 7680;
+                $config['allowed_types']  = 'gif|jpg|png';
+                $config['max_size']        = 1000000000;
+                $config['max_width']       = 10240;
+                $config['max_height']      = 7680;
 
-            $this->load->library('upload',$config);
-            $result='';
+                $this->load->library('upload',$config);
+                $result='';
 
-            $id = array('id_sub_kategori' => $this->input->post('edit_id_sub') );
-            $data = array(
-						'judul_sub'     => $this->input->post('edit_judul_sub'),
-						'keterangan_sub'=> $this->input->post('edit_keterangan_sub'),
-						'harga' 		=> $this->input->post('edit_harga_sub'),
+                $id = array('id_sub_kategori' => $this->input->post('edit_id') );
+                $data = array(
+
+                                'judul_sub'     => $this->input->post('edit_judul_sub'), 
+
+                                'keterangan_sub'     => $this->input->post('edit_keterangan_sub'),
+                                'harga'     => $this->input->post('edit_harga'),
+
                                     
-            );
+                );
 
-            if ($this->upload->do_upload('edit_foto_sub'))
-            {
-                $data['sub_kategori'] = $this->upload->data('file_name');
-            }
+                if ($this->upload->do_upload('edit_foto_sub'))
+                {
+                         $data['foto_sub'] = $this->upload->data('file_name');
+                }
 
-            $result = $this->GeneralModel->update_data('sub_kategori', $data, $id );
+                        $result = $this->GeneralModel->update_data('sub_kategori', $data, $id );
         
-            echo json_encode($result);
+                        echo json_encode($result);
 		}
 
 		public function delete_subkategori()
