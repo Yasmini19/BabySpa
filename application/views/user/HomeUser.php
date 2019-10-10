@@ -438,7 +438,7 @@
 							<!-- //Contact -->
 							<!-- map -->	
 							<div class="map p-2">
-								<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126438.2854809817!2d112.56174164505262!3d-7.978639465170192!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd62822063dc2fb%3A0x78879446481a4da2!2sMalang%2C%20Kota%20Malang%2C%20Jawa%20Timur!5e0!3m2!1sid!2sid!4v1568126843831!5m2!1sid!2sid" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+								<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.3547541415846!2d112.66413601415638!3d-7.962241781554421!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd6290f9428769f%3A0x4684b75b7086a28e!2sMamina%20Mother%20and%20Baby%20Spa!5e0!3m2!1sid!2sid!4v1570679764313!5m2!1sid!2sid" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
 							</div>
 							<!-- //map -->
 

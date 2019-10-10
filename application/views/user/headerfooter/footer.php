@@ -1,4 +1,4 @@
-<!-- footer -->
+<!-- footer >
     <footer class="footer-content py-3">
         <div class="container py-md-3">
             <div class="footer-top text-center">
