@@ -2,7 +2,7 @@
 <!-- banner -->
 <div class="banner" id="home" style="padding-top: 6%;max-height: 697px">
 	<div class="layer">
-		<!-- <div class="container"> -->
+		<div class="container-fluid">
 			<div class="row" style="padding-left: 1%; padding-right: 1%">
 				<div class="col-md-6 banner-text-w3ls"></div>
 				<!-- banner slider-->
@@ -114,7 +114,7 @@
 										</div>
 									</div>
 								</div>
-								<!-- </div> -->
+								</div>
 							</div>
 						</div>
 						<!-- //banner -->
@@ -533,7 +533,7 @@
 													swal({
 													title: "Success",
 													type:"success",
-													text: "Wait For The Confirmation",
+													text: "<b>Wait</b> For The Confirmation",
 													timer: 2000,
 													showConfirmButton: false
 													});
@@ -558,7 +558,6 @@
 								            // You can set the value in every item in the HTMLCollection.
 								            a[i].value = "";
 							  	       	}
-
 							  	       	$("#kategori").prop('selectedIndex',0);
 							  	       	$("#kategori1").prop('selectedIndex',0);
 							  	       	$("#sub_kategori0").prop('selectedIndex',0);
