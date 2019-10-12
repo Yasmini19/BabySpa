@@ -34,6 +34,7 @@ class User extends CI_Controller {
         $data['subkategori'] = $this->GeneralModel->get_join('sub_kategori','kategori',$on)->result();
         $data['service'] = $this->GeneralModel->get_data('kategori')->result();
         $data['berita'] = $this->GeneralModel->get_data('berita')->result();
+        $data['activate'] = 'active';
 
         $this->load->view('user/headerfooter/header',$data);
         $this->load->view('user/HomeUser',$data);
@@ -143,6 +144,22 @@ class User extends CI_Controller {
         }
 
         echo json_encode($message);
+    }
+
+    function profileUser(){
+        $session_data=$this->session->userdata('logged_in');
+        $data['username']=$session_data['username'];
+        $data['level']=$session_data['level'];
+        $data['id_user']=$session_data['id_user'];
+
+        $where = array('id_user' => $session_data['id_user']);
+
+        $data['name'] = $this->GeneralModel->get_selected('user',$where)->result();
+
+
+        $this->load->view('user/headerfooter/header',$data);
+        $this->load->view('user/ProfileUser',$data);
+        $this->load->view('user/headerfooter/footer');
     }
 
 }
