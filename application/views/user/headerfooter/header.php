@@ -87,20 +87,19 @@
 				</div>
 				<label for="drop" class="toggle"><span class="fa fa-bars"></span></label>
 				<input type="checkbox" id="drop" />
-				<ul class="menu ml-auto mt-1">
-					<li class="active"><a href="<?php echo site_url()?>/User">Home</a></li>
-					<li class=""><a href="#about">Berita</a></li>
-					<li class=""><a href="#services">Services</a></li>
-					<li class=""><a href="#stats">Reservasi</a></li>
-					<li class=""><a href="#gallery">Gallery & Testimoni</a></li>
+				<ul class="menu ml-auto mt-1" id="menu">
+					<li class="header-menu"><a href="<?php echo site_url()?>/User">Home</a></li>
+					<li class="header-menu"><a href="<?php echo site_url()?>/User/ProfileUser">Berita</a></li>
+					<li class="header-menu"><a href="#services">Services</a></li>
+					<li class="header-menu"><a href="#gallery">Gallery & Testimoni</a></li>
 					<?php if(!isset($username)){?>
-					<li class=""><a href="<?php echo site_url()?>/Login">Login</a></li>
-					<li class="" style="border:  2px solid black"><a href="<?php echo site_url()?>/Login/register">Register</a></li>
+					<li class="header-menu"><a href="<?php echo site_url()?>/Login">Login</a></li>
+					<li class="header-menu" style="border:  2px solid black"><a href="<?php echo site_url()?>/Login/register">Register</a></li>
 					<?php }else{ ?>
-					<li class="dropdown">
+					<li class="dropdown header-menu">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Hi, <?= $username?> <span class="caret"></span></a>
 						<ul class="dropdown-menu" role="menu">
-							<li><a href="#">Profile</a></li>
+							<li><a href="<?php echo site_url()?>/User/ProfileUser">Profile</a></li>
 							<li><a href="#">Reservation's History</a></li>
 							<li class=""><a href="<?php echo site_url()?>/Login/logout">Logout</a></li>
 						</ul>
@@ -112,3 +111,17 @@
 		</div>
 	</header>
 	<!-- //header -->
+
+<script>
+// Add active class to the current button (highlight it)
+var header = document.getElementById("menu");
+var btns = header.getElementsByClassName("header-menu");
+for (var i = 0; i < btns.length; i++) {
+	btns[i].addEventListener("click", function() {
+		var current = document.getElementsByClassName("active");
+		current[0].className = current[0].className.replace(" active", "");
+		this.className += " active";
+	});
+}
+</script>
+
