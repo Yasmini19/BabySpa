@@ -266,10 +266,10 @@
 						<div class="col-lg-12 grid-margin stretch-card">
 			              <div class="card">
 			                <div class="card-body">
-			                  <h4 class="card-title">Contact Us</h4>
+			                  <h4 class="card-title">KONTAK</h4>
 			                  <!-- <button type="button" class="btn btn-success btn-rounded btn-fw">Tamb</button> -->
 			                  <p class="card-description">
-			                    Add class <code>.table</code>
+			                    <code>.table</code>
 			                  </p>
 			                  <div class="table-responsive">
 			                    <table class="table">
