@@ -248,7 +248,7 @@
 
 
                         <li class="nav-item">
-                            <a href="<?php echo base_url(); ?>index.php/Admin/berita" class="nav-link ">
+                            <a href="<?php echo base_url(); ?>index.php/Admin/berita" class="nav-link active ">
                                 <i class="nav-icon fa fa-newspaper-o"></i>
                                 <p>
                                     Berita

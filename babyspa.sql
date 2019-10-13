@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 23, 2019 at 05:05 AM
--- Server version: 10.4.6-MariaDB
--- PHP Version: 7.3.9
+-- Generation Time: Oct 10, 2019 at 05:08 AM
+-- Server version: 10.1.29-MariaDB
+-- PHP Version: 7.1.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -74,8 +74,17 @@ CREATE TABLE `detail_reservasi` (
   `id_detail` int(11) NOT NULL,
   `reservasi_id` int(11) NOT NULL,
   `subkategori_id` int(11) NOT NULL,
-  `harga` int(11) NOT NULL
+  `harga` int(11) NOT NULL,
+  `jmlh` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `detail_reservasi`
+--
+
+INSERT INTO `detail_reservasi` (`id_detail`, `reservasi_id`, `subkategori_id`, `harga`, `jmlh`) VALUES
+(1, 1, 3, 230000, 0),
+(2, 2, 2, 90000, 2);
 
 -- --------------------------------------------------------
 
@@ -88,14 +97,6 @@ CREATE TABLE `galery` (
   `galery` varchar(500) NOT NULL,
   `keterangan` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `galery`
---
-
-INSERT INTO `galery` (`id_galery`, `galery`, `keterangan`) VALUES
-(1, 'b1.png', 'Dapatkan Layanan kami dirumah mama'),
-(2, 'b2.png', 'Membantu melatih Motorik pada anak');
 
 -- --------------------------------------------------------
 
@@ -115,7 +116,7 @@ CREATE TABLE `kategori` (
 
 INSERT INTO `kategori` (`id_kategori`, `judul_kat`, `keterangan_kat`) VALUES
 (1, 'Baby', 'Rangkaian pelayanan untuk bayi ini bisa dimulai sejak si kecil berusia satu bulan. Rangkaiannya meliputi baby swim selama 15 menit dan dilanjutkan dengan baby massage selama 20 menit, diakhiri dengan pemberian sinar infra red selama 10 menit. Seluruh rangkaian ini bisa dilakukan dibawah pengawasan fisioterapis agar tidak terjadi cedera ataupun kesalahan yang berakibat fatal'),
-(2, 'Mom', 'Perawatan untuk ibu hamil adalah perawatan untuk relaksasi ibu hamil … mengurangi keluhan-keluhan yang dialami selama masa kehamilan akibat perubahan hormon dan tubuh.\r\n\r\nPada dasarnya perawatan untuk ibu hamil hampir sama dengan perawatan yang lain. Tentu saja untuk pijatnya bukan pijat tradisional melainkan pijat dengan gerakan khusus untuk ibu hamil. Kami menggunakan minyak zaitun asli tanpa campuran bahan kimia yang aman bagi ibu hamil (kecuali ada alergi terhadap zaitun). Selain itu tempat perawatan untuk ibu hamil kami buat khusus demi kenyamanan dan tentu saja keamanan ibu hamil.'),
+(2, 'Mom', 'Perawatan untuk ibu hamil adalah perawatan untuk relaksasi ibu hamil mengurangi keluhan-keluhan yang dialami selama masa kehamilan akibat perubahan hormon dan tubuh.\r\n\r\nPada dasarnya perawatan untuk ibu hamil hampir sama dengan perawatan yang lain. Tentu saja untuk pijatnya bukan pijat tradisional melainkan pijat dengan gerakan khusus untuk ibu hamil. Kami menggunakan minyak zaitun asli tanpa campuran bahan kimia yang aman bagi ibu hamil (kecuali ada alergi terhadap zaitun). Selain itu tempat perawatan untuk ibu hamil kami buat khusus demi kenyamanan dan tentu saja keamanan ibu hamil.'),
 (3, 'Konselor', 'Pelayanan antenatal atau Antenatal Care (ANC) adalah pemeriksaan dan konseling yang diberikan kepada bumil agar bisa melalui masa kehamilan dan masa nifas dengan sehat dan selamat. Komponen ANC sendiri meliputi identifikasi risiko, pencegahan, dan penanganan medik pada bumil.');
 
 -- --------------------------------------------------------
@@ -150,11 +151,20 @@ CREATE TABLE `reservasi` (
   `terapis_id` int(11) NOT NULL,
   `sesi_id` int(11) NOT NULL,
   `tgl_reservasi` date NOT NULL,
-  `total_harga_awal` int(11) NOT NULL,
-  `diskon_pesen` varchar(5) NOT NULL,
-  `nominal_diskon` float NOT NULL,
-  `biaya_transportasi` int(11) NOT NULL
+  `total_harga_awal` int(11) DEFAULT NULL,
+  `diskon_persen` varchar(5) DEFAULT NULL,
+  `nominal_diskon` float DEFAULT NULL,
+  `biaya_transportasi` int(11) DEFAULT NULL,
+  `status` enum('Booked','Cancelled','Accepted') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `reservasi`
+--
+
+INSERT INTO `reservasi` (`id_reservasi`, `pemesan_id`, `terapis_id`, `sesi_id`, `tgl_reservasi`, `total_harga_awal`, `diskon_persen`, `nominal_diskon`, `biaya_transportasi`, `status`) VALUES
+(1, 5, 6, 1, '2019-10-01', 230000, '0,01', 2300, 12000, 'Cancelled'),
+(2, 5, 6, 1, '2019-10-02', 90000, NULL, NULL, NULL, 'Booked');
 
 -- --------------------------------------------------------
 
@@ -230,7 +240,8 @@ INSERT INTO `user` (`id_user`, `full_name`, `username`, `email`, `no_telp`, `ala
 (1, 'admin', 'admin', 'admin@gmail.com', '091322332234', 'malang', 'my-account-login-icon.png', '21232f297a57a5a743894a0e4a801fc3', 1),
 (2, 'sasa', 'sasa', 'sasa@123', '0813999293433', 'Malang', '', 'f45731e3d39a1b2330bbf93e9b3de59e', 2),
 (5, 'meli', 'meli', 'meli@gmail.com', '2', 'meli', NULL, '315fef7b8d30f99d6964f489ee4c9828', 2),
-(6, 'yasmini', 'yasmini', 'yasmini@gmail.com', '9029109012', 'malang', 't1.jpg', '0bad1b8571cd7ad70fb02939a1f9b6fb', 3);
+(6, 'yasmini', 'yasmini', 'yasmini@gmail.com', '9029109012', 'malang', 't1.jpg', '0bad1b8571cd7ad70fb02939a1f9b6fb', 3),
+(7, 'saskia', 'saskia', 'saskia@gmail.com', '091322332234', 'malnag', 'default.png', '7d207ce9e36a6a60ec529d1f62038ed2', 3);
 
 --
 -- Indexes for dumped tables
@@ -280,7 +291,8 @@ ALTER TABLE `level`
 ALTER TABLE `reservasi`
   ADD PRIMARY KEY (`id_reservasi`),
   ADD KEY `fk_reservasi_sesi` (`sesi_id`),
-  ADD KEY `fk_reservasi_user` (`pemesan_id`);
+  ADD KEY `fk_reservasi_user` (`pemesan_id`),
+  ADD KEY `fk_reservasi_terapisid` (`terapis_id`);
 
 --
 -- Indexes for table `sesi_reservasi`
@@ -322,13 +334,13 @@ ALTER TABLE `contact_us`
 -- AUTO_INCREMENT for table `detail_reservasi`
 --
 ALTER TABLE `detail_reservasi`
-  MODIFY `id_detail` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `galery`
 --
 ALTER TABLE `galery`
-  MODIFY `id_galery` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_galery` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `kategori`
@@ -346,7 +358,7 @@ ALTER TABLE `level`
 -- AUTO_INCREMENT for table `reservasi`
 --
 ALTER TABLE `reservasi`
-  MODIFY `id_reservasi` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_reservasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `sesi_reservasi`
@@ -364,7 +376,7 @@ ALTER TABLE `sub_kategori`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables
@@ -382,6 +394,7 @@ ALTER TABLE `detail_reservasi`
 --
 ALTER TABLE `reservasi`
   ADD CONSTRAINT `fk_reservasi_sesi` FOREIGN KEY (`sesi_id`) REFERENCES `sesi_reservasi` (`id_sesi`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_reservasi_terapisid` FOREIGN KEY (`terapis_id`) REFERENCES `user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_reservasi_user` FOREIGN KEY (`pemesan_id`) REFERENCES `user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
