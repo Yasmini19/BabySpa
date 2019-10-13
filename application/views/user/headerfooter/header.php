@@ -89,7 +89,7 @@
 				<input type="checkbox" id="drop" />
 				<ul class="menu ml-auto mt-1" id="menu">
 					<li class="header-menu"><a href="<?php echo site_url()?>/User">Home</a></li>
-					<li class="header-menu"><a href="<?php echo site_url()?>/User/ProfileUser">Berita</a></li>
+					<li class="header-menu"><a href="<?php echo site_url()?>/User/beritaHomeUser">News</a></li>
 					<li class="header-menu"><a href="#services">Services</a></li>
 					<li class="header-menu"><a href="#gallery">Gallery & Testimoni</a></li>
 					<?php if(!isset($username)){?>
