@@ -239,7 +239,7 @@
                         </li>
 
 						<li class="nav-item">
-            <a href="<?php echo base_url();?>index.php/Admin/Kategori" class="nav-link">
+            <a href="<?php echo base_url();?>index.php/Admin/subkategori" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
               <p>
                 Kategori
@@ -313,6 +313,7 @@
                                         <th class="sorting_asc" tabindex="0" aria-controls="demo-datatables" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending">Id User</th>
                                         <th>Full Name</th>
                                         <th>Username</th>
+                                        <th>Password</th>
                                         <th>Email</th>
                                         <th>No Tlp</th>
                                         <th>Alamat</th>
@@ -326,6 +327,7 @@
                                                 <td><?php echo $value->id_user ?></td>
                                                 <td><?php echo $value->full_name ?></td>
                                                 <td><?php echo $value->username ?></td>
+                                                <td><?php echo $value->password ?></td>
                                                 <td><?php echo $value->email ?></td>
                                                 <td><?php echo $value->no_telp ?></td>
                                                 <td><?php echo $value->alamat ?></td>
@@ -400,6 +402,14 @@
                                     <input type="text" id="username" name="username" class="form-control" placeholder="Username">
                                 </div>
 
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            @
+                                        </span>
+                                    </div>
+                                    <input type="password" id="password" name="password" class="form-control" placeholder="Password">
+                                </div>
 
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
@@ -500,6 +510,14 @@
                                 </div>
 
 
+                                 <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            @
+                                        </span>
+                                    </div>
+                                     <input type="password" id="edit_password" class="form-control validate" name="edit_password" placeholder="Input field">
+                                </div>
 
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
@@ -732,6 +750,7 @@
                     $('#edit_level').val(data.level);
                     $('#edit_full_name').val(data.full_name);
                     $('#edit_username').val(data.username);
+                    $('#edit_password').val(data.password);
                     $('#edit_email').val(data.email);
                     $('#edit_no_telp').val(data.no_telp);
                     $('#edit_alamat').val(data.alamat);
