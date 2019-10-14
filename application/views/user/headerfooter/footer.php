@@ -130,11 +130,11 @@
             </div>
 
         </div>
-        <!-- //footer bottom -->
-    </footer>
+         //footer bottom -->
     <!-- //footer -->
    <!-- copyright -->
-<div class="copy-right-top">
+<footer style="position: relative; bottom: 0px; width: 100%; margin-bottom: 0; padding-bottom: 0; padding-top: 10px">
+<div class="copy-right-top" >
 	<p class="copy-right text-center py-4">&copy; 2019 Trip Spot. All Rights Reserved | Design by
 		<a href="http://w3layouts.com/"> W3layouts </a>
 	</p>
@@ -147,6 +147,7 @@
 		<span class="fa fa-angle-up  mb-3" aria-hidden="true"></span>
 	</a>
 </div>
+</footer>
 <!-- move top -->
 
 

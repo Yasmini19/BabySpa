@@ -1,5 +1,5 @@
-<div class="container">
-	<div class="artikel" id="artikel" style="padding-top: 10%;">
+<div class="container" style="min-height: 100%">
+	<div class="artikel" id="artikel" style="min-height: 603px; padding-top: 100px;padding-bottom: inherit;">
 		<b><h5 class="heading">Our News</h5></b>
 		<br>
 <!-- 		<hr width="10%" align="left">
@@ -22,10 +22,10 @@
 		</div>
 		<br>
 		<?php } ?>
-
-		<div style="align-items: center;"><?php 
-	echo $this->pagination->create_links();?></div>
 		
 		<br>
 	</div>
+	<div style="align-items: center;"><?php 
+	echo $this->pagination->create_links();?></div>
+	<br>
 </div> 

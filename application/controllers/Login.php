@@ -56,7 +56,8 @@
                     $session_array = array(
                         'id_user'=>$key->id_user,
                         'username'=>$key->username,
-                        'level'=>$key->level
+                        'level'=>$key->level,
+                        'password' => $key->password
                     );
                     $this->session->set_userdata('logged_in',$session_array);
                 }

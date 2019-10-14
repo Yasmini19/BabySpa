@@ -195,7 +195,7 @@ class User extends CI_Controller {
         $config['last_tag_open']    = '<li class="page-item"><span class="page-link">';
         $config['last_tagl_close']  = '</span></li>';
 
-        $from = $this->uri->segment(4);
+        $from = $this->uri->segment(3);
         $this->pagination->initialize($config);     
         $data['berita'] = $this->GeneralModel->data_offset('berita',$config['per_page'],$from);
         
@@ -204,9 +204,94 @@ class User extends CI_Controller {
         $this->load->view('user/headerfooter/footer');
     }
 
+    function editProfileUser(){
+
+        $session_data=$this->session->userdata('logged_in');
+
+        $this->form_validation->set_rules('name', 'Name', 'required');
+        $this->form_validation->set_rules('add', 'Address', 'required');
+        $this->form_validation->set_rules('phone', 'Phone Number', 'required');
+        $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
+        $this->form_validation->set_rules('username', 'Username', 'required');
+        if($this->form_validation->run())
+        {
+            $array = array(
+            'success' => true
+            );
+
+            $data = array(
+                'full_name' => $this->input->post('name'),
+                'alamat' => $this->input->post('add'),
+                'no_telp' => $this->input->post('phone'),
+                'email' => $this->input->post('email'),
+                'username' => $this->input->post('username')
+            );
+
+            $where = array('id_user' => $session_data['id_user']);
+            
+            $this->GeneralModel->update_data('user',$data,$where);
+        }
+        else
+        {
+           $array = array(
+            'error'   => true,
+            'name_error' => form_error('name'),
+            'add_error' => form_error('add'),
+            'phone_error' => form_error('phone'),
+            'email_error' => form_error('email'),
+            'username_error' => form_error('username')
+           );
+        }
+          echo json_encode($array);
+    }
+
+    function editPassUser(){
+
+        $session_data=$this->session->userdata('logged_in');
+
+        $this->form_validation->set_rules('old', 'Old Password', 'trim|required|callback_cekDbUser');
+        $this->form_validation->set_rules('password', 'New Password', 'trim|required');
+        $this->form_validation->set_rules('confirm', 'Confirm Password', 'trim|required|matches[password]');
+        if($this->form_validation->run())
+        {
+            $array = array(
+            'success' => true
+            );
+
+            $data = array(
+                'password' => md5($this->input->post('password'))
+            );
+
+            $session_data['password'] = md5($this->input->post('password'));
 
 
+            $where = array('id_user' => $session_data['id_user']);
+            
+            $this->GeneralModel->update_data('user',$data,$where);
+        }
+        else
+        {
+           $array = array(
+            'error'   => true,
+            'old_error' => form_error('old'),
+            'password_error' => form_error('password'),
+            'confirm_error' => form_error('confirm')
+           );
+        }
+        
+        echo json_encode($array);
+    }
 
+    public function cekDbUser($password)
+        {
+            $session_data=$this->session->userdata('logged_in');
+            if(md5($password) == $session_data['password']){
+                return true;
+            }else{
+                $this->form_validation->set_message('cekDbUser',"Old Password Wrong");
+                return false;
+            }
+        }
 
 }
 ?>
