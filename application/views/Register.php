@@ -17,8 +17,8 @@
   <!-- endinject -->
   <link rel="shortcut icon" href="<?php echo base_url();?>assets/admin/images/favicon.png" />
 
-  <script src="<?php echo base_url();?>assets/admin/sweetalert/sweetalert.js"></script>
-  <link rel="stylesheet" href="<?php echo base_url();?>assets/admin/sweetalert/sweetalert.css"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.css"/>
 </head>
 
 <body>
