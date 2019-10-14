@@ -239,7 +239,7 @@
                         </li>
 
 						<li class="nav-item">
-							<a href="<?php echo base_url();?>index.php/Admin/Kategori" class="nav-link active">
+							<a href="<?php echo base_url();?>index.php/Admin/subkategori" class="nav-link active">
 							<i class="nav-icon fas fa-book"></i>
 							<p>
 								Kategori
@@ -405,18 +405,6 @@
                                     </div>
                                     <input type="text" id="harga" name="harga" class="form-control" placeholder="Harga">
                                 </div>
-
-                                <div>
-
-                                </div>
-
-
-                               
-
-
-                                
-
-                               
                         </div>
 
                     </div>
@@ -494,17 +482,6 @@
                                     </div>
                                     <input type="text" id="edit_harga" name="edit_harga" class="form-control" placeholder="Harga">
                                 </div>
-
-
-                                
-
-
-
-                                
-                               
-
-
-
                             </div>
 
                         </div>
@@ -628,6 +605,7 @@
                 url: '<?php echo site_url('admin/add_subkategori'); ?>',
                 type: 'POST',
                 data: formData,
+                dataType: 'json',
 
                 cache: false,
                 contentType: false,
@@ -635,9 +613,10 @@
 
                 success: function(response) {
 
-                    if (response = 'true') {
+                    if (response == true) {
                         alert('berhasil');
-                        location.reload();
+                        alert(response);
+                        //location.reload();
                     } else {
                         alert('error : ' + response);
                     }

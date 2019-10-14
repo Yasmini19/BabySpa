@@ -238,7 +238,7 @@
           </li>
 
 					<li class="nav-item">
-            <a href="<?php echo base_url();?>index.php/Admin/Kategori" class="nav-link">
+            <a href="<?php echo base_url();?>index.php/Admin/subkategori" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
               <p>
                 Kategori
@@ -252,6 +252,16 @@
               <i class="nav-icon fa fa-newspaper-o"></i>
               <p>
                 Berita
+                
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="<?php echo base_url();?>index.php/Admin/berita" class="nav-link">
+              <i class="nav-icon fa fa-newspaper-o"></i>
+              <p>
+                Reservasi
                 
               </p>
             </a>
