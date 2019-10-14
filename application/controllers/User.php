@@ -264,7 +264,6 @@ class User extends CI_Controller {
 
             $session_data['password'] = md5($this->input->post('password'));
 
-
             $where = array('id_user' => $session_data['id_user']);
             
             $this->GeneralModel->update_data('user',$data,$where);
@@ -282,16 +281,32 @@ class User extends CI_Controller {
         echo json_encode($array);
     }
 
-    public function cekDbUser($password)
-        {
-            $session_data=$this->session->userdata('logged_in');
-            if(md5($password) == $session_data['password']){
-                return true;
-            }else{
-                $this->form_validation->set_message('cekDbUser',"Old Password Wrong");
-                return false;
-            }
+    public function cekDbUser($password){
+        $session_data=$this->session->userdata('logged_in');
+        if(md5($password) == $session_data['password']){
+            return true;
+        }else{
+            $this->form_validation->set_message('cekDbUser',"Old Password Wrong");
+            return false;
         }
+    }
+
+    public function detailBeritaUser($id){
+        $session_data=$this->session->userdata('logged_in');
+        $data['username']=$session_data['username'];
+        $data['level']=$session_data['level'];
+        $data['id_user']=$session_data['id_user'];
+
+        $where = array('id_berita' => $id);
+        $where2 = array('id_berita !=' => $id);
+
+        $data['data'] = $this->GeneralModel->get_selected('berita',$where)->result();
+        $data['data2'] = $this->GeneralModel->get_selected_offset('berita',$where2,'5')->result();
+
+        $this->load->view('user/headerfooter/header',$data);
+        $this->load->view('user/detailBeritaUser',$data);
+        $this->load->view('user/headerfooter/footer');
+    }
 
 }
 ?>
