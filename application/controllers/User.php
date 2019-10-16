@@ -301,10 +301,29 @@ class User extends CI_Controller {
         $where2 = array('id_berita !=' => $id);
 
         $data['data'] = $this->GeneralModel->get_selected('berita',$where)->result();
-        $data['data2'] = $this->GeneralModel->get_selected_offset('berita',$where2,'5')->result();
+        $data['data2'] = $this->GeneralModel->get_selected_offset('berita',$where2,'5','id_berita','RANDOM')->result();
 
         $this->load->view('user/headerfooter/header',$data);
         $this->load->view('user/detailBeritaUser',$data);
+        $this->load->view('user/headerfooter/footer');
+    }
+
+    public function detailKategoriUser($id){
+        $session_data=$this->session->userdata('logged_in');
+        $data['username']=$session_data['username'];
+        $data['level']=$session_data['level'];
+        $data['id_user']=$session_data['id_user'];
+
+        $where = array('id_kategori' => $id);
+        $where2 = array('id_kategori !=' => $id);
+        $where3 = array('kategori_id' => $id);
+
+        $data['data'] = $this->GeneralModel->get_selected('kategori',$where)->result();
+        $data['data2'] = $this->GeneralModel->get_selected_offset('kategori',$where2,'2','id_kategori','RANDOM')->result();
+        $data['data3'] = $this->GeneralModel->get_selected('sub_kategori',$where3)->result();
+
+        $this->load->view('user/headerfooter/header',$data);
+        $this->load->view('user/detailKategoriUser',$data);
         $this->load->view('user/headerfooter/footer');
     }
 

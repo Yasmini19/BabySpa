@@ -120,26 +120,29 @@
 						<!-- //banner -->
 						<!-- banner-bottom -->
 						<section class="some-content py-5" id="about" style="height:686px">
-							<div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+							<div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel" data-interval="0">
 								<div class="carousel-inner">
-
-									<div class="carousel-item active">
+									<?php 
+									$no = 1;
+									foreach ($berita as $key) {?>
+									<div class="carousel-item">
 										<div class="container py-md-5">
 											<div class="row about-vv-top mt-2">
 												<div class="col-lg-6 about-info">
-													<h4 class="title-hny  mb-md-5">Manfaat Baby Spa untuk Melatih Motorik Bayi</h4>
-													<p>Baby spa atau pijat bayi saat ini sudah semakin populer. Banyak para Bunda yang rutin mengajak buah hatinya ke baby spa untuk mendapatkan berbagai treatment terbaik. Namun, baby spa hanya diperbolehkan jika berat badan Si Kecil sudah mencapai 5kg, lho.  Selain mengasyikan, kegiatan yang mencakup renang dan pijat ini tentunya memiliki berbagai manfaat untuk Si Kecil. Salah satunya dapat merangsang gerak motoriknya.</p>
+													<h4 class="title-hny  mb-md-5"><?= $key->judul_berita;?></h4>
+													<p><?= substr($key->deskripsi, 0, 450) . '...';?></p>
 													<div class="read-more-button mt-4">
-														<a href="index.html" class="read-more btn">Read More </a>
+														<a href="<?php echo site_url()?>/User/DetailBeritaUser/<?= $key->id_berita?>" class="read-more btn">Read More </a>
 													</div>
 												</div>
 												<div class="col-lg-6 about-img mt-md-4 mt-sm-4">
-													<img src="<?php echo base_url();?>assets/user/images/b8.jpg" class="img-fluid" alt="">
+													<img src="<?php echo base_url();?>assets/user/images/<?php echo $key->foto_berita;?>" class="img-fluid" alt="">
 												</div>
 											</div>
 										</div>
 									</div>
-									<div class="carousel-item">
+									<?php $no++; } ?>
+									<!-- <div class="carousel-item">
 										<div class="container py-md-5">
 											<div class="row about-vv-top mt-2">
 												<div class="col-lg-6 about-info">
@@ -155,7 +158,7 @@
 												</div>
 											</div>
 										</div>
-									</div>
+									</div> -->
 								</div>
  <!--  <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -183,7 +186,7 @@
 				<hr width="50%">
 				<p class="mt-3"><?php echo substr($value->keterangan_kat, 0, 200) . '...'; ?></p>
 				<div class="read-more-button mt-4">
-					<a href="index.html" class="read-more btn">Read More </a>
+					<a href="<?= site_url()?>/User/DetailKategoriUser/<?= $value->id_kategori?>" class="read-more btn">Read More </a>
 				</div>
 			</div>
 		<?php endforeach?>
@@ -563,7 +566,11 @@
 							  	       	$("#sub_kategori0").prop('selectedIndex',0);
 							  	       	$("#sub_kategori1").prop('selectedIndex',0);
 							  	       	$("#sesi").prop('selectedIndex',0);
-							     	}
+							     	};
+
+							     	$('.carousel').carousel({
+							     		interval: 2000
+							     	});
 
 
 								});

@@ -12,8 +12,8 @@ class GeneralModel extends CI_Model {
         return $query = $this->db->get($table,$number,$offset)->result();       
     }
 
-    function get_selected_offset($table,$where,$number){
-    return $query = $this->db->get_where($table,$where,$number);       
+    function get_selected_offset($table,$where,$number,$id,$random){
+    return $query = $this->db->order_by($id,$random)->get_where($table,$where,$number);       
     }
  
     function num_row($table){

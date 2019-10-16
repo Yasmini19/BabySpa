@@ -24,6 +24,9 @@
 
 
 	<script src="http://code.jquery.com/jquery-3.4.1.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/javascript.util/0.12.12/javascript.util.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
 	<!-- <script src="<?php echo base_url();?>assets/user/js/jquery-3.3.1.slim.min.js"></script> -->
 	<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> -->
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js"></script>
@@ -90,7 +93,7 @@
 				<ul class="menu ml-auto mt-1" id="menu">
 					<li class="header-menu"><a href="<?php echo site_url()?>/User">Home</a></li>
 					<li class="header-menu"><a href="<?php echo site_url()?>/User/beritaHomeUser">News</a></li>
-					<li class="header-menu"><a href="#services">Services</a></li>
+					<!-- <li class="header-menu"><a href="#services">Services</a></li> -->
 					<li class="header-menu"><a href="#gallery">Gallery & Testimoni</a></li>
 					<?php if(!isset($username)){?>
 					<li class="header-menu"><a href="<?php echo site_url()?>/Login">Login</a></li>
