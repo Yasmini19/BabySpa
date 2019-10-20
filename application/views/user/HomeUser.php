@@ -67,7 +67,7 @@
 															<div class="input-container">
 																<!-- <i class="fa fa-envelope icon"></i> -->
 																<input placeholder="Jumlah" name="jumlah0" id="jumlah0" type="number" class="reset" required=""
-																 max="2">
+																max="2">
 															</div>
 														</div>
 													</div>
@@ -114,253 +114,327 @@
 										</div>
 									</div>
 								</div>
+							</div>
+						</div>
+					</div>
+					<!-- //banner -->
+					<!-- banner-bottom -->
+					<section class="some-content py-5" id="about" style="height:686px">
+						<div class="container py-md-5">
+							<div id="carousel-slider">
+								<?php 
+								$no = 1;
+								foreach ($berita as $key) {?>
+								<div style="padding-left: 10px; padding-right: 10px; padding-bottom: 5px; padding-top: 5px">
+									<div class="row about-vv-top mt-2">
+										<div class="col-lg-6 about-info">
+											<h4 class="title-hny  mb-md-5"><?= $key->judul_berita;?></h4>
+											<p><?= substr($key->deskripsi, 0, 450) . '...';?></p>
+											<div class="read-more-button mt-4">
+												<a href="<?php echo site_url()?>/User/DetailBeritaUser/<?= $key->id_berita?>" class="read-more btn">Read More </a>
+											</div>
+										</div>
+										<div class="col-lg-6 about-img mt-md-4 mt-sm-4">
+											<img src="<?php echo base_url();?>assets/user/images/<?php echo $key->foto_berita;?>" class="img-fluid" alt="">
+										</div>
+									</div>
+								</div>
+								<?php $no++; } ?>
+							</div>
+						</a>
+					</div>
+				</section>
+				<!-- //banner-bottom-->
+				<!-- services -->
+				<section class="services py-5" id="services">
+					<div class="container py-md-5">
+						<h3 class="heading text-center mb-3 mb-sm-5">Our Services</h3>
+						<div class="row service-grid-grids text-center">
+
+							<?php foreach ($service as $key => $value) : ?>
+								<div class="col-lg-4 col-md-6 service-grid service-grid3 mb-4">
+									<h4 class="mt-3"><?php echo $value->judul_kat ?></h4>
+									<hr width="50%">
+									<p class="mt-3"><?php echo substr($value->keterangan_kat, 0, 200) . '...'; ?></p>
+									<div class="read-more-button mt-4">
+										<a href="<?= site_url()?>/User/DetailKategoriUser/<?= $value->id_kategori?>" class="read-more btn">Read More </a>
+									</div>
+								</div>
+							<?php endforeach?>
+						</div>
+					</div>		
+				</section>
+				<!-- //services -->
+				<!-- Team  -->
+				<section class="team py-5" id="team" style="height: 665px">
+					<div class="container py-md-5">
+						<div>
+							<h3 class="heading text-center mb-3 mb-sm-5">Our Terapis</h3>
+						</div>
+						<div class="row">
+							<?php foreach($trps as $key => $value):  ?>
+								<div class="team-grid col-lg-3 col-sm-6 mb-5">
+									<div style="min-height: 250px; max-height: 250px">
+										<img src="<?php echo base_url()?>/assets/upload/<?php echo $value->foto;?>" class="" alt="" style="border: 5px solid #fff; border-radius: 100%;"/>
+									</div>
+									<br>
+									<div class="team-info text-center"  style="background: #fff ;border: 5px solid #737373;border-radius: 10px;">
+										<h3 class="e" style="color: #35405a"><?php echo $value->full_name;?></h3>
+									</div>
+								</div>
+							<?php endforeach ?>
+						</div>
+					</div>
+				</section>
+				<!-- //Team -->
+
+				<!-- Gallery -->
+				<section class="gallery py-5" id="gallery">
+					<div class="container py-md-5">
+						<div class="header mb-3 mb-sm-5 text-center">
+							<h3 class="heading text-center mb-3 mb-sm-5">Mamina Gallery</h3>
+							<div class="row news-grids text-center">
+								<div class="col-md-4 gal-img">
+									<a href="#baby1"><img src="<?php echo base_url();?>assets/user/images/b1.png" alt="news image" class="img-fluid"><span>Testimoni</span></a>
+									<a href="#baby2"><img src="<?php echo base_url();?>assets/user/images/b2.png" alt="news image" class="img-fluid"><span>Testimoni</span></a>
+
+								</div>
+
+								<div class="col-md-4 gal-img">
+									<a href="#baby3"><img src="<?php echo base_url();?>assets/user/images/b4.png" alt="news image" class="img-fluid"><span>Testimoni</span></a>
+									<a href="#baby4"><img src="<?php echo base_url();?>assets/user/images/b5.png" alt="news image" class="img-fluid"><span>Testimoni</span></a>
+								</div>
+								<div class="col-md-4 gal-img">
+									<a href="#baby5"><img src="<?php echo base_url();?>assets/user/images/b6.jpg" alt="news image" class="img-fluid"><span>Testimoni</span></a>
+									<a href="#baby6"><img src="<?php echo base_url();?>assets/user/images/b7.png" alt="news image" class="img-fluid"><span>Testimoni</span></a>
 								</div>
 							</div>
 						</div>
-						<!-- //banner -->
-						<!-- banner-bottom -->
-						<section class="some-content py-5" id="about" style="height:686px">
-							<div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel" data-interval="0">
-								<div class="carousel-inner">
+						<!-- popup-->
+						<div id="baby1" class="pop-overlay animate">
+							<div class="popup">
+								<img src="<?php echo base_url();?>assets/user/images/b1.png" alt="Popup Image" class="img-fluid" />
+								<p class="mt-4">𝙉𝙮𝙖𝙢𝙖𝙣𝙣𝙮𝙖.. 𝙙𝙖𝙥𝙖𝙩𝙠𝙖𝙣 𝙡𝙖𝙮𝙖𝙣𝙖𝙣 𝙠𝙖𝙢𝙞 𝙙𝙞 𝙧𝙪𝙢𝙖𝙝 𝙢𝙖𝙢𝙖</p>
+								<a class="close" href="#gallery">&times;</a>
+							</div>
+						</div>
+						<!-- //popup -->
+
+						<!-- popup-->
+						<div id="baby2" class="pop-overlay animate">
+							<div class="popup">
+								<img src="<?php echo base_url();?>assets/user/images/b2.png" alt="Popup Image" class="img-fluid" />
+								<p class="mt-4">𝑶𝒑𝒕𝒊𝒎𝒂𝒍𝒌𝒂𝒏 𝒎𝒐𝒕𝒐𝒓𝒊𝒌 𝒅𝒂𝒏 𝒃𝒐𝒏𝒅𝒊𝒏𝒈 𝒃𝒂𝒃𝒚 𝒅𝒂𝒏 𝒎𝒂𝒎𝒂 𝒑𝒂𝒑𝒂 𝒅𝒆𝒏𝒈𝒂𝒏 𝒃𝒂𝒃𝒚 𝒔𝒑𝒂</p>
+								<a class="close" href="#gallery">&times;</a>
+							</div>
+						</div>
+						<!-- //popup -->
+						<!-- popup-->
+						<div id="baby3" class="pop-overlay animate">
+							<div class="popup">
+								<img src="<?php echo base_url();?>assets/user/images/b4.png" alt="Popup Image" class="img-fluid" />
+								<p class="mt-4">Dukungan keluarga terdekat, merupakan booster terbaik untuk bayi dan mama</p>
+								<a class="close" href="#gallery">&times;</a>
+							</div>
+						</div>
+						<!-- //popup3 -->
+						<!-- popup-->
+						<div id="baby4" class="pop-overlay animate">
+							<div class="popup">
+								<img src="<?php echo base_url();?>assets/user/images/b5.png" alt="Popup Image" class="img-fluid" />
+								<p class="mt-4">Apapun pilihanmu, mama Kami akan dukung. Kami hanya bisa memberikan apa yang kami rasa tahu dan apa yang kami rasa terbaik untuk bayi mama .</p>
+								<a class="close" href="#gallery">&times;</a>
+							</div>
+						</div>
+						<!-- //popup -->
+						<!-- popup-->
+						<div id="baby5" class="pop-overlay animate">
+							<div class="popup">
+								<img src="<?php echo base_url();?>assets/user/images/b6.jpg" alt="Popup Image" class="img-fluid" />
+								<p class="mt-4">Waaah... Just keep swimming ya!</p>
+								<a class="close" href="#gallery">&times;</a>
+							</div>
+						</div>
+						<!-- //popup -->
+						<!-- popup-->
+						<div id="baby6" class="pop-overlay animate">
+							<div class="popup">
+								<img src="<?php echo base_url();?>assets/user/images/b7.png" alt="Popup Image" class="img-fluid" />
+								<p class="mt-4">Perjuangan mengasihi takkan sebanding dengan berapa kaleng susu yang sudah kamu persiapkan untuk bayimu kelak. Perjuangkan seoptimal yang kamu bisa. Bayimu, berhak atas asi yang ada didalammu.</p>
+								<a class="close" href="#gallery">&times;</a>
+							</div>
+						</div>
+						<!-- //popup -->
+					</div>
+				</section>
+				<!--// gallery -->
+
+				<!-- destinations -->
+				<section class="destinations py-5" id="destinations">
+					<div class="container py-md-5">
+						<h3 class="heading text-center mb-3 mb-sm-5">Spa Prices</h3>
+
+						<div class="row justify-content-center">
+							<div class="col-11">
+								<nav class="nav nav-pills flex-column flex-sm-row" role="tablist" id="myTabs">
 									<?php 
 									$no = 1;
-									foreach ($berita as $key) {?>
-									<div class="carousel-item">
-										<div class="container py-md-5">
-											<div class="row about-vv-top mt-2">
-												<div class="col-lg-6 about-info">
-													<h4 class="title-hny  mb-md-5"><?= $key->judul_berita;?></h4>
-													<p><?= substr($key->deskripsi, 0, 450) . '...';?></p>
-													<div class="read-more-button mt-4">
-														<a href="<?php echo site_url()?>/User/DetailBeritaUser/<?= $key->id_berita?>" class="read-more btn">Read More </a>
-													</div>
-												</div>
-												<div class="col-lg-6 about-img mt-md-4 mt-sm-4">
-													<img src="<?php echo base_url();?>assets/user/images/<?php echo $key->foto_berita;?>" class="img-fluid" alt="">
+									foreach ($service as $key) {?>
+									<a class="flex-sm-fill text-sm-center nav-link <?php if($no==1){ echo "active";}?>" href="#<?= $key->judul_kat;?>" role="tab"><?= $key->judul_kat;?></a>
+									<?php 
+									$no++;
+								}?> 
+							</nav>
+							<div class="tab-content mt-2" id="tabContent">
+								<br>
+									<div class="tab-pane" id="Mom" role="tabpanel">
+										<div id="carouselExampleControls2" class="carousel slide" data-ride="carousel">
+											<div class="carousel-inner">
+												<?php 
+												$no = 0;
+												foreach($subkategori2 as $key => $value):  ?>
+												<?php if ($no == 0){?>
+												<div class="carousel-item active">
+													<div class="row inner-sec-w3layouts-w3pvt-lauinfo">
+														<?php }else if($no !=0 && $no % 4 == 0){?>
+														<div class="carousel-item">
+															<div class="row inner-sec-w3layouts-w3pvt-lauinfo">
+																<?php }?>
+																<div class="col-md-3 col-sm-6 col-6 destinations-grids text-center mb-4">
+																	<div class="card mb-2">
+																		<img class="card-img-top"
+																		src="<?php echo base_url();?>assets/user/images/<?php echo $value->foto_sub?>"
+																		alt="Card image cap" width="200" height="200">
+																		<div class="card-body">
+																			<h5 class="card-title"><?php echo $value->judul_sub?></h5>
+																			<p class="card-text"><?php echo $value->judul_kat?></p>
+																			<p><b>Harga : <br><?php echo "Rp " . number_format($value->harga, 2, ",", ".");?></b></p>
+																		</div>
+																	</div>
+																</div>
+																<?php if ($no != 0 && $no % 4 == 3){?>
+															</div>
+														</div>
+														<?php } $no++;?>
+													<?php endforeach ?>
 												</div>
 											</div>
+										</div>
+										
+										<a class="carousel-control-prev" href="#carouselExampleControls2" role="button" data-slide="prev">
+											<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+											<span class="sr-only" style="background-color: black">Previous</span>
+										</a>
+										<a class="carousel-control-next" href="#carouselExampleControls2" role="button" data-slide="next">
+											<span class="carousel-control-next-icon" aria-hidden="true"></span>
+											<span class="sr-only">Next</span>
+										</a>
+									</div>
+								</div>
+
+								<div class="tab-pane" id="Konselor" role="tabpanel">
+										<div id="carouselExampleControls3" class="carousel slide" data-ride="carousel">
+											<div class="carousel-inner">
+												<?php 
+												$no = 0;
+												foreach($subkategori3 as $key => $value):  ?>
+												<?php if ($no == 0){?>
+												<div class="carousel-item active">
+													<div class="row inner-sec-w3layouts-w3pvt-lauinfo">
+														<?php }else if($no !=0 && $no % 4 == 0){?>
+														<div class="carousel-item">
+															<div class="row inner-sec-w3layouts-w3pvt-lauinfo">
+																<?php }?>
+																<div class="col-md-3 col-sm-6 col-6 destinations-grids text-center mb-4">
+																	<div class="card mb-2">
+																		<img class="card-img-top"
+																		src="<?php echo base_url();?>assets/user/images/<?php echo $value->foto_sub?>"
+																		alt="Card image cap" width="200" height="200">
+																		<div class="card-body">
+																			<h5 class="card-title"><?php echo $value->judul_sub?></h5>
+																			<p class="card-text"><?php echo $value->judul_kat?></p>
+																			<p><b>Harga : <br><?php echo "Rp " . number_format($value->harga, 2, ",", ".");?></b></p>
+																		</div>
+																	</div>
+																</div>
+																<?php if ($no != 0 && $no % 4 == 3){?>
+															</div>
+														</div>
+														<?php } $no++;?>
+													<?php endforeach ?>
+												</div>
+											</div>
+										
+										<a class="carousel-control-prev" href="#carouselExampleControls3" role="button" data-slide="prev">
+											<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+											<span class="sr-only">Previous</span>
+										</a>
+										<a class="carousel-control-next" href="#carouselExampleControls3" role="button" data-slide="next">
+											<span class="carousel-control-next-icon" aria-hidden="true"></span>
+											<span class="sr-only">Next</span>
+										</a>
 										</div>
 									</div>
-									<?php $no++; } ?>
-									<!-- <div class="carousel-item">
-										<div class="container py-md-5">
-											<div class="row about-vv-top mt-2">
-												<div class="col-lg-6 about-info">
-													<h4 class="title-hny  mb-md-5">Manfaat</h4>
-													<p>Baby spa atau pijat bayi saat ini sudah semakin populer. Banyak para Bunda yang rutin mengajak buah hatinya ke baby spa untuk mendapatkan berbagai treatment terbaik. Namun, </p>
-													<div class="read-more-button mt-4">
-														<a href="index.html" class="read-more btn">Read More </a>
-													</div>
+								</div>
 
-												</div>
-												<div class="col-lg-6 about-img mt-md-4 mt-sm-4">
-													<img src="<?php echo base_url();?>assets/user/images/b8.jpg" class="img-fluid" alt="">
+								<div class="tab-pane active" id="Baby" role="tabpanel">
+										<div id="carouselExampleControls1" class="carousel slide" data-ride="carousel">
+											<div class="carousel-inner">
+												<?php 
+												$no = 0;
+												foreach($subkategori1 as $key => $value):  ?>
+												<?php if ($no == 0){?>
+												<div class="carousel-item active">
+													<div class="row inner-sec-w3layouts-w3pvt-lauinfo">
+														<?php }else if($no !=0 && $no % 4 == 0){?>
+														<div class="carousel-item">
+															<div class="row inner-sec-w3layouts-w3pvt-lauinfo">
+																<?php }?>
+																<div class="col-md-3 col-sm-6 col-6 destinations-grids text-center mb-4">
+																	<div class="card mb-2">
+																		<img class="card-img-top"
+																		src="<?php echo base_url();?>assets/user/images/<?php echo $value->foto_sub?>"
+																		alt="Card image cap" width="200" height="200">
+																		<div class="card-body">
+																			<h5 class="card-title"><?php echo $value->judul_sub?></h5>
+																			<p class="card-text"><?php echo $value->judul_kat?></p>
+																			<p><b>Harga : <br><?php echo "Rp " . number_format($value->harga, 2, ",", ".");?></b></p>
+																		</div>
+																	</div>
+																</div>
+																<?php if ($no != 0 && $no % 4 == 3){?>
+															</div>
+														</div>
+														<?php } $no++;?>
+													<?php endforeach ?>
 												</div>
 											</div>
+										
+										<a class="carousel-control-prev" href="#carouselExampleControls1" role="button" data-slide="prev">
+											<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+											<span class="sr-only btn-secondary">Previous</span>
+										</a>
+										<a class="carousel-control-next" href="#carouselExampleControls1" role="button" data-slide="next">
+											<span class="carousel-control-next-icon" aria-hidden="true"></span>
+											<span class="sr-only btn-secondary">Next</span>
+										</a>
 										</div>
-									</div> -->
+									</div>
 								</div>
- <!--  <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-</a> -->
-</div>
-</section>
-<!-- //banner-bottom-->
-<!-- services -->
-<section class="services py-5" id="services">
-	<div class="container py-md-5">
-		<h3 class="heading text-center mb-3 mb-sm-5">Our Services</h3>
-		<div class="row service-grid-grids text-center">
 
-			<?php foreach ($service as $key => $value) : ?>
-				<div class="col-lg-4 col-md-6 service-grid service-grid3 mb-4">
-				<!-- <div class="service-icon">
-					<span class="fa fa-fighter-jet"></span>
-				</div> -->
-				<h4 class="mt-3"><?php echo $value->judul_kat ?></h4>
-				<hr width="50%">
-				<p class="mt-3"><?php echo substr($value->keterangan_kat, 0, 200) . '...'; ?></p>
-				<div class="read-more-button mt-4">
-					<a href="<?= site_url()?>/User/DetailKategoriUser/<?= $value->id_kategori?>" class="read-more btn">Read More </a>
-				</div>
-			</div>
-		<?php endforeach?>
-	</div>
-</div>		
-</section>
-<!-- //services -->
-<!-- Team  -->
-<section class="team py-5" id="team" style="height: 665px">
-	<div class="container py-md-5">
-		<div>
-			<h3 class="heading text-center mb-3 mb-sm-5">Our Terapis</h3>
-		</div>
-		<div class="row">
-			<?php foreach($trps as $key => $value):  ?>
-				<div class="team-grid col-lg-3 col-sm-6 mb-5">
-					<img src="<?php echo base_url()?>/assets/upload/<?php echo $value->foto?>" class="" alt="" style="border: 5px solid #fff; border-radius: 100%;"/>
-					<div class="team-info text-center"  style="background: #fff ;border: 5px solid #737373;border-radius: 10px;">
-						<h3 class="e" style="color: #35405a"><?php echo $value->full_name ?></h3>
+								
+
+
+
+							</div>
+						</div>
 					</div>
 				</div>
-			<?php endforeach ?>
-		</div>
-	</div>
-</section>
-<!-- //Team -->
 
-<!-- Gallery -->
-<section class="gallery py-5" id="gallery">
-	<div class="container py-md-5">
-		<div class="header mb-3 mb-sm-5 text-center">
-			<h3 class="heading text-center mb-3 mb-sm-5">Mamina Gallery</h3>
-			<div class="row news-grids text-center">
-				<div class="col-md-4 gal-img">
-					<a href="#baby1"><img src="<?php echo base_url();?>assets/user/images/b1.png" alt="news image" class="img-fluid"><span>Testimoni</span></a>
-					<a href="#baby2"><img src="<?php echo base_url();?>assets/user/images/b2.png" alt="news image" class="img-fluid"><span>Testimoni</span></a>
 
-				</div>
-
-				<div class="col-md-4 gal-img">
-					<a href="#baby3"><img src="<?php echo base_url();?>assets/user/images/b4.png" alt="news image" class="img-fluid"><span>Testimoni</span></a>
-					<a href="#baby4"><img src="<?php echo base_url();?>assets/user/images/b5.png" alt="news image" class="img-fluid"><span>Testimoni</span></a>
-				</div>
-				<div class="col-md-4 gal-img">
-					<a href="#baby5"><img src="<?php echo base_url();?>assets/user/images/b6.jpg" alt="news image" class="img-fluid"><span>Testimoni</span></a>
-					<a href="#baby6"><img src="<?php echo base_url();?>assets/user/images/b7.png" alt="news image" class="img-fluid"><span>Testimoni</span></a>
-				</div>
-			</div>
-		</div>
-		<!-- popup-->
-		<div id="baby1" class="pop-overlay animate">
-			<div class="popup">
-				<img src="<?php echo base_url();?>assets/user/images/b1.png" alt="Popup Image" class="img-fluid" />
-				<p class="mt-4">𝙉𝙮𝙖𝙢𝙖𝙣𝙣𝙮𝙖.. 𝙙𝙖𝙥𝙖𝙩𝙠𝙖𝙣 𝙡𝙖𝙮𝙖𝙣𝙖𝙣 𝙠𝙖𝙢𝙞 𝙙𝙞 𝙧𝙪𝙢𝙖𝙝 𝙢𝙖𝙢𝙖</p>
-				<a class="close" href="#gallery">&times;</a>
-			</div>
-		</div>
-		<!-- //popup -->
-
-		<!-- popup-->
-		<div id="baby2" class="pop-overlay animate">
-			<div class="popup">
-				<img src="<?php echo base_url();?>assets/user/images/b2.png" alt="Popup Image" class="img-fluid" />
-				<p class="mt-4">𝑶𝒑𝒕𝒊𝒎𝒂𝒍𝒌𝒂𝒏 𝒎𝒐𝒕𝒐𝒓𝒊𝒌 𝒅𝒂𝒏 𝒃𝒐𝒏𝒅𝒊𝒏𝒈 𝒃𝒂𝒃𝒚 𝒅𝒂𝒏 𝒎𝒂𝒎𝒂 𝒑𝒂𝒑𝒂 𝒅𝒆𝒏𝒈𝒂𝒏 𝒃𝒂𝒃𝒚 𝒔𝒑𝒂</p>
-				<a class="close" href="#gallery">&times;</a>
-			</div>
-		</div>
-		<!-- //popup -->
-		<!-- popup-->
-		<div id="baby3" class="pop-overlay animate">
-			<div class="popup">
-				<img src="<?php echo base_url();?>assets/user/images/b4.png" alt="Popup Image" class="img-fluid" />
-				<p class="mt-4">Dukungan keluarga terdekat, merupakan booster terbaik untuk bayi dan mama</p>
-				<a class="close" href="#gallery">&times;</a>
-			</div>
-		</div>
-		<!-- //popup3 -->
-		<!-- popup-->
-		<div id="baby4" class="pop-overlay animate">
-			<div class="popup">
-				<img src="<?php echo base_url();?>assets/user/images/b5.png" alt="Popup Image" class="img-fluid" />
-				<p class="mt-4">Apapun pilihanmu, mama Kami akan dukung. Kami hanya bisa memberikan apa yang kami rasa tahu dan apa yang kami rasa terbaik untuk bayi mama .</p>
-				<a class="close" href="#gallery">&times;</a>
-			</div>
-		</div>
-		<!-- //popup -->
-		<!-- popup-->
-		<div id="baby5" class="pop-overlay animate">
-			<div class="popup">
-				<img src="<?php echo base_url();?>assets/user/images/b6.jpg" alt="Popup Image" class="img-fluid" />
-				<p class="mt-4">Waaah... Just keep swimming ya!</p>
-				<a class="close" href="#gallery">&times;</a>
-			</div>
-		</div>
-		<!-- //popup -->
-		<!-- popup-->
-		<div id="baby6" class="pop-overlay animate">
-			<div class="popup">
-				<img src="<?php echo base_url();?>assets/user/images/b7.png" alt="Popup Image" class="img-fluid" />
-				<p class="mt-4">Perjuangan mengasihi takkan sebanding dengan berapa kaleng susu yang sudah kamu persiapkan untuk bayimu kelak. Perjuangkan seoptimal yang kamu bisa. Bayimu, berhak atas asi yang ada didalammu.</p>
-				<a class="close" href="#gallery">&times;</a>
-			</div>
-		</div>
-		<!-- //popup -->
-	</div>
-</section>
-<!--// gallery -->
-
-<!-- destinations -->
-<section class="destinations py-5" id="destinations">
-	<div class="container py-md-5">
-		<h3 class="heading text-center mb-3 mb-sm-5">Spa Prices</h3>
-		
-		<div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
-
-			<!--Controls-->
-			<!-- <div class="controls-top text-center" style="padding-bottom: 15px">
-				<a class="btn-floating" href="#multi-item-example" data-slide="prev"><i class="fa fa-chevron-left fa-2x"></i></a>
-				<a class="btn-floating" href="#multi-item-example" data-slide="next"><i class="fa fa-chevron-right fa-2x"></i></a>
-			</div> -->
-			<!--/.Controls-->
-
-			<!--Indicators-->
-			<center>
-				<ol class="carousel-indicators" style="text-align: center">
-					<?php for ($i=0; $i < count($subkategori) ; $i++) { 
-						$no = 0;
-						if($i == 0 ){ ?>
-						<li data-target="#multi-item-example" data-slide-to="0" class="active" style="background-color: #d9d9d9"></li>
-						<?php }else if($i != 0 && $i % 4 == 0){
-							$no ++; ?>
-							<li data-target="#multi-item-example" data-slide-to="1" style="background-color: #d9d9d9"></li>
-							<?php }
-						}?>
-					</ol>
-				</center>
-				<!--/.Indicators-->
-
-				<!--Slides-->
-				<!-- <div class="row inner-sec-w3layouts-w3pvt-lauinfo"> -->
-					<div class="carousel-inner" role="listbox">
-
-						<!--First slide-->
-						<?php 
-						$no = 0;
-						foreach($subkategori as $key => $value):  ?>
-						<?php if ($no == 0){?>
-						<div class="carousel-item active">
-							<div class="row inner-sec-w3layouts-w3pvt-lauinfo">
-								<?php }else if($no !=0 && $no % 4 == 0){?>
-								<div class="carousel-item">
-									<div class="row inner-sec-w3layouts-w3pvt-lauinfo">
-										<?php }?>
-										<div class="col-md-3 col-sm-6 col-6 destinations-grids text-center mb-4">
-											<div class="card mb-2">
-												<img class="card-img-top"
-												src="<?php echo base_url();?>assets/user/images/<?php echo $value->foto_sub?>"
-												alt="Card image cap" width="200" height="200">
-												<div class="card-body">
-													<h4 class="card-title"><?php echo $value->judul_sub?></h4>
-													<p class="card-text"><?php echo $value->judul_kat?></p>
-													<nr>
-														<p><b>Harga : <?php echo "Rp " . number_format($value->harga, 2, ",", ".");?></b></p>
-													</div>
-												</div>
-											</div>
-											<?php if ($no != 0 && $no % 4 == 3){?>
-										</div></div>
-										<?php } $no++;?>
-									<?php endforeach ?>
-								</div>
-							</section>
-							<!-- destinations -->
-							<!--/testimonials -->
+			</section>
+			<!-- destinations -->
+			<!--/testimonials -->
 							<!-- <section class="testimonials py-5" id="testimonials">
 								<div class="container py-md-5">
 									<h3 class="heading heading1 text-center mb-3 mb-sm-5"> Client Reviews</h3>
@@ -534,11 +608,11 @@
 												if(data == 'true'){
 													//alert(data);
 													swal({
-													title: "Success",
-													type:"success",
-													text: "<b>Wait</b> For The Confirmation",
-													timer: 2000,
-													showConfirmButton: false
+														title: "Success",
+														type:"success",
+														text: "<b>Wait</b> For The Confirmation",
+														timer: 2000,
+														showConfirmButton: false
 													});
 
 													reset();
@@ -553,26 +627,50 @@
 									});
 
 									function reset() {
-								        var a = document.getElementsByClassName('reset');
+										var a = document.getElementsByClassName('reset');
 								        // a = HTMLCollection
 								        // console.log(a);
 								        // You can iterate over HTMLCollection.
 								        for (var i = 0; i < a.length; i++) {
 								            // You can set the value in every item in the HTMLCollection.
 								            a[i].value = "";
-							  	       	}
-							  	       	$("#kategori").prop('selectedIndex',0);
-							  	       	$("#kategori1").prop('selectedIndex',0);
-							  	       	$("#sub_kategori0").prop('selectedIndex',0);
-							  	       	$("#sub_kategori1").prop('selectedIndex',0);
-							  	       	$("#sesi").prop('selectedIndex',0);
-							     	};
+								        }
+								        $("#kategori").prop('selectedIndex',0);
+								        $("#kategori1").prop('selectedIndex',0);
+								        $("#sub_kategori0").prop('selectedIndex',0);
+								        $("#sub_kategori1").prop('selectedIndex',0);
+								        $("#sesi").prop('selectedIndex',0);
+								    };
 
-							     	$('.carousel').carousel({
-							     		interval: 2000
-							     	});
+								    $("#carousel-slider").slick({
+								    	arrows: true,
+								    	infinite: true,
+								    	slidesToShow: 1,
+								    	slidesToScroll: 1,
+								    	autoplay: true,
+								    	autoplaySpeed: 5000,
+								    	mobileFirst: true
+								    });
 
 
+								});
+							</script>
+							<script type="text/javascript">
+								jQuery(document).ready(function() {
+
+									let activeTab = $('#myTabs a').filter('.active');
+
+									$('#myTabs a').click(function(e) {
+										e.preventDefault();
+
+										activeTab.removeClass('active');
+										$(activeTab.attr('href')).removeClass('active');
+
+										activeTab = $(this);
+
+										activeTab.addClass("active");
+										$(activeTab.attr('href')).addClass('active');
+									});
 								});
 							</script>
 
