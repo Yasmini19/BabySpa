@@ -257,6 +257,17 @@
                         </li>
 
 
+                        <li class="nav-item">
+                            <a href="<?php echo base_url(); ?>index.php/Admin/reservasi" class="nav-link">
+                                <i class="nav-icon fa fa-newspaper-o"></i>
+                                <p>
+                                    Reservasi
+
+                                </p>
+                            </a>
+                        </li>
+
+
                 </nav>
                 <!-- /.sidebar-menu -->
             </div>

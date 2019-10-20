@@ -12,8 +12,20 @@ class Admin extends CI_Controller {
 
     public function index()
     {   
+        //$data['dashboard']= $this->GeneralModel->get_data();
         $this->load->view('admin/HomeAdmin');
     }
+
+    public function dashboard()
+    {
+        $data['dashboard'] = $this->GeneralModel->get_data('reservasi')->result();
+        $this->load->view('admin/HomeAdmin', $data);
+
+    }
+
+
+
+
 
     public function contact_us(){
         $data['contactus'] = $this->AdminModel->get_contactus();
@@ -717,5 +729,66 @@ public function delete_berita()
     echo json_encode($result);
 }
 
+
+//reservasi
+public function reservasi()
+{
+
+    //$data['reser'] = $this->GeneralModel->get_data('reservasi')->result();
+    $data['reser'] = $this->GeneralModel->get_join('reservasi', 'user', 'reservasi.terapis_id = user.id_user')->result();
+    $this->load->view('admin/Reservasi', $data);
+}
+
+
+public function get_reservasi()
+{
+    $id = $this->input->post('id');
+    $data = $this->GeneralModel->get_selected('reservasi', array('id_reservasi' => $id))->row();
+
+    echo json_encode($data);
+}
+
+// public function edit_reservasi()
+// {
+//      $id = array('id_reservasi' => $this->input->post('edit_id') );
+//     $data = array(
+//         'diskon_persen'         => $this->input->post('edit_diskon_persen'), 
+//         'nominal_diskon'        => $this->input->post('edit_nominal_diskon'),
+//         'biaya_transportasi'    => $this->input->post('edit_biaya_transportasi')
+
+//     );
+
+//     $result = $this->GeneralModel->update_data('reservasi', $data, $id );
+
+//     echo json_encode($result);
+
+// }
+
+public function konfirmasi_reservasi()
+{
+    
+}
+
+public function edit_reservasi()
+{
+    $id = array('id_reservasi' => $this->input->post('edit_id') );
+    $data = array(
+        'diskon_persen'         => $this->input->post('edit_diskon_persen'), 
+        'nominal_diskon'        => $this->input->post('edit_nominal_diskon'),
+        'biaya_transportasi'    => $this->input->post('edit_biaya_transportasi'),
+        'total_harga_akhir'     => $this->input->post('edit_total_harga_akhir'),
+
+    );
+
+    $result = $this->GeneralModel->update_data('reservasi', $data, $id );
+
+    echo json_encode($result);
+
+}
+
+
+
+
 }
 ?>
+ 
