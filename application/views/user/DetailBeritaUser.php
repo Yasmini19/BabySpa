@@ -23,7 +23,7 @@
  			<div class="col-md-1"></div>
 
  			<div class="col-md-3">
- 				<h5><b>Artiket lainnya</b></h5>
+ 				<h5><b>Artikel lainnya</b></h5>
  				<br>
  				<?php foreach ($data2 as $key2) { ?>
  				<div class="" id="artikelLain">

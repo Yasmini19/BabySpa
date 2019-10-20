@@ -1,7 +1,6 @@
 <div class="container" style="min-height: 100%">
 	<div class="artikel" id="artikel" style="min-height: 603px; padding-top: 100px;padding-bottom: inherit;">
-		<b><h5 class="heading">Our News</h5></b>
-		<br>
+		<h3 class="heading text-center mb-3 mb-sm-5">Our Articles</h3>
 <!-- 		<hr width="10%" align="left">
  -->		<?php foreach ($berita as $key) { ?>
 		<div class="row">
