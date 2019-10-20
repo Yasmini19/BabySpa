@@ -12,20 +12,17 @@ class Admin extends CI_Controller {
 
     public function index()
     {   
-        //$data['dashboard']= $this->GeneralModel->get_data();
+        $data['dashboard'] = $this->GeneralModel->get_data('reservasi')->result();
         $this->load->view('admin/HomeAdmin');
     }
 
     public function dashboard()
     {
-        $data['dashboard'] = $this->GeneralModel->get_data('reservasi')->result();
+        //$data['dashboard'] = $this->GeneralModel->get_data('reservasi')->result();
+        $data['dashboard'] = $this->GeneralModel->get_join('reservasi', 'user', 'reservasi.terapis_id = user.id_user')->result();
         $this->load->view('admin/HomeAdmin', $data);
 
     }
-
-
-
-
 
     public function contact_us(){
         $data['contactus'] = $this->AdminModel->get_contactus();
@@ -82,46 +79,46 @@ class Admin extends CI_Controller {
     {
      $data['glry'] = $this->GeneralModel->get_data('galery')->result();
      $this->load->view('admin/Galery', $data);
- }
-
- public function add_gallery()
- {
-     $config['upload_path']     = './assets/user/images';
-     $config['allowed_types']  = 'gif|jpg|png';
-     $config['max_size']        = 1000000000;
-     $config['max_width']       = 10240;
-     $config['max_height']      = 7680;
-
-     $this->load->library('upload',$config);
-     $result = '';
-     if (!$this->upload->do_upload('galery'))
-     {
-        $result = $this->upload->display_errors();
-
-        $allowed = explode("|", $config['allowed_types']);
-        $filename = $this->upload->data('file_name');
-        $ext = pathinfo($filename, PATHINFO_EXTENSION);
-        if(!in_array($ext,$allowed) ) {
-            $result = 'harap sesuaikan tipe file';
-        }
     }
-    else
+
+    public function add_gallery()
     {
-        $data = array(   
-            'galery'          => $this->upload->data('file_name'),
-            'keterangan'     => $this->input->post('keterangan')
-        );
+        $config['upload_path']     = './assets/user/images';
+        $config['allowed_types']  = 'gif|jpg|png';
+        $config['max_size']        = 1000000000;
+        $config['max_width']       = 10240;
+        $config['max_height']      = 7680;
 
-        $result = $this->GeneralModel->add_data('galery', $data);
+        $this->load->library('upload',$config);
+        $result = '';
+        if (!$this->upload->do_upload('galery'))
+        {
+            $result = $this->upload->display_errors();
 
-                //$this->GeneralModel->add_data();
-        $this->load->view('admin/Galery');
-        $result = 'true';
+            $allowed = explode("|", $config['allowed_types']);
+            $filename = $this->upload->data('file_name');
+            $ext = pathinfo($filename, PATHINFO_EXTENSION);
+            if(!in_array($ext,$allowed) ) {
+                $result = 'harap sesuaikan tipe file';
+            }
+        }
+        else
+        {
+            $data = array(   
+                'galery'          => $this->upload->data('file_name'),
+                'keterangan'     => $this->input->post('keterangan')
+            );
+
+            $result = $this->GeneralModel->add_data('galery', $data);
+
+                    //$this->GeneralModel->add_data();
+            $this->load->view('admin/Galery');
+            $result = 'true';
+        }
+
+        echo json_encode($result);
+
     }
-
-    echo json_encode($result);
-
-}
 
 
 public function get_gallery()
@@ -257,34 +254,30 @@ public function get_subkategori()
 
 public function edit_subkategori()
 {
- $config['upload_path']     = './assets/user/images';
- $config['allowed_types']  = 'gif|jpg|png';
- $config['max_size']        = 1000000000;
- $config['max_width']       = 10240;
- $config['max_height']      = 7680;
+    $config['upload_path']     = './assets/user/images';
+    $config['allowed_types']  = 'gif|jpg|png';
+    $config['max_size']        = 1000000000;
+    $config['max_width']       = 10240;
+    $config['max_height']      = 7680;
 
- $this->load->library('upload',$config);
- $result='';
+    $this->load->library('upload',$config);
+    $result='';
 
- $id = array('id_sub_kategori' => $this->input->post('edit_id') );
- $data = array(
+    $id = array('id_sub_kategori' => $this->input->post('edit_id') );
+    $data = array(
+        'judul_sub'     => $this->input->post('edit_judul_sub'), 
+        'keterangan_sub'     => $this->input->post('edit_keterangan_sub'),
+        'harga'     => $this->input->post('edit_harga'),
+    );
 
-    'judul_sub'     => $this->input->post('edit_judul_sub'), 
+    if ($this->upload->do_upload('edit_foto_sub'))
+    {
+        $data['foto_sub'] = $this->upload->data('file_name');
+    }
 
-    'keterangan_sub'     => $this->input->post('edit_keterangan_sub'),
-    'harga'     => $this->input->post('edit_harga'),
+    $result = $this->GeneralModel->update_data('sub_kategori', $data, $id );
 
-
-);
-
- if ($this->upload->do_upload('edit_foto_sub'))
- {
-   $data['foto_sub'] = $this->upload->data('file_name');
-}
-
-$result = $this->GeneralModel->update_data('sub_kategori', $data, $id );
-
-echo json_encode($result);
+    echo json_encode($result);
 }
 
 public function delete_subkategori()
@@ -766,7 +759,15 @@ public function get_reservasi()
 
 public function konfirmasi_reservasi()
 {
-    
+    $id = array('id_reservasi' => $this->uri->segment(3) );
+    $data = array(
+        'status'         => 'Accepted'
+    );
+
+    $result = $this->GeneralModel->update_data('reservasi', $data, $id );
+
+    //echo json_encode($result);
+    redirect('Admin/dashboard');
 }
 
 public function edit_reservasi()
