@@ -186,7 +186,7 @@
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                         <li class="nav-item has-treeview menu-open">
-                            <a href="<?php echo base_url(); ?>index.php/Admin/dashboard" class="nav-link  active">
+                            <a href="<?php echo base_url(); ?>index.php/Admin/" class="nav-link ">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     Dashboard
@@ -238,14 +238,14 @@
                             </a>
                         </li>
 
-            <li class="nav-item">
-              <a href="<?php echo base_url();?>index.php/Admin/subkategori" class="nav-link">
-              <i class="nav-icon fas fa-book"></i>
-              <p>
-                Kategori
-              </p>
-              </a>
-            </li>
+						<li class="nav-item">
+							<a href="<?php echo base_url();?>index.php/Admin/subkategori" class="nav-link">
+							<i class="nav-icon fas fa-book"></i>
+							<p>
+								Kategori
+							</p>
+							</a>
+						</li>
 
 
                         <li class="nav-item">
@@ -259,7 +259,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="<?php echo base_url(); ?>index.php/Admin/reservasi" class="nav-links">
+                            <a href="<?php echo base_url(); ?>index.php/Admin/reservasi" class="nav-link active">
                                 <i class="nav-icon fa fa-newspaper-o"></i>
                                 <p>
                                     Reservasi
@@ -282,7 +282,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0 text-dark">Dashboard</h1>
+                            <h1 class="m-0 text-dark">Reservasi</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
@@ -299,7 +299,21 @@
                 <div class="row">
                     <div class="col-12">
 
-                        
+                        <!-- /.card -->
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Data Reservasi</h3>
+                            </div>
+                            <!--Add-->
+                            <div class="card-footer clearfix">
+                                <button type="button" class="btn btn-info float-left" data-toggle="modal" data-target="#modal-tambah-subKategori">
+                                    <i class="fas fa-plus"></i> Add
+                                </button>
+
+                                
+                            </div>
+
                             <!--search-->
 
                             <!-- /.card-header -->
@@ -315,11 +329,12 @@
                                         <th>Diskon Persen</th>
                                         <th>Nominal Diskon</th>
                                         <th>Biaya Transport</th>
+                                        <th>Total Harga Akhir</th>
                                         <th>Action</th>
                                     </thead>
                                     <tbody>
 
-                                        <?php foreach ($dashboard as $key => $value) : ?>
+                                        <?php foreach ($reser as $key => $value) : ?>
                                             <tr>
                                                 <td><?php echo $value->id_reservasi ?></td>
 
@@ -331,20 +346,23 @@
                                                 <td><?php echo $value->diskon_persen ?></td>
                                                 <td><?php echo $value->nominal_diskon ?></td>
                                                 <td><?php echo $value->biaya_transportasi ?></td>
+                                                <td><?php echo $value->total_harga_akhir ?></td>
                                                  
                                                 <td>
-                                                  
+                                                   <a href="<?php echo base_url('/Admin/edit_reservasi/'. $value->id_reservasi) ?>" class="btn btn-info" aria-hidden="true" data-toggle="modal" data-target="#modal-edit-reservasi" name="tombolEditReservasi" value="<?php echo $value->id_reservasi; ?>">
+                                                       Edit
+                                                   </a>
                                                    
 
 
                                                    
                                                     
 
-                                                    <button type="button" class="btn btn-primary">Konfirmasi</button>
+                                                    <!--<button type="button" class="btn btn-primary">Konfirmasi</button>-->
 
                                                     <!--<a href="<?php echo base_url('/Admin/delete_subKategori/'. $value->id_sub_kategori) ?>" class="far fa-trash-alt" aria-hidden="true" name="tombolDeleteSubKategori" value="<?php echo $value->id_sub_kategori; ?>"></a>-->
 
-                                                    <button type="button" class="btn btn-danger">Cancel</button>
+                                                    <!--<button type="button" class="btn btn-danger">Cancel</button>-->
 
                                                 </td>
 
@@ -458,7 +476,7 @@
                         
 
                                 <input type="hidden" id="edit_id" name="edit_id">
-                                
+                                <input type="hidden" id="edit_harga" name="edit_harga">
             
 
                                  <div class="input-group mb-3">
@@ -492,6 +510,17 @@
                                     </div>
                                     <input type="text" id="edit_biaya_transportasi" name="edit_biaya_transportasi" class="form-control" placeholder="Biaya Transportasi">
                                 </div>
+
+
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            @
+                                        </span>
+                                    </div>
+                                    <input type="text" id="edit_total_harga_akhir" name="edit_total_harga_akhir" class="form-control" placeholder="Total Harga Akhir">
+                                </div>
+
                             </div>
 
                         </div>
@@ -677,20 +706,47 @@
                     data = JSON.parse(data);
 
                     //alert(data);
+                    
+                    // $('#diskon').keyup(function(){
+                        
+                    // var harga=parseInt(data.total_harga_awal);
+                    // var diskon=parseInt($('#diskon').val());
+             
+                    // var total_bayar=bayar-(diskon/100)*bayar;
+                    // $('#edit_nominal_diskon').val(total_bayar);
+                    // });
+
+                    var harga = parseInt(data.total_harga_awal);
+                    var diskon = parseInt($('#edit_diskon_persen').val());
+                    var total = harga - (diskon/100)*harga;
 
                     $('#edit_id').val(data.id_reservasi);
-                   
+                    $('#edit_harga').val(harga);
                     
                     $('#edit_diskon_persen').val(data.diskon_persen);
 
-                    $('#edit_nominal_diskon').val(data.nominal_diskon);
-                    $('#edit_biaya_transportasi').val(data.biaya_transportasi);
-
-                    
-                    
+                    $('#edit_nominal_diskon').val(total);
+                    $('#edit_biaya_transportasi').val(data.biaya_transportasi);     
                 }
             });
         });
+
+        $('#edit_diskon_persen').keyup(function(){
+            var harga = parseInt($('#edit_harga').val());
+            var diskon = parseInt($('#edit_diskon_persen').val());
+            var total = harga - (diskon/100)*harga;
+
+            $('#edit_nominal_diskon').val(total);
+        });
+
+        $('#edit_biaya_transportasi').keyup(function(){
+            var total = parseInt($('#edit_nominal_diskon').val());
+            var transport = parseInt($('#edit_biaya_transportasi').val());
+            var totalhargaakhir = total + transport;
+
+            $('#edit_total_harga_akhir').val(totalhargaakhir);
+        });
+
 
         //ajaxformedit
         $('form#editReservasi').submit(function(e) {

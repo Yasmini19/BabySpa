@@ -290,6 +290,14 @@ class GeneralModel extends CI_Model {
             return $this->db->get();
     }
 
+    public function get_one_data($data, $table, $where){
+        $this->db->select($data);
+        $this->db->from($table);
+        $this->db->where($where);
+        $query = $this->db->get();
+        return $query;
+    }
+
 }
 
 /* End of file GeneralModel.php */
