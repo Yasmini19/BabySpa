@@ -315,6 +315,7 @@
                                         <th>Diskon Persen</th>
                                         <th>Nominal Diskon</th>
                                         <th>Biaya Transport</th>
+                                        <th>Status</th>
                                         <th>Action</th>
                                     </thead>
                                     <tbody>
@@ -331,18 +332,12 @@
                                                 <td><?php echo $value->diskon_persen ?></td>
                                                 <td><?php echo $value->nominal_diskon ?></td>
                                                 <td><?php echo $value->biaya_transportasi ?></td>
-                                                 
+                                                <td><?php echo $value->status ?></td>
                                                 <td>
                                                   
-                                                   
+                                                    <a href="<?php echo base_url('index.php/Admin/konfirmasi_reservasi/'.$value->id_reservasi)?>"><button type="button" id="tombolKonfirmReservasii" class="btn btn-primary">Konfirmasi</button></a>
 
-
-                                                   
-                                                    
-
-                                                    <button type="button" class="btn btn-primary">Konfirmasi</button>
-
-                                                    <!--<a href="<?php echo base_url('/Admin/delete_subKategori/'. $value->id_sub_kategori) ?>" class="far fa-trash-alt" aria-hidden="true" name="tombolDeleteSubKategori" value="<?php echo $value->id_sub_kategori; ?>"></a>-->
+                                                    <!--<a href="<?php //echo base_url('/Admin/delete_subKategori/'. $value->id_sub_kategori) ?>" class="far fa-trash-alt" aria-hidden="true" name="tombolDeleteSubKategori" value="<?php echo $value->id_sub_kategori; ?>"></a>-->
 
                                                     <button type="button" class="btn btn-danger">Cancel</button>
 
@@ -658,7 +653,7 @@
             }
         });
 
-        $('[name="tombolEditReservasi"]').click(function() {
+        $('[name="tombolKonfirmReservasi"]').click(function() {
 
             var id = $(this).attr('value');
             //alert(id);
@@ -681,11 +676,10 @@
                     $('#edit_id').val(data.id_reservasi);
                    
                     
-                    $('#edit_diskon_persen').val(data.diskon_persen);
+                    // $('#edit_diskon_persen').val(data.diskon_persen);
 
-                    $('#edit_nominal_diskon').val(data.nominal_diskon);
-                    $('#edit_biaya_transportasi').val(data.biaya_transportasi);
-
+                    // $('#edit_nominal_diskon').val(data.nominal_diskon);
+                    // $('#edit_biaya_transportasi').val(data.biaya_transportasi);
                     
                     
                 }
@@ -698,7 +692,7 @@
             var formData = new FormData($('form#editReservasi')[0]);
 
             $.ajax({
-                url: '<?php echo site_url('admin/edit_reservasi'); ?>',
+                url: '<?php echo site_url('admin/konfirmasi_reservasi'); ?>',
                 type: 'POST',
                 data: formData,
 
