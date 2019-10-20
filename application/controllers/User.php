@@ -76,15 +76,16 @@ class User extends CI_Controller {
 
             $tgl=$this->input->post('tanggal');
             $convert_tgl = date('Y-m-d', strtotime($tgl));
+            $sesi = $this->input->post('sesi');
 
             $where = array('level' => 3);
 
             $get = $this->db
-            ->select('*,(select count(terapis_id) from reservasi inner join sesi_reservasi where reservasi.sesi_id=sesi_reservasi.id_sesi and tgl_reservasi="'.$convert_tgl.'" and terapis_id=id_user) jml')
+            ->select('*,(select count(terapis_id) from reservasi inner join sesi_reservasi on reservasi.sesi_id=sesi_reservasi.id_sesi where tgl_reservasi="'.$convert_tgl.'" and terapis_id=id_user and reservasi.sesi_id ="'.$sesi.'") jml')
             ->where($where)
-            ->order_by('id_user','asc')
             ->group_by('jml')
-            ->having('jml != 4')
+            ->having('jml < 1')
+            ->order_by('id_user','asc')
             ->limit(1)
             ->get('user')
             ->row();
