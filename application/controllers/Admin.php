@@ -173,42 +173,42 @@ public function delete_gallery()
 
 
 		//Kategori
-public function kategori() 
-{
+// public function kategori() 
+// {
  
- // $data['ktg'] = $this->GeneralModel->get_data('kategori')->result();
- // //$data['subktg'] = $this->GeneralModel->get_data('sub_kategori')->result();
+//  // $data['ktg'] = $this->GeneralModel->get_data('kategori')->result();
+//  // //$data['subktg'] = $this->GeneralModel->get_data('sub_kategori')->result();
 
- // $this->load->view('admin/Kategori', $data);
- $data['subktg'] = $this->GeneralModel->get_data('sub_kategori')->result();
- $this->load->view('admin/SubKategori', $data);
-}
+//  // $this->load->view('admin/Kategori', $data);
+//  $data['subktg'] = $this->GeneralModel->get_data('sub_kategori')->result();
+//  $this->load->view('admin/SubKategori', $data);
+// }
 
 public function categori()
 {
-    $data['ktg'] = $this->GeneralModel->get_selected('kategori', $data)->result();
+    $data['ktg'] = $this->GeneralModel->get_data('kategori')->result();
     $this->load->view('admin/Kategori', $data);
 }
 
 public function get_categori()
 {
       $id = $this->input->post('id');
-      $data = $this->GeneralModel->get_selected('kategori', array('id_kategori' => $id))->row();
+      $data = $this->GeneralModel->get_data('kategori', array('id_kategori' => $id))->row();
 
       echo json_encode($data);
 }
 
-public function add_kategori() 
+public function add_categori() 
 {
 
 }
 
-public function edit_kategori()
+public function edit_categori()
 {
 
 }
 
-public function delete_kategori()
+public function delete_categori()
 {
 
 }
@@ -240,10 +240,10 @@ public function add_subkategori()
 else
 {
     $data = array(   
-        'judul_sub'     => $this->input->post('edit_judul_sub'),
-        'keterangan_sub'=> $this->input->post('edit_keterangan_sub'),
+        'judul_sub'     => $this->input->post('judul_sub'),
+        'keterangan_sub'=> $this->input->post('keterangan_sub'),
         'foto_sub'      => $this->upload->data('file_name'),
-        'harga' 		=> $this->input->post('edit_harga_sub')
+        'harga' 		=> $this->input->post('harga_sub')
     );
 
     $result = $this->GeneralModel->add_data('sub_kategori', $data);
