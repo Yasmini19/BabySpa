@@ -186,7 +186,7 @@
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                         <li class="nav-item has-treeview menu-open">
-                            <a href="<?php echo base_url(); ?>index.php/Admin/" class="nav-link ">
+                            <a href="<?php echo base_url(); ?>index.php/Admin/dashboard" class="nav-link ">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     Dashboard
@@ -240,15 +240,23 @@
 
                         
 
+                         <li class="nav-item">
+                            <a href="<?php echo base_url();?>index.php/Admin/categori" class="nav-link">
+                            <i class="nav-icon fas fa-book"></i>
+                            <p>
+                                Kategori
+                            </p>
+                            </a>
+                        </li>
 
-						<li class="nav-item">
-            <a href="<?php echo base_url();?>index.php/Admin/subkategori" class="nav-link">
-              <i class="nav-icon fas fa-book"></i>
-              <p>
-                Kategori
-              </p>
-            </a>
-          </li>
+                        <li class="nav-item">
+                            <a href="<?php echo base_url();?>index.php/Admin/subkategori" class="nav-link active">
+                            <i class="nav-icon fas fa-book"></i>
+                            <p>
+                                SubKategori
+                            </p>
+                            </a>
+                        </li>
 
 
                         <li class="nav-item">

@@ -186,7 +186,7 @@
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                         <li class="nav-item has-treeview menu-open">
-                            <a href="<?php echo base_url(); ?>index.php/Admin/" class="nav-link ">
+                            <a href="<?php echo base_url(); ?>index.php/Admin/dashboard" class="nav-link ">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     Dashboard
@@ -238,14 +238,25 @@
                             </a>
                         </li>
 
+                        <li class="nav-item">
+                            <a href="<?php echo base_url();?>index.php/Admin/categori" class="nav-link active">
+                            <i class="nav-icon fas fa-book"></i>
+                            <p>
+                                Kategori
+                            </p>
+                            </a>
+                        </li>
+
 						<li class="nav-item">
-							<a href="<?php echo base_url();?>index.php/Admin/subkategori" class="nav-link active">
+							<a href="<?php echo base_url();?>index.php/Admin/subkategori" class="nav-link ">
 							<i class="nav-icon fas fa-book"></i>
 							<p>
-								Kategori
+								SubKategori
 							</p>
 							</a>
 						</li>
+
+
 
 
                         <li class="nav-item">
@@ -282,7 +293,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0 text-dark">Sub Kategori</h1>
+                            <h1 class="m-0 text-dark">Kategori</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
@@ -303,11 +314,11 @@
 
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Data Sub Kategori</h3>
+                                <h3 class="card-title"> Kategori</h3>
                             </div>
                             <!--Add-->
                             <div class="card-footer clearfix">
-                                <button type="button" class="btn btn-info float-left" data-toggle="modal" data-target="#modal-tambah-subKategori">
+                                <button type="button" class="btn btn-info float-left" data-toggle="modal" data-target="#modal-tambah-Kategori">
                                     <i class="fas fa-plus"></i> Add
                                 </button>
 
@@ -320,27 +331,25 @@
                             <div class="card-body">
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
-                                        <th class="sorting_asc" tabindex="0" aria-controls="demo-datatables" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending">Id Sub Kategori</th>
+                                        <th class="sorting_asc" tabindex="0" aria-controls="demo-datatables" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending">Id Kategori</th>
                                         <th>Judul</th>
                                         <th>Keterangan</th>
-                                        <th>Foto</th>
-                                        <th>Harga</th>
+                                        
                                         <th>Action</th>
                                     </thead>
                                     <tbody>
 
-                                        <?php foreach ($subktg as $key => $value) : ?>
+                                        <?php foreach ($ktg as $key => $value) : ?>
                                             <tr>
-                                                <td><?php echo $value->id_sub_kategori ?></td>
+                                                <td><?php echo $value->id_kategori ?></td>
 
-                                                <td><?php echo $value->judul_sub ?></td>
-                                                <td><?php echo $value->keterangan_sub ?></td>
-                                                 <td><img src="<?php echo base_url() ?>./assets/user/images/<?php echo $value->foto_sub ?>" alt="" width=100 height=100></td>
-                                                <td><?php echo $value->harga ?></td>
+                                                <td><?php echo $value->judul_kat ?></td>
+                                                <td><?php echo $value->keterangan_kat ?></td>
+                                                 
                                                
                                                 <td>
-                                                    <a href="<?php echo base_url('/Admin/edit_subkategori/'. $value->id_sub_kategori) ?>" class="fas fa-edit" aria-hidden="true" data-toggle="modal" data-target="#modal-edit-subKategori" name="tombolEditSubKategori" value="<?php echo $value->id_sub_kategori; ?>"></a>
-                                                    <a href="<?php echo base_url('/Admin/delete_subKategori/'. $value->id_sub_kategori) ?>" class="far fa-trash-alt" aria-hidden="true" name="tombolDeleteSubKategori" value="<?php echo $value->id_sub_kategori; ?>"></a>
+                                                    <a href="<?php echo base_url('/Admin/edit_kategori/'. $value->id_kategori) ?>" class="fas fa-edit" aria-hidden="true" data-toggle="modal" data-target="#modal-edit-Kategori" name="tombolEditKategori" value="<?php echo $value->id_kategori; ?>"></a>
+                                                    <a href="<?php echo base_url('/Admin/delete_Kategori/'. $value->id_kategori) ?>" class="far fa-trash-alt" aria-hidden="true" name="tombolDeleteKategori" value="<?php echo $value->id_kategori; ?>"></a>
                                                 </td>
 
                                             </tr>
@@ -361,7 +370,7 @@
 
         <!--Modal ADD-->
 
-        <div class="modal fade" id="modal-tambah-subKategori" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="modal-tambah-Kategori" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <!--Header-->
@@ -369,7 +378,7 @@
                         <?php //echo form_open_multipart('Admin/add_gallery'); 
                         ?>
 
-                        <h4 class="modal-title" id="myModalLabel">Sub Kategori</h4>
+                        <h4 class="modal-title" id="myModalLabel">Kategori</h4>
                         <?php echo validation_errors(); ?>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">×</span>
@@ -387,7 +396,7 @@
                                             @
                                         </span>
                                     </div>
-                                    <input type="text" id="judul_sub" name="judul_sub" class="form-control" placeholder="Judul ">
+                                    <input type="text" id="judul_kat" name="judul_kat" class="form-control" placeholder="Judul ">
                                 </div>
 
 
@@ -397,30 +406,17 @@
                                             @
                                         </span>
                                     </div>
-                                    <input type="text" id="keterangan_sub" name="keterangan_sub" class="form-control" placeholder="Keterangan ">
+                                    <input type="text" id="keterangan_kat" name="keterangan_katb" class="form-control" placeholder="Keterangan ">
                                 </div>
 
 
-                                 <div class="md-form mb-4">
-                                    <input type="file" id="foto_sub" class="form-control validate" name="foto_sub" placeholder="Input field">
-
-                                </div>
-
-
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">
-                                            @
-                                        </span>
-                                    </div>
-                                    <input type="text" id="harga" name="harga" class="form-control" placeholder="Harga">
-                                </div>
+                                 
                         </div>
 
                     </div>
                     <!--Footer-->
                     <div class="modal-footer">
-                        <input type="submit" name="submit" class="btn btn-outline-primary" id="btnSimpanSubKategori">
+                        <input type="submit" name="submit" class="btn btn-outline-primary" id="btnSimpanKategori">
                         <input type="button" class="btn btn-primary" value="Close" data-dismiss="modal">
                         <?php //echo form_close(); 
                         ?>
@@ -439,7 +435,7 @@
                     <!--Header-->
                     <div class="modal-header">
 
-                        <h4 class="modal-title" id="myModalLabel">Sub Kategori</h4>
+                        <h4 class="modal-title" id="myModalLabel"> Kategori</h4>
                         <?php echo validation_errors(); ?>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">×</span>
@@ -449,7 +445,7 @@
                         <div class="modal-body">
                             <div class="modal-body mx-3">
                     <!-- <FORM id="addTerapis"> -->
-                    <form method="post" accept-charset="utf-8" id="editSubKategori" enctype="multipart/form-data">
+                    <form method="post" accept-charset="utf-8" id="editKategori" enctype="multipart/form-data">
                         
 
                                 <input type="hidden" id="edit_id" name="edit_id">
@@ -461,7 +457,7 @@
                                             @
                                         </span>
                                     </div>
-                                    <input type="text" id="edit_judul_sub" name="edit_judul_sub" class="form-control" placeholder="Judul">
+                                    <input type="text" id="edit_judul_kat" name="edit_judul_kat" class="form-control" placeholder="Judul">
                                 </div>
 
 
@@ -472,26 +468,12 @@
                                             @
                                         </span>
                                     </div>
-                                    <input type="text" id="edit_keterangan_sub" name="edit_keterangan_sub" class="form-control" placeholder="Keterangan">
+                                    <input type="text" id="edit_keterangan_kat" name="edit_keterangan_kat" class="form-control" placeholder="Keterangan">
                                 </div>
 
 
 
-                                <div class="md-form mb-4">
                                
-                                    <img alt="" width=100 height=100 id="foto_lama">
-                                    <input type="file" id="edit_foto_sub" class="form-control validate" name="edit_foto_sub" placeholder="Input field">
-
-                                </div>
-
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">
-                                            @
-                                        </span>
-                                    </div>
-                                    <input type="text" id="edit_harga" name="edit_harga" class="form-control" placeholder="Harga">
-                                </div>
                             </div>
 
                         </div>
@@ -499,7 +481,7 @@
 
                         <!--Footer-->
                         <div class="modal-footer">
-                            <input type="submit" name="submit" class="btn btn-outline-primary" id="btnSimpanSubKategori">
+                            <input type="submit" name="submit" class="btn btn-outline-primary" id="btnSimpanKategori">
                             <input type="button" class="btn btn-primary" value="Close" data-dismiss="modal">
                             <?php //echo form_close(); 
                             ?>
@@ -607,12 +589,12 @@
     </script>
 
     <script type="text/javascript">
-        $('form#addSubKategori').submit(function(e) {
+        $('form#addKategori').submit(function(e) {
             e.preventDefault();
-            var formData = new FormData($('form#addSubKategori')[0]);
+            var formData = new FormData($('form#addKategori')[0]);
 
             $.ajax({
-                url: '<?php echo site_url('admin/add_subkategori'); ?>',
+                url: '<?php echo site_url('admin/add_categori'); ?>',
                 type: 'POST',
                 data: formData,
                 dataType: 'json',
@@ -642,7 +624,7 @@
             if (text != '' || text != null) {
 
                 $.ajax({
-                    url: '<?php echo site_url('admin/search_subkategori') ?>',
+                    url: '<?php echo site_url('admin/search_kategori') ?>',
                     type: 'post',
                     data: {
                         text: text
@@ -658,13 +640,13 @@
             }
         });
 
-        $('[name="tombolEditSubKategori"]').click(function() {
+        $('[name="tombolEditKategori"]').click(function() {
 
             var id = $(this).attr('value');
             //alert(id);
 
             $.ajax({
-                url: '<?php echo site_url('admin/get_subkategori') ?>',
+                url: '<?php echo site_url('admin/get_categori') ?>',
                 type: 'post',
                 data: {
                     id: id
@@ -678,13 +660,11 @@
 
                     //alert(data);
 
-                    $('#edit_id').val(data.id_sub_kategori);
-                    $('#edit_judul_sub').val(data.judul_sub);
-                    $('#edit_keterangan_sub').val(data.keterangan_sub);
+                    $('#edit_id').val(data.id_kategori);
+                    $('#edit_judul_kat').val(data.judul_kat);
+                    $('#edit_keterangan_kat').val(data.keterangan_kat);
 
 
-                    $('#foto_lama').attr('src', '<?php echo base_url() ?>/assets/user/images/' + data.foto_sub);
-                    $('#edit_harga').val(data.harga);
                     
                     
                 }
@@ -692,12 +672,12 @@
         });
 
         //ajaxformedit
-        $('form#editSubKategori').submit(function(e) {
+        $('form#editKategori').submit(function(e) {
             e.preventDefault();
-            var formData = new FormData($('form#editSubKategori')[0]);
+            var formData = new FormData($('form#editKategori')[0]);
 
             $.ajax({
-                url: '<?php echo site_url('admin/edit_subkategori'); ?>',
+                url: '<?php echo site_url('admin/edit_categori'); ?>',
                 type: 'POST',
                 data: formData,
 
@@ -720,12 +700,12 @@
 
 
         //ajaxdelete
-      $('[name="tombolDeleteSubKategori"]').click(function(e){
+      $('[name="tombolDeleteKategori"]').click(function(e){
         e.preventDefault();
         var id = $(this).attr('value')
         //alert(id);
         $.ajax({
-          url: '<?php echo site_url('admin/delete_subKategori') ?>',
+          url: '<?php echo site_url('admin/delete_categori') ?>',
           type: 'post',
           data: {id:id},
           success: function(response) {
