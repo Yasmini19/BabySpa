@@ -199,17 +199,17 @@ public function get_categori()
       echo json_encode($data);
 }
 
-public function add_kategori() 
+public function add_categori() 
 {
 
 }
 
-public function edit_kategori()
+public function edit_categori()
 {
 
 }
 
-public function delete_kategori()
+public function delete_categori()
 {
 
 }
