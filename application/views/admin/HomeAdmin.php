@@ -158,7 +158,7 @@
                 </li>
             </ul>
         </nav>
-        <!-- /.navbar -->
+                <!-- /.navbar -->
 
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
@@ -267,13 +267,14 @@
                                 </p>
                             </a>
                         </li>
-                        
+                        </ul>
 
                 </nav>
                 <!-- /.sidebar-menu -->
             </div>
             <!-- /.sidebar -->
         </aside>
+
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
@@ -297,12 +298,7 @@
 
             <section class="content">
                 <div class="row">
-                    <div class="col-12">
-
-                        
-                            <!--search-->
-
-                            <!-- /.card-header -->
+                    <div class="card col-12">
                             <div class="card-body">
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
@@ -353,8 +349,7 @@
                         <!-- /.card -->
                     </div>
                     <!-- /.col -->
-                </div>
-                <!-- /.row -->
+                                    <!-- /.row -->
             </section>
             <!-- /.content -->
         </div>
@@ -376,11 +371,10 @@
                         </button>
                     </div>
                     <!--Body-->
+                    <form method="post" accept-charset="utf-8" id="addSubKategori" enctype="multipart/form-data">
                     <div class="modal-body">
                         <div class="modal-body mx-3">
                             <!-- <FORM id="addTerapis"> -->
-                            <form method="post" accept-charset="utf-8" id="addSubKategori" enctype="multipart/form-data">
-
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">
@@ -424,7 +418,6 @@
                         <input type="button" class="btn btn-primary" value="Close" data-dismiss="modal">
                         <?php //echo form_close(); 
                         ?>
-
                     </div>
                     </form>
                 </div>
@@ -446,10 +439,10 @@
                         </button>
                     </div>
                     <!--Body-->
+                    <form method="post" accept-charset="utf-8" id="editReservasi" enctype="multipart/form-data">
                         <div class="modal-body">
                             <div class="modal-body mx-3">
                     <!-- <FORM id="addTerapis"> -->
-                    <form method="post" accept-charset="utf-8" id="editReservasi" enctype="multipart/form-data">
                         
 
                                 <input type="hidden" id="edit_id" name="edit_id">
@@ -504,22 +497,6 @@
             </div>
         </div>
 
-
-        <!-- Main content -->
-        <section class="content">
-            <div class="container-fluid">
-                <!-- Small boxes (Stat box) -->
-                <div class="row">
-                </div>
-                    <!-- /.card -->
-        </section>
-        <!-- right col -->
-    <!-- </div> -->
-    <!-- /.row (main row) -->
-    </div><!-- /.container-fluid -->
-    </section>
-    <!-- /.content -->
-    <!-- </div> -->
 
     <!-- /.content-wrapper -->
     <footer class="main-footer">

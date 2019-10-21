@@ -13,12 +13,18 @@ class Terapis extends CI_Controller {
 
     public function index() 
     {
+        $session_data=$this->session->userdata('logged_in');
+        $data['username']=$session_data['username'];
+        $data['level']=$session_data['level'];
+        $data['id_user']=$session_data['id_user'];
+
         $data_calendar = $this->db
         ->select('*')
         ->from('reservasi')
         ->join('sesi_reservasi','reservasi.sesi_id = sesi_reservasi.id_sesi')
         ->join('user','reservasi.pemesan_id = user.id_user')
-        ->where('reservasi.terapis_id',6)
+        ->join('detail_reservasi','detail_reservasi.reservasi_id = reservasi.id_reservasi')
+        ->where('reservasi.terapis_id',$data['id_user'])
         ->where('status !=','Cancelled')
         ->get()
         ->result();
@@ -32,11 +38,11 @@ class Terapis extends CI_Controller {
                 'start' => date_format( date_create($val->tgl_reservasi." ".trim(explode("-", $val->waktu)[0]).":00") ,"Y-m-d H:i:s"),
                 'end'   => date_format( date_create($val->tgl_reservasi." ".trim(explode("-", $val->waktu)[1]).":00") ,"Y-m-d H:i:s"),
                 'color' => $val->color,
-                'telp' => $val->no_telp
+                'telp' => $val->no_telp,
+                //'pesanan' => 
             );
         }
-
-        $data = array();
+        
         $data['get_data'] = json_encode($calendar);
         $this->load->view('terapis/headerfooter/header', $data);
         $this->load->view('terapis/homeTerapis', $data);
