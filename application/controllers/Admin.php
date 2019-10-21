@@ -180,8 +180,7 @@ public function kategori()
  // //$data['subktg'] = $this->GeneralModel->get_data('sub_kategori')->result();
 
  // $this->load->view('admin/Kategori', $data);
-     $data['keterangan_status'] = 0;
- $data['subktg'] = $this->GeneralModel->get_selected('sub_kategori', $data)->result();
+ $data['subktg'] = $this->GeneralModel->get_data('sub_kategori')->result();
  $this->load->view('admin/SubKategori', $data);
 }
 
@@ -217,8 +216,7 @@ public function delete_categori()
 		//Subkategori
 public function subkategori() 
 {
- $data['keterangan_status'] = 0;
- $data['subktg'] = $this->GeneralModel->get_selected('sub_kategori', $data)->result();
+ $data['subktg'] = $this->GeneralModel->get_data('sub_kategori')->result();
  $this->load->view('admin/SubKategori', $data);
 }
 
@@ -261,8 +259,7 @@ public function get_subkategori()
 {
     $id = $this->input->post('id');
     //$data = $this->GeneralModel->get_selected('sub_kategori', array('id_sub_kategori' => $id))->row();
-    $data['keterangan_status'] = 1;
-    $data = $this->GeneralModel->get_selected('sub_kategori', $data);
+    $data = $this->GeneralModel->get_data('sub_kategori');
     echo json_encode($data);
 }
 
@@ -297,8 +294,7 @@ public function edit_subkategori()
 public function delete_subkategori()
 {
  $id = array('id_sub_kategori' => $this->input->post('id') );
- $data['keterangan_status'] = 1;
- $result = $this->GeneralModel->update_data('sub_kategori', $data, $id);
+ $result = $this->GeneralModel->delete_data($id,'sub_kategori');
     //$result = $this->GeneralModel->delete_data($id,'sub_kategori');
  echo json_encode($result);
 }
@@ -308,9 +304,8 @@ public function terapis()
 {
             
 
-    $data1['keterangan_status'] = 0;
     $level['level'] = 3;
-    $data['terps'] = $this->GeneralModel->get_selected_2where('user',$data1,$level)->result();
+    $data['terps'] = $this->GeneralModel->get_selected('user',$level)->result();
     $this->load->view('admin/Terapis', $data);
 
 }
@@ -474,11 +469,7 @@ public function edit_terapis()
 
 public function delete_terapis()
 {
-
-
-
    $id = array('id_user' => $this->input->post('id') );
-   $data['keterangan_status'] = 1;
    $result = $this->GeneralModel->update_data('user', $data, $id);
    echo json_encode($result);
 }
@@ -487,9 +478,8 @@ public function delete_terapis()
 public function user()
 {
 
-    $data1['keterangan_status'] = 0;
     $level['level'] = 2;
-    $data['usr'] = $this->GeneralModel->get_selected_2where('user',$data1,$level)->result();
+    $data['usr'] = $this->GeneralModel->get_selected('user',$level)->result();
 
     $this->load->view('admin/User', $data);
 }
@@ -639,8 +629,7 @@ public function delete_user()
 
    
     $id = array('id_user' => $this->input->post('id') );
-    $data['keterangan_status'] = 1;
-    $result = $this->GeneralModel->update_data('user', $did,$data);
+    $result = $this->GeneralModel->delete_data($id,'user');
     echo json_encode($result);
 }
 
@@ -649,9 +638,7 @@ public function delete_user()
 public function berita()
 {
 
-    $data['keterangan_status'] = 0;
-
-    $data['brt'] = $this->GeneralModel->get_selected('berita',$data)->result();
+    $data['brt'] = $this->GeneralModel->get_data('berita')->result();
     $this->load->view('admin/Berita', $data);
 }
 
@@ -731,8 +718,7 @@ public function delete_berita()
 {
 
     $id = array('id_berita' => $this->input->post('id') );
-    $data['keterangan_status'] = 1;
-    $result = $this->GeneralModel->update_data('berita', $data,$id);
+    $result = $this->GeneralModel->delete_data($id,'berita');
     echo json_encode($result);
 }
 
