@@ -217,8 +217,7 @@ public function delete_kategori()
 		//Subkategori
 public function subkategori() 
 {
- $data['keterangan_status'] = 0;
- $data['subktg'] = $this->GeneralModel->get_selected('sub_kategori', $data)->result();
+ $data['subktg'] = $this->GeneralModel->get_data('sub_kategori')->result();
  $this->load->view('admin/SubKategori', $data);
 }
 
@@ -308,9 +307,8 @@ public function terapis()
 {
             
 
-    $data1['keterangan_status'] = 0;
     $level['level'] = 3;
-    $data['terps'] = $this->GeneralModel->get_selected_2where('user',$data1,$level)->result();
+    $data['terps'] = $this->GeneralModel->get_selected('user',$level)->result();
     $this->load->view('admin/Terapis', $data);
 
 }
@@ -649,9 +647,7 @@ public function delete_user()
 public function berita()
 {
 
-    $data['keterangan_status'] = 0;
-
-    $data['brt'] = $this->GeneralModel->get_selected('berita',$data)->result();
+    $data['brt'] = $this->GeneralModel->get_data('berita')->result();
     $this->load->view('admin/Berita', $data);
 }
 
