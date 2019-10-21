@@ -1,5 +1,5 @@
-<div class="container-fluid">
-	<section class="gallery py-5" id="gallery">
+<div class="container" style="min-height: 100%">
+	<section class="gallery py-5" id="gallery" style="min-height: 675px;">
 		<div class="container py-md-5">
 			<div class="header mb-3 mb-sm-5 text-center">
 				<h3 class="heading text-center mb-3 mb-sm-5">Our Gallery and Testimony</h3>
@@ -25,4 +25,5 @@
 	</section>
 	<div style="align-items: center;"><?php 
 	echo $this->pagination->create_links();?></div>
+	<br>
 </div>

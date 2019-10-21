@@ -26,9 +26,9 @@
           <div class="row w-100 mx-0">
             <div class="col-lg-4 mx-auto">
               <div class="auth-form-light text-left py-5 px-4 px-sm-5">
-                <div class="brand-logo">
+                <!-- <div class="brand-logo">
                   <img src="../../images/logo.svg" alt="logo">
-                </div>
+                </div> -->
                 <h4>Hello! let's get started</h4>
                 <h6 class="font-weight-light">Sign in to continue.</h6>
                  <?php echo form_open('Login/cekLogin',array('class'=>'pt-3')); ?>
@@ -55,11 +55,6 @@
                       </label>
                     </div>
                     <a href="#" class="auth-link text-black">Forgot password?</a>
-                  </div>
-                  <div class="mb-2">
-                    <button type="button" class="btn btn-block btn-facebook auth-form-btn">
-                      <i class="mdi mdi-facebook mr-2"></i>Connect using facebook
-                    </button>
                   </div>
                   <div class="text-center mt-4 font-weight-light">
                     Don't have an account? <a href="<?php echo site_url();?>/Login/register" class="text-primary">Create</a>
