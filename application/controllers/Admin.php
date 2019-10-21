@@ -182,7 +182,21 @@ public function kategori()
  // $this->load->view('admin/Kategori', $data);
      $data['keterangan_status'] = 0;
  $data['subktg'] = $this->GeneralModel->get_selected('sub_kategori', $data)->result();
- $this->load->view('admin/Kategori', $data);
+ $this->load->view('admin/SubKategori', $data);
+}
+
+public function categori()
+{
+    $data['ktg'] = $this->GeneralModel->get_selected('kategori', $data)->result();
+    $this->load->view('admin/Kategori', $data);
+}
+
+public function get_categori()
+{
+      $id = $this->input->post('id');
+      $data = $this->GeneralModel->get_selected('kategori', array('id_kategori' => $id))->row();
+
+      echo json_encode($data);
 }
 
 public function add_kategori() 
@@ -205,7 +219,7 @@ public function subkategori()
 {
  $data['keterangan_status'] = 0;
  $data['subktg'] = $this->GeneralModel->get_selected('sub_kategori', $data)->result();
- $this->load->view('admin/Kategori', $data);
+ $this->load->view('admin/SubKategori', $data);
 }
 
 

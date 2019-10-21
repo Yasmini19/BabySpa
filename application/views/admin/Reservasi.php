@@ -238,14 +238,23 @@
                             </a>
                         </li>
 
-						<li class="nav-item">
-							<a href="<?php echo base_url();?>index.php/Admin/subkategori" class="nav-link">
-							<i class="nav-icon fas fa-book"></i>
-							<p>
-								Kategori
-							</p>
-							</a>
-						</li>
+						 <li class="nav-item">
+                            <a href="<?php echo base_url();?>index.php/Admin/kategori" class="nav-link">
+                            <i class="nav-icon fas fa-book"></i>
+                            <p>
+                                Kategori
+                            </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="<?php echo base_url();?>index.php/Admin/subkategori" class="nav-link active">
+                            <i class="nav-icon fas fa-book"></i>
+                            <p>
+                                SubKategori
+                            </p>
+                            </a>
+                        </li>
 
 
                         <li class="nav-item">
@@ -498,7 +507,7 @@
                                             @
                                         </span>
                                     </div>
-                                    <input type="text" id="edit_nominal_diskon" name="edit_nominal_diskon" class="form-control" placeholder="Nominal Diskon">
+                                    <input type="text" id="edit_nominal_diskon" name="edit_nominal_diskon" class="form-control" placeholder="Nominal Diskon" readonly="">
                                 </div>
 
 
@@ -518,7 +527,7 @@
                                             @
                                         </span>
                                     </div>
-                                    <input type="text" id="edit_total_harga_akhir" name="edit_total_harga_akhir" class="form-control" placeholder="Total Harga Akhir">
+                                    <input type="text" id="edit_total_harga_akhir" name="edit_total_harga_akhir" class="form-control" placeholder="Total Harga Akhir" readonly="">
                                 </div>
 
                             </div>
