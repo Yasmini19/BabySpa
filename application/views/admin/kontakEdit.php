@@ -185,7 +185,7 @@
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                         <li class="nav-item has-treeview menu-open">
-                            <a href="#" class="nav-link ">
+                            <a href="<?php echo base_url(); ?>index.php/Admin/dashboard" class="nav-link ">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     Dashboard
@@ -236,6 +236,23 @@
                                 </p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="<?php echo base_url();?>index.php/Admin/kategori" class="nav-link">
+                            <i class="nav-icon fas fa-book"></i>
+                            <p>
+                                Kategori
+                            </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="<?php echo base_url();?>index.php/Admin/subkategori" class="nav-link active">
+                            <i class="nav-icon fas fa-book"></i>
+                            <p>
+                                SubKategori
+                            </p>
+                            </a>
+                        </li>
 
 
                         <li class="nav-item">
@@ -248,6 +265,15 @@
                             </a>
                         </li>
                         
+                        <li class="nav-item">
+                            <a href="<?php echo base_url(); ?>index.php/Admin/reservasi" class="nav-link">
+                                <i class="nav-icon fa fa-newspaper-o"></i>
+                                <p>
+                                    Reservasi
+
+                                </p>
+                            </a>
+                        </li>
                 </nav>
                 <!-- /.sidebar-menu -->
             </div>
