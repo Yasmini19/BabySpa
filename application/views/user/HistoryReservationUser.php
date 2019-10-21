@@ -28,9 +28,9 @@
 						</table>
 					<?php } ?>
 					<table>
-						<td><p>Biaya transport : <?= $key->biaya_transportasi; ?></p></td>
-						<td>&nbsp | &nbsp</td>
 						<td><p>Total : <?= $key->total_harga_awal; ?></p></td>
+						<td>&nbsp | &nbsp</td>
+						<td><p>Biaya transport : <?= $key->biaya_transportasi; ?></p></td>
 						<td>&nbsp | &nbsp</td>
 						<td><p>Diskon : <?= $key->nominal_diskon; ?></p></td>
 					</table>
