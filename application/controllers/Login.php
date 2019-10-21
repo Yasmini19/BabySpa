@@ -33,7 +33,7 @@
                 $data['username'] = $session_data['username'];
                 $data['level'] = $session_data['level'];
                 if ($data['level']=='1') {
-                    redirect('Admin','refresh');
+                    redirect('Admin/dashboard','refresh');
                 }else if( $data['level']=='2'){
                     redirect('User','refresh');
                 }else if( $data['level']=='3'){

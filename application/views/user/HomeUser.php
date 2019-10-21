@@ -174,7 +174,7 @@
 						<div class="row">
 							<?php foreach($trps as $key => $value):  ?>
 								<div class="team-grid col-lg-3 col-sm-6 mb-5">
-									<div style="min-height: 250px; max-height: 250px">
+									<div style="min-height: 250px; max-height: 250px; min-width: 200px; max-width: 200px">
 										<img src="<?php echo base_url()?>/assets/upload/<?php echo $value->foto;?>" class="" alt="" style="border: 5px solid #fff; border-radius: 100%;"/>
 									</div>
 									<br>
@@ -444,6 +444,7 @@
 									$('#datepicker1').datepicker({
 										format: "dd-mm-yyyy",
 										autoclose:true
+										
 									});
 
 									$('#datepicker1').on('changeDate', function(){

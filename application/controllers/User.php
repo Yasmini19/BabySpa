@@ -346,7 +346,7 @@ class User extends CI_Controller {
 
         $config['base_url'] = site_url().'/User/galleryUser/';
         $config['total_rows'] = $jumlah_data;
-        $config['per_page'] = 9;
+        $config['per_page'] = 3;
 
         // Membuat Style pagination untuk BootStrap v4
         $config['first_link']       = 'First';
