@@ -21,14 +21,21 @@
 	
 	<!-- Bootstrap CSS File -->
 	<link href="<?php echo base_url();?>assets/user/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css" />
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css" />
 
 
 	<script src="http://code.jquery.com/jquery-3.4.1.js"></script>
+	<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/javascript.util/0.12.12/javascript.util.min.js"></script> -->
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script> -->
+
 	<!-- <script src="<?php echo base_url();?>assets/user/js/jquery-3.3.1.slim.min.js"></script> -->
-	<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js"></script>
 	<script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script src="<?php echo base_url();?>assets/user/js/popper.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
@@ -75,7 +82,7 @@
 
 </style>
 </head>
-<body>
+<body style="height: 100%">
 
 	<!-- header -->
 	<header>
@@ -89,9 +96,9 @@
 				<input type="checkbox" id="drop" />
 				<ul class="menu ml-auto mt-1" id="menu">
 					<li class="header-menu"><a href="<?php echo site_url()?>/User">Home</a></li>
-					<li class="header-menu"><a href="<?php echo site_url()?>/User/ProfileUser">Berita</a></li>
-					<li class="header-menu"><a href="#services">Services</a></li>
-					<li class="header-menu"><a href="#gallery">Gallery & Testimoni</a></li>
+					<li class="header-menu"><a href="<?php echo site_url()?>/User/beritaHomeUser">Article</a></li>
+					<!-- <li class="header-menu"><a href="#services">Services</a></li> -->
+					<li class="header-menu"><a href="<?php echo site_url()?>/User/galleryUser">Gallery & Testimoni</a></li>
 					<?php if(!isset($username)){?>
 					<li class="header-menu"><a href="<?php echo site_url()?>/Login">Login</a></li>
 					<li class="header-menu" style="border:  2px solid black"><a href="<?php echo site_url()?>/Login/register">Register</a></li>
@@ -100,7 +107,7 @@
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Hi, <?= $username?> <span class="caret"></span></a>
 						<ul class="dropdown-menu" role="menu">
 							<li><a href="<?php echo site_url()?>/User/ProfileUser">Profile</a></li>
-							<li><a href="#">Reservation's History</a></li>
+							<li><a href="<?php echo site_url()?>/User/historyReservation">Reservation's History</a></li>
 							<li class=""><a href="<?php echo site_url()?>/Login/logout">Logout</a></li>
 						</ul>
 					</li>

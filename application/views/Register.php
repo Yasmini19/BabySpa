@@ -17,8 +17,8 @@
   <!-- endinject -->
   <link rel="shortcut icon" href="<?php echo base_url();?>assets/admin/images/favicon.png" />
 
-  <script src="<?php echo base_url();?>assets/admin/sweetalert/sweetalert.js"></script>
-  <link rel="stylesheet" href="<?php echo base_url();?>assets/admin/sweetalert/sweetalert.css"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.css"/>
 </head>
 
 <body>
@@ -29,9 +29,9 @@
           <div class="row w-100 mx-0">
             <div class="col-lg-4 mx-auto">
               <div class="auth-form-light text-left py-5 px-4 px-sm-5">
-                <div class="brand-logo">
+                <!-- <div class="brand-logo">
                   <img src="<?php echo base_url();?>assets/admin/images/logo.svg" alt="logo">
-                </div>
+                </div> -->
                 <h4>New here?</h4>
                 <h6 class="font-weight-light">Signing up is easy. It only takes a few steps</h6>
                 <form method="post" accept-charset="utf-8" action="<?= site_url()?>/Login/addUser" id="register">
@@ -53,19 +53,19 @@
                   <div class="form-group">
                     <input type="password" class="form-control form-control-lg reset" id="password" name="password" placeholder="Password" required>
                   </div>
-                  <div class="mb-4">
+                  <!-- <div class="mb-4">
                     <div class="form-check">
                       <label class="form-check-label text-muted">
                         <input type="checkbox" class="form-check-input">
                         I agree to all Terms & Conditions
                       </label>
                     </div>
-                  </div>
+                  </div> -->
                   <div class="mt-3">
                     <input type="submit" name="submit" value="SIGN UP" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">
                   </div>
                   <div class="text-center mt-4 font-weight-light">
-                    Already have an account? <a href="login.html" class="text-primary">Login</a>
+                    Already have an account? <a href="<?php echo site_url();?>/Login/" class="text-primary">Login</a>
                   </div>
                 </form>
               </div>

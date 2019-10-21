@@ -66,95 +66,17 @@
 
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
-                <!-- Messages Dropdown Menu -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link" data-toggle="dropdown" href="#">
-                        <i class="far fa-comments"></i>
-                        <span class="badge badge-danger navbar-badge">3</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                        <a href="#" class="dropdown-item">
-                            <!-- Message Start -->
-                            <div class="media">
-                                <img src="<?php echo base_url(); ?>assets/admin/dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
-                                <div class="media-body">
-                                    <h3 class="dropdown-item-title">
-                                        Brad Diesel
-                                        <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
-                                    </h3>
-                                    <p class="text-sm">Call me whenever you can...</p>
-                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                                </div>
-                            </div>
-                            <!-- Message End -->
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <!-- Message Start -->
-                            <div class="media">
-                                <img src="dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-                                <div class="media-body">
-                                    <h3 class="dropdown-item-title">
-                                        John Pierce
-                                        <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
-                                    </h3>
-                                    <p class="text-sm">I got your message bro</p>
-                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                                </div>
-                            </div>
-                            <!-- Message End -->
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <!-- Message Start -->
-                            <div class="media">
-                                <img src="<?php echo base_url(); ?>assets/admin/dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-                                <div class="media-body">
-                                    <h3 class="dropdown-item-title">
-                                        Nora Silvester
-                                        <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
-                                    </h3>
-                                    <p class="text-sm">The subject goes here</p>
-                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                                </div>
-                            </div>
-                            <!-- Message End -->
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
-                    </div>
-                </li>
                 <!-- Notifications Dropdown Menu -->
                 <li class="nav-item dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="#">
-                        <i class="far fa-bell"></i>
-                        <span class="badge badge-warning navbar-badge">15</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                        <span class="dropdown-item dropdown-header">15 Notifications</span>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i class="fas fa-envelope mr-2"></i> 4 new messages
-                            <span class="float-right text-muted text-sm">3 mins</span>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i class="fas fa-users mr-2"></i> 8 friend requests
-                            <span class="float-right text-muted text-sm">12 hours</span>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i class="fas fa-file mr-2"></i> 3 new reports
-                            <span class="float-right text-muted text-sm">2 days</span>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#">
                         <i class="fas fa-th-large"></i>
                     </a>
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                        <div class="dropdown-divider"></div>
+                        <a href="<?php echo site_url()?>/Login/logout" class="dropdown-item">
+                            <i class="fas fa-users mr-2"></i> Logout
+                        </a>
+                    </div>
                 </li>
             </ul>
         </nav>
@@ -186,7 +108,7 @@
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                         <li class="nav-item has-treeview menu-open">
-                            <a href="<?php echo base_url(); ?>index.php/Admin/" class="nav-link ">
+                            <a href="<?php echo base_url(); ?>index.php/Admin/dashboard" class="nav-link ">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     Dashboard
@@ -237,20 +159,40 @@
                             </a>
                         </li>
 
-						<li class="nav-item">
-            <a href="<?php echo base_url();?>index.php/Admin/Kategori" class="nav-link">
-              <i class="nav-icon fas fa-book"></i>
-              <p>
-                Kategori
-              </p>
-            </a>
-          </li>
+			 <li class="nav-item">
+                            <a href="<?php echo base_url();?>index.php/Admin/kategori" class="nav-link">
+                            <i class="nav-icon fas fa-book"></i>
+                            <p>
+                                Kategori
+                            </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="<?php echo base_url();?>index.php/Admin/subkategori" class="nav-link active">
+                            <i class="nav-icon fas fa-book"></i>
+                            <p>
+                                SubKategori
+                            </p>
+                            </a>
+                        </li>
 
                         <li class="nav-item">
                             <a href="<?php echo base_url(); ?>index.php/Admin/berita" class="nav-link">
                                 <i class="nav-icon fa fa-newspaper-o"></i>
                                 <p>
                                     Berita
+
+                                </p>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a href="<?php echo base_url(); ?>index.php/Admin/reservasi" class="nav-link">
+                                <i class="nav-icon fa fa-newspaper-o"></i>
+                                <p>
+                                    Reservasi
 
                                 </p>
                             </a>
@@ -311,6 +253,7 @@
                                         <th class="sorting_asc" tabindex="0" aria-controls="demo-datatables" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending">Id User</th>
                                         <th>Full Name</th>
                                         <th>Username</th>
+                                        <th>Password</th>
                                         <th>Email</th>
                                         <th>No Tlp</th>
                                         <th>Alamat</th>
@@ -324,6 +267,7 @@
                                                 <td><?php echo $value->id_user ?></td>
                                                 <td><?php echo $value->full_name ?></td>
                                                 <td><?php echo $value->username ?></td>
+                                                <td><?php echo $value->password ?></td>
                                                 <td><?php echo $value->email ?></td>
                                                 <td><?php echo $value->no_telp ?></td>
                                                 <td><?php echo $value->alamat ?></td>
@@ -398,6 +342,14 @@
                                     <input type="text" id="username" name="username" class="form-control" placeholder="Username">
                                 </div>
 
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            @
+                                        </span>
+                                    </div>
+                                    <input type="password" id="password" name="password" class="form-control" placeholder="Password">
+                                </div>
 
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
@@ -497,6 +449,14 @@
                                      <input type="text" id="edit_username" class="form-control validate" name="edit_username" placeholder="Input field">
                                 </div>
 
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            @
+                                        </span>
+                                    </div>
+                                     <input type="password" id="edit_password" class="form-control validate" name="edit_password" placeholder="Input field">
+                                </div>
 
 
                                 <div class="input-group mb-3">
@@ -729,6 +689,7 @@
                     $('#edit_level').val(data.level);
                     $('#edit_full_name').val(data.full_name);
                     $('#edit_username').val(data.username);
+                    $('#edit_password').val(data.password);
                     $('#edit_email').val(data.email);
                     $('#edit_no_telp').val(data.no_telp);
                     $('#edit_alamat').val(data.alamat);
@@ -746,6 +707,7 @@
                 url: '<?php echo site_url('admin/edit_terapis'); ?>',
                 type: 'POST',
                 data: formData,
+                dataType: 'json',
 
                 cache: false,
                 contentType: false,
@@ -753,7 +715,7 @@
 
                 success: function(response) {
 
-                    if (response) {
+                    if (response==true) {
                         alert('berhasil');
                         location.reload();
                     } else {

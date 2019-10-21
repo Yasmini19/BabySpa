@@ -8,6 +8,18 @@ class GeneralModel extends CI_Model {
             
     }
 
+    function data_offset($table,$number,$offset){
+        return $query = $this->db->get($table,$number,$offset)->result();       
+    }
+
+    function get_selected_offset($table,$where,$number,$id,$random){
+    return $query = $this->db->order_by($id,$random)->get_where($table,$where,$number);       
+    }
+ 
+    function num_row($table){
+        return $this->db->get($table)->num_rows();
+    }
+
     public function get_data($table)
     {
         return $this->db->get($table);
@@ -280,6 +292,14 @@ class GeneralModel extends CI_Model {
         }
             $this->db->order_by('id_user');
             return $this->db->get();
+    }
+
+    public function get_one_data($data, $table, $where){
+        $this->db->select($data);
+        $this->db->from($table);
+        $this->db->where($where);
+        $query = $this->db->get();
+        return $query;
     }
 
 }

@@ -33,7 +33,7 @@
                 $data['username'] = $session_data['username'];
                 $data['level'] = $session_data['level'];
                 if ($data['level']=='1') {
-                    redirect('Admin','refresh');
+                    redirect('Admin/dashboard','refresh');
                 }else if( $data['level']=='2'){
                     redirect('User','refresh');
                 }else if( $data['level']=='3'){
@@ -56,7 +56,8 @@
                     $session_array = array(
                         'id_user'=>$key->id_user,
                         'username'=>$key->username,
-                        'level'=>$key->level
+                        'level'=>$key->level,
+                        'password' => $key->password
                     );
                     $this->session->set_userdata('logged_in',$session_array);
                 }

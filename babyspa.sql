@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 10, 2019 at 05:08 AM
+-- Generation Time: Oct 21, 2019 at 04:07 AM
 -- Server version: 10.1.29-MariaDB
 -- PHP Version: 7.1.12
 
@@ -40,7 +40,15 @@ CREATE TABLE `berita` (
 --
 
 INSERT INTO `berita` (`id_berita`, `judul_berita`, `deskripsi`, `foto_berita`) VALUES
-(1, 'Manfaat Baby Spa untuk Melatih Motorik Bayi', 'Baby spa atau pijat bayi saat ini sudah semakin populer. Banyak para Bunda yang rutin mengajak buah hatinya ke baby spa untuk mendapatkan berbagai treatment terbaik. Namun, baby spa hanya diperbolehkan jika berat badan Si Kecil sudah mencapai 5kg, lho. Selain mengasyikan, kegiatan yang mencakup renang dan pijat ini tentunya memiliki berbagai manfaat untuk Si Kecil. Salah satunya dapat merangsang gerak motoriknya.', 'b8.jpg');
+(1, 'Manfaat Baby Spa untuk Melatih Motorik Bayi', 'Baby spa atau pijat bayi saat ini sudah semakin populer. Banyak para Bunda yang rutin mengajak buah hatinya ke baby spa untuk mendapatkan berbagai treatment terbaik. Namun, baby spa hanya diperbolehkan jika berat badan Si Kecil sudah mencapai 5kg, lho. Selain mengasyikan, kegiatan yang mencakup renang dan pijat ini tentunya memiliki berbagai manfaat untuk Si Kecil. Salah satunya dapat merangsang gerak motoriknya.', 'b8.jpg'),
+(2, 'BAB Bayi Berbusa, Bahayakah?', 'Penyebab BAB bayi berbusa\r\nKondisi feses si Kecil yang berbusa tentu saja akan membuat sebagian besar orang tua khawatir. Padahal, hal itu tak selalu menjadi pertanda adanya masalah kesehatan yang serius.\r\n\r\nFeses bayi yang berbusa bisa disebabkan oleh tak seimbangnya asupan foremilk dan hindmilk. Hal tersebut justru tergolong normal apabila bayi masih mendapatkan asupan ASI.\r\n\r\nForemilk adalah cairan ASI yang keluar terlebih dulu selama beberapa menit setelah si Kecil mulai menyusu. Sedangkan, hindmilk adalah cairan ASI yang keluar selanjutnya. Hindmikl sendiri lebih kental ketimbang foremilk karena mengandung lebih banyak kalori dan lemak.\r\n\r\nSementara, foremilk lebih encer dan berkalori rendah, tapi tinggi laktosa. Nah, akibat kemampuan tubuh bayi yang belum maksimal dalam mencerna laktosa ASI dari foremilk, maka si Kecil bisa saja mengeluarkan feses yang berbusa.\r\n\r\nBeda halnya jika yang terserap banyak oleh si Kecil adalah hindmilk. Biasanya, fesesnya akan berwarna kuning dan tak berbusa atau berbuih. Warna kuning tersebut didapat dari lemak pada hindmilk. Jadi tak perlu khawatir dengan kondisi ini.', 'b8.jpg'),
+(3, 'BAB Bayi Berbusa, Bahayakah?', 'Penyebab BAB bayi berbusa\r\nKondisi feses si Kecil yang berbusa tentu saja akan membuat sebagian besar orang tua khawatir. Padahal, hal itu tak selalu menjadi pertanda adanya masalah kesehatan yang serius.\r\n\r\nFeses bayi yang berbusa bisa disebabkan oleh tak seimbangnya asupan foremilk dan hindmilk. Hal tersebut justru tergolong normal apabila bayi masih mendapatkan asupan ASI.\r\n\r\nForemilk adalah cairan ASI yang keluar terlebih dulu selama beberapa menit setelah si Kecil mulai menyusu. Sedangkan, hindmilk adalah cairan ASI yang keluar selanjutnya. Hindmikl sendiri lebih kental ketimbang foremilk karena mengandung lebih banyak kalori dan lemak.\r\n\r\nSementara, foremilk lebih encer dan berkalori rendah, tapi tinggi laktosa. Nah, akibat kemampuan tubuh bayi yang belum maksimal dalam mencerna laktosa ASI dari foremilk, maka si Kecil bisa saja mengeluarkan feses yang berbusa.\r\n\r\nBeda halnya jika yang terserap banyak oleh si Kecil adalah hindmilk. Biasanya, fesesnya akan berwarna kuning dan tak berbusa atau berbuih. Warna kuning tersebut didapat dari lemak pada hindmilk. Jadi tak perlu khawatir dengan kondisi ini.', 'b8.jpg'),
+(4, 'BAB Bayi Berbusa, Bahayakah?', 'Penyebab BAB bayi berbusa\r\nKondisi feses si Kecil yang berbusa tentu saja akan membuat sebagian besar orang tua khawatir. Padahal, hal itu tak selalu menjadi pertanda adanya masalah kesehatan yang serius.\r\n\r\nFeses bayi yang berbusa bisa disebabkan oleh tak seimbangnya asupan foremilk dan hindmilk. Hal tersebut justru tergolong normal apabila bayi masih mendapatkan asupan ASI.\r\n\r\nForemilk adalah cairan ASI yang keluar terlebih dulu selama beberapa menit setelah si Kecil mulai menyusu. Sedangkan, hindmilk adalah cairan ASI yang keluar selanjutnya. Hindmikl sendiri lebih kental ketimbang foremilk karena mengandung lebih banyak kalori dan lemak.\r\n\r\nSementara, foremilk lebih encer dan berkalori rendah, tapi tinggi laktosa. Nah, akibat kemampuan tubuh bayi yang belum maksimal dalam mencerna laktosa ASI dari foremilk, maka si Kecil bisa saja mengeluarkan feses yang berbusa.\r\n\r\nBeda halnya jika yang terserap banyak oleh si Kecil adalah hindmilk. Biasanya, fesesnya akan berwarna kuning dan tak berbusa atau berbuih. Warna kuning tersebut didapat dari lemak pada hindmilk. Jadi tak perlu khawatir dengan kondisi ini.', 'b8.jpg'),
+(5, 'BAB Bayi Berbusa, Bahayakah?', 'Penyebab BAB bayi berbusa\r\nKondisi feses si Kecil yang berbusa tentu saja akan membuat sebagian besar orang tua khawatir. Padahal, hal itu tak selalu menjadi pertanda adanya masalah kesehatan yang serius.\r\n\r\nFeses bayi yang berbusa bisa disebabkan oleh tak seimbangnya asupan foremilk dan hindmilk. Hal tersebut justru tergolong normal apabila bayi masih mendapatkan asupan ASI.\r\n\r\nForemilk adalah cairan ASI yang keluar terlebih dulu selama beberapa menit setelah si Kecil mulai menyusu. Sedangkan, hindmilk adalah cairan ASI yang keluar selanjutnya. Hindmikl sendiri lebih kental ketimbang foremilk karena mengandung lebih banyak kalori dan lemak.\r\n\r\nSementara, foremilk lebih encer dan berkalori rendah, tapi tinggi laktosa. Nah, akibat kemampuan tubuh bayi yang belum maksimal dalam mencerna laktosa ASI dari foremilk, maka si Kecil bisa saja mengeluarkan feses yang berbusa.\r\n\r\nBeda halnya jika yang terserap banyak oleh si Kecil adalah hindmilk. Biasanya, fesesnya akan berwarna kuning dan tak berbusa atau berbuih. Warna kuning tersebut didapat dari lemak pada hindmilk. Jadi tak perlu khawatir dengan kondisi ini.', 'b8.jpg'),
+(6, 'BAB Bayi Berbusa, Bahayakah?', 'Penyebab BAB bayi berbusa\r\nKondisi feses si Kecil yang berbusa tentu saja akan membuat sebagian besar orang tua khawatir. Padahal, hal itu tak selalu menjadi pertanda adanya masalah kesehatan yang serius.\r\n\r\nFeses bayi yang berbusa bisa disebabkan oleh tak seimbangnya asupan foremilk dan hindmilk. Hal tersebut justru tergolong normal apabila bayi masih mendapatkan asupan ASI.\r\n\r\nForemilk adalah cairan ASI yang keluar terlebih dulu selama beberapa menit setelah si Kecil mulai menyusu. Sedangkan, hindmilk adalah cairan ASI yang keluar selanjutnya. Hindmikl sendiri lebih kental ketimbang foremilk karena mengandung lebih banyak kalori dan lemak.\r\n\r\nSementara, foremilk lebih encer dan berkalori rendah, tapi tinggi laktosa. Nah, akibat kemampuan tubuh bayi yang belum maksimal dalam mencerna laktosa ASI dari foremilk, maka si Kecil bisa saja mengeluarkan feses yang berbusa.\r\n\r\nBeda halnya jika yang terserap banyak oleh si Kecil adalah hindmilk. Biasanya, fesesnya akan berwarna kuning dan tak berbusa atau berbuih. Warna kuning tersebut didapat dari lemak pada hindmilk. Jadi tak perlu khawatir dengan kondisi ini.', 'b8.jpg'),
+(7, 'BAB Bayi Berbusa, Bahayakah?', 'Penyebab BAB bayi berbusa\r\nKondisi feses si Kecil yang berbusa tentu saja akan membuat sebagian besar orang tua khawatir. Padahal, hal itu tak selalu menjadi pertanda adanya masalah kesehatan yang serius.\r\n\r\nFeses bayi yang berbusa bisa disebabkan oleh tak seimbangnya asupan foremilk dan hindmilk. Hal tersebut justru tergolong normal apabila bayi masih mendapatkan asupan ASI.\r\n\r\nForemilk adalah cairan ASI yang keluar terlebih dulu selama beberapa menit setelah si Kecil mulai menyusu. Sedangkan, hindmilk adalah cairan ASI yang keluar selanjutnya. Hindmikl sendiri lebih kental ketimbang foremilk karena mengandung lebih banyak kalori dan lemak.\r\n\r\nSementara, foremilk lebih encer dan berkalori rendah, tapi tinggi laktosa. Nah, akibat kemampuan tubuh bayi yang belum maksimal dalam mencerna laktosa ASI dari foremilk, maka si Kecil bisa saja mengeluarkan feses yang berbusa.\r\n\r\nBeda halnya jika yang terserap banyak oleh si Kecil adalah hindmilk. Biasanya, fesesnya akan berwarna kuning dan tak berbusa atau berbuih. Warna kuning tersebut didapat dari lemak pada hindmilk. Jadi tak perlu khawatir dengan kondisi ini.', 'b8.jpg'),
+(8, 'BAB Bayi Berbusa, Bahayakah?', 'Penyebab BAB bayi berbusa\r\nKondisi feses si Kecil yang berbusa tentu saja akan membuat sebagian besar orang tua khawatir. Padahal, hal itu tak selalu menjadi pertanda adanya masalah kesehatan yang serius.\r\n\r\nFeses bayi yang berbusa bisa disebabkan oleh tak seimbangnya asupan foremilk dan hindmilk. Hal tersebut justru tergolong normal apabila bayi masih mendapatkan asupan ASI.\r\n\r\nForemilk adalah cairan ASI yang keluar terlebih dulu selama beberapa menit setelah si Kecil mulai menyusu. Sedangkan, hindmilk adalah cairan ASI yang keluar selanjutnya. Hindmikl sendiri lebih kental ketimbang foremilk karena mengandung lebih banyak kalori dan lemak.\r\n\r\nSementara, foremilk lebih encer dan berkalori rendah, tapi tinggi laktosa. Nah, akibat kemampuan tubuh bayi yang belum maksimal dalam mencerna laktosa ASI dari foremilk, maka si Kecil bisa saja mengeluarkan feses yang berbusa.\r\n\r\nBeda halnya jika yang terserap banyak oleh si Kecil adalah hindmilk. Biasanya, fesesnya akan berwarna kuning dan tak berbusa atau berbuih. Warna kuning tersebut didapat dari lemak pada hindmilk. Jadi tak perlu khawatir dengan kondisi ini.', 'b8.jpg'),
+(9, 'BAB Bayi Berbusa, Bahayakah?', 'Penyebab BAB bayi berbusa\r\nKondisi feses si Kecil yang berbusa tentu saja akan membuat sebagian besar orang tua khawatir. Padahal, hal itu tak selalu menjadi pertanda adanya masalah kesehatan yang serius.\r\n\r\nFeses bayi yang berbusa bisa disebabkan oleh tak seimbangnya asupan foremilk dan hindmilk. Hal tersebut justru tergolong normal apabila bayi masih mendapatkan asupan ASI.\r\n\r\nForemilk adalah cairan ASI yang keluar terlebih dulu selama beberapa menit setelah si Kecil mulai menyusu. Sedangkan, hindmilk adalah cairan ASI yang keluar selanjutnya. Hindmikl sendiri lebih kental ketimbang foremilk karena mengandung lebih banyak kalori dan lemak.\r\n\r\nSementara, foremilk lebih encer dan berkalori rendah, tapi tinggi laktosa. Nah, akibat kemampuan tubuh bayi yang belum maksimal dalam mencerna laktosa ASI dari foremilk, maka si Kecil bisa saja mengeluarkan feses yang berbusa.\r\n\r\nBeda halnya jika yang terserap banyak oleh si Kecil adalah hindmilk. Biasanya, fesesnya akan berwarna kuning dan tak berbusa atau berbuih. Warna kuning tersebut didapat dari lemak pada hindmilk. Jadi tak perlu khawatir dengan kondisi ini.', 'b8.jpg');
 
 -- --------------------------------------------------------
 
@@ -84,7 +92,10 @@ CREATE TABLE `detail_reservasi` (
 
 INSERT INTO `detail_reservasi` (`id_detail`, `reservasi_id`, `subkategori_id`, `harga`, `jmlh`) VALUES
 (1, 1, 3, 230000, 0),
-(2, 2, 2, 90000, 2);
+(2, 2, 2, 90000, 2),
+(3, 3, 5, 120000, 2),
+(4, 4, 1, 85000, 1),
+(5, 5, 2, 90000, 2);
 
 -- --------------------------------------------------------
 
@@ -97,6 +108,18 @@ CREATE TABLE `galery` (
   `galery` varchar(500) NOT NULL,
   `keterangan` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `galery`
+--
+
+INSERT INTO `galery` (`id_galery`, `galery`, `keterangan`) VALUES
+(1, 'b1.png', 'nyamannya dapatkan layanan terbaik di rumah mama'),
+(2, 'b2.png', 'optimalkan motorik dan bonding bayi dan mama, papa di baby spa'),
+(3, 'b4.png', 'Dukungan keluarga terdekat, merupakan booster terbaik untuk bayi dan mama'),
+(4, 'b5.png', 'Apapun pilihanmu, mama Kami akan dukung. Kami hanya bisa memberikan apa yang kami rasa tahu dan apa yang kami rasa terbaik untuk bayi mama.'),
+(5, 'b6.jpg', 'Waaah... Just keep swimming ya!'),
+(6, 'b7.png', 'Perjuangan mengasihi takkan sebanding dengan berapa kaleng susu yang sudah kamu persiapkan untuk bayimu kelak. Perjuangkan seoptimal yang kamu bisa. Bayimu, berhak atas asi yang ada didalammu.');
 
 -- --------------------------------------------------------
 
@@ -155,6 +178,7 @@ CREATE TABLE `reservasi` (
   `diskon_persen` varchar(5) DEFAULT NULL,
   `nominal_diskon` float DEFAULT NULL,
   `biaya_transportasi` int(11) DEFAULT NULL,
+  `total_harga_akhir` varchar(255) NOT NULL,
   `status` enum('Booked','Cancelled','Accepted') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -162,9 +186,12 @@ CREATE TABLE `reservasi` (
 -- Dumping data for table `reservasi`
 --
 
-INSERT INTO `reservasi` (`id_reservasi`, `pemesan_id`, `terapis_id`, `sesi_id`, `tgl_reservasi`, `total_harga_awal`, `diskon_persen`, `nominal_diskon`, `biaya_transportasi`, `status`) VALUES
-(1, 5, 6, 1, '2019-10-01', 230000, '0,01', 2300, 12000, 'Cancelled'),
-(2, 5, 6, 1, '2019-10-02', 90000, NULL, NULL, NULL, 'Booked');
+INSERT INTO `reservasi` (`id_reservasi`, `pemesan_id`, `terapis_id`, `sesi_id`, `tgl_reservasi`, `total_harga_awal`, `diskon_persen`, `nominal_diskon`, `total_harga_akhir`, `biaya_transportasi`, `status`) VALUES
+(1, 5, 6, 1, '2019-10-01', 230000, '20', 184000, 6000, '190000', 'Accepted'),
+(2, 5, 6, 1, '2019-10-02', 90000, '20', 72000, 2309, '74309', 'Accepted'),
+(3, 10, 6, 2, '2019-10-18', 120000, NULL, NULL, NULL, '', 'Booked'),
+(4, 10, 6, 1, '2019-10-30', 85000, NULL, NULL, NULL, '', 'Booked'),
+(5, 11, 6, 1, '2019-10-29', 90000, NULL, NULL, NULL, '', 'Booked');
 
 -- --------------------------------------------------------
 
@@ -175,18 +202,19 @@ INSERT INTO `reservasi` (`id_reservasi`, `pemesan_id`, `terapis_id`, `sesi_id`, 
 CREATE TABLE `sesi_reservasi` (
   `id_sesi` int(11) NOT NULL,
   `sesi` varchar(20) NOT NULL,
-  `waktu` varchar(15) NOT NULL
+  `waktu` varchar(15) NOT NULL,
+  `color` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `sesi_reservasi`
 --
 
-INSERT INTO `sesi_reservasi` (`id_sesi`, `sesi`, `waktu`) VALUES
-(1, 'Pagi', '8:00 - 10:00'),
-(2, 'Pagi', '10:00 - 12:00'),
-(3, 'Siang', '12:00 - 14:00'),
-(4, 'Siang', '14:00 - 16:00');
+INSERT INTO `sesi_reservasi` (`id_sesi`, `sesi`, `waktu`, `color`) VALUES
+(1, 'Pagi', '8:00 - 10:00', '#3c4245'),
+(2, 'Pagi', '10:00 - 12:00', '#5f6769'),
+(3, 'Siang', '12:00 - 14:00', '#719192'),
+(4, 'Siang', '14:00 - 16:00', '#dfcdc3');
 
 -- --------------------------------------------------------
 
@@ -198,7 +226,7 @@ CREATE TABLE `sub_kategori` (
   `id_sub_kategori` int(11) NOT NULL,
   `kategori_id` int(11) NOT NULL,
   `judul_sub` varchar(500) NOT NULL,
-  `keterangan_sub` varchar(100) NOT NULL,
+  `keterangan_sub` text NOT NULL,
   `foto_sub` varchar(500) NOT NULL,
   `harga` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -208,11 +236,13 @@ CREATE TABLE `sub_kategori` (
 --
 
 INSERT INTO `sub_kategori` (`id_sub_kategori`, `kategori_id`, `judul_sub`, `keterangan_sub`, `foto_sub`, `harga`) VALUES
-(1, 1, 'Massage', 'Pijatan lembut oleh tenaga profesional yang akan membantu memperlancar peredaran darah si kecil. Min', 'baby.jpg', 85000),
-(2, 1, 'Scrub', 'Dalam baby body scrub ini anak akan diberikan bergabai macam body scrub pada bagian tubuhnya yang te', 'babyscrub.jpg', 90000),
-(3, 1, 'gymball', 'Menguatkan otot-otot dan persendian,Meningkatkan perkembangan motorik,Meningkatkan fleksibilitas ata', 'gymball.jpg', 80000),
-(4, 1, 'Swim', 'Begitu masuk kedalam klinik “Baby Spa”, Anda akan langsung disambut oleh 2 kolam besar berwarna puti', 'b6.jpg', 85000),
-(5, 2, 'Yoga Ibu Hamil', 'Dengan melakukan penetralan yoga, akan mendukung perubahan tubuh yang terjadi dan memperkuat otot tu', 'yoga.jpg', 120000);
+(1, 1, 'Massage', 'Pijatan lembut oleh tenaga profesional yang akan membantu memperlancar peredaran darah si kecil.', 'baby.jpg', 85000),
+(2, 1, 'Scrub', 'Dalam baby body scrub ini anak akan diberikan bergabai macam body scrub pada bagian tubuhnya', 'babyscrub.jpg', 90000),
+(3, 1, 'gymball', 'Menguatkan otot-otot dan persendian,Meningkatkan perkembangan motorik,Meningkatkan fleksibilitas', 'gymball.jpg', 80000),
+(4, 1, 'Swim', 'Begitu masuk kedalam klinik “Baby Spa”, Anda akan langsung disambut oleh 2 kolam besar berwarna putih', 'b6.jpg', 85000),
+(5, 2, 'Yoga Ibu Hamil', 'Dengan melakukan penetralan yoga, akan mendukung perubahan tubuh yang terjadi dan memperkuat otot', 'yoga.jpg', 120000),
+(6, 3, 'Konselor', 'Untuk konseling tentang baby and mom', '  \r\nyoga.jpg', 97000),
+(7, 1, 'Playing', 'asasasas', ' \r\nyoga.jpg', 433999);
 
 -- --------------------------------------------------------
 
@@ -240,8 +270,13 @@ INSERT INTO `user` (`id_user`, `full_name`, `username`, `email`, `no_telp`, `ala
 (1, 'admin', 'admin', 'admin@gmail.com', '091322332234', 'malang', 'my-account-login-icon.png', '21232f297a57a5a743894a0e4a801fc3', 1),
 (2, 'sasa', 'sasa', 'sasa@123', '0813999293433', 'Malang', '', 'f45731e3d39a1b2330bbf93e9b3de59e', 2),
 (5, 'meli', 'meli', 'meli@gmail.com', '2', 'meli', NULL, '315fef7b8d30f99d6964f489ee4c9828', 2),
-(6, 'yasmini', 'yasmini', 'yasmini@gmail.com', '9029109012', 'malang', 't1.jpg', '0bad1b8571cd7ad70fb02939a1f9b6fb', 3),
-(7, 'saskia', 'saskia', 'saskia@gmail.com', '091322332234', 'malnag', 'default.png', '7d207ce9e36a6a60ec529d1f62038ed2', 3);
+(6, 'yasminis', 'yasmini', 'yasmini@gmail.com', '9029109012', 'malang', 'ds1.jpg', 'yasmini123', 3),
+(7, 'saskia', 'saskia', 'saskia@gmail.com', '091322332234', 'malang', 'o2.jpg', '7d207ce9e36a6a60ec529d1f62038ed2', 3),
+(8, 'fransika putri', 'fransiska', 'fransiska@gmail.com', '088567896456', 'malang', 't32.jpg', 'fransiska', 3),
+(9, 'anita', 'anita', 'anitasari@gmail.com', '098766', 'malang', 'o1.jpg', 'anita', 2),
+(10, 'yas', 'yas', 'yas@gmail.com', '089', 'malang', NULL, 'e89f5c212146679abbfce5ceba3e975e', 2),
+(11, 'dita', 'dita', 'dita@gmail.com', '086456367546', 'malang', NULL, 'e6b047aa9378bce37a5260a949d1ea3e', 2),
+(12, 'sinta', 'sinta', 'sinta@gmail.com', '0876567876789', 'malang', 'ss3.jpg', 'sinta', 3);
 
 --
 -- Indexes for dumped tables
@@ -322,7 +357,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `berita`
 --
 ALTER TABLE `berita`
-  MODIFY `id_berita` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_berita` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `contact_us`
@@ -334,13 +369,13 @@ ALTER TABLE `contact_us`
 -- AUTO_INCREMENT for table `detail_reservasi`
 --
 ALTER TABLE `detail_reservasi`
-  MODIFY `id_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `galery`
 --
 ALTER TABLE `galery`
-  MODIFY `id_galery` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_galery` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `kategori`
@@ -358,7 +393,7 @@ ALTER TABLE `level`
 -- AUTO_INCREMENT for table `reservasi`
 --
 ALTER TABLE `reservasi`
-  MODIFY `id_reservasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_reservasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `sesi_reservasi`
@@ -370,7 +405,7 @@ ALTER TABLE `sesi_reservasi`
 -- AUTO_INCREMENT for table `sub_kategori`
 --
 ALTER TABLE `sub_kategori`
-  MODIFY `id_sub_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_sub_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `user`
