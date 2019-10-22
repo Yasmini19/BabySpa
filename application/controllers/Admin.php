@@ -240,17 +240,16 @@ public function add_subkategori()
 else
 {
     $data = array(   
-        'judul_sub'     => $this->input->post('edit_judul_sub'),
-        'keterangan_sub'=> $this->input->post('edit_keterangan_sub'),
+        'judul_sub'     => $this->input->post('judul_sub'),
+        'keterangan_sub'=> $this->input->post('keterangan_sub'),
         'foto_sub'      => $this->upload->data('file_name'),
-        'harga' 		=> $this->input->post('edit_harga_sub')
+        'harga' 		=> $this->input->post('harga')
     );
 
     $result = $this->GeneralModel->add_data('sub_kategori', $data);
-
-                    //$this->GeneralModel->add_data();
-    //$this->load->view('admin/Kategori');
-    $result = true;
+    $this->load->view('admin/SubKategori');
+                    
+    $result = 'true';
 }
 echo json_encode($result); 
 }
@@ -258,9 +257,11 @@ echo json_encode($result);
 public function get_subkategori()
 {
     $id = $this->input->post('id');
-    //$data = $this->GeneralModel->get_selected('sub_kategori', array('id_sub_kategori' => $id))->row();
-    $data = $this->GeneralModel->get_data('sub_kategori');
+    $data = $this->GeneralModel->get_selected('sub_kategori', array('id_sub_kategori' => $id))->row();
+    
     echo json_encode($data);
+
+
 }
 
 public function edit_subkategori()
@@ -469,9 +470,9 @@ public function edit_terapis()
 
 public function delete_terapis()
 {
-   $id = array('id_user' => $this->input->post('id') );
-   $result = $this->GeneralModel->update_data('user', $data, $id);
-   echo json_encode($result);
+    $id = array('id_user' => $this->input->post('id') );
+    $result = $this->GeneralModel->delete_data($id,'user');
+    echo json_encode($result);
 }
 
         //user
@@ -625,6 +626,7 @@ public function edit_user()
 
 public function delete_user()
 {
+
 
 
    
