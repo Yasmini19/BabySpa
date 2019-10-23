@@ -389,7 +389,7 @@
                     <!--Body-->
                     <div class="modal-body">
                         <div class="modal-body mx-3">
-                            <!-- <FORM id="addTerapis"> -->
+                            
                             <form method="post" accept-charset="utf-8" id="addSubKategori" enctype="multipart/form-data">
 
                                 <div class="input-group mb-3">

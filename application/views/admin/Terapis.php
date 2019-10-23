@@ -160,7 +160,7 @@
                         </li>
 
 			 <li class="nav-item">
-                            <a href="<?php echo base_url();?>index.php/Admin/kategori" class="nav-link">
+                            <a href="<?php echo base_url();?>index.php/Admin/categori" class="nav-link">
                             <i class="nav-icon fas fa-book"></i>
                             <p>
                                 Kategori
@@ -169,7 +169,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="<?php echo base_url();?>index.php/Admin/subkategori" class="nav-link active">
+                            <a href="<?php echo base_url();?>index.php/Admin/subkategori" class="nav-link">
                             <i class="nav-icon fas fa-book"></i>
                             <p>
                                 SubKategori
