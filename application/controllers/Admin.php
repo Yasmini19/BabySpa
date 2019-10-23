@@ -173,27 +173,27 @@ public function delete_gallery()
 
 
 		//Kategori
-public function kategori() 
-{
+// public function kategori() 
+// {
  
- // $data['ktg'] = $this->GeneralModel->get_data('kategori')->result();
- // //$data['subktg'] = $this->GeneralModel->get_data('sub_kategori')->result();
+//  // $data['ktg'] = $this->GeneralModel->get_data('kategori')->result();
+//  // //$data['subktg'] = $this->GeneralModel->get_data('sub_kategori')->result();
 
- // $this->load->view('admin/Kategori', $data);
- $data['subktg'] = $this->GeneralModel->get_data('sub_kategori')->result();
- $this->load->view('admin/SubKategori', $data);
-}
+//  // $this->load->view('admin/Kategori', $data);
+//  $data['subktg'] = $this->GeneralModel->get_data('sub_kategori')->result();
+//  $this->load->view('admin/SubKategori', $data);
+// }
 
 public function categori()
 {
-    $data['ktg'] = $this->GeneralModel->get_selected('kategori', $data)->result();
+    $data['ktg'] = $this->GeneralModel->get_data('kategori')->result();
     $this->load->view('admin/Kategori', $data);
 }
 
 public function get_categori()
 {
       $id = $this->input->post('id');
-      $data = $this->GeneralModel->get_selected('kategori', array('id_kategori' => $id))->row();
+      $data = $this->GeneralModel->get_data('kategori', array('id_kategori' => $id))->row();
 
       echo json_encode($data);
 }
@@ -243,7 +243,9 @@ else
         'judul_sub'     => $this->input->post('judul_sub'),
         'keterangan_sub'=> $this->input->post('keterangan_sub'),
         'foto_sub'      => $this->upload->data('file_name'),
+
         'harga' 		=> $this->input->post('harga')
+
     );
 
     $result = $this->GeneralModel->add_data('sub_kategori', $data);

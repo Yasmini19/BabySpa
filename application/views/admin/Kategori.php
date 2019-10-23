@@ -310,7 +310,7 @@
                     <div class="modal-body">
                         <div class="modal-body mx-3">
                             <!-- <FORM id="addTerapis"> -->
-                            <form method="post" accept-charset="utf-8" id="addSubKategori" enctype="multipart/form-data">
+                            <form method="post" accept-charset="utf-8" id="addKategori" enctype="multipart/form-data">
 
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
@@ -351,7 +351,7 @@
 
         <!--Modal EDIT-->
 
-        <div class="modal fade" id="modal-edit-subKategori" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="modal-edit-Kategori" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <!--Header-->
