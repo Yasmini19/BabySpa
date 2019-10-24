@@ -240,7 +240,7 @@
                             </div>
                             <!--Add-->
                             <div class="card-footer clearfix">
-                                <button type="button" class="btn btn-info float-left" data-toggle="modal" data-target="#modal-tambah-Kategori">
+                                <button type="button" class="btn btn-info float-left" data-toggle="modal" data-target="#modal-tambah-kategori">
                                     <i class="fas fa-plus"></i> Add
                                 </button>
 
@@ -270,8 +270,8 @@
                                                  
                                                
                                                 <td>
-                                                    <a href="<?php echo base_url('/Admin/edit_kategori/'. $value->id_kategori) ?>" class="fas fa-edit" aria-hidden="true" data-toggle="modal" data-target="#modal-edit-Kategori" name="tombolEditKategori" value="<?php echo $value->id_kategori; ?>"></a>
-                                                    <a href="<?php echo base_url('/Admin/delete_Kategori/'. $value->id_kategori) ?>" class="far fa-trash-alt" aria-hidden="true" name="tombolDeleteKategori" value="<?php echo $value->id_kategori; ?>"></a>
+                                                    <a href="<?php echo base_url('/Admin/edit_categori/'. $value->id_kategori) ?>" class="fas fa-edit" aria-hidden="true" data-toggle="modal" data-target="#modal-edit-Kategori" name="tombolEditKategori" value="<?php echo $value->id_kategori; ?>"></a>
+                                                    <a href="<?php echo base_url('/Admin/delete_categori/'. $value->id_kategori) ?>" class="far fa-trash-alt" aria-hidden="true" name="tombolDeleteKategori" value="<?php echo $value->id_kategori; ?>"></a>
                                                 </td>
 
                                             </tr>
@@ -290,14 +290,15 @@
             <!-- /.content -->
         </div>
 
-        <!--Modal ADD-->
 
-        <div class="modal fade" id="modal-tambah-Kategori" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <!--Modal ADD-->
+
+        <div class="modal fade" id="modal-tambah-kategori" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <!--Header-->
                     <div class="modal-header">
-                        <?php //echo form_open_multipart('Admin/add_gallery'); 
+                        <?php //echo form_open_multipart('Admin/add_terapis'); 
                         ?>
 
                         <h4 class="modal-title" id="myModalLabel">Kategori</h4>
@@ -312,13 +313,21 @@
                             <!-- <FORM id="addTerapis"> -->
                             <form method="post" accept-charset="utf-8" id="addKategori" enctype="multipart/form-data">
 
+
+
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">
-                                            @
+                                            <i class="fa fa-newspaper-o">
+
+                                            </i>
                                         </span>
                                     </div>
-                                    <input type="text" id="judul_kat" name="judul_kat" class="form-control" placeholder="Judul ">
+                                    <input type="text" id="judul_kat" name="judul_kat" class="form-control" placeholder="Judul Kategori">
+                                </div>
+
+                                <div>
+
                                 </div>
 
 
@@ -328,11 +337,14 @@
                                             @
                                         </span>
                                     </div>
-                                    <input type="text" id="keterangan_kat" name="keterangan_katb" class="form-control" placeholder="Keterangan ">
+                                    <input type="text" id="keterangan_kat" name="keterangan_kat" class="form-control" placeholder="Keterangan Kategori">
                                 </div>
 
 
-                                 
+                                
+
+                                
+
                         </div>
 
                     </div>

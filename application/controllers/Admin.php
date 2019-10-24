@@ -184,34 +184,6 @@ public function delete_gallery()
 //  $this->load->view('admin/SubKategori', $data);
 // }
 
-public function categori()
-{
-    $data['ktg'] = $this->GeneralModel->get_data('kategori')->result();
-    $this->load->view('admin/Kategori', $data);
-}
-
-public function get_categori()
-{
-      $id = $this->input->post('id');
-      $data = $this->GeneralModel->get_data('kategori', array('id_kategori' => $id))->row();
-
-      echo json_encode($data);
-}
-
-public function add_categori() 
-{
-
-}
-
-public function edit_categori()
-{
-
-}
-
-public function delete_categori()
-{
-
-}
 
 		//Subkategori
 public function subkategori() 
@@ -298,7 +270,7 @@ public function delete_subkategori()
 {
  $id = array('id_sub_kategori' => $this->input->post('id') );
  $result = $this->GeneralModel->delete_data($id,'sub_kategori');
-    //$result = $this->GeneralModel->delete_data($id,'sub_kategori');
+  
  echo json_encode($result);
 }
 
@@ -339,7 +311,7 @@ public function add_terapis()
         $data = array(   
             'full_name'     => $this->input->post('full_name'), 
             'username'      => $this->input->post('username'), 
-            'password'      => $this->input->post('password'),
+            'password'      => md5($this->input->post('password')),
             'email'         => $this->input->post('email'),   
             'no_telp'       => $this->input->post('no_telp'),               
             'alamat'        => $this->input->post('alamat'),
@@ -506,7 +478,7 @@ public function add_user()
         $data = array(   
             'full_name'     => $this->input->post('full_name'), 
             'username'      => $this->input->post('username'), 
-            'password'      => $this->input->post('password'),
+            'password'      => md5($this->input->post('password')),
             'email'         => $this->input->post('email'),   
             'no_telp'       => $this->input->post('no_telp'),               
             'alamat'        => $this->input->post('alamat'),
@@ -791,8 +763,65 @@ public function edit_reservasi()
 
 }
 
+public function categori()
+{
+    $data['ktg'] = $this->GeneralModel->get_data('kategori')->result();
+    $this->load->view('admin/Kategori', $data);
+}
 
 
+
+public function add_categori() 
+{
+
+        $data = array(   
+            'judul_kat'  => $this->input->post('judul_kat'), 
+            'keterangan_kat'     => $this->input->post('keterangan_kat')
+            
+
+        );
+
+        $result = $this->GeneralModel->add_data('kategori', $data);
+
+                
+        redirect('Admin/categori');
+        $result = 'true';
+    
+
+    echo json_encode($result);
+
+}
+
+public function get_categori()
+{
+      $id = $this->input->post('id');
+      $data = $this->GeneralModel->get_data('kategori', array('id_kategori' => $id))->row();
+
+      echo json_encode($data);
+}
+
+public function edit_categori()
+{
+
+     $id = array('id_kategori' => $this->input->post('edit_id') );
+     $data = array(
+        'judul_kat'     => $this->input->post('edit_judul_kat'), 
+        'keterangan_kat'     => $this->input->post('edit_keterangan_kat'),
+        
+    );
+
+     $result = $this->GeneralModel->update_data('kategori', $data, $id );
+
+    echo json_encode($result);
+
+}
+
+public function delete_categori()
+{
+    $id = array('id_kategori' => $this->input->post('id') );
+    $result = $this->GeneralModel->delete_data($id,'kategori');
+    echo json_encode($result);
+}
 
 }
 ?>
