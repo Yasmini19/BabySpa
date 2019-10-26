@@ -266,7 +266,12 @@
                                                 <td><?php echo $value->status ?></td>
                                                 <td>
                                                   
-                                                    <a href="<?php echo base_url('index.php/Admin/konfirmasi_reservasi/'.$value->id_reservasi)?>"><button type="button" id="tombolKonfirmReservasii" class="btn btn-primary">Konfirmasi</button></a>
+                                                    <!--<a href="<?php echo base_url('index.php/Admin/konfirmasi_reservasi/'.$value->id_reservasi)?>"><button type="button" id="tombolKonfirmReservasii" class="btn btn-primary">Konfirmasi</button></a>-->
+
+                                                  
+                                                   <a href="<?php echo base_url('/Admin/edit_reservasi/'. $value->id_reservasi) ?>" class="btn btn-info" aria-hidden="true" data-toggle="modal" data-target="#modal-edit-reservasi" name="tombolEditReservasi" value="<?php echo $value->id_reservasi; ?>">
+                                                       Konfirmasi
+                                                   </a>
 
                                                     <!--<a href="<?php //echo base_url('/Admin/delete_subKategori/'. $value->id_sub_kategori) ?>" class="far fa-trash-alt" aria-hidden="true" name="tombolDeleteSubKategori" value="<?php echo $value->id_sub_kategori; ?>"></a>-->
 
@@ -289,77 +294,9 @@
             <!-- /.content -->
         </div>
 
-        <!--Modal ADD-->
+        
 
-        <div class="modal fade" id="modal-tambah-subKategori" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <!--Header-->
-                    <div class="modal-header">
-                        <?php //echo form_open_multipart('Admin/add_gallery'); 
-                        ?>
-
-                        <h4 class="modal-title" id="myModalLabel">Sub Kategori</h4>
-                        <?php echo validation_errors(); ?>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">×</span>
-                        </button>
-                    </div>
-                    <!--Body-->
-                    <form method="post" accept-charset="utf-8" id="addSubKategori" enctype="multipart/form-data">
-                    <div class="modal-body">
-                        <div class="modal-body mx-3">
-                            <!-- <FORM id="addTerapis"> -->
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">
-                                            @
-                                        </span>
-                                    </div>
-                                    <input type="text" id="judul_sub" name="judul_sub" class="form-control" placeholder="Judul ">
-                                </div>
-
-
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">
-                                            @
-                                        </span>
-                                    </div>
-                                    <input type="text" id="keterangan_sub" name="keterangan_sub" class="form-control" placeholder="Keterangan ">
-                                </div>
-
-
-                                 <div class="md-form mb-4">
-                                    <input type="file" id="foto_sub" class="form-control validate" name="foto_sub" placeholder="Input field">
-
-                                </div>
-
-
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">
-                                            @
-                                        </span>
-                                    </div>
-                                    <input type="text" id="harga" name="harga" class="form-control" placeholder="Harga">
-                                </div>
-                        </div>
-
-                    </div>
-                    <!--Footer-->
-                    <div class="modal-footer">
-                        <input type="submit" name="submit" class="btn btn-outline-primary" id="btnSimpanSubKategori">
-                        <input type="button" class="btn btn-primary" value="Close" data-dismiss="modal">
-                        <?php //echo form_close(); 
-                        ?>
-                    </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-        <!--Modal EDIT-->
+         <!--Modal EDIT-->
 
         <div class="modal fade" id="modal-edit-reservasi" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -374,14 +311,14 @@
                         </button>
                     </div>
                     <!--Body-->
-                    <form method="post" accept-charset="utf-8" id="editReservasi" enctype="multipart/form-data">
                         <div class="modal-body">
                             <div class="modal-body mx-3">
                     <!-- <FORM id="addTerapis"> -->
+                    <form method="post" accept-charset="utf-8" id="editReservasi" enctype="multipart/form-data">
                         
 
                                 <input type="hidden" id="edit_id" name="edit_id">
-                                
+                                <input type="hidden" id="edit_harga" name="edit_harga">
             
 
                                  <div class="input-group mb-3">
@@ -403,7 +340,7 @@
                                             @
                                         </span>
                                     </div>
-                                    <input type="text" id="edit_nominal_diskon" name="edit_nominal_diskon" class="form-control" placeholder="Nominal Diskon">
+                                    <input type="text" id="edit_nominal_diskon" name="edit_nominal_diskon" class="form-control" placeholder="Nominal Diskon" readonly="">
                                 </div>
 
 
@@ -415,6 +352,17 @@
                                     </div>
                                     <input type="text" id="edit_biaya_transportasi" name="edit_biaya_transportasi" class="form-control" placeholder="Biaya Transportasi">
                                 </div>
+
+
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            @
+                                        </span>
+                                    </div>
+                                    <input type="text" id="edit_total_harga_akhir" name="edit_total_harga_akhir" class="form-control" placeholder="Total Harga Akhir" readonly="">
+                                </div>
+
                             </div>
 
                         </div>
@@ -432,6 +380,22 @@
             </div>
         </div>
 
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <!-- Small boxes (Stat box) -->
+                <div class="row">
+                </div>
+                    <!-- /.card -->
+        </section>
+        <!-- right col -->
+    <!-- </div> -->
+    <!-- /.row (main row) -->
+    </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+    <!-- </div> -->
 
     <!-- /.content-wrapper -->
     <footer class="main-footer">
@@ -565,7 +529,7 @@
             }
         });
 
-        $('[name="tombolKonfirmReservasi"]').click(function() {
+        $('[name="tombolEditReservasi"]').click(function() {
 
             var id = $(this).attr('value');
             //alert(id);
@@ -584,19 +548,47 @@
                     data = JSON.parse(data);
 
                     //alert(data);
+                    
+                    // $('#diskon').keyup(function(){
+                        
+                    // var harga=parseInt(data.total_harga_awal);
+                    // var diskon=parseInt($('#diskon').val());
+             
+                    // var total_bayar=bayar-(diskon/100)*bayar;
+                    // $('#edit_nominal_diskon').val(total_bayar);
+                    // });
+
+                    var harga = parseInt(data.total_harga_awal);
+                    var diskon = parseInt($('#edit_diskon_persen').val());
+                    var total = harga - (diskon/100)*harga;
 
                     $('#edit_id').val(data.id_reservasi);
-                   
+                    $('#edit_harga').val(harga);
                     
-                    // $('#edit_diskon_persen').val(data.diskon_persen);
+                    $('#edit_diskon_persen').val(data.diskon_persen);
 
-                    // $('#edit_nominal_diskon').val(data.nominal_diskon);
-                    // $('#edit_biaya_transportasi').val(data.biaya_transportasi);
-                    
-                    
+                    $('#edit_nominal_diskon').val(total);
+                    $('#edit_biaya_transportasi').val(data.biaya_transportasi);     
                 }
             });
         });
+
+        $('#edit_diskon_persen').keyup(function(){
+            var harga = parseInt($('#edit_harga').val());
+            var diskon = parseInt($('#edit_diskon_persen').val());
+            var total = harga - (diskon/100)*harga;
+
+            $('#edit_nominal_diskon').val(total);
+        });
+
+        $('#edit_biaya_transportasi').keyup(function(){
+            var total = parseInt($('#edit_nominal_diskon').val());
+            var transport = parseInt($('#edit_biaya_transportasi').val());
+            var totalhargaakhir = total + transport;
+
+            $('#edit_total_harga_akhir').val(totalhargaakhir);
+        });
+
 
         //ajaxformedit
         $('form#editReservasi').submit(function(e) {
@@ -604,7 +596,7 @@
             var formData = new FormData($('form#editReservasi')[0]);
 
             $.ajax({
-                url: '<?php echo site_url('admin/konfirmasi_reservasi'); ?>',
+                url: '<?php echo site_url('admin/edit_reservasi'); ?>',
                 type: 'POST',
                 data: formData,
 

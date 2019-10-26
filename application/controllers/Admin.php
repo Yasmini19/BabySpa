@@ -754,6 +754,7 @@ public function edit_reservasi()
         'nominal_diskon'        => $this->input->post('edit_nominal_diskon'),
         'biaya_transportasi'    => $this->input->post('edit_biaya_transportasi'),
         'total_harga_akhir'     => $this->input->post('edit_total_harga_akhir'),
+        'status'         => 'Accepted'
 
     );
 
