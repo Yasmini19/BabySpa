@@ -318,7 +318,7 @@
                             </div>
                             <!--Add-->
                             <div class="card-footer clearfix">
-                                <button type="button" class="btn btn-info float-left" data-toggle="modal" data-target="#modal-tambah-subKategori">
+                                <button type="button" class="btn btn-info float-left" data-toggle="modal" data-target="#addSubKategori">
                                     <i class="fas fa-plus"></i> Add
                                 </button>
 
@@ -374,13 +374,11 @@
 
         <!--Modal ADD-->
 
-        <div class="modal fade" id="modal-tambah-subKategori" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="addSubKategori" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <!--Header-->
                     <div class="modal-header">
-                        <?php //echo form_open_multipart('Admin/add_gallery'); 
-                        ?>
 
                         <h4 class="modal-title" id="myModalLabel">Sub Kategori</h4>
                         <?php echo validation_errors(); ?>
@@ -623,7 +621,7 @@
         $('form#addSubKategori').submit(function(e) {
             e.preventDefault();
             var formData = new FormData($('form#addSubKategori')[0]);
-
+            
             $.ajax({
                 url: '<?php echo site_url('admin/add_subkategori'); ?>',
                 type: 'POST',
@@ -635,7 +633,7 @@
                 processData: false,
 
                 success: function(response) {
-
+                    alert(response);
                     if (response == true) {
                         alert('berhasil');
                         alert(response);
@@ -731,29 +729,28 @@
             });
         });
 
-
         //ajaxdelete
-      $('[name="tombolDeleteSubKategori"]').click(function(e){
-        e.preventDefault();
-        var id = $(this).attr('value')
-        //alert(id);
-        $.ajax({
-          url: '<?php echo site_url('admin/delete_subKategori') ?>',
-          type: 'post',
-          data: {id:id},
-          success: function(response) {
-            //alert(response);
-          if (response)
-            {
-              alert('berhasil');
-              location.reload();
-            }
-            else
-            { alert('error : ' + response); }
-          
-          }
+        $('[name="tombolDeleteSubKategori"]').click(function(e){
+            e.preventDefault();
+            var id = $(this).attr('value')
+            //alert(id);
+            $.ajax({
+              url: '<?php echo site_url('admin/delete_subKategori') ?>',
+              type: 'post',
+              data: {id:id},
+              success: function(response) {
+                //alert(response);
+              if (response)
+                {
+                  alert('berhasil');
+                  location.reload();
+                }
+                else
+                { alert('error : ' + response); }
+              
+              }
+            });
         });
-      });
     </script>
 
 </body>

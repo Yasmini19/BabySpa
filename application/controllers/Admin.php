@@ -186,93 +186,6 @@ public function delete_gallery()
 
 
 		//Subkategori
-public function subkategori() 
-{
- $data['subktg'] = $this->GeneralModel->get_data('sub_kategori')->result();
- $this->load->view('admin/SubKategori', $data);
-}
-
-
-
-public function add_subkategori() 
-{
- $config['upload_path']     = './assets/upload';
- $config['allowed_types']  = 'gif|jpg|png';
- $config['max_size']        = 1000000000;
- $config['max_width']       = 10240;
- $config['max_height']      = 7680;
-
- $this->load->library('upload',$config);
- $result = false;
- if (!$this->upload->do_upload('foto_sub'))
- {
-    $result = $this->upload->display_errors();
-
-}
-else
-{
-    $data = array(   
-        'judul_sub'     => $this->input->post('judul_sub'),
-        'keterangan_sub'=> $this->input->post('keterangan_sub'),
-        'foto_sub'      => $this->upload->data('file_name'),
-
-        'harga' 		=> $this->input->post('harga')
-
-    );
-
-    $result = $this->GeneralModel->add_data('sub_kategori', $data);
-    $this->load->view('admin/SubKategori');
-                    
-    $result = 'true';
-}
-echo json_encode($result); 
-}
-
-public function get_subkategori()
-{
-    $id = $this->input->post('id');
-    $data = $this->GeneralModel->get_selected('sub_kategori', array('id_sub_kategori' => $id))->row();
-    
-    echo json_encode($data);
-
-
-}
-
-public function edit_subkategori()
-{
-    $config['upload_path']     = './assets/user/images';
-    $config['allowed_types']  = 'gif|jpg|png';
-    $config['max_size']        = 1000000000;
-    $config['max_width']       = 10240;
-    $config['max_height']      = 7680;
-
-    $this->load->library('upload',$config);
-    $result='';
-
-    $id = array('id_sub_kategori' => $this->input->post('edit_id') );
-    $data = array(
-        'judul_sub'     => $this->input->post('edit_judul_sub'), 
-        'keterangan_sub'     => $this->input->post('edit_keterangan_sub'),
-        'harga'     => $this->input->post('edit_harga'),
-    );
-
-    if ($this->upload->do_upload('edit_foto_sub'))
-    {
-        $data['foto_sub'] = $this->upload->data('file_name');
-    }
-
-    $result = $this->GeneralModel->update_data('sub_kategori', $data, $id );
-
-    echo json_encode($result);
-}
-
-public function delete_subkategori()
-{
- $id = array('id_sub_kategori' => $this->input->post('id') );
- $result = $this->GeneralModel->delete_data($id,'sub_kategori');
-  
- echo json_encode($result);
-}
 
 		//Terapis
 public function terapis()
@@ -774,29 +687,23 @@ public function categori()
 
 public function add_categori() 
 {
+    $result = 'false';
+    $data =  array(
+                    'judul_kat' => $this->input->post('judul_kat') ,
+                    'keterangan_kat' => $this->input->post('keterangan_kat') 
+                  );
 
-        $data = array(   
-            'judul_kat'  => $this->input->post('judul_kat'), 
-            'keterangan_kat'     => $this->input->post('keterangan_kat')
-            
-
-        );
-
-        $result = $this->GeneralModel->add_data('kategori', $data);
-
-                
-        redirect('Admin/categori');
+    if ($this->GeneralModel->add_data('kategori', $data)) {
         $result = 'true';
+    }
     
-
     echo json_encode($result);
-
 }
 
 public function get_categori()
 {
       $id = $this->input->post('id');
-      $data = $this->GeneralModel->get_data('kategori', array('id_kategori' => $id))->row();
+      $data = $this->GeneralModel->get_selected('kategori', array('id_kategori' => $id))->row();
 
       echo json_encode($data);
 }
@@ -824,6 +731,97 @@ public function delete_categori()
     echo json_encode($result);
 }
 
+
+public function subkategori() 
+{
+ $data['subktg'] = $this->GeneralModel->get_data('sub_kategori')->result();
+ $this->load->view('admin/SubKategori', $data);
 }
+
+
+
+public function add_subkategori() 
+{
+    $config['upload_path']     = './assets/upload';
+    $config['allowed_types']  = 'gif|jpg|png';
+    $config['max_size']        = 1000000000;
+    $config['max_width']       = 10240;
+    $config['max_height']      = 7680;
+
+    $this->load->library('upload',$config);
+
+    $result = false;
+    if (!$this->upload->do_upload('foto_sub'))
+    {
+        $result = $this->upload->display_errors();
+    }
+    else
+    {
+        $data = array(   
+            'judul_sub'     => $this->input->post('judul_sub'),
+            'keterangan_sub'=> $this->input->post('keterangan_sub'),
+            'foto_sub'      => $this->upload->data('file_name'),
+
+            'harga'         => $this->input->post('harga')
+        );
+
+        $result = $this->GeneralModel->add_data('sub_kategori', $data);
+        $this->load->view('admin/SubKategori');
+                    
+        //$result = 'true';
+    }
+    
+    echo json_encode($result); 
+}
+
+public function get_subkategori()
+{
+    $id = $this->input->post('id');
+    $data = $this->GeneralModel->get_selected('sub_kategori', array('id_sub_kategori' => $id))->row();
+    
+    echo json_encode($data);
+
+
+}
+
+public function edit_subkategori()
+{
+    $config['upload_path']     = './assets/user/images';
+    $config['allowed_types']  = 'gif|jpg|png';
+    $config['max_size']        = 1000000000;
+    $config['max_width']       = 10240;
+    $config['max_height']      = 7680;
+
+    $this->load->library('upload',$config);
+    $result='';
+
+    $id = array('id_sub_kategori' => $this->input->post('edit_id') );
+    $data = array(
+        'judul_sub'     => $this->input->post('edit_judul_sub'), 
+        'keterangan_sub'     => $this->input->post('edit_keterangan_sub'),
+        'harga'     => $this->input->post('edit_harga'),
+    );
+
+    if ($this->upload->do_upload('edit_foto_sub'))
+    {
+        $data['foto_sub'] = $this->upload->data('file_name');
+    }
+
+    $result = $this->GeneralModel->update_data('sub_kategori', $data, $id );
+
+    echo json_encode($result);
+}
+
+public function delete_subkategori()
+{
+ $id = array('id_sub_kategori' => $this->input->post('id') );
+ $result = $this->GeneralModel->delete_data($id,'sub_kategori');
+  
+ echo json_encode($result);
+}
+
+
+}
+
 ?>
  
