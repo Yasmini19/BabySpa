@@ -39,7 +39,7 @@ class GeneralModel extends CI_Model {
 
      public function add_data($table, $data)
     {
-        $this->db->insert($table, $data);
+        return $this->db->insert($table, $data);
     }
 
     public function delete_data($where, $table){
