@@ -185,7 +185,7 @@ public function delete_gallery()
 // }
 
 
-		//Subkategori
+
 
 		//Terapis
 public function terapis()
@@ -693,7 +693,9 @@ public function add_categori()
                     'keterangan_kat' => $this->input->post('keterangan_kat') 
                   );
 
+
     if ($this->GeneralModel->add_data('kategori', $data)) {
+
         $result = 'true';
     }
     
@@ -702,26 +704,26 @@ public function add_categori()
 
 public function get_categori()
 {
+
       $id = $this->input->post('id');
       $data = $this->GeneralModel->get_selected('kategori', array('id_kategori' => $id))->row();
 
-      echo json_encode($data);
+
+    echo json_encode($data);
 }
 
 public function edit_categori()
 {
+    $id  = array('id_kategori' => $this->input->post('edit_id'));
 
-     $id = array('id_kategori' => $this->input->post('edit_id') );
-     $data = array(
-        'judul_kat'     => $this->input->post('edit_judul_kat'), 
-        'keterangan_kat'     => $this->input->post('edit_keterangan_kat'),
-        
+    $data = array(
+        'judul_kat' => $this->input->post('edit_judul_kat') ,
+        'keterangan_kat' => $this->input->post('edit_keterangan_kat') 
     );
 
-     $result = $this->GeneralModel->update_data('kategori', $data, $id );
+    $result = $this->GeneralModel->update_data('kategori', $data, $id);
 
     echo json_encode($result);
-
 }
 
 public function delete_categori()

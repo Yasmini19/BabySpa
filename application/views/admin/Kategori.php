@@ -326,11 +326,6 @@
                                     <input type="text" id="judul_kat" name="judul_kat" class="form-control" placeholder="Judul Kategori">
                                 </div>
 
-                                <div>
-
-                                </div>
-
-
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">
@@ -338,15 +333,8 @@
                                         </span>
                                     </div>
                                     <input type="text" id="keterangan_kat" name="keterangan_kat" class="form-control" placeholder="Keterangan Kategori">
-                                </div>
-
-
-                                
-
-                                
-
+                                </div>                              
                         </div>
-
                     </div>
                     <!--Footer-->
                     <div class="modal-footer">
@@ -512,6 +500,8 @@
     </script>
 
     <script type="text/javascript">
+        
+
         $('form#addKategori').submit(function(e) {
             e.preventDefault();
             var formData = new FormData($('form#addKategori')[0]);
@@ -520,17 +510,17 @@
                 url: '<?php echo site_url('admin/add_categori'); ?>',
                 type: 'POST',
                 data: formData,
-                dataType: 'json',
 
                 cache: false,
                 contentType: false,
                 processData: false,
 
                 success: function(response) {
+
                     //alert(response);
                     if (response === 'true') {
                         alert('berhasil');
-                        
+
                         location.reload();
                     } else {
                         alert('error : ' + response);
@@ -567,6 +557,8 @@
 
             var id = $(this).attr('value');
 
+           
+
             $.ajax({
                 url: '<?php echo site_url('admin/get_categori') ?>',
                 type: 'post',
@@ -580,8 +572,6 @@
                     }
 
                     data = JSON.parse(data);
-
-                    //alert(data);
 
                     $('#edit_id').val(data.id_kategori);
                     $('#edit_judul_kat').val(data.judul_kat);
@@ -600,6 +590,7 @@
                 url: '<?php echo site_url('admin/edit_categori'); ?>',
                 type: 'POST',
                 data: formData,
+                dataType: 'json',
 
                 cache: false,
                 contentType: false,
@@ -607,7 +598,7 @@
 
                 success: function(response) {
 
-                    if (response) {
+                    if (response==true) {
                         alert('berhasil');
                         location.reload();
                     } else {
