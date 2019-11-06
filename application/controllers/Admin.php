@@ -173,131 +173,19 @@ public function delete_gallery()
 
 
 		//Kategori
-public function kategori() 
-{
+// public function kategori() 
+// {
  
- // $data['ktg'] = $this->GeneralModel->get_data('kategori')->result();
- // //$data['subktg'] = $this->GeneralModel->get_data('sub_kategori')->result();
+//  // $data['ktg'] = $this->GeneralModel->get_data('kategori')->result();
+//  // //$data['subktg'] = $this->GeneralModel->get_data('sub_kategori')->result();
 
- // $this->load->view('admin/Kategori', $data);
- $data['subktg'] = $this->GeneralModel->get_data('sub_kategori')->result();
- $this->load->view('admin/SubKategori', $data);
-}
-
-public function categori()
-{
-    $data['ktg'] = $this->GeneralModel->get_selected('kategori', $data)->result();
-    $this->load->view('admin/Kategori', $data);
-}
-
-public function get_categori()
-{
-      $id = $this->input->post('id');
-      $data = $this->GeneralModel->get_selected('kategori', array('id_kategori' => $id))->row();
-
-      echo json_encode($data);
-}
-
-public function add_kategori() 
-{
-
-}
-
-public function edit_kategori()
-{
-
-}
-
-public function delete_kategori()
-{
-
-}
-
-		//Subkategori
-public function subkategori() 
-{
- $data['subktg'] = $this->GeneralModel->get_data('sub_kategori')->result();
- $this->load->view('admin/SubKategori', $data);
-}
+//  // $this->load->view('admin/Kategori', $data);
+//  $data['subktg'] = $this->GeneralModel->get_data('sub_kategori')->result();
+//  $this->load->view('admin/SubKategori', $data);
+// }
 
 
 
-public function add_subkategori() 
-{
- $config['upload_path']     = './assets/upload';
- $config['allowed_types']  = 'gif|jpg|png';
- $config['max_size']        = 1000000000;
- $config['max_width']       = 10240;
- $config['max_height']      = 7680;
-
- $this->load->library('upload',$config);
- $result = false;
- if (!$this->upload->do_upload('foto_sub'))
- {
-    $result = $this->upload->display_errors();
-
-}
-else
-{
-    $data = array(   
-        'judul_sub'     => $this->input->post('edit_judul_sub'),
-        'keterangan_sub'=> $this->input->post('edit_keterangan_sub'),
-        'foto_sub'      => $this->upload->data('file_name'),
-        'harga' 		=> $this->input->post('edit_harga_sub')
-    );
-
-    $result = $this->GeneralModel->add_data('sub_kategori', $data);
-
-                    //$this->GeneralModel->add_data();
-    //$this->load->view('admin/Kategori');
-    $result = true;
-}
-echo json_encode($result); 
-}
-
-public function get_subkategori()
-{
-    $id = $this->input->post('id');
-    //$data = $this->GeneralModel->get_selected('sub_kategori', array('id_sub_kategori' => $id))->row();
-    $data = $this->GeneralModel->get_data('sub_kategori');
-    echo json_encode($data);
-}
-
-public function edit_subkategori()
-{
-    $config['upload_path']     = './assets/user/images';
-    $config['allowed_types']  = 'gif|jpg|png';
-    $config['max_size']        = 1000000000;
-    $config['max_width']       = 10240;
-    $config['max_height']      = 7680;
-
-    $this->load->library('upload',$config);
-    $result='';
-
-    $id = array('id_sub_kategori' => $this->input->post('edit_id') );
-    $data = array(
-        'judul_sub'     => $this->input->post('edit_judul_sub'), 
-        'keterangan_sub'     => $this->input->post('edit_keterangan_sub'),
-        'harga'     => $this->input->post('edit_harga'),
-    );
-
-    if ($this->upload->do_upload('edit_foto_sub'))
-    {
-        $data['foto_sub'] = $this->upload->data('file_name');
-    }
-
-    $result = $this->GeneralModel->update_data('sub_kategori', $data, $id );
-
-    echo json_encode($result);
-}
-
-public function delete_subkategori()
-{
- $id = array('id_sub_kategori' => $this->input->post('id') );
- $result = $this->GeneralModel->delete_data($id,'sub_kategori');
-    //$result = $this->GeneralModel->delete_data($id,'sub_kategori');
- echo json_encode($result);
-}
 
 		//Terapis
 public function terapis()
@@ -336,7 +224,7 @@ public function add_terapis()
         $data = array(   
             'full_name'     => $this->input->post('full_name'), 
             'username'      => $this->input->post('username'), 
-            'password'      => $this->input->post('password'),
+            'password'      => md5($this->input->post('password')),
             'email'         => $this->input->post('email'),   
             'no_telp'       => $this->input->post('no_telp'),               
             'alamat'        => $this->input->post('alamat'),
@@ -469,9 +357,9 @@ public function edit_terapis()
 
 public function delete_terapis()
 {
-   $id = array('id_user' => $this->input->post('id') );
-   $result = $this->GeneralModel->update_data('user', $data, $id);
-   echo json_encode($result);
+    $id = array('id_user' => $this->input->post('id') );
+    $result = $this->GeneralModel->delete_data($id,'user');
+    echo json_encode($result);
 }
 
         //user
@@ -503,7 +391,7 @@ public function add_user()
         $data = array(   
             'full_name'     => $this->input->post('full_name'), 
             'username'      => $this->input->post('username'), 
-            'password'      => $this->input->post('password'),
+            'password'      => md5($this->input->post('password')),
             'email'         => $this->input->post('email'),   
             'no_telp'       => $this->input->post('no_telp'),               
             'alamat'        => $this->input->post('alamat'),
@@ -625,6 +513,7 @@ public function edit_user()
 
 public function delete_user()
 {
+
 
 
    
@@ -778,6 +667,7 @@ public function edit_reservasi()
         'nominal_diskon'        => $this->input->post('edit_nominal_diskon'),
         'biaya_transportasi'    => $this->input->post('edit_biaya_transportasi'),
         'total_harga_akhir'     => $this->input->post('edit_total_harga_akhir'),
+        'status'         => 'Accepted'
 
     );
 
@@ -787,9 +677,153 @@ public function edit_reservasi()
 
 }
 
+public function categori()
+{
+    $data['ktg'] = $this->GeneralModel->get_data('kategori')->result();
+    $this->load->view('admin/Kategori', $data);
+}
 
+
+
+public function add_categori() 
+{
+    $result = 'false';
+    $data =  array(
+                    'judul_kat' => $this->input->post('judul_kat') ,
+                    'keterangan_kat' => $this->input->post('keterangan_kat') 
+                  );
+
+
+    if ($this->GeneralModel->add_data('kategori', $data)) {
+
+        $result = 'true';
+    }
+    
+    echo json_encode($result);
+}
+
+public function get_categori()
+{
+
+      $id = $this->input->post('id');
+      $data = $this->GeneralModel->get_selected('kategori', array('id_kategori' => $id))->row();
+
+
+    echo json_encode($data);
+}
+
+public function edit_categori()
+{
+    $id  = array('id_kategori' => $this->input->post('edit_id'));
+
+    $data = array(
+        'judul_kat' => $this->input->post('edit_judul_kat') ,
+        'keterangan_kat' => $this->input->post('edit_keterangan_kat') 
+    );
+
+    $result = $this->GeneralModel->update_data('kategori', $data, $id);
+
+    echo json_encode($result);
+}
+
+public function delete_categori()
+{
+    $id = array('id_kategori' => $this->input->post('id') );
+    $result = $this->GeneralModel->delete_data($id,'kategori');
+    echo json_encode($result);
+}
+
+
+public function subkategori() 
+{
+ $data['subktg'] = $this->GeneralModel->get_data('sub_kategori')->result();
+ $this->load->view('admin/SubKategori', $data);
+}
+
+
+
+public function add_subkategori() 
+{
+    $config['upload_path']     = './assets/upload';
+    $config['allowed_types']  = 'gif|jpg|png';
+    $config['max_size']        = 1000000000;
+    $config['max_width']       = 10240;
+    $config['max_height']      = 7680;
+
+    $this->load->library('upload',$config);
+
+    $result = false;
+    if (!$this->upload->do_upload('foto_sub'))
+    {
+        $result = $this->upload->display_errors();
+    }
+    else
+    {
+        $data = array(   
+            'judul_sub'     => $this->input->post('judul_sub'),
+            'keterangan_sub'=> $this->input->post('keterangan_sub'),
+            'foto_sub'      => $this->upload->data('file_name'),
+
+            'harga'         => $this->input->post('harga')
+        );
+
+        $result = $this->GeneralModel->add_data('sub_kategori', $data);
+        $this->load->view('admin/SubKategori');
+                    
+        //$result = 'true';
+    }
+    
+    echo json_encode($result); 
+}
+
+public function get_subkategori()
+{
+    $id = $this->input->post('id');
+    $data = $this->GeneralModel->get_selected('sub_kategori', array('id_sub_kategori' => $id))->row();
+    
+    echo json_encode($data);
 
 
 }
+
+public function edit_subkategori()
+{
+    $config['upload_path']     = './assets/user/images';
+    $config['allowed_types']  = 'gif|jpg|png';
+    $config['max_size']        = 1000000000;
+    $config['max_width']       = 10240;
+    $config['max_height']      = 7680;
+
+    $this->load->library('upload',$config);
+    $result='';
+
+    $id = array('id_sub_kategori' => $this->input->post('edit_id') );
+    $data = array(
+        'judul_sub'     => $this->input->post('edit_judul_sub'), 
+        'keterangan_sub'     => $this->input->post('edit_keterangan_sub'),
+        'harga'     => $this->input->post('edit_harga'),
+    );
+
+    if ($this->upload->do_upload('edit_foto_sub'))
+    {
+        $data['foto_sub'] = $this->upload->data('file_name');
+    }
+
+    $result = $this->GeneralModel->update_data('sub_kategori', $data, $id );
+
+    echo json_encode($result);
+}
+
+public function delete_subkategori()
+{
+ $id = array('id_sub_kategori' => $this->input->post('id') );
+ $result = $this->GeneralModel->delete_data($id,'sub_kategori');
+  
+ echo json_encode($result);
+}
+
+
+}
+
 ?>
  
