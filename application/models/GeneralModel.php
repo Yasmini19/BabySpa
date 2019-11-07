@@ -15,6 +15,10 @@ class GeneralModel extends CI_Model {
     function get_selected_offset($table,$where,$number,$id,$random){
     return $query = $this->db->order_by($id,$random)->get_where($table,$where,$number);       
     }
+
+    function get_selected_limit_offset($table,$where,$number,$offset){
+    return $query = $this->db->get_where($table,$where,$number,$offset);       
+    }
  
     function num_row($table){
         return $this->db->get($table)->num_rows();
