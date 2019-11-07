@@ -346,7 +346,7 @@ class User extends CI_Controller {
 
         $config['base_url'] = site_url().'/User/galleryUser/';
         $config['total_rows'] = $jumlah_data;
-        $config['per_page'] = 3;
+        $config['per_page'] = 6;
 
         // Membuat Style pagination untuk BootStrap v4
         $config['first_link']       = 'First';
@@ -388,7 +388,7 @@ class User extends CI_Controller {
 
         $jumlah_data = $this->GeneralModel->num_row('reservasi');
 
-        $config['base_url'] = site_url().'/User/historyReservationUser/';
+        $config['base_url'] = site_url().'/User/historyReservation/';
         $config['total_rows'] = $jumlah_data;
 		$config['per_page'] = 4;
 		
@@ -414,7 +414,8 @@ class User extends CI_Controller {
 
         $from = $this->uri->segment(3);
         $this->pagination->initialize($config);     
-        $data['reservasi'] = $this->GeneralModel->data_offset('reservasi',$config['per_page'],$from);
+        $where = array('pemesan_id' => $data['id_user']);
+        $data['reservasi'] = $this->GeneralModel->get_selected_limit_offset('reservasi',$where,$config['per_page'],$from)->result();
         
         $this->load->view('user/headerfooter/header',$data);
         $this->load->view('user/HistoryReservationUser',$data);
