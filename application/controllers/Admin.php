@@ -677,6 +677,15 @@ public function edit_reservasi()
 
 }
 
+public function cancel_reservasi($id)
+{
+    $data = array(
+        'status' => "Cancelled" 
+    );
+    $this->GeneralModel->update_data_baru('reservasi', $data, $id );
+    redirect('Admin/dashboard');
+}
+
 public function categori()
 {
     $data['ktg'] = $this->GeneralModel->get_data('kategori')->result();
