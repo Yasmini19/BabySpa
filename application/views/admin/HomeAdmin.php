@@ -275,7 +275,11 @@
 
                                                     <!--<a href="<?php //echo base_url('/Admin/delete_subKategori/'. $value->id_sub_kategori) ?>" class="far fa-trash-alt" aria-hidden="true" name="tombolDeleteSubKategori" value="<?php echo $value->id_sub_kategori; ?>"></a>-->
 
-                                                    <button type="button" class="btn btn-danger">Cancel</button>
+                                                     <a href="<?php echo base_url('index.php/Admin/cancel_reservasi/'. $value->id_reservasi) ?>" class="btn btn-danger" aria-hidden="true" name="cancel_reservasi" value="<?php echo $value->id_reservasi; ?>">
+                                                       Cancel
+                                                   </a>
+
+                                                   
 
                                                 </td>
 
