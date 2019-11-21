@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 21, 2019 at 04:07 AM
+-- Generation Time: Nov 07, 2019 at 03:01 AM
 -- Server version: 10.1.29-MariaDB
 -- PHP Version: 7.1.12
 
@@ -95,7 +95,9 @@ INSERT INTO `detail_reservasi` (`id_detail`, `reservasi_id`, `subkategori_id`, `
 (2, 2, 2, 90000, 2),
 (3, 3, 5, 120000, 2),
 (4, 4, 1, 85000, 1),
-(5, 5, 2, 90000, 2);
+(5, 5, 2, 90000, 2),
+(6, 7, 2, 90000, 2),
+(7, 8, 1, 85000, 2);
 
 -- --------------------------------------------------------
 
@@ -179,19 +181,22 @@ CREATE TABLE `reservasi` (
   `nominal_diskon` float DEFAULT NULL,
   `biaya_transportasi` int(11) DEFAULT NULL,
   `total_harga_akhir` varchar(255) NOT NULL,
-  `status` enum('Booked','Cancelled','Accepted') NOT NULL
+  `status` enum('Booked','Cancelled','Accepted') NOT NULL,
+  `tgl_pesan` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `reservasi`
 --
 
-INSERT INTO `reservasi` (`id_reservasi`, `pemesan_id`, `terapis_id`, `sesi_id`, `tgl_reservasi`, `total_harga_awal`, `diskon_persen`, `nominal_diskon`, `total_harga_akhir`, `biaya_transportasi`, `status`) VALUES
-(1, 5, 6, 1, '2019-10-01', 230000, '20', 184000, 6000, '190000', 'Accepted'),
-(2, 5, 6, 1, '2019-10-02', 90000, '20', 72000, 2309, '74309', 'Accepted'),
-(3, 10, 6, 2, '2019-10-18', 120000, NULL, NULL, NULL, '', 'Booked'),
-(4, 10, 6, 1, '2019-10-30', 85000, NULL, NULL, NULL, '', 'Booked'),
-(5, 11, 6, 1, '2019-10-29', 90000, NULL, NULL, NULL, '', 'Booked');
+INSERT INTO `reservasi` (`id_reservasi`, `pemesan_id`, `terapis_id`, `sesi_id`, `tgl_reservasi`, `total_harga_awal`, `diskon_persen`, `nominal_diskon`, `biaya_transportasi`, `total_harga_akhir`, `status`, `tgl_pesan`) VALUES
+(1, 5, 6, 1, '2019-10-01', 230000, '20', 184000, 190000, '6000', 'Accepted', '2019-10-24 13:26:17'),
+(2, 5, 6, 1, '2019-10-02', 90000, '20', 72000, 74309, '2309', 'Accepted', '2019-10-24 13:26:17'),
+(3, 10, 6, 2, '2019-10-18', 120000, NULL, NULL, 0, '', 'Booked', '2019-10-24 13:26:17'),
+(4, 10, 6, 1, '2019-10-30', 85000, NULL, NULL, 0, '', 'Booked', '2019-10-24 13:26:17'),
+(5, 11, 6, 1, '2019-10-29', 90000, NULL, NULL, 0, '', 'Booked', '2019-10-24 13:26:17'),
+(7, 5, 6, 1, '2019-10-03', 90000, NULL, NULL, NULL, '', 'Booked', '2019-10-24 13:26:17'),
+(8, 5, 7, 1, '2019-10-03', 85000, NULL, NULL, NULL, '', 'Accepted', '2019-10-24 13:26:17');
 
 -- --------------------------------------------------------
 
@@ -269,10 +274,10 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`id_user`, `full_name`, `username`, `email`, `no_telp`, `alamat`, `foto`, `password`, `level`) VALUES
 (1, 'admin', 'admin', 'admin@gmail.com', '091322332234', 'malang', 'my-account-login-icon.png', '21232f297a57a5a743894a0e4a801fc3', 1),
 (2, 'sasa', 'sasa', 'sasa@123', '0813999293433', 'Malang', '', 'f45731e3d39a1b2330bbf93e9b3de59e', 2),
-(5, 'meli', 'meli', 'meli@gmail.com', '2', 'meli', NULL, '315fef7b8d30f99d6964f489ee4c9828', 2),
-(6, 'yasminis', 'yasmini', 'yasmini@gmail.com', '9029109012', 'malang', 'ds1.jpg', 'yasmini123', 3),
+(5, 'meli', 'meli', 'meli@gmail.com', '2', 'meli', 'ds1.jpg', '315fef7b8d30f99d6964f489ee4c9828', 2),
+(6, 'yasminis', 'yasmini', 'yasmini@gmail.com', '9029109012', 'malang', 'ds1.jpg', 'a684df1d7a327cdb1d2decdf539177b2', 3),
 (7, 'saskia', 'saskia', 'saskia@gmail.com', '091322332234', 'malang', 'o2.jpg', '7d207ce9e36a6a60ec529d1f62038ed2', 3),
-(8, 'fransika putri', 'fransiska', 'fransiska@gmail.com', '088567896456', 'malang', 't32.jpg', 'fransiska', 3),
+(8, 'fransika putri', 'fransiska', 'fransiska@gmail.com', '088567896456', 'malang', 't32.jpg', '0b1d41d29bd37edecadf37a6a7618d6d', 3),
 (9, 'anita', 'anita', 'anitasari@gmail.com', '098766', 'malang', 'o1.jpg', 'anita', 2),
 (10, 'yas', 'yas', 'yas@gmail.com', '089', 'malang', NULL, 'e89f5c212146679abbfce5ceba3e975e', 2),
 (11, 'dita', 'dita', 'dita@gmail.com', '086456367546', 'malang', NULL, 'e6b047aa9378bce37a5260a949d1ea3e', 2),
@@ -369,7 +374,7 @@ ALTER TABLE `contact_us`
 -- AUTO_INCREMENT for table `detail_reservasi`
 --
 ALTER TABLE `detail_reservasi`
-  MODIFY `id_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `galery`
@@ -393,7 +398,7 @@ ALTER TABLE `level`
 -- AUTO_INCREMENT for table `reservasi`
 --
 ALTER TABLE `reservasi`
-  MODIFY `id_reservasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_reservasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `sesi_reservasi`
@@ -411,7 +416,7 @@ ALTER TABLE `sub_kategori`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Constraints for dumped tables

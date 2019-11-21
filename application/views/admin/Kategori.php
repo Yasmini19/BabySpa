@@ -240,7 +240,7 @@
                             </div>
                             <!--Add-->
                             <div class="card-footer clearfix">
-                                <button type="button" class="btn btn-info float-left" data-toggle="modal" data-target="#modal-tambah-Kategori">
+                                <button type="button" class="btn btn-info float-left" data-toggle="modal" data-target="#modal-tambah-kategori">
                                     <i class="fas fa-plus"></i> Add
                                 </button>
 
@@ -270,8 +270,8 @@
                                                  
                                                
                                                 <td>
-                                                    <a href="<?php echo base_url('/Admin/edit_kategori/'. $value->id_kategori) ?>" class="fas fa-edit" aria-hidden="true" data-toggle="modal" data-target="#modal-edit-Kategori" name="tombolEditKategori" value="<?php echo $value->id_kategori; ?>"></a>
-                                                    <a href="<?php echo base_url('/Admin/delete_Kategori/'. $value->id_kategori) ?>" class="far fa-trash-alt" aria-hidden="true" name="tombolDeleteKategori" value="<?php echo $value->id_kategori; ?>"></a>
+                                                    <a href="<?php echo base_url('/Admin/edit_categori/'. $value->id_kategori) ?>" class="fas fa-edit" aria-hidden="true" data-toggle="modal" data-target="#editKategori" name="tombolEditKategori" value="<?php echo $value->id_kategori; ?>"></a>
+                                                    <a href="<?php echo base_url('/Admin/delete_categori/'. $value->id_kategori) ?>" class="far fa-trash-alt" aria-hidden="true" name="tombolDeleteKategori" value="<?php echo $value->id_kategori; ?>"></a>
                                                 </td>
 
                                             </tr>
@@ -290,14 +290,15 @@
             <!-- /.content -->
         </div>
 
-        <!--Modal ADD-->
 
-        <div class="modal fade" id="modal-tambah-Kategori" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <!--Modal ADD-->
+
+        <div class="modal fade" id="modal-tambah-kategori" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <!--Header-->
                     <div class="modal-header">
-                        <?php //echo form_open_multipart('Admin/add_gallery'); 
+                        <?php //echo form_open_multipart('Admin/add_terapis'); 
                         ?>
 
                         <h4 class="modal-title" id="myModalLabel">Kategori</h4>
@@ -310,7 +311,20 @@
                     <div class="modal-body">
                         <div class="modal-body mx-3">
                             <!-- <FORM id="addTerapis"> -->
-                            <form method="post" accept-charset="utf-8" id="addSubKategori" enctype="multipart/form-data">
+                            <form method="post" accept-charset="utf-8" id="addKategori" enctype="multipart/form-data">
+
+
+
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fa fa-newspaper-o">
+
+                                            </i>
+                                        </span>
+                                    </div>
+                                    <input type="text" id="judul_kat" name="judul_kat" class="form-control" placeholder="Judul Kategori">
+                                </div>
 
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
@@ -318,23 +332,9 @@
                                             @
                                         </span>
                                     </div>
-                                    <input type="text" id="judul_kat" name="judul_kat" class="form-control" placeholder="Judul ">
-                                </div>
-
-
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">
-                                            @
-                                        </span>
-                                    </div>
-                                    <input type="text" id="keterangan_kat" name="keterangan_katb" class="form-control" placeholder="Keterangan ">
-                                </div>
-
-
-                                 
+                                    <input type="text" id="keterangan_kat" name="keterangan_kat" class="form-control" placeholder="Keterangan Kategori">
+                                </div>                              
                         </div>
-
                     </div>
                     <!--Footer-->
                     <div class="modal-footer">
@@ -351,7 +351,7 @@
 
         <!--Modal EDIT-->
 
-        <div class="modal fade" id="modal-edit-subKategori" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="editKategori" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <!--Header-->
@@ -365,15 +365,12 @@
                     </div>
                     <!--Body-->
                         <div class="modal-body">
+                            <form method="post" accept-charset="utf-8" id="editKategori" enctype="multipart/form-data">
                             <div class="modal-body mx-3">
-                    <!-- <FORM id="addTerapis"> -->
-                    <form method="post" accept-charset="utf-8" id="editKategori" enctype="multipart/form-data">
-                        
-
+                    
                                 <input type="hidden" id="edit_id" name="edit_id">
                                 
-
-                                 <div class="input-group mb-3">
+                                <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">
                                             @
@@ -381,8 +378,6 @@
                                     </div>
                                     <input type="text" id="edit_judul_kat" name="edit_judul_kat" class="form-control" placeholder="Judul">
                                 </div>
-
-
 
                                  <div class="input-group mb-3">
                                     <div class="input-group-prepend">
@@ -392,21 +387,15 @@
                                     </div>
                                     <input type="text" id="edit_keterangan_kat" name="edit_keterangan_kat" class="form-control" placeholder="Keterangan">
                                 </div>
-
-
-
-                               
+ 
                             </div>
 
                         </div>
-
 
                         <!--Footer-->
                         <div class="modal-footer">
                             <input type="submit" name="submit" class="btn btn-outline-primary" id="btnSimpanKategori">
                             <input type="button" class="btn btn-primary" value="Close" data-dismiss="modal">
-                            <?php //echo form_close(); 
-                            ?>
                         </div>
                     </form>
                 </div>
@@ -511,6 +500,8 @@
     </script>
 
     <script type="text/javascript">
+        
+
         $('form#addKategori').submit(function(e) {
             e.preventDefault();
             var formData = new FormData($('form#addKategori')[0]);
@@ -519,7 +510,6 @@
                 url: '<?php echo site_url('admin/add_categori'); ?>',
                 type: 'POST',
                 data: formData,
-                dataType: 'json',
 
                 cache: false,
                 contentType: false,
@@ -527,10 +517,11 @@
 
                 success: function(response) {
 
-                    if (response == true) {
+                    //alert(response);
+                    if (response === 'true') {
                         alert('berhasil');
-                        alert(response);
-                        //location.reload();
+
+                        location.reload();
                     } else {
                         alert('error : ' + response);
                     }
@@ -565,7 +556,8 @@
         $('[name="tombolEditKategori"]').click(function() {
 
             var id = $(this).attr('value');
-            //alert(id);
+
+           
 
             $.ajax({
                 url: '<?php echo site_url('admin/get_categori') ?>',
@@ -574,21 +566,17 @@
                     id: id
                 },
                 success: function(data) {
+
                     if (data == null) {
                         alert('kosong');
                     }
 
                     data = JSON.parse(data);
 
-                    //alert(data);
-
                     $('#edit_id').val(data.id_kategori);
                     $('#edit_judul_kat').val(data.judul_kat);
                     $('#edit_keterangan_kat').val(data.keterangan_kat);
 
-
-                    
-                    
                 }
             });
         });
@@ -602,6 +590,7 @@
                 url: '<?php echo site_url('admin/edit_categori'); ?>',
                 type: 'POST',
                 data: formData,
+                dataType: 'json',
 
                 cache: false,
                 contentType: false,
@@ -609,7 +598,7 @@
 
                 success: function(response) {
 
-                    if (response) {
+                    if (response==true) {
                         alert('berhasil');
                         location.reload();
                     } else {
@@ -620,29 +609,27 @@
             });
         });
 
-
         //ajaxdelete
-      $('[name="tombolDeleteKategori"]').click(function(e){
-        e.preventDefault();
-        var id = $(this).attr('value')
-        //alert(id);
-        $.ajax({
-          url: '<?php echo site_url('admin/delete_categori') ?>',
-          type: 'post',
-          data: {id:id},
-          success: function(response) {
-            //alert(response);
-          if (response)
-            {
-              alert('berhasil');
-              location.reload();
-            }
-            else
-            { alert('error : ' + response); }
-          
-          }
+        $('[name="tombolDeleteKategori"]').click(function(e){
+            e.preventDefault();
+            var id = $(this).attr('value')
+            //alert(id);
+            $.ajax({
+                url: '<?php echo site_url('admin/delete_categori') ?>',
+                type: 'post',
+                data: {id:id},
+                success: function(response) {
+                    //alert(response);
+                    if (response)
+                    {
+                      alert('berhasil');
+                      location.reload();
+                    }
+                    else
+                    { alert('error : ' + response); }
+                }
+            });
         });
-      });
     </script>
 
 </body>

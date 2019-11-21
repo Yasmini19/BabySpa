@@ -239,14 +239,14 @@
 											</div>
 										</div>
 										
-										<a class="carousel-control-prev" href="#carouselExampleControls2" role="button" data-slide="prev">
+										<!-- <a class="carousel-control-prev" href="#carouselExampleControls2" role="button" data-slide="prev">
 											<span class="carousel-control-prev-icon" aria-hidden="true"></span>
 											<span class="sr-only" style="background-color: black">Previous</span>
 										</a>
 										<a class="carousel-control-next" href="#carouselExampleControls2" role="button" data-slide="next">
 											<span class="carousel-control-next-icon" aria-hidden="true"></span>
 											<span class="sr-only">Next</span>
-										</a>
+										</a> -->
 									</div>
 								</div>
 
@@ -283,14 +283,14 @@
 												</div>
 											</div>
 										
-										<a class="carousel-control-prev" href="#carouselExampleControls3" role="button" data-slide="prev">
+										<!-- <a class="carousel-control-prev" href="#carouselExampleControls3" role="button" data-slide="prev">
 											<span class="carousel-control-prev-icon" aria-hidden="true"></span>
 											<span class="sr-only">Previous</span>
 										</a>
 										<a class="carousel-control-next" href="#carouselExampleControls3" role="button" data-slide="next">
 											<span class="carousel-control-next-icon" aria-hidden="true"></span>
 											<span class="sr-only">Next</span>
-										</a>
+										</a> -->
 										</div>
 									</div>
 								</div>
@@ -328,14 +328,14 @@
 												</div>
 											</div>
 										
-										<a class="carousel-control-prev" href="#carouselExampleControls1" role="button" data-slide="prev">
+										<!-- <a class="carousel-control-prev" href="#carouselExampleControls1" role="button" data-slide="prev">
 											<span class="carousel-control-prev-icon" aria-hidden="true"></span>
 											<span class="sr-only btn-secondary">Previous</span>
 										</a>
 										<a class="carousel-control-next" href="#carouselExampleControls1" role="button" data-slide="next">
 											<span class="carousel-control-next-icon" aria-hidden="true"></span>
 											<span class="sr-only btn-secondary">Next</span>
-										</a>
+										</a> -->
 										</div>
 									</div>
 								</div>
