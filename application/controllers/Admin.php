@@ -131,7 +131,7 @@ public function get_gallery()
 
 public function edit_gallery()
 {
-    $config['upload_path']     = './assets/user/images';
+   $config['upload_path']     = './assets/user/images';
     $config['allowed_types']  = 'gif|jpg|png';
     $config['max_size']        = 1000000000;
     $config['max_width']       = 10240;
@@ -142,27 +142,22 @@ public function edit_gallery()
 
     $id = array('id_galery' => $this->input->post('edit_id') );
     $data = array(
-        'keterangan'     => $this->input->post('edit_keterangan'), 
+        
+        'keterangan'        => $this->input->post('edit_keterangan')
 
     );
 
-    if ($this->upload->do_upload('edit_galery'))
+    if ($this->upload->do_upload('edit_foto'))
     {
-       $data['galery'] = $this->upload->data('file_name');
-       $result = $this->GeneralModel->update_data('galery', $data, $id );
-   }
-   else
-   {
-    $allowed = explode("|", $config['allowed_types']);
-    $filename = $this->upload->data('file_name');
-    $ext = pathinfo($filename, PATHINFO_EXTENSION);
-    if(!in_array($ext,$allowed) ) {
-        $result = 'harap sesuaikan tipe file';
+        $data['galery'] = $this->upload->data('file_name');
     }
+
+    $result = $this->GeneralModel->update_data('galery', $data, $id );
+
+    echo json_encode($result);
 }
 
-echo json_encode($result);
-}
+
 
 public function delete_gallery()
 {
