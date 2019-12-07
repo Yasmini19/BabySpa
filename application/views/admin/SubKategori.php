@@ -404,10 +404,12 @@
                                             </i>
                                         </span>
                                     </div>
+
+                                    <!-- <?php var_dump($subktg)?> -->
                                     
                                     <select class="form-control" name="kategori_id" id="kategori_id" required>
                                         <option value="">Pilih Kategori</option>
-                                        <?php foreach($selectktg as $row):?>
+                                        <?php foreach($ktg as $row):?>
                                         <option value="<?php echo $row->id_kategori;?>"><?php echo $row->judul_kat;?></option>
                                         <?php endforeach;?>
                                     </select>
