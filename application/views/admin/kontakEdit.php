@@ -211,9 +211,9 @@
 						<div class="col-lg-12 grid-margin stretch-card">
 			              <div class="card">
                       <div class="card-body">
-                        <h4 class="card-title">Horizontal Form</h4>
-                        <p class="card-description">
-                          Horizontal form layout
+                        <h4 class="card-title">EDIT</h4>
+                       <p class="card-description">
+                          kontak
                         </p>
                         <?php echo form_open('Admin/edit/'.$contactus['id_contact']); ?>
                         
