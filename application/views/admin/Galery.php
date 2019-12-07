@@ -409,13 +409,6 @@
                                 <div>
 
                                 </div>
-
-
-                               
-
-
-                                
-
                                
                         </div>
 
@@ -433,7 +426,7 @@
             </div>
         </div>
 
-        <!--Modal EDIT-->
+           <!--Modal EDIT-->
 
         <div class="modal fade" id="modal-edit-gallery" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -456,6 +449,9 @@
 
                                 <input type="hidden" id="edit_id" name="edit_id">
                                 
+                               
+
+
 
                                 <div class="md-form mb-4">
                                
@@ -470,19 +466,8 @@
                                             @
                                         </span>
                                     </div>
-                                    <input type="text" id="edit_keterangan" name="edit_keterangan" class="form-control" placeholder="Keterangan">
+                                     <input type="text" id="edit_keterangan" class="form-control validate" name="edit_keterangan" placeholder="Input field">
                                 </div>
-
-
-                                
-
-
-
-                                
-                               
-
-
-
                             </div>
 
                         </div>
@@ -499,7 +484,6 @@
                 </div>
             </div>
         </div>
-
 
         <!-- Main content -->
         <section class="content">
@@ -647,7 +631,7 @@
             }
         });
 
-        $('[name="tombolEditGallery"]').click(function() {
+         $('[name="tombolEditGallery"]').click(function() {
 
             var id = $(this).attr('value')
 
@@ -665,10 +649,10 @@
                     data = JSON.parse(data);
 
                     $('#edit_id').val(data.id_galery);
+                    
+                    
                     $('#foto_lama').attr('src', '<?php echo base_url() ?>/assets/user/images/' + data.galery);
                     $('#edit_keterangan').val(data.keterangan);
-                    
-                    
                 }
             });
         });
