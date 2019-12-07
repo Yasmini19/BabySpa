@@ -326,15 +326,23 @@
                                     <input type="text" id="judul_kat" name="judul_kat" class="form-control" placeholder="Judul Kategori">
                                 </div>
 
-                                <div class="input-group mb-3">
+                                <div>
+
+                                </div>                              
+
+                                    <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">
                                             @
                                         </span>
                                     </div>
                                     <input type="text" id="keterangan_kat" name="keterangan_kat" class="form-control" placeholder="Keterangan Kategori">
-                                </div>                              
+                                </div>       
+                                
+
+                                
                         </div>
+
                     </div>
                     <!--Footer-->
                     <div class="modal-footer">
@@ -348,6 +356,7 @@
                 </div>
             </div>
         </div>
+
 
         <!--Modal EDIT-->
 
@@ -517,10 +526,8 @@
 
                 success: function(response) {
 
-                    //alert(response);
-                    if (response === 'true') {
+                    if (response = 'true') {
                         alert('berhasil');
-
                         location.reload();
                     } else {
                         alert('error : ' + response);
