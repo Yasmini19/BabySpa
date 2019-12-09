@@ -84,7 +84,6 @@
             );
 
            $result = $this->GeneralModel->add_data('user', $data);
-           echo json_encode($result);
         }
     }
 ?>
