@@ -765,11 +765,11 @@ public function add_subkategori()
     }
     else
     {
-        $data = array(   
+        $data = array(
+			'kategori_id'   => $this->input->post('kategori_id'),
             'judul_sub'     => $this->input->post('judul_sub'),
             'keterangan_sub'=> $this->input->post('keterangan_sub'),
             'foto_sub'      => $this->upload->data('file_name'),
-
             'harga'         => $this->input->post('harga')
         );
 
