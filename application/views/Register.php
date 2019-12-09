@@ -86,18 +86,19 @@
   <!-- endinject -->
 
   <script type="text/javascript">
-    $('form#register').submit(function(e){
+  $(document).ready(function () {
+
+  $('form#register').submit(function(e){
     e.preventDefault();
     var formData = new FormData(this);
-
     var url = $(this).attr('action');
 
     $.ajax({
-        url : url,
-        type : "POST",
-        data: formData,
-        success : function (response){
-                // swal(data);
+      url : url,
+      type : "POST",
+      data: formData,
+      success : function (response){
+        // alert(response);
                 swal({
                     title: "Success",
                     type:"success",
@@ -106,12 +107,14 @@
                     showConfirmButton: false
                 });
                 reset();
-            },
-            cache : false,
-            contentType : false,
-            processData : false,
-        })
-    });
+              },
+              cache : false,
+              contentType : false,
+              processData : false,
+            })
+  });
+
+
 
     function reset() {
     var a = document.getElementsByClassName('reset');
@@ -129,6 +132,7 @@
 
     };
 
+});
   </script>
 </body>
 
