@@ -255,7 +255,6 @@
                                         <th class="sorting_asc" tabindex="0" aria-controls="demo-datatables" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending">Id User</th>
                                         <th>Full Name</th>
                                         <th>Username</th>
-                                        <th>Password</th>
                                         <th>Email</th>
                                         <th>No Tlp</th>
                                         <th>Alamat</th>
@@ -269,7 +268,6 @@
                                                 <td><?php echo $value->id_user ?></td>
                                                 <td><?php echo $value->full_name ?></td>
                                                 <td><?php echo $value->username ?></td>
-                                                <td><?php echo $value->password ?></td>
                                                 <td><?php echo $value->email ?></td>
                                                 <td><?php echo $value->no_telp ?></td>
                                                 <td><?php echo $value->alamat ?></td>

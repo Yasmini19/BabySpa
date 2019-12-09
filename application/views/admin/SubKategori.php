@@ -467,7 +467,7 @@
                     </div>
                     <!--Footer-->
                     <div class="modal-footer">
-                        <input type="submit" name="submit" class="btn btn-outline-primary" id="btnSimpanTerapis">
+                        <input type="submit" name="submit" class="btn btn-outline-primary" id="btnSimpanSubKategori">
                         <input type="button" class="btn btn-primary" value="Close" data-dismiss="modal">
                         <?php //echo form_close(); 
                         ?>
