@@ -766,6 +766,7 @@ public function add_subkategori()
     else
     {
         $data = array(   
+            'judul_kat'     => $this->input->post('judul_kat'),
             'judul_sub'     => $this->input->post('judul_sub'),
             'keterangan_sub'=> $this->input->post('keterangan_sub'),
             'foto_sub'      => $this->upload->data('file_name'),
