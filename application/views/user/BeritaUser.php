@@ -15,7 +15,7 @@
 					<p><?php echo substr($key->deskripsi, 0, 250) . '...'; ?></p>
 				</div>
 				<div id="hyperlink">
-					<a href="<?= site_url()?>/User/DetailBeritaUser/<?= $key->id_berita?>"><p>read more</p></a>
+					<a class="btn btn-primary" href="<?= site_url()?>/User/DetailBeritaUser/<?= $key->id_berita?>"><p style="color: white">read more</p></a>
 				</div>
 			</div>
 		</div>
