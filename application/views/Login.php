@@ -69,6 +69,22 @@
     </div>
     <!-- page-body-wrapper ends -->
   </div>
+
+  
+    <?php if($this->session->flashdata('swal') != null){
+      $swal_data = $this->session->flashdata('swal');
+      $swa = explode('|',$swal_data);
+      ?>
+      <script>
+        swal({
+          title: "<?= $swa[0] ?>",
+          text: "<?= $swa[1] ?>",
+          type: "<?= $swa[2] ?>",
+          timer: 3000,
+          showConfirmButton: false,
+        })
+      </script>
+      <?php } ?>
   <!-- container-scroller -->
   <!-- base:js -->
   <script src="<?php echo base_url();?>assets/admin/base/vendor.bundle.base.js"></script>
@@ -76,6 +92,7 @@
   <!-- inject:js -->
   <!-- <script src="<?php echo base_url();?>assets/admin/js/template.js"></script> -->
   <!-- endinject -->
+
 </body>
 
 </html>
