@@ -613,9 +613,37 @@ public function reservasi()
 
     //$data['reser'] = $this->GeneralModel->get_data('reservasi')->result();
     $data['reser'] = $this->GeneralModel->get_join('reservasi', 'user', 'reservasi.terapis_id = user.id_user')->result();
+    $data['pemesan'] = $this->GeneralModel->get_selected('user','level = "2"')->result();
+    $data['terapis'] = $this->GeneralModel->get_selected('user','level = "3"')->result();
+    $data['sesi'] = $this->GeneralModel->get_data('sesi_reservasi')->result();
     $this->load->view('admin/Reservasi', $data);
 }
 
+
+public function add_reservasi()
+{
+    $result = 'false';
+    $data =  array(
+                    'pemesan_id' => $this->input->post('pemesan_id'),
+                    'terapis_id' => $this->input->post('terapis_id'),
+                    'sesi_id' => $this->input->post('sesi_id'),                     
+                    'tgl_reservasi' => $this->input->post('tgl_reservasi') ,
+                    'total_harga_awal' => $this->input->post('total_harga_awal'),
+                    'diskon_persen' => $this->input->post('diskon_persen') ,
+                    'nominal_diskon' => $this->input->post('nominal_diskon'),
+                    'biaya_transportasi' => $this->input->post('biaya_transportasi') ,
+                    'total_harga_akhir' => $this->input->post('total_harga_akhir'),
+                  );
+
+
+    if ($this->GeneralModel->add_data('reservasi', $data)) {
+
+        $result = 'true';
+    }
+    
+    echo json_encode($result);
+
+}
 
 public function get_reservasi()
 {
@@ -625,21 +653,7 @@ public function get_reservasi()
     echo json_encode($data);
 }
 
-// public function edit_reservasi()
-// {
-//      $id = array('id_reservasi' => $this->input->post('edit_id') );
-//     $data = array(
-//         'diskon_persen'         => $this->input->post('edit_diskon_persen'), 
-//         'nominal_diskon'        => $this->input->post('edit_nominal_diskon'),
-//         'biaya_transportasi'    => $this->input->post('edit_biaya_transportasi')
 
-//     );
-
-//     $result = $this->GeneralModel->update_data('reservasi', $data, $id );
-
-//     echo json_encode($result);
-
-// }
 
 public function konfirmasi_reservasi()
 {
