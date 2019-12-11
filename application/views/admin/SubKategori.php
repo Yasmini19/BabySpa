@@ -685,6 +685,7 @@
             });
         });
 
+
         $('#searchTable').keyup(function() {
 
             var text = $('#searchTable').val();
