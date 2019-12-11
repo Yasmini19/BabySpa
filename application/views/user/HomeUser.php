@@ -31,7 +31,7 @@
 														<option value="-">Pilih Sesi</option>
 														<?php foreach ($this->db->get('sesi_reservasi')->result() as $key => $value): ?>
 															<option value="<?= $value->id_sesi ?>"
-																data-json='<?php echo json_encode($value) ?>'><?= $value->waktu ?></option>
+																data-json='<?php echo json_encode($value) ?>' data-sesi="<?= $value->waktu ?>"><?= $value->waktu ?></option>
 															<?php endforeach; ?>
 														</select>
 													</div>
@@ -46,7 +46,7 @@
 															<option value="-" selected disabled>Pilih Kategori</option>
 															<?php foreach ($this->db->get('kategori')->result() as $key => $value): ?>
 																<option value="<?= $value->id_kategori ?>"
-																	data-json='<?php echo json_encode($value) ?>'><?= $value->judul_kat ?></option>
+																	data-json='<?php echo json_encode($value) ?>'  data-kat ="<?= $value->judul_kat?>"><?= $value->judul_kat ?></option>
 																<?php endforeach; ?>
 															</select>
 														</div>
@@ -58,7 +58,7 @@
 																<option value="-" selected disabled>Pilih Sub-Kategori</option>
 																<?php foreach ($this->db->get('sub_kategori')->result() as $key => $value): ?>
 																	<option value="<?= $value->id_sub_kategori ?>"
-																		data-json='<?php echo json_encode($value) ?>'><?= $value->judul_sub ?></option>
+																		data-json='<?php echo json_encode($value) ?>' data-harga ="<?= $value->harga?>" data-sub ="<?= $value->judul_sub ?>"><?= $value->judul_sub ?></option>
 																	<?php endforeach; ?>
 																</select>
 															</div>
@@ -80,7 +80,7 @@
 																	<option value="-" selected disabled>Pilih Kategori</option>
 																	<?php foreach ($this->db->get('kategori')->result() as $key => $value): ?>
 																		<option value="<?= $value->id_kategori ?>"
-																			data-json='<?php echo json_encode($value) ?>'><?= $value->judul_kat ?></option>
+																			data-json='<?php echo json_encode($value) ?>' data-kat ="<?= $value->judul_kat?>"><?= $value->judul_kat ?></option>
 																		<?php endforeach; ?>
 																	</select>
 																</div>
@@ -92,7 +92,7 @@
 																		<option value="-" selected disabled>Pilih Sub-Kategori</option>
 																		<?php foreach ($this->db->get('sub_kategori')->result() as $key => $value): ?>
 																			<option value="<?= $value->id_sub_kategori ?>"
-																				data-json='<?php echo json_encode($value) ?>'><?= $value->judul_sub ?></option>
+																				data-json='<?php echo json_encode($value) ?>' data-harga ="<?= $value->harga?>" data-sub ="<?= $value->judul_sub ?>"><?= $value->judul_sub ?></option>
 																			<?php endforeach; ?>
 																		</select>
 																	</div>
@@ -205,40 +205,40 @@
 							</nav>
 							<div class="tab-content mt-2" id="tabContent">
 								<br>
-									<div class="tab-pane" id="Mom" role="tabpanel">
-										<div id="carouselExampleControls2" class="carousel slide" data-ride="carousel">
-											<div class="carousel-inner">
-												<?php 
-												$no = 0;
-												foreach($subkategori2 as $key => $value):  ?>
-												<?php if ($no == 0){?>
-												<div class="carousel-item active">
-													<div class="row inner-sec-w3layouts-w3pvt-lauinfo">
-														<?php }else if($no !=0 && $no % 4 == 0){?>
-														<div class="carousel-item">
-															<div class="row inner-sec-w3layouts-w3pvt-lauinfo">
-																<?php }?>
-																<div class="col-md-3 col-sm-6 col-6 destinations-grids text-center mb-4">
-																	<div class="card mb-2">
-																		<img class="card-img-top"
-																		src="<?php echo base_url();?>assets/user/images/<?php echo $value->foto_sub?>"
-																		alt="Card image cap" width="200" height="200">
-																		<div class="card-body">
-																			<h5 class="card-title"><?php echo $value->judul_sub?></h5>
-																			<p class="card-text"><?php echo $value->judul_kat?></p>
-																			<p><b>Harga : <br><?php echo "Rp " . number_format($value->harga, 2, ",", ".");?></b></p>
-																		</div>
+								<div class="tab-pane" id="Mom" role="tabpanel">
+									<div id="carouselExampleControls2" class="carousel slide" data-ride="carousel">
+										<div class="carousel-inner">
+											<?php 
+											$no = 0;
+											foreach($subkategori2 as $key => $value):  ?>
+											<?php if ($no == 0){?>
+											<div class="carousel-item active">
+												<div class="row inner-sec-w3layouts-w3pvt-lauinfo">
+													<?php }else if($no !=0 && $no % 4 == 0){?>
+													<div class="carousel-item">
+														<div class="row inner-sec-w3layouts-w3pvt-lauinfo">
+															<?php }?>
+															<div class="col-md-3 col-sm-6 col-6 destinations-grids text-center mb-4">
+																<div class="card mb-2">
+																	<img class="card-img-top"
+																	src="<?php echo base_url();?>assets/user/images/<?php echo $value->foto_sub?>"
+																	alt="Card image cap" width="200" height="200">
+																	<div class="card-body">
+																		<h5 class="card-title"><?php echo $value->judul_sub?></h5>
+																		<p class="card-text"><?php echo $value->judul_kat?></p>
+																		<p><b>Harga : <br><?php echo "Rp " . number_format($value->harga, 2, ",", ".");?></b></p>
 																	</div>
 																</div>
-																<?php if ($no != 0 && $no % 4 == 3){?>
 															</div>
+															<?php if ($no != 0 && $no % 4 == 3){?>
 														</div>
-														<?php } $no++;?>
-													<?php endforeach ?>
-												</div>
+													</div>
+													<?php } $no++;?>
+												<?php endforeach ?>
 											</div>
 										</div>
-										
+									</div>
+
 										<!-- <a class="carousel-control-prev" href="#carouselExampleControls2" role="button" data-slide="prev">
 											<span class="carousel-control-prev-icon" aria-hidden="true"></span>
 											<span class="sr-only" style="background-color: black">Previous</span>
@@ -251,37 +251,37 @@
 								</div>
 
 								<div class="tab-pane" id="Konselor" role="tabpanel">
-										<div id="carouselExampleControls3" class="carousel slide" data-ride="carousel">
-											<div class="carousel-inner">
-												<?php 
-												$no = 0;
-												foreach($subkategori3 as $key => $value):  ?>
-												<?php if ($no == 0){?>
-												<div class="carousel-item active">
-													<div class="row inner-sec-w3layouts-w3pvt-lauinfo">
-														<?php }else if($no !=0 && $no % 4 == 0){?>
-														<div class="carousel-item">
-															<div class="row inner-sec-w3layouts-w3pvt-lauinfo">
-																<?php }?>
-																<div class="col-md-3 col-sm-6 col-6 destinations-grids text-center mb-4">
-																	<div class="card mb-2">
-																		<img class="card-img-top"
-																		src="<?php echo base_url();?>assets/user/images/<?php echo $value->foto_sub?>"
-																		alt="Card image cap" width="200" height="200">
-																		<div class="card-body">
-																			<h5 class="card-title"><?php echo $value->judul_sub?></h5>
-																			<p class="card-text"><?php echo $value->judul_kat?></p>
-																			<p><b>Harga : <br><?php echo "Rp " . number_format($value->harga, 2, ",", ".");?></b></p>
-																		</div>
+									<div id="carouselExampleControls3" class="carousel slide" data-ride="carousel">
+										<div class="carousel-inner">
+											<?php 
+											$no = 0;
+											foreach($subkategori3 as $key => $value):  ?>
+											<?php if ($no == 0){?>
+											<div class="carousel-item active">
+												<div class="row inner-sec-w3layouts-w3pvt-lauinfo">
+													<?php }else if($no !=0 && $no % 4 == 0){?>
+													<div class="carousel-item">
+														<div class="row inner-sec-w3layouts-w3pvt-lauinfo">
+															<?php }?>
+															<div class="col-md-3 col-sm-6 col-6 destinations-grids text-center mb-4">
+																<div class="card mb-2">
+																	<img class="card-img-top"
+																	src="<?php echo base_url();?>assets/user/images/<?php echo $value->foto_sub?>"
+																	alt="Card image cap" width="200" height="200">
+																	<div class="card-body">
+																		<h5 class="card-title"><?php echo $value->judul_sub?></h5>
+																		<p class="card-text"><?php echo $value->judul_kat?></p>
+																		<p><b>Harga : <br><?php echo "Rp " . number_format($value->harga, 2, ",", ".");?></b></p>
 																	</div>
 																</div>
-																<?php if ($no != 0 && $no % 4 == 3){?>
 															</div>
+															<?php if ($no != 0 && $no % 4 == 3){?>
 														</div>
-														<?php } $no++;?>
-													<?php endforeach ?>
-												</div>
+													</div>
+													<?php } $no++;?>
+												<?php endforeach ?>
 											</div>
+										</div>
 										
 										<!-- <a class="carousel-control-prev" href="#carouselExampleControls3" role="button" data-slide="prev">
 											<span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -291,43 +291,43 @@
 											<span class="carousel-control-next-icon" aria-hidden="true"></span>
 											<span class="sr-only">Next</span>
 										</a> -->
-										</div>
 									</div>
 								</div>
+							</div>
 
-								<div class="tab-pane active" id="Baby" role="tabpanel">
-										<div id="carouselExampleControls1" class="carousel slide" data-ride="carousel">
-											<div class="carousel-inner">
-												<?php 
-												$no = 0;
-												foreach($subkategori1 as $key => $value):  ?>
-												<?php if ($no == 0){?>
-												<div class="carousel-item active">
+							<div class="tab-pane active" id="Baby" role="tabpanel">
+								<div id="carouselExampleControls1" class="carousel slide" data-ride="carousel">
+									<div class="carousel-inner">
+										<?php 
+										$no = 0;
+										foreach($subkategori1 as $key => $value):  ?>
+										<?php if ($no == 0){?>
+										<div class="carousel-item active">
+											<div class="row inner-sec-w3layouts-w3pvt-lauinfo">
+												<?php }else if($no !=0 && $no % 4 == 0){?>
+												<div class="carousel-item">
 													<div class="row inner-sec-w3layouts-w3pvt-lauinfo">
-														<?php }else if($no !=0 && $no % 4 == 0){?>
-														<div class="carousel-item">
-															<div class="row inner-sec-w3layouts-w3pvt-lauinfo">
-																<?php }?>
-																<div class="col-md-3 col-sm-6 col-6 destinations-grids text-center mb-4">
-																	<div class="card mb-2">
-																		<img class="card-img-top"
-																		src="<?php echo base_url();?>assets/user/images/<?php echo $value->foto_sub?>"
-																		alt="Card image cap" width="200" height="200">
-																		<div class="card-body">
-																			<h5 class="card-title"><?php echo $value->judul_sub?></h5>
-																			<p class="card-text"><?php echo $value->judul_kat?></p>
-																			<p><b>Harga : <br><?php echo "Rp " . number_format($value->harga, 2, ",", ".");?></b></p>
-																		</div>
-																	</div>
+														<?php }?>
+														<div class="col-md-3 col-sm-6 col-6 destinations-grids text-center mb-4">
+															<div class="card mb-2">
+																<img class="card-img-top"
+																src="<?php echo base_url();?>assets/user/images/<?php echo $value->foto_sub?>"
+																alt="Card image cap" width="200" height="200">
+																<div class="card-body">
+																	<h5 class="card-title"><?php echo $value->judul_sub?></h5>
+																	<p class="card-text"><?php echo $value->judul_kat?></p>
+																	<p><b>Harga : <br><?php echo "Rp " . number_format($value->harga, 2, ",", ".");?></b></p>
 																</div>
-																<?php if ($no != 0 && $no % 4 == 3){?>
 															</div>
 														</div>
-														<?php } $no++;?>
-													<?php endforeach ?>
+														<?php if ($no != 0 && $no % 4 == 3){?>
+													</div>
 												</div>
-											</div>
-										
+												<?php } $no++;?>
+											<?php endforeach ?>
+										</div>
+									</div>
+
 										<!-- <a class="carousel-control-prev" href="#carouselExampleControls1" role="button" data-slide="prev">
 											<span class="carousel-control-prev-icon" aria-hidden="true"></span>
 											<span class="sr-only btn-secondary">Previous</span>
@@ -336,23 +336,23 @@
 											<span class="carousel-control-next-icon" aria-hidden="true"></span>
 											<span class="sr-only btn-secondary">Next</span>
 										</a> -->
-										</div>
 									</div>
 								</div>
-
-								
-
-
-
 							</div>
+
+
+
+
+
 						</div>
 					</div>
 				</div>
+			</div>
 
 
-			</section>
-			<!-- destinations -->
-			<!--/testimonials -->
+		</section>
+		<!-- destinations -->
+		<!--/testimonials -->
 							<!-- <section class="testimonials py-5" id="testimonials">
 								<div class="container py-md-5">
 									<h3 class="heading heading1 text-center mb-3 mb-sm-5"> Client Reviews</h3>
@@ -441,10 +441,10 @@
 
 							<script type="text/javascript">
 								$(document).ready(function () {
+									var sesi = "";
 									$('#datepicker1').datepicker({
 										format: "dd-mm-yyyy",
 										autoclose:true
-										
 									});
 
 									$('#datepicker1').on('changeDate', function(){
@@ -462,7 +462,7 @@
 												
 												for(i=0; i< data.length; i++){
 													if(data[i].jml < data[i].jml_terapis){
-														html += '<option value="'+data[i].id_sesi+'">'+data[i].waktu+'</option>';
+														html += '<option value="'+data[i].id_sesi+'" data-sesi="'+data[i].waktu+'">'+data[i].waktu+'</option>';
 														//alert(data.id_sesi);
 													}if(data[i].jml == data[i].jml_terapis){
 														html += '<option value="'+data[i].id_sesi+'" disabled>'+data[i].waktu+' (tidak tersedia)</option>';
@@ -485,7 +485,7 @@
 												var i;
 												//alert(data);
 												for(i=0; i<data.length; i++){
-													html += '<option value="'+data[i].id_sub_kategori+'">'+data[i].judul_sub+'</option>';
+													html += '<option value="'+data[i].id_sub_kategori+'" data-sub="'+data[i].judul_sub+'" data-harga="'+data[i].harga+'">'+data[i].judul_sub+'</option>';
 
 												}
 												$('#sub_kategori0').html(html);
@@ -506,7 +506,7 @@
 												var i;
 												//alert(data.length);
 												for(i=0; i<data.length; i++){
-													html += '<option value="'+data[i].id_sub_kategori+'">'+data[i].judul_sub+'</option>';
+													html += '<option value="'+data[i].id_sub_kategori+'" data-sub="'+data[i].judul_sub+'" data-harga="'+data[i].harga+'">'+data[i].judul_sub+'</option>';
 
 												}
 												$('#sub_kategori1').html(html);
@@ -514,35 +514,131 @@
 										});
 									});
 
+									// $('form#inputReservation').submit(function(e){
+									// 	e.preventDefault();
+									// 	var formData = new FormData(this);
+									// 	var url = $(this).attr('action');
+									// 	$.ajax({
+									// 		url : url,
+									// 		type : "POST",
+									// 		data: formData,
+									// 		success : function (data){
+
+									// 			if(data == 'true'){
+									// 				//alert(data);
+									// 				var q = "yass";
+									// 				swal({
+									// 					title: "Success",
+									// 					type:"success",
+									// 					text: q,
+									// 					timer: 2000,
+									// 					showConfirmButton: false
+									// 				});
+
+									// 				reset();
+									// 			}else{
+									// 				window.location.href="<?php echo site_url('Login') ?>";
+									// 			}
+									// 		},
+									// 		cache : false,
+									// 		contentType : false,
+									// 		processData : false,
+									// 	})
+									// });
+									// $('#sesi').change(function(){
+									// 	sesi += $(this).find(":selected").attr('data-sesi');
+
+									// 	alert(sesi);
+
+									// });
+
 									$('form#inputReservation').submit(function(e){
 										e.preventDefault();
 										var formData = new FormData(this);
 										var url = $(this).attr('action');
-										$.ajax({
-											url : url,
-											type : "POST",
-											data: formData,
-											success : function (data){
 
-												if(data == 'true'){
-													//alert(data);
-													swal({
-														title: "Success",
-														type:"success",
-														text: "<b>Wait</b> For The Confirmation",
-														timer: 2000,
-														showConfirmButton: false
-													});
+										var tgl 		= $("#datepicker1").val();
+										var sesi 		= $("#sesi").find(":selected").data('sesi');
+										var layanan0 	= $("#sub_kategori0").find(":selected").data('sub') +' ('+ $("#kategori").find(":selected").data('kat') +')';
+										var harga0 		= $("#sub_kategori0").find(":selected").data('harga');
+										var jumlah0		= $("#jumlah0").val();
 
-													reset();
-												}else{
-													window.location.href="<?php echo site_url('Login') ?>";
-												}
-											},
-											cache : false,
-											contentType : false,
-											processData : false,
-										})
+										var layanan1 	= '';
+										var harga1 		= '';
+										var jumlah1		= '';
+
+										var teks = '<div id="detail" style="padding-top:20px"><p> Pemesanan tanggal <b>'+tgl+'</b>, pada sesi <b>'+sesi+'</b></p><br><p>Layanan :</p><p>'+layanan0+' : Rp. '+harga0+' x '+jumlah0+' (orang)</p>';
+
+										if($("#jumlah1").val() != ''){
+											var layanan1 	= $("#sub_kategori1").find(":selected").data('sub') +' ('+ $("#kategori1").find(":selected").data('kat') +')';
+											var harga1 		= $("#sub_kategori1").find(":selected").data('harga');
+											var jumlah1		= $("#jumlah1").val();
+
+											teks += '<p>'+layanan1+' : Rp. '+harga1+' x '+jumlah1+' (orang)</p>';
+										}
+
+										var harga = (Number(harga0) * Number(jumlah0)) + (Number(harga1) * Number(jumlah1));
+
+
+										teks += '<br><hr><p> Total : <b>Rp. '+harga+'</b></p><br></div>';
+
+
+										swal({
+											html : true,
+											title: "<h5>Apakah ingin melanjutkan pemesanan?</h5>",
+											text: teks,
+											showCancelButton: true,
+											confirmButtonClass: "btn-success",
+											confirmButtonText: "Iya",
+											cancelButtonClass: "btn btn-outline-warning",
+											cancelButtonText: "Tidak",
+											closeOnConfirm: false,
+											closeOnCancel: false
+										},
+										function(isConfirm){
+											if (isConfirm) {
+												$.ajax({
+													url: url,
+													type: 'post',
+													data: formData,
+													success: function (data) {
+														if(data == 'true'){
+															swal({
+																title: "Pemesanan Berhasil",
+																type:"success",
+																timer: 2000,
+																showConfirmButton: false
+															});
+
+															reset();
+														}else{
+															swal({
+																title: "Harus Login Terlebih dahulu",
+																type:"warning",
+																timer: 2000,
+																showConfirmButton: false
+															},function(){ 
+																window.location.href = "<?php echo site_url('Login') ?>";
+															});
+														}	
+													},
+													cache : false,
+													contentType : false,
+													processData : false,
+													error: function (data) {
+														swal(data.responseText);
+													}                    
+												});
+											}else{
+												swal({
+													title: "Pemesanan dibatalkan",
+													type:"error",
+													timer: 2000,
+													showConfirmButton: false
+												});
+												reset();
+											}
+										});
 									});
 
 									function reset() {

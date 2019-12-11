@@ -135,7 +135,7 @@ class User extends CI_Controller {
                $harga = 0;
 
                foreach ($this->db->get_where('detail_reservasi', array('reservasi_id' => $result))->result() as $key) {
-                  $harga += $key->harga;
+                  $harga += $key->harga * $key->jmlh;
                }
 
                $data2 = array('total_harga_awal' => $harga);
