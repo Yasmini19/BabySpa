@@ -660,7 +660,7 @@
          $('form#addSubKategori').submit(function(e) {
             e.preventDefault();
             var formData = new FormData($('form#addSubKategori')[0]);
-            
+
             $.ajax({
                 url: '<?php echo site_url('admin/add_subkategori'); ?>',
                 type: 'POST',
@@ -670,11 +670,10 @@
                 contentType: false,
                 processData: false,
 
-             
-        success: function(response) {
-                   alert(response);
-                    if (response == true) {
-        alert('berhasil');
+                success: function(response) {
+
+                    if (response = 'true') {
+                        alert('berhasil');
                         location.reload();
                     } else {
                         alert('error : ' + response);
@@ -683,6 +682,7 @@
                 }
             });
         });
+
 
         $('#searchTable').keyup(function() {
 
