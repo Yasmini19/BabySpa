@@ -223,7 +223,8 @@ class User extends CI_Controller {
         if($this->form_validation->run())
         {
             $array = array(
-            'success' => true
+            'success' => true,
+            'username' => $this->input->post('username')
             );
 
             $data = array(
@@ -235,8 +236,8 @@ class User extends CI_Controller {
             );
 
             $where = array('id_user' => $session_data['id_user']);
-            
-            $this->GeneralModel->update_data('user',$data,$where);
+            $this->GeneralModel->update_data('user',$data,$where);         
+
         }
         else
         {
@@ -249,7 +250,51 @@ class User extends CI_Controller {
             'username_error' => form_error('username')
            );
         }
-          echo json_encode($array);
+
+        $this->session->userdata['logged_in']['username'] = $this->input->post('username');
+
+        echo json_encode($array);
+    }
+
+    function editFotoUser(){
+
+        $session_data=$this->session->userdata('logged_in');
+        
+        $config['upload_path']='./assets/upload';
+        $config['allowed_types']='jpg|png|jpeg';
+        $config['max_size']=1000000000;
+        $config['max_width']=10240;
+        $config['max_height']=7680;
+
+        // $yuhu = "a";
+
+        $this->load->library('upload', $config);
+        if (! $this->upload->do_upload('pic')) {
+
+            $result = array(
+            'success' => $this->upload->display_errors()
+            );
+
+            // $yuhu = "b";
+                
+        }else{
+            $data = array(
+            'foto'        => $this->upload->data('file_name')
+            );
+
+            $where = array('id_user'  => $session_data['id_user']);
+
+            $this->GeneralModel->update_data('user',$data,$where);
+            // $yuhu = "c";
+
+            $this->session->set_flashdata('swal','Success|Ganti Foto Berhasil|success');
+
+            redirect('User/profileUser','refresh');
+
+        }
+
+
+        
     }
 
     function editPassUser(){
@@ -270,6 +315,7 @@ class User extends CI_Controller {
             );
 
             $session_data['password'] = md5($this->input->post('password'));
+            $data['password']=$session_data['password'];
 
             $where = array('id_user' => $session_data['id_user']);
             
