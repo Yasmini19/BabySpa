@@ -32,8 +32,13 @@
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/admin/plugins/fontawesome-free/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    <script src="http://code.jquery.com/jquery-3.4.1.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.css"/>
+<!--     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+ -->
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
@@ -69,8 +74,12 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                         <div class="dropdown-divider"></div>
+                        <a href="<?php echo site_url()?>/Terapis/profileTerapis" class="dropdown-item">
+                            <i class="fas fa-users mr-2"></i> Profile
+                        </a>
+                        <div class="dropdown-divider"></div>
                         <a href="<?php echo site_url()?>/Login/logout" class="dropdown-item">
-                            <i class="fas fa-users mr-2"></i> Logout
+                            <i class="fas fa-log-out mr-2"></i> Logout
                         </a>
                     </div>
                 </li>
@@ -82,7 +91,7 @@
             <!-- Brand Logo -->
             <a href="index3.html" class="brand-link">
                 <img src="<?php echo base_url(); ?>assets/user/images/ic.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">Admin Mamina</span>
+                <span class="brand-text font-weight-light">Terapis Mamina</span>
             </a>
 
             <!-- Sidebar -->
@@ -93,7 +102,7 @@
                         <img src="<?php echo base_url(); ?>assets/admin/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">Alexander Pierce</a>
+                        <a href="#" class="d-block"><?= $username?></a>
                     </div>
                 </div>
 
@@ -105,10 +114,9 @@
                             <li class="nav-item">
                                 <a href="<?php echo site_url(); ?>/Terapis" class="nav-link <?php if($this->uri->segment('2') == null){ echo "active";}?>">
                                     <i class="nav-icon fa fa-newspaper-o"></i>
-                                    <p>
-                                        Schedule
-
-                                    </p>
+                                    <p><font color="white">
+                                    Schedule
+                                    </font></p>
                                 </a>
                             </li>
 
@@ -116,10 +124,9 @@
                             <li class="nav-item">
                                 <a href="<?php echo base_url(); ?>index.php/Terapis/history" class="nav-link <?php if($this->uri->segment('2') != null){ echo "active";}?>">
                                     <i class="nav-icon fa fa-newspaper-o"></i>
-                                    <p>
+                                    <p><font color="white">
                                         Reservasi History
-
-                                    </p>
+                                    </font></p>
                                 </a>
                             </li>
 
