@@ -373,14 +373,15 @@
 
         
 
-         <!--Modal ADD-->
+          <!--Modal ADD-->
 
         <div class="modal fade" id="addSubKategori" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <!--Header-->
                     <div class="modal-header">
-
+                        <?php //echo form_open_multipart('Admin/add_gallery'); 
+                        ?>
 
                         <h4 class="modal-title" id="myModalLabel">Sub Kategori</h4>
                         <?php echo validation_errors(); ?>
@@ -418,7 +419,8 @@
                                 </div>
 
 
-                                <div class="input-group mb-3">
+
+                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">
                                             @
@@ -441,9 +443,7 @@
                                 </div>
 
 
-                               
-
-                                <div class="md-form mb-4">
+                                 <div class="md-form mb-4">
                                     <input type="file" id="foto_sub" class="form-control validate" name="foto_sub" placeholder="Input field">
 
                                 </div>
@@ -452,30 +452,32 @@
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">
-                                            <i class="fa fa-envelope">
-
-                                            </i>
+                                            @
                                         </span>
                                     </div>
                                     <input type="text" id="harga" name="harga" class="form-control" placeholder="Harga">
                                 </div>
 
+                                <div>
 
-
+                                </div>
+                               
                         </div>
 
                     </div>
                     <!--Footer-->
                     <div class="modal-footer">
-                        <input type="submit" name="submit" class="btn btn-outline-primary" id="btnSimpanSubKategori">
+                        <input type="submit" name="submit" class="btn btn-outline-primary" id="btnSimpanGallery">
                         <input type="button" class="btn btn-primary" value="Close" data-dismiss="modal">
                         <?php //echo form_close(); 
                         ?>
+
                     </div>
                     </form>
                 </div>
             </div>
         </div>
+
 
 
 
