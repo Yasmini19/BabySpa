@@ -73,7 +73,7 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                         <div class="dropdown-divider"></div>
-                        <a href="<?php echo site_url()?>/Login/logout" class="dropdown-item">
+                        <a href="<?php echo site_url() ?>/Login/logout" class="dropdown-item">
                             <i class="fas fa-users mr-2"></i> Logout
                         </a>
                     </div>
@@ -134,7 +134,7 @@
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     Terapis
-                                    
+
                                 </p>
                             </a>
                         </li>
@@ -160,21 +160,21 @@
                             </a>
                         </li>
 
-						 <li class="nav-item">
-                            <a href="<?php echo base_url();?>index.php/Admin/categori" class="nav-link">
-                            <i class="nav-icon fas fa-book"></i>
-                            <p>
-                                Kategori
-                            </p>
+                        <li class="nav-item">
+                            <a href="<?php echo base_url(); ?>index.php/Admin/categori" class="nav-link">
+                                <i class="nav-icon fas fa-book"></i>
+                                <p>
+                                    Kategori
+                                </p>
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="<?php echo base_url();?>index.php/Admin/subkategori" class="nav-link">
-                            <i class="nav-icon fas fa-book"></i>
-                            <p>
-                                SubKategori
-                            </p>
+                            <a href="<?php echo base_url(); ?>index.php/Admin/subkategori" class="nav-link">
+                                <i class="nav-icon fas fa-book"></i>
+                                <p>
+                                    SubKategori
+                                </p>
                             </a>
                         </li>
 
@@ -198,7 +198,7 @@
                                 </p>
                             </a>
                         </li>
-                        
+
 
                 </nav>
                 <!-- /.sidebar-menu -->
@@ -238,11 +238,11 @@
                             </div>
                             <!--Add-->
                             <div class="card-footer clearfix">
-                                <button type="button" class="btn btn-info float-left" data-toggle="modal" data-target="#modal-tambah-subKategori">
+                                <button type="button" class="btn btn-info float-left" data-toggle="modal" data-target="#modal-tambah-reservasi">
                                     <i class="fas fa-plus"></i> Add
                                 </button>
 
-                                
+
                             </div>
 
                             <!--search-->
@@ -278,22 +278,13 @@
                                                 <td><?php echo $value->nominal_diskon ?></td>
                                                 <td><?php echo $value->biaya_transportasi ?></td>
                                                 <td><?php echo $value->total_harga_akhir ?></td>
-                                                 
+
                                                 <td>
-                                                   <a href="<?php echo base_url('/Admin/edit_reservasi/'. $value->id_reservasi) ?>" class="btn btn-info" aria-hidden="true" data-toggle="modal" data-target="#modal-edit-reservasi" name="tombolEditReservasi" value="<?php echo $value->id_reservasi; ?>">
-                                                       Edit
-                                                   </a>
-                                                   
+                                                    <a href="<?php echo base_url('/Admin/edit_reservasi/' . $value->id_reservasi) ?>" class="btn btn-info" aria-hidden="true" data-toggle="modal" data-target="#modal-edit-reservasi" name="tombolEditReservasi" value="<?php echo $value->id_reservasi; ?>">
+                                                        Edit
+                                                    </a>
 
 
-                                                   
-                                                    
-
-                                                    <!--<button type="button" class="btn btn-primary">Konfirmasi</button>-->
-
-                                                    <!--<a href="<?php echo base_url('/Admin/delete_subKategori/'. $value->id_sub_kategori) ?>" class="far fa-trash-alt" aria-hidden="true" name="tombolDeleteSubKategori" value="<?php echo $value->id_sub_kategori; ?>"></a>-->
-
-                                                    <!--<button type="button" class="btn btn-danger">Cancel</button>-->
 
                                                 </td>
 
@@ -315,7 +306,7 @@
 
         <!--Modal ADD-->
 
-        <div class="modal fade" id="modal-tambah-subKategori" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="modal-tambah-reservasi" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <!--Header-->
@@ -323,7 +314,7 @@
                         <?php //echo form_open_multipart('Admin/add_gallery'); 
                         ?>
 
-                        <h4 class="modal-title" id="myModalLabel">Sub Kategori</h4>
+                        <h4 class="modal-title" id="myModalLabel">Reservasi</h4>
                         <?php echo validation_errors(); ?>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">×</span>
@@ -331,9 +322,23 @@
                     </div>
                     <!--Body-->
                     <div class="modal-body">
-                        <div class="modal-body mx-3">
-                            <!-- <FORM id="addTerapis"> -->
-                            <form method="post" accept-charset="utf-8" id="addSubKategori" enctype="multipart/form-data">
+                        <!-- <FORM id="addTerapis"> -->
+                        <form method="post" accept-charset="utf-8" id="addReservasi" enctype="multipart/form-data">
+                            <div class="modal-body mx-3">
+                                
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            @
+                                        </span>
+                                    </div>
+                                    <select class="form-control" name="pemesan_id" id="pemesan_id" required>
+                                        <option value="">Pilih Pemesan</option>
+                                        <?php foreach ($pemesan as $row) : ?>
+                                            <option value="<?php echo $row->id_user; ?>"><?php echo $row->full_name; ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
 
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
@@ -341,9 +346,13 @@
                                             @
                                         </span>
                                     </div>
-                                    <input type="text" id="judul_sub" name="judul_sub" class="form-control" placeholder="Judul ">
+                                    <select class="form-control" name="terapis_id" id="terapis_id" required>
+                                        <option value="">Pilih Terapis</option>
+                                        <?php foreach ($terapis as $row) : ?>
+                                            <option value="<?php echo $row->id_user; ?>"><?php echo $row->full_name; ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
                                 </div>
-
 
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
@@ -351,15 +360,13 @@
                                             @
                                         </span>
                                     </div>
-                                    <input type="text" id="keterangan_sub" name="keterangan_sub" class="form-control" placeholder="Keterangan ">
+                                    <select class="form-control" name="sesi_id" id="sesi_id" required>
+                                        <option value="">Pilih Sesi</option>
+                                        <?php foreach ($sesi as $row) : ?>
+                                            <option value="<?php echo $row->id_sesi; ?>"><?php echo $row->sesi; ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
                                 </div>
-
-
-                                 <div class="md-form mb-4">
-                                    <input type="file" id="foto_sub" class="form-control validate" name="foto_sub" placeholder="Input field">
-
-                                </div>
-
 
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
@@ -367,26 +374,67 @@
                                             @
                                         </span>
                                     </div>
-                                    <input type="text" id="harga" name="harga" class="form-control" placeholder="Harga">
+                                    <input type="date" id="tgl_reservasi" name="tgl_reservasi" class="form-control" placeholder="Tgl Reservasi">
                                 </div>
-                        </div>
 
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            @
+                                        </span>
+                                    </div>
+                                    <input type="text" id="total_harga_awal" name="total_harga_awal" class="form-control" placeholder="Total Harga Awal">
+                                </div>
+
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            @
+                                        </span>
+                                    </div>
+                                    <input type="text" id="diskon_persen" name="diskon_persen" class="form-control" placeholder="Diskon Persen">
+                                </div>
+
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            @
+                                        </span>
+                                    </div>
+                                    <input type="text" id="nominal_diskon" name="nominal_diskon" class="form-control" placeholder="Nominal Diskon">
+                                </div>
+
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            @
+                                        </span>
+                                    </div>
+                                    <input type="text" id="biaya_transportasi" name="biaya_transportasi" class="form-control" placeholder="Biaya Transportasi">
+                                </div>
+
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            @
+                                        </span>
+                                    </div>
+                                    <input type="text" id="total_harga_akhir" name="total_harga_akhir" class="form-control" placeholder="Total Harga Akhir">
+                                </div>
+
+                            </div>
+                            <!--Footer-->
+                            <div class="modal-footer">
+                                <input type="submit" name="submit" class="btn btn-outline-primary" id="btnSimpanReservasi">
+                                <input type="button" class="btn btn-primary" value="Close" data-dismiss="modal">
+                            </div>
+                        </form>
                     </div>
-                    <!--Footer-->
-                    <div class="modal-footer">
-                        <input type="submit" name="submit" class="btn btn-outline-primary" id="btnSimpanSubKategori">
-                        <input type="button" class="btn btn-primary" value="Close" data-dismiss="modal">
-                        <?php //echo form_close(); 
-                        ?>
-
-                    </div>
-                    </form>
                 </div>
             </div>
         </div>
 
         <!--Modal EDIT-->
-
         <div class="modal fade" id="modal-edit-reservasi" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -400,17 +448,17 @@
                         </button>
                     </div>
                     <!--Body-->
-                        <div class="modal-body">
-                            <div class="modal-body mx-3">
-                    <!-- <FORM id="addTerapis"> -->
-                    <form method="post" accept-charset="utf-8" id="editReservasi" enctype="multipart/form-data">
-                        
+                    <div class="modal-body">
+                        <div class="modal-body mx-3">
+                            <!-- <FORM id="addTerapis"> -->
+                            <form method="post" accept-charset="utf-8" id="editReservasi" enctype="multipart/form-data">
+
 
                                 <input type="hidden" id="edit_id" name="edit_id">
                                 <input type="hidden" id="edit_harga" name="edit_harga">
-            
 
-                                 <div class="input-group mb-3">
+
+                                <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">
                                             @
@@ -421,7 +469,7 @@
 
 
 
-                                
+
 
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
@@ -452,23 +500,22 @@
                                     <input type="text" id="edit_total_harga_akhir" name="edit_total_harga_akhir" class="form-control" placeholder="Total Harga Akhir" readonly="">
                                 </div>
 
-                            </div>
-
                         </div>
 
+                    </div>
 
-                        <!--Footer-->
-                        <div class="modal-footer">
-                            <input type="submit" name="submit" class="btn btn-outline-primary" id="btnSimpanReservasi">
-                            <input type="button" class="btn btn-primary" value="Close" data-dismiss="modal">
-                            <?php //echo form_close(); 
-                            ?>
-                        </div>
+
+                    <!--Footer-->
+                    <div class="modal-footer">
+                        <input type="submit" name="submit" class="btn btn-outline-primary" id="btnSimpanReservasi">
+                        <input type="button" class="btn btn-primary" value="Close" data-dismiss="modal">
+                        <?php //echo form_close(); 
+                        ?>
+                    </div>
                     </form>
                 </div>
             </div>
         </div>
-
 
         <!-- Main content -->
         <section class="content">
@@ -476,260 +523,282 @@
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
                 </div>
-                    <!-- /.card -->
+            </div>
+                <!-- /.card -->
         </section>
-        <!-- right col -->
-    <!-- </div> -->
-    <!-- /.row (main row) -->
+            <!-- right col -->
+            <!-- </div> -->
+            <!-- /.row (main row) -->
     </div><!-- /.container-fluid -->
-    </section>
-    <!-- /.content -->
-    <!-- </div> -->
+        <!-- /.content -->
+        <!-- </div> -->
 
-    <!-- /.content-wrapper -->
-    <footer class="main-footer">
-        <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong>
-        All rights reserved.
-        <div class="float-right d-none d-sm-inline-block">
-            <b>Version</b> 3.0.0-rc.1
-        </div>
-    </footer>
+        <!-- /.content-wrapper -->
+        <footer class="main-footer">
+            <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong>
+            All rights reserved.
+            <div class="float-right d-none d-sm-inline-block">
+                <b>Version</b> 3.0.0-rc.1
+            </div>
+        </footer>
 
-    <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
-        <!-- Control sidebar content goes here -->
-    </aside>
-    <!-- /.control-sidebar -->
-    <!-- </div> -->
-    <!-- ./wrapper -->
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
+        <!-- </div> -->
+        <!-- ./wrapper -->
 
-    <script src="<?php echo base_url(); ?>assets/admin/jquery/jquery.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="<?php echo base_url(); ?>assets/admin/jquery/jquery.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 
-    <!-- jQuery -->
-    <!-- <script src="<?php //echo base_url(); 
-                        ?>assets/admin/plugins/jquery/jquery.min.js"></script> -->
-    <!-- jQuery UI 1.11.4 -->
-    <script src="<?php echo base_url(); ?>assets/admin/plugins/jquery-ui/jquery-ui.min.js"></script>
-    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-    <script>
-        $.widget.bridge('uibutton', $.ui.button)
-    </script>
+        <!-- jQuery -->
+        <!-- <script src="<?php //echo base_url(); 
+                            ?>assets/admin/plugins/jquery/jquery.min.js"></script> -->
+        <!-- jQuery UI 1.11.4 -->
+        <script src="<?php echo base_url(); ?>assets/admin/plugins/jquery-ui/jquery-ui.min.js"></script>
+        <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+        <script>
+            $.widget.bridge('uibutton', $.ui.button)
+        </script>
 
-    <script src="<?php echo base_url(); ?>assets/admin/js/template.js"></script>
-    <!-- Bootstrap 4 -->
-    <script src="<?php echo base_url(); ?>assets/admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- ChartJS -->
-    <script src="<?php echo base_url(); ?>assets/admin/plugins/chart.js/Chart.min.js"></script>
-    <!-- Sparkline -->
-    <script src="<?php echo base_url(); ?>assets/admin/plugins/sparklines/sparkline.js"></script>
-    <!-- JQVMap -->
-    <script src="<?php echo base_url(); ?>assets/admin/plugins/jqvmap/jquery.vmap.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/admin/plugins/jqvmap/maps/jquery.vmap.world.js"></script>
-    <!-- jQuery Knob Chart -->
-    <script src="<?php echo base_url(); ?>assets/admin/plugins/jquery-knob/jquery.knob.min.js"></script>
-    <!-- daterangepicker -->
-    <script src="<?php echo base_url(); ?>assets/admin/plugins/moment/moment.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/admin/plugins/daterangepicker/daterangepicker.js"></script>
-    <!-- Tempusdominus Bootstrap 4 -->
-    <script src="<?php echo base_url(); ?>assets/admin/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
-    <!-- Summernote -->
-    <script src="<?php echo base_url(); ?>assets/admin/plugins/summernote/summernote-bs4.min.js"></script>
-    <!-- overlayScrollbars -->
-    <script src="<?php echo base_url(); ?>assets/admin/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="<?php echo base_url(); ?>assets/admin/dist/js/adminlte.js"></script>
-    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="<?php echo base_url(); ?>assets/admin/dist/js/pages/dashboard.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="<?php echo base_url(); ?>assets/admin/dist/js/demo.js"></script>
+        <script src="<?php echo base_url(); ?>assets/admin/js/template.js"></script>
+        <!-- Bootstrap 4 -->
+        <script src="<?php echo base_url(); ?>assets/admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- ChartJS -->
+        <script src="<?php echo base_url(); ?>assets/admin/plugins/chart.js/Chart.min.js"></script>
+        <!-- Sparkline -->
+        <script src="<?php echo base_url(); ?>assets/admin/plugins/sparklines/sparkline.js"></script>
+        <!-- JQVMap -->
+        <script src="<?php echo base_url(); ?>assets/admin/plugins/jqvmap/jquery.vmap.min.js"></script>
+        <script src="<?php echo base_url(); ?>assets/admin/plugins/jqvmap/maps/jquery.vmap.world.js"></script>
+        <!-- jQuery Knob Chart -->
+        <script src="<?php echo base_url(); ?>assets/admin/plugins/jquery-knob/jquery.knob.min.js"></script>
+        <!-- daterangepicker -->
+        <script src="<?php echo base_url(); ?>assets/admin/plugins/moment/moment.min.js"></script>
+        <script src="<?php echo base_url(); ?>assets/admin/plugins/daterangepicker/daterangepicker.js"></script>
+        <!-- Tempusdominus Bootstrap 4 -->
+        <script src="<?php echo base_url(); ?>assets/admin/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+        <!-- Summernote -->
+        <script src="<?php echo base_url(); ?>assets/admin/plugins/summernote/summernote-bs4.min.js"></script>
+        <!-- overlayScrollbars -->
+        <script src="<?php echo base_url(); ?>assets/admin/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+        <!-- AdminLTE App -->
+        <script src="<?php echo base_url(); ?>assets/admin/dist/js/adminlte.js"></script>
+        <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+        <script src="<?php echo base_url(); ?>assets/admin/dist/js/pages/dashboard.js"></script>
+        <!-- AdminLTE for demo purposes -->
+        <script src="<?php echo base_url(); ?>assets/admin/dist/js/demo.js"></script>
 
-    <script src="<?php echo base_url(); ?>assets/admin/plugins/datatables/jquery.dataTables.js"></script>
-    <script src="<?php echo base_url(); ?>assets/admin/plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
-    <!-- AdminLTE App -->
-    <script src="<?php echo base_url(); ?>assets/admin/dist/js/adminlte.min.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="<?php echo base_url(); ?>assets/admin/dist/js/demo.js"></script>
-    <!-- page script -->
-    <script>
-        $(function() {
-            $("#example1").DataTable();
-            $('#example2').DataTable({
-                "paging": true,
-                "lengthChange": false,
-                "searching": false,
-                "ordering": true,
-                "info": true,
-                "autoWidth": false,
+        <script src="<?php echo base_url(); ?>assets/admin/plugins/datatables/jquery.dataTables.js"></script>
+        <script src="<?php echo base_url(); ?>assets/admin/plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
+        <!-- AdminLTE App -->
+        <script src="<?php echo base_url(); ?>assets/admin/dist/js/adminlte.min.js"></script>
+        <!-- AdminLTE for demo purposes -->
+        <script src="<?php echo base_url(); ?>assets/admin/dist/js/demo.js"></script>
+        <!-- page script -->
+        <script>
+            $(function() {
+                $("#example1").DataTable();
+                $('#example2').DataTable({
+                    "paging": true,
+                    "lengthChange": false,
+                    "searching": false,
+                    "ordering": true,
+                    "info": true,
+                    "autoWidth": false,
+                });
             });
-        });
-    </script>
+        </script>
 
-    <script type="text/javascript">
-        $('form#addReservasi').submit(function(e) {
-            e.preventDefault();
-            var formData = new FormData($('form#addReservasi')[0]);
-
-            $.ajax({
-                url: '<?php echo site_url('admin/add_reservasi'); ?>',
-                type: 'POST',
-                data: formData,
-                dataType: 'json',
-
-                cache: false,
-                contentType: false,
-                processData: false,
-
-                success: function(response) {
-
-                    if (response == true) {
-                        alert('berhasil');
-                        alert(response);
-                        //location.reload();
-                    } else {
-                        alert('error : ' + response);
-                    }
-
-                }
+        <script type="text/javascript">
+            $('#total_harga_awal').change(function() {
+                diskon();
             });
-        });
 
-        $('#searchTable').keyup(function() {
+            $('#diskon_persen').change(function() {
+                diskon();
+            });
 
-            var text = $('#searchTable').val();
+            $('#biaya_transportasi').change(function() {
+                diskon();
+            });
 
-            if (text != '' || text != null) {
+            function diskon() {
+                total_harga_awal = $('#total_harga_awal').val();
+                diskon_persen = $('#diskon_persen').val();
+                nominal_diskon = total_harga_awal * diskon_persen / 100;
+                $("#nominal_diskon").val(nominal_diskon);
+                biaya_transportasi = $('#biaya_transportasi').val();
+                total_harga_akhir = total_harga_awal - nominal_diskon + parseInt(biaya_transportasi);
+                $('#total_harga_akhir').val(total_harga_akhir);
+            }
+
+            $('form#addReservasi').submit(function(e) {
+                e.preventDefault();
+                var formData = new FormData($('form#addReservasi')[0]);
 
                 $.ajax({
-                    url: '<?php echo site_url('admin/search_reservasi') ?>',
-                    type: 'post',
-                    data: {
-                        text: text
-                    },
-                    success: function(data) {
-                        //alert(data);
-                        $('#divHasil').html(data);
-                        //$('#divHasil').innerHTML=data;
+                    url: '<?php echo site_url('admin/add_reservasi'); ?>',
+                    type: 'POST',
+                    data: formData,
+                    dataType: 'json',
+
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+
+                    success: function(response) {
+
+                        if (response = 'true') {
+                            alert('berhasil');
+                            location.reload();
+                        } else {
+                            alert('error : ' + response);
+                        }
+
                     }
                 });
-            } else {
-                alert('error');
-            }
-        });
+            });
 
-        $('[name="tombolEditReservasi"]').click(function() {
+            $('#searchTable').keyup(function() {
 
-            var id = $(this).attr('value');
-            //alert(id);
+                var text = $('#searchTable').val();
 
-            $.ajax({
-                url: '<?php echo site_url('admin/get_reservasi') ?>',
-                type: 'post',
-                data: {
-                    id: id
-                },
-                success: function(data) {
-                    if (data == null) {
-                        alert('kosong');
-                    }
+                if (text != '' || text != null) {
 
-                    data = JSON.parse(data);
-
-                    //alert(data);
-                    
-                    // $('#diskon').keyup(function(){
-                        
-                    // var harga=parseInt(data.total_harga_awal);
-                    // var diskon=parseInt($('#diskon').val());
-             
-                    // var total_bayar=bayar-(diskon/100)*bayar;
-                    // $('#edit_nominal_diskon').val(total_bayar);
-                    // });
-
-                    var harga = parseInt(data.total_harga_awal);
-                    var diskon = parseInt($('#edit_diskon_persen').val());
-                    var total = harga - (diskon/100)*harga;
-
-                    $('#edit_id').val(data.id_reservasi);
-                    $('#edit_harga').val(harga);
-                    
-                    $('#edit_diskon_persen').val(data.diskon_persen);
-
-                    $('#edit_nominal_diskon').val(total);
-                    $('#edit_biaya_transportasi').val(data.biaya_transportasi);     
+                    $.ajax({
+                        url: '<?php echo site_url('admin/search_reservasi') ?>',
+                        type: 'post',
+                        data: {
+                            text: text
+                        },
+                        success: function(data) {
+                            //alert(data);
+                            $('#divHasil').html(data);
+                            //$('#divHasil').innerHTML=data;
+                        }
+                    });
+                } else {
+                    alert('error');
                 }
             });
-        });
 
-        $('#edit_diskon_persen').keyup(function(){
-            var harga = parseInt($('#edit_harga').val());
-            var diskon = parseInt($('#edit_diskon_persen').val());
-            var total = harga - (diskon/100)*harga;
+            $('[name="tombolEditReservasi"]').click(function() {
 
-            $('#edit_nominal_diskon').val(total);
-        });
+                var id = $(this).attr('value');
+                //alert(id);
 
-        $('#edit_biaya_transportasi').keyup(function(){
-            var total = parseInt($('#edit_nominal_diskon').val());
-            var transport = parseInt($('#edit_biaya_transportasi').val());
-            var totalhargaakhir = total + transport;
+                $.ajax({
+                    url: '<?php echo site_url('admin/get_reservasi') ?>',
+                    type: 'post',
+                    data: {
+                        id: id
+                    },
+                    success: function(data) {
+                        if (data == null) {
+                            alert('kosong');
+                        }
 
-            $('#edit_total_harga_akhir').val(totalhargaakhir);
-        });
+                        data = JSON.parse(data);
 
+                        //alert(data);
 
-        //ajaxformedit
-        $('form#editReservasi').submit(function(e) {
-            e.preventDefault();
-            var formData = new FormData($('form#editReservasi')[0]);
+                        // $('#diskon').keyup(function(){
 
-            $.ajax({
-                url: '<?php echo site_url('admin/edit_reservasi'); ?>',
-                type: 'POST',
-                data: formData,
+                        // var harga=parseInt(data.total_harga_awal);
+                        // var diskon=parseInt($('#diskon').val());
 
-                cache: false,
-                contentType: false,
-                processData: false,
+                        // var total_bayar=bayar-(diskon/100)*bayar;
+                        // $('#edit_nominal_diskon').val(total_bayar);
+                        // });
 
-                success: function(response) {
+                        var harga = parseInt(data.total_harga_awal);
+                        var diskon = parseInt($('#edit_diskon_persen').val());
+                        var total = harga - (diskon / 100) * harga;
 
-                    if (response) {
-                        alert('berhasil');
-                        location.reload();
-                    } else {
-                        alert('error : ' + response);
+                        $('#edit_id').val(data.id_reservasi);
+                        $('#edit_harga').val(harga);
+
+                        $('#edit_diskon_persen').val(data.diskon_persen);
+
+                        $('#edit_nominal_diskon').val(total);
+                        $('#edit_biaya_transportasi').val(data.biaya_transportasi);
                     }
-
-                }
+                });
             });
-        });
+
+            $('#edit_diskon_persen').keyup(function() {
+                var harga = parseInt($('#edit_harga').val());
+                var diskon = parseInt($('#edit_diskon_persen').val());
+                var total = harga - (diskon / 100) * harga;
+
+                $('#edit_nominal_diskon').val(total);
+            });
+
+            $('#edit_biaya_transportasi').keyup(function() {
+                var total = parseInt($('#edit_nominal_diskon').val());
+                var transport = parseInt($('#edit_biaya_transportasi').val());
+                var totalhargaakhir = total + transport;
+
+                $('#edit_total_harga_akhir').val(totalhargaakhir);
+            });
 
 
-        //ajaxdelete
-      $('[name="tombolDeleteSubKategori"]').click(function(e){
-        e.preventDefault();
-        var id = $(this).attr('value')
-        //alert(id);
-        $.ajax({
-          url: '<?php echo site_url('admin/delete_subKategori') ?>',
-          type: 'post',
-          data: {id:id},
-          success: function(response) {
-            //alert(response);
-          if (response)
-            {
-              alert('berhasil');
-              location.reload();
-            }
-            else
-            { alert('error : ' + response); }
-          
-          }
-        });
-      });
-    </script>
+            //ajaxformedit
+            $('form#editReservasi').submit(function(e) {
+                e.preventDefault();
+                var formData = new FormData($('form#editReservasi')[0]);
+
+                $.ajax({
+                    url: '<?php echo site_url('admin/edit_reservasi'); ?>',
+                    type: 'POST',
+                    data: formData,
+
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+
+                    success: function(response) {
+
+                        if (response) {
+                            alert('berhasil');
+                            location.reload();
+                        } else {
+                            alert('error : ' + response);
+                        }
+
+                    }
+                });
+            });
+
+
+            //ajaxdelete
+            $('[name="tombolDeleteSubKategori"]').click(function(e) {
+                e.preventDefault();
+                var id = $(this).attr('value')
+                //alert(id);
+                $.ajax({
+                    url: '<?php echo site_url('admin/delete_subKategori') ?>',
+                    type: 'post',
+                    data: {
+                        id: id
+                    },
+                    success: function(response) {
+                        //alert(response);
+                        if (response) {
+                            alert('berhasil');
+                            location.reload();
+                        } else {
+                            alert('error : ' + response);
+                        }
+
+                    }
+                });
+            });
+        </script>
 
 </body>
 
