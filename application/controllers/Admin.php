@@ -320,7 +320,7 @@ public function edit_terapis()
     $data = array(
         'full_name'     => $this->input->post('edit_full_name'), 
         'username'      => $this->input->post('edit_username'), 
-        'password'      => $this->input->post('edit_password'),
+        //'password'      => $this->input->post('edit_password'),
         'email'         => $this->input->post('edit_email'),   
         'no_telp'       => $this->input->post('edit_no_telp'),               
         'alamat'        => $this->input->post('edit_alamat'),
@@ -356,6 +356,20 @@ public function delete_terapis()
     $result = $this->GeneralModel->delete_data($id,'user');
     echo json_encode($result);
 }
+
+
+public function gantiPswrd_terapis($id)
+{
+    $data =  array(
+                    'password' => MD5("mamina123") 
+    );
+    $id = array(
+        'id_user' => $id);
+
+    $this->GeneralModel->update_data('user', $data, $id );
+    redirect('Admin/terapis');
+}
+
 
         //user
 public function user()
@@ -487,7 +501,7 @@ public function edit_user()
     $data = array(
         'full_name'     => $this->input->post('edit_full_name'), 
         'username'      => $this->input->post('edit_username'), 
-        'password'      => $this->input->post('edit_password'),
+        //'password'      => $this->input->post('edit_password'),
         'email'         => $this->input->post('edit_email'),   
         'no_telp'       => $this->input->post('edit_no_telp'),               
         'alamat'        => $this->input->post('edit_alamat'),
@@ -508,14 +522,25 @@ public function edit_user()
 
 public function delete_user()
 {
-
-
-
-   
+  
     $id = array('id_user' => $this->input->post('id') );
     $result = $this->GeneralModel->delete_data($id,'user');
     echo json_encode($result);
 }
+
+
+public function gantiPswrd_user($id)
+{
+    $data =  array(
+                    'password' => MD5("mamina123")
+    );
+
+    $id =  array('id_user' => $id);
+
+    $this->GeneralModel->update_data('user', $data, $id);
+    redirect('Admin/user');
+}
+
 
             //Berita
 
