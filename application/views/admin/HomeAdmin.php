@@ -238,9 +238,9 @@
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
                                         <th class="sorting_asc" tabindex="0" aria-controls="demo-datatables" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending">Id Reservasi</th>
-                                        <th>Id Pemesan</th>
+                                        <th>Pemesan</th>
                                         <th>Nama Terapis</th>
-                                        <th>Id Sesi</th>
+                                        <th>Sesi</th>
                                         <th>Tgl Reservasi</th>
                                         <th>Total Harga Awal</th>
                                         <th>Diskon Persen</th>
@@ -255,8 +255,8 @@
                                             <tr>
                                                 <td><?php echo $value->id_reservasi ?></td>
 
-                                                <td><?php echo $value->pemesan_id ?></td>
-                                                <td><?php echo $value->full_name ?></td>
+                                                <td><?php echo $value->terapis ?></td>
+                                                <td><?php echo $value->pemesan ?></td>
                                                 <td><?php echo $value->sesi_id ?></td>
                                                 <td><?php echo $value->tgl_reservasi ?></td>
                                                 <td><?php echo $value->total_harga_awal ?></td>
