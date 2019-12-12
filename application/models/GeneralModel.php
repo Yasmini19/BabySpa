@@ -125,6 +125,7 @@ class GeneralModel extends CI_Model {
         return $query;
     }
 
+
     public function get_3join($table,$table1,$table2,$on, $on2)
     {
         $this->db->select('*');
@@ -280,6 +281,17 @@ class GeneralModel extends CI_Model {
     public function get_4join($table,$table1,$table2,$table3,$on,$on2,$on3)
     {
         $this->db->select('*');
+        $this->db->from($table);
+        $this->db->join($table1, $on);
+        $this->db->join($table2, $on2);
+        $this->db->join($table3, $on3);
+        $query = $this->db->get();
+        return $query;
+    }
+
+     public function get_4join_uniq($table,$table1,$table2,$table3,$on,$on2,$on3)
+    {
+        $this->db->select('*,a.full_name as pemesan,u.full_name as terapis');
         $this->db->from($table);
         $this->db->join($table1, $on);
         $this->db->join($table2, $on2);

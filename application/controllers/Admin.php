@@ -19,7 +19,7 @@ class Admin extends CI_Controller {
     public function dashboard()
     {
         //$data['dashboard'] = $this->GeneralModel->get_data('reservasi')->result();
-        $data['dashboard'] = $this->GeneralModel->get_join('reservasi', 'user', 'reservasi.terapis_id = user.id_user')->result();
+        $data['dashboard'] = $this->GeneralModel->get_4join_uniq('reservasi', 'user as u','user as a','sesi_reservasi','reservasi.terapis_id = u.id_user','reservasi.pemesan_id = a.id_user','reservasi.sesi_id = sesi_reservasi.id_sesi')->result();
         $this->load->view('admin/HomeAdmin', $data);
 
     }
@@ -626,7 +626,7 @@ public function reservasi()
 {
 
     //$data['reser'] = $this->GeneralModel->get_data('reservasi')->result();
-    $data['reser'] = $this->GeneralModel->get_join('reservasi', 'user', 'reservasi.terapis_id = user.id_user')->result();
+    $data['reser'] = $this->GeneralModel->get_4join_uniq('reservasi', 'user as u','user as a','sesi_reservasi','reservasi.terapis_id = u.id_user','reservasi.pemesan_id = a.id_user','reservasi.sesi_id = sesi_reservasi.id_sesi')->result();
     $data['pemesan'] = $this->GeneralModel->get_selected('user','level = "2"')->result();
     $data['terapis'] = $this->GeneralModel->get_selected('user','level = "3"')->result();
     $data['sesi'] = $this->GeneralModel->get_data('sesi_reservasi')->result();
