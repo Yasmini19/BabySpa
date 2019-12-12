@@ -273,6 +273,10 @@
                                                 <td>
                                                     <a href="<?php echo base_url("/Admin/edit_terapis/" . $value->id_user) ?>" class="fas fa-edit" aria-hidden="true" data-toggle="modal" data-target="#modal-edit" name="tombolEdit" value="<?php echo $value->id_user; ?>"></a>
                                                     <a href="<?php echo base_url("/Admin/delete_terapis/" . $value->id_user) ?>" class="far fa-trash-alt" aria-hidden="true" name="tombolDelete" value="<?php echo $value->id_user; ?>"></a>
+
+
+                                                    <a href="<?php echo base_url('index.php/Admin/gantiPswrd_terapis/'. $value->id_user) ?>" class="fas fa-key" aria-hidden="true" name="gantiPswrd_terapis" value="<?php echo $value->id_user; ?>"></a>
+
                                                 </td>
 
                                             </tr>
@@ -340,7 +344,7 @@
                                     <input type="text" id="username" name="username" class="form-control" placeholder="Username">
                                 </div>
 
-                                <div class="input-group mb-3">
+                               <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">
                                             @
@@ -348,6 +352,7 @@
                                     </div>
                                     <input type="password" id="password" name="password" class="form-control" placeholder="Password">
                                 </div>
+                           
 
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
@@ -447,7 +452,7 @@
                                      <input type="text" id="edit_username" class="form-control validate" name="edit_username" placeholder="Input field">
                                 </div>
 
-                                <div class="input-group mb-3">
+                                <!--<div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">
                                             @
@@ -455,6 +460,7 @@
                                     </div>
                                      <input type="password" id="edit_password" class="form-control validate" name="edit_password" placeholder="Input field">
                                 </div>
+                            -->
 
 
                                 <div class="input-group mb-3">
@@ -687,7 +693,7 @@
                     $('#edit_level').val(data.level);
                     $('#edit_full_name').val(data.full_name);
                     $('#edit_username').val(data.username);
-                    $('#edit_password').val(data.password);
+                    //$('#edit_password').val(data.password);
                     $('#edit_email').val(data.email);
                     $('#edit_no_telp').val(data.no_telp);
                     $('#edit_alamat').val(data.alamat);

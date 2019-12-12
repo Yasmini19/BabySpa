@@ -275,6 +275,10 @@
                                                 <td>
                                                     <a href="<?php echo base_url("/Admin/edit_user/" . $value->id_user) ?>" class="fas fa-edit" aria-hidden="true" data-toggle="modal" data-target="#modal-edit-user" name="tombolEditUser" value="<?php echo $value->id_user; ?>"></a>
                                                     <a href="<?php echo base_url("/Admin/delete_user/" . $value->id_user) ?>" class="far fa-trash-alt" aria-hidden="true" name="tombolDeleteUser" value="<?php echo $value->id_user; ?>"></a>
+
+                                                     <a href="<?php echo site_url('/Admin/gantiPswrd_user/'. $value->id_user) ?>" class="fas fa-key" aria-hidden="true" name="gantiPswrd_user" value="<?php echo $value->id_user; ?>"></a>
+
+
                                                 </td>
 
                                             </tr>
@@ -450,7 +454,7 @@
                                 </div>
 
 
-                                 <div class="input-group mb-3">
+                                 <!--<div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">
                                             @
@@ -458,6 +462,7 @@
                                     </div>
                                      <input type="password" id="edit_password" class="form-control validate" name="edit_password" placeholder="Input field">
                                 </div>
+                            -->
 
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
@@ -690,7 +695,7 @@
                     $('#edit_level').val(data.level);
                     $('#edit_full_name').val(data.full_name);
                     $('#edit_username').val(data.username);
-                    $('#edit_password').val(data.password);
+                   // $('#edit_password').val(data.password);
                     $('#edit_email').val(data.email);
                     $('#edit_no_telp').val(data.no_telp);
                     $('#edit_alamat').val(data.alamat);
