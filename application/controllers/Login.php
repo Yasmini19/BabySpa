@@ -81,9 +81,13 @@
             'alamat'        => $this->input->post('alamat'),   
             'password'      => md5($this->input->post('password')),
             'level'         => '2'
-            );
+        );
+            
+            $result = $this->GeneralModel->add_data('user', $data);
 
-           $result = $this->GeneralModel->add_data('user', $data);
+            $this->session->set_flashdata('swal','Success|Register Berhasil|success');
+            
+            redirect('Login','refresh');
         }
     }
 ?>

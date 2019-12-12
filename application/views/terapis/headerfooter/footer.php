@@ -1,11 +1,11 @@
 
-<script src="<?php echo base_url(); ?>assets/admin/jquery/jquery.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url().'assets/terapis/js/moment.min.js'; ?>"></script>
 <!-- <script type="text/javascript" src="<?php echo base_url().'assets/terapis/js/bootstrap.min.js'; ?>"></script>       -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url().'assets/terapis/fullcalendar/fullcalendar.js'; ?>"></script>      
 <script type="text/javascript">
+
     var get_data        = '<?php echo $get_data; ?>';
     var backend_url     = '<?php echo base_url(); ?>';
 
