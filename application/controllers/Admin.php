@@ -315,7 +315,8 @@ public function edit_terapis()
     $config['max_height']      = 7680;
 
     $this->load->library('upload',$config);
-    
+    $result='';
+
     $id = array('id_user' => $this->input->post('edit_id') );
     $data = array(
         'full_name'     => $this->input->post('edit_full_name'), 
@@ -327,24 +328,12 @@ public function edit_terapis()
         'level'         => $this->input->post('edit_level'),
     );
 
-    $result=false;
     if ($this->upload->do_upload('edit_foto'))
     {
         $data['foto'] = $this->upload->data('file_name');
-        
-        $result = $this->GeneralModel->update_data('user', $data, $id );
-        $result=true;
     }
-    else
-    {
-        $result = $this->upload->display_errors();
-        $allowed = explode("|", $config['allowed_types']);
-        $filename = $this->upload->data('file_name');
-        $ext = pathinfo($filename, PATHINFO_EXTENSION);
-        if(!in_array($ext,$allowed) ) {
-            $result = 'harap sesuaikan tipe file';
-        }
-    }
+
+    $result = $this->GeneralModel->update_data('user', $data, $id );
 
     echo json_encode($result);
 }
