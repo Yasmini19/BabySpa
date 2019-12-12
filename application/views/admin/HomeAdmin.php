@@ -257,7 +257,7 @@
 
                                                 <td><?php echo $value->terapis ?></td>
                                                 <td><?php echo $value->pemesan ?></td>
-                                                <td><?php echo $value->sesi_id ?></td>
+                                                <td><?php echo $value->waktu ?></td>
                                                 <td><?php echo $value->tgl_reservasi ?></td>
                                                 <td><?php echo $value->total_harga_awal ?></td>
                                                 <td><?php echo $value->diskon_persen ?></td>
