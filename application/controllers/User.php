@@ -357,7 +357,7 @@ class User extends CI_Controller {
         $data['data2'] = $this->GeneralModel->get_selected_offset('berita',$where2,'5','id_berita','RANDOM')->result();
 
         $this->load->view('user/headerfooter/header',$data);
-        $this->load->view('user/detailBeritaUser',$data);
+        $this->load->view('user/DetailBeritaUser',$data);
         $this->load->view('user/headerfooter/footer');
     }
 

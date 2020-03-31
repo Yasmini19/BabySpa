@@ -27,7 +27,7 @@
             $this->form_validation->set_rules('username', 'Username', 'trim|required');
             $this->form_validation->set_rules('password', 'Password', 'trim|required|callback_cekDb');
             if ($this->form_validation->run() == FALSE) {
-                $this->load->view('login');
+                $this->load->view('Login');
             } else {
                 $session_data = $this->session->userdata('logged_in');
                 $data['username'] = $session_data['username'];

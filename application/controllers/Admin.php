@@ -768,7 +768,7 @@ public function delete_categori()
 
 public function subkategori() 
 {
- $data['subktg'] = $this->GeneralModel->get_data('sub_kategori')->result();
+ $data['subktg'] = $this->GeneralModel->get_join('sub_kategori','kategori','sub_kategori.kategori_id=kategori.id_kategori')->result();
  $data['ktg'] = $this->GeneralModel->get_data('kategori')->result();
 
  $this->load->view('admin/SubKategori', $data);
@@ -864,4 +864,3 @@ public function delete_subkategori()
 }
 
 ?>
- 

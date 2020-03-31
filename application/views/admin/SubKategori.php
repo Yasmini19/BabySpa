@@ -332,7 +332,7 @@
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
                                         <th class="sorting_asc" tabindex="0" aria-controls="demo-datatables" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending">Id Sub Kategori</th>
-                                        <th>Kategori Id</th>
+                                        <th>Kategori</th>
                                         <th>Judul</th>
                                         <th>Keterangan</th>
                                         <th>Foto</th>
@@ -344,7 +344,7 @@
                                         <?php foreach ($subktg as $key => $value) : ?>
                                             <tr>
                                                 <td><?php echo $value->id_sub_kategori ?></td>
-                                                <th><?php echo $value->kategori_id ?></th>
+                                                <th><?php echo $value->judul_kat ?></th>
                                                 <td><?php echo $value->judul_sub ?></td>
                                                 <td><?php echo $value->keterangan_sub ?></td>
                                                  <td><img src="<?php echo base_url() ?>./assets/user/images/<?php echo $value->foto_sub ?>" alt="" width=100 height=100></td>
