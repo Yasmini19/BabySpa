@@ -197,6 +197,15 @@
                                 </p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="<?php echo base_url(); ?>index.php/Login/logout" class="nav-link">
+                                <i class="nav-icon fa fa-sign-out"></i>
+                                <p>
+                                    Logout
+
+                                </p>
+                            </a>
+                        </li>
 
 
                 </nav>

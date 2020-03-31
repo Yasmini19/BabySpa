@@ -279,6 +279,15 @@
                                 </p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="<?php echo base_url(); ?>index.php/Login/logout" class="nav-link">
+                                <i class="nav-icon fa fa-sign-out"></i>
+                                <p>
+                                    Logout
+
+                                </p>
+                            </a>
+                        </li>
 
                 </nav>
                 <!-- /.sidebar-menu -->
@@ -332,7 +341,7 @@
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
                                         <th class="sorting_asc" tabindex="0" aria-controls="demo-datatables" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending">Id Sub Kategori</th>
-                                        <th>Kategori</th>
+                                        <th>Kategori Id</th>
                                         <th>Judul</th>
                                         <th>Keterangan</th>
                                         <th>Foto</th>
