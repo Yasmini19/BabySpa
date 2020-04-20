@@ -12,8 +12,8 @@ class Admin extends CI_Controller {
 
     public function index()
     {   
-        $data['dashboard'] = $this->GeneralModel->get_data('reservasi')->result();
-        $this->load->view('admin/HomeAdmin');
+        $data['dashboard'] = $this->GeneralModel->get_4join_uniq('reservasi', 'user as u','user as a','sesi_reservasi','reservasi.terapis_id = u.id_user','reservasi.pemesan_id = a.id_user','reservasi.sesi_id = sesi_reservasi.id_sesi')->result();
+        $this->load->view('admin/HomeAdmin', $data);
     }
 
     public function dashboard()
@@ -48,7 +48,7 @@ class Admin extends CI_Controller {
 
         if ($this->form_validation->run() === FALSE)
         {
-            $this->load->view('Admin/kontakEdit', $data);
+            $this->load->view('admin/kontakEdit', $data);
 
         }
         else

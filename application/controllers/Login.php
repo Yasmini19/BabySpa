@@ -24,11 +24,15 @@
 
          public function cekLogin()
         {
-            $this->form_validation->set_rules('username', 'Username', 'trim|required');
-            $this->form_validation->set_rules('password', 'Password', 'trim|required|callback_cekDb');
-            if ($this->form_validation->run() == FALSE) {
-                $this->load->view('Login');
-            } else {
+            //$this->form_validation->set_rules('username', 'Username', 'trim|required');
+            //$this->form_validation->set_rules('password', 'Password', 'trim|required|callback_cekDb');
+            //if ($this->form_validation->run() == FALSE) {
+                //$this->load->view('Login');
+                //echo "lpogim";
+            //} else {
+            $username = $this->input->post('username');
+            $password = $this->input->post('password');
+            if($this->cekDb($password, $username)){
                 $session_data = $this->session->userdata('logged_in');
                 $data['username'] = $session_data['username'];
                 $data['level'] = $session_data['level'];
@@ -41,12 +45,15 @@
                 }else{
                     $this->load->view('403-error');
                 }
+            //}
+            }else{
+                $this->load->view('Login');
             }
         }
 
-        public function cekDb($password)
+        public function cekDb($password, $username)
         {
-            $username = $this->input->post('username'); 
+            //$username = $this->input->post('username'); 
             $where = array('username' => $username);
             $where2 = array('password' => md5($password));
             $result = $this->GeneralModel->get_selected_2where('user',$where,$where2)->result();

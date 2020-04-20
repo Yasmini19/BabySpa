@@ -372,7 +372,7 @@
                                     <select class="form-control" name="sesi_id" id="sesi_id" required>
                                         <option value="">Pilih Sesi</option>
                                         <?php foreach ($sesi as $row) : ?>
-                                            <option value="<?php echo $row->id_sesi; ?>"><?php echo $row->sesi; ?></option>
+                                            <option value="<?php echo $row->id_sesi; ?>"><?php echo $row->sesi.' '.$row->waktu; ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>

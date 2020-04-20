@@ -6,7 +6,7 @@ application/cache/*
 application/config/database.php
 application/logs/*
 !application/logs/index.html
-
+jurnal/*
 !application/*/.htaccess
 
 composer.lock

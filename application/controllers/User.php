@@ -19,9 +19,9 @@ class User extends CI_Controller {
         $where2 = array('contact' => 'Phone' );
         $where3 = array('contact' => 'Email' );
         $where4 = array('contact' => 'Social Media');
-        $where5 = array('kategori.judul_kat' => 'Baby');
-        $where6 = array('kategori.judul_kat' => 'Mom');
-        $where7 = array('kategori.judul_kat' => 'Konselor');
+        $where5 = array('kategori.id_kategori' => 1);
+        $where6 = array('kategori.id_kategori' => 2);
+        $where7 = array('kategori.id_kategori' => 3);
 
         $on = 'sub_kategori.kategori_id = kategori.id_kategori';
 
@@ -37,6 +37,7 @@ class User extends CI_Controller {
         $data['subkategori1'] = $this->GeneralModel->get_join_where('sub_kategori','kategori',$on,$where5)->result();
         $data['subkategori2'] = $this->GeneralModel->get_join_where('sub_kategori','kategori',$on,$where6)->result();
         $data['subkategori3'] = $this->GeneralModel->get_join_where('sub_kategori','kategori',$on,$where7)->result();
+        //print_r($data['subkategori3']);
 
         $data['service'] = $this->GeneralModel->get_data('kategori')->result();
         $data['berita'] = $this->GeneralModel->get_data('berita')->result();
@@ -376,7 +377,7 @@ class User extends CI_Controller {
         $data['data3'] = $this->GeneralModel->get_selected('sub_kategori',$where3)->result();
 
         $this->load->view('user/headerfooter/header',$data);
-        $this->load->view('user/detailKategoriUser',$data);
+        $this->load->view('user/DetailKategoriUser',$data);
         $this->load->view('user/headerfooter/footer');
     }
 
