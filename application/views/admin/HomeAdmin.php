@@ -260,7 +260,7 @@
                                     </thead>
                                     <tbody>
 
-                                        <?php foreach ($dashboard as $key => $value) : ?>
+                                        <?php foreach ($dashboard as $value) : ?>
                                             <tr>
                                                 <td><?php echo $value->id_reservasi ?></td>
 

@@ -10,7 +10,7 @@
 					<div class="banner-form-w3 ml-lg-5">
 						<div class="card shadow">
 							<div class="card-body">
-								<h5 class="mb-3 text-center">Book Our Spa</h5>
+								<h5 class="mb-3 text-center">Reservasi Layanan</h5>
 								<form method="post" id="inputReservation" accept-charset="utf-8" action="<?= site_url() ?>/User/addReservation">						
 									<div class="form-style-w3layout">
 										<div class="custom-control custom-switch" style="padding-bottom: 10px">
@@ -106,7 +106,7 @@
 																<br><br>	
 															</div>											
 
-															<button type="submit" Class="btn" style="border-radius: 30px;">Book</button>
+															<button type="submit" Class="btn" style="border-radius: 30px;">Pesan Sekarang</button>
 														</div>
 													</form>
 												</div>
@@ -148,7 +148,7 @@
 				<!-- services -->
 				<section class="services py-5" id="services">
 					<div class="container py-md-5">
-						<h3 class="heading text-center mb-3 mb-sm-5">Our Services</h3>
+						<h3 class="heading text-center mb-3 mb-sm-5">Layanan Kami</h3>
 						<div class="row service-grid-grids text-center">
 
 							<?php foreach ($service as $key => $value) : ?>
@@ -169,7 +169,7 @@
 				<section class="team py-5" id="team" style="height: 665px">
 					<div class="container py-md-5">
 						<div>
-							<h3 class="heading text-center mb-3 mb-sm-5">Our Terapis</h3>
+							<h3 class="heading text-center mb-3 mb-sm-5">Terapis Kami</h3>
 						</div>
 						<div class="row">
 							<?php foreach($trps as $key => $value):  ?>
@@ -190,7 +190,7 @@
 				<!-- destinations -->
 				<section class="destinations py-5" id="destinations">
 					<div class="container py-md-5">
-						<h3 class="heading text-center mb-3 mb-sm-5">Spa Prices</h3>
+						<h3 class="heading text-center mb-3 mb-sm-5">Harga Layanan Kami</h3>
 
 						<div class="row justify-content-center">
 							<div class="col-11">
@@ -198,14 +198,14 @@
 									<?php 
 									$no = 1;
 									foreach ($service as $key) {?>
-									<a class="flex-sm-fill text-sm-center nav-link <?php if($no==1){ echo "active";}?>" href="#<?= $key->judul_kat;?>" role="tab"><?= $key->judul_kat;?></a>
+									<a class="flex-sm-fill text-sm-center nav-link <?php if($no==1){ echo "active";}?>" href="#<?= $key->id_kategori;?>" role="tab"><?= $key->judul_kat;?></a>
 									<?php 
 									$no++;
 								}?> 
 							</nav>
 							<div class="tab-content mt-2" id="tabContent">
 								<br>
-								<div class="tab-pane" id="Mom" role="tabpanel">
+								<div class="tab-pane" id="2" role="tabpanel">
 									<div id="carouselExampleControls2" class="carousel slide" data-ride="carousel">
 										<div class="carousel-inner">
 											<?php 
@@ -250,7 +250,7 @@
 									</div>
 								</div>
 
-								<div class="tab-pane" id="Konselor" role="tabpanel">
+								<div class="tab-pane" id="3" role="tabpanel">
 									<div id="carouselExampleControls3" class="carousel slide" data-ride="carousel">
 										<div class="carousel-inner">
 											<?php 
@@ -295,7 +295,7 @@
 								</div>
 							</div>
 
-							<div class="tab-pane active" id="Baby" role="tabpanel">
+							<div class="tab-pane active" id="1" role="tabpanel">
 								<div id="carouselExampleControls1" class="carousel slide" data-ride="carousel">
 									<div class="carousel-inner">
 										<?php 
@@ -391,14 +391,14 @@
 							<!-- Contact -->
 							<section class="contact py-5" id="contact">
 								<div class="container py-md-5">
-									<h3 class="heading text-center mb-3 mb-sm-5"> Get In Touch with us</h3>
+									<h3 class="heading text-center mb-3 mb-sm-5"> Hubungi Kami</h3>
 									<ul class="list-unstyled row text-center mt-lg-5 mt-4 px-lg-5">
 										<li class="col-md-4 col-sm-6 adress-w3pvt-info mb-4">
 											<div class=" adress-icon">
 												<span class="fa fa-map-marker"></span>
 											</div>
 
-											<h6>Location</h6>
+											<h6>Lokasi</h6>
 											<?php foreach($loc as $key => $value):  ?>
 												<p><?php echo $value->keterangan?></p>
 											<?php endforeach ?>
@@ -409,7 +409,7 @@
 											<div class="adress-icon">
 												<span class="fa fa-envelope-open-o"></span>
 											</div>
-											<h6>Phone & Email</h6>
+											<h6>Telepon & Email</h6>
 											<?php foreach($phone as $key => $value):  ?>
 												<p><?php echo $value->keterangan?></p>
 											<?php endforeach ?>

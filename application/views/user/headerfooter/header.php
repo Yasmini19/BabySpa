@@ -90,25 +90,26 @@
 			<!-- nav -->
 			<nav class="py-3 d-lg-flex">
 				<div id="logo">
-					<h1> <a href="#home"> <img src="<?php echo base_url()?>/assets/user/images/baby3p.png" width="20%" height="20%"> </a></h1>
+
+					<h1> <a href="<?php echo site_url()?>"> Mamina </a></h1>
 				</div>
 				<label for="drop" class="toggle"><span class="fa fa-bars"></span></label>
 				<input type="checkbox" id="drop" />
 				<ul class="menu ml-auto mt-1" id="menu">
-					<li class="header-menu"><a href="<?php echo site_url()?>/User">Home</a></li>
-					<li class="header-menu"><a href="<?php echo site_url()?>/User/beritaHomeUser">Article</a></li>
+					<li class="header-menu"><a href="<?php echo site_url()?>">Beranda</a></li>
+					<li class="header-menu"><a href="<?php echo site_url('artikel')?>">Artikel</a></li>
 					<!-- <li class="header-menu"><a href="#services">Services</a></li> -->
-					<li class="header-menu"><a href="<?php echo site_url()?>/User/galleryUser">Gallery & Testimoni</a></li>
+					<li class="header-menu"><a href="<?php echo site_url('galeri')?>">Gallery & Testimoni</a></li>
 					<?php if(!isset($username)){?>
-					<li class="header-menu"><a href="<?php echo site_url()?>/Login">Login</a></li>
-					<li class="header-menu" style="border:  2px solid black"><a href="<?php echo site_url()?>/Login/register">Register</a></li>
+					<li class="header-menu"><a href="<?php echo site_url('masuk')?>">Masuk</a></li>
+					<li class="header-menu" style="border:  2px solid black"><a href="<?php echo site_url('daftar')?>">Daftar</a></li>
 					<?php }else{ ?>
 					<li class="dropdown header-menu">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Hi, <?= $username?> <span class="caret"></span></a>
 						<ul class="dropdown-menu" role="menu">
-							<li><a href="<?php echo site_url()?>/User/ProfileUser">Profile</a></li>
-							<li><a href="<?php echo site_url()?>/User/historyReservation">Reservation's History</a></li>
-							<li class=""><a href="<?php echo site_url()?>/Login/logout">Logout</a></li>
+							<li><a href="<?php echo site_url('User/ProfileUser')?>">Profile</a></li>
+							<li><a href="<?php echo site_url('User/historyReservation')?>">Reservation's History</a></li>
+							<li class=""><a href="<?php echo site_url('Login/logout')?>">Logout</a></li>
 						</ul>
 					</li>
 					<?php } ?>
