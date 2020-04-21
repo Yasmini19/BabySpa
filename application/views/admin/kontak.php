@@ -231,7 +231,7 @@
 			                  <h4 class="card-title">KONTAK</h4>
 			                  <!-- <button type="button" class="btn btn-success btn-rounded btn-fw">Tamb</button> -->
 			                  <p class="card-description">
-			                    <code>.table</code>
+			                    <code></code>
 			                  </p>
 			                  <div class="table-responsive">
 			                    <table class="table">

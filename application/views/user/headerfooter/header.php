@@ -90,7 +90,7 @@
 			<!-- nav -->
 			<nav class="py-3 d-lg-flex">
 				<div id="logo">
-					<h1> <a href="#home"> Mamina </a></h1>
+					<h1> <a href="#home"> <img src="<?php echo base_url()?>/assets/user/images/baby3p.png" width="20%" height="20%"> </a></h1>
 				</div>
 				<label for="drop" class="toggle"><span class="fa fa-bars"></span></label>
 				<input type="checkbox" id="drop" />
