@@ -7,11 +7,13 @@
         function __construct(){
             parent::__construct();
             $this->load->model('GeneralModel');
-            
         }
 
         public function index()
         {   
+            if ($this->session->userdata('logged_in') == true) {
+                redirect('Admin/dashboard','refresh');
+            } 
             $this->load->view('Login');
         }
 
@@ -30,6 +32,9 @@
                 //$this->load->view('Login');
                 //echo "lpogim";
             //} else {
+                if ($this->session->userdata('logged_in') == true) {
+                    redirect('Admin/dashboard','refresh');
+                }    
             $username = $this->input->post('username');
             $password = $this->input->post('password');
             if($this->cekDb($password, $username)){

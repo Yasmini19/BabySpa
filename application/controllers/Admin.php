@@ -12,6 +12,9 @@ class Admin extends CI_Controller {
 
     public function index()
     {   
+        if ($this->session->userdata('logged_in') == FALSE) {
+			redirect('Login','refresh');
+		}
         $data['dashboard'] = $this->GeneralModel->get_4join_uniq('reservasi', 'user as u','user as a','sesi_reservasi','reservasi.terapis_id = u.id_user','reservasi.pemesan_id = a.id_user','reservasi.sesi_id = sesi_reservasi.id_sesi')->result();
         $this->load->view('admin/HomeAdmin', $data);
     }
